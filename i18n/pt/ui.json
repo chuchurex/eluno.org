@@ -1,0 +1,27 @@
+{
+  "siteTitle": "O Um",
+  "bookTitle": "O Um — Rascunho do Livro",
+  "description": "Uma reinterpretação filosófica do Material Ra (A Lei do Um) como narrativa acessível. Explore a cosmologia, o Criador, as densidades e o propósito da existência.",
+  "nav": {
+    "index": "Índice",
+    "notes": "Notas",
+    "notesPanel": "Notas e Definições",
+    "notesEmpty": "Clique em qualquer <span class=\"term-hint\">termo destacado</span> no texto para ver sua definição aqui."
+  },
+  "parts": {
+    "foundations": "Parte I — Fundamentos"
+  },
+  "footer": {
+    "draft": "Rascunho em Desenvolvimento",
+    "date": "Dezembro 2024",
+    "feedbackTitle": "O que você acha deste rascunho?",
+    "feedbackText": "Seu feedback é valioso para melhorar o livro.",
+    "feedbackButton": "Enviar Feedback",
+    "feedbackEmail": "feedback@lawofone.cl",
+    "feedbackSubject": "Feedback sobre o Rascunho"
+  },
+  "meta": {
+    "chapters": "Capítulos 1–2 de 16",
+    "version": "Primeiro Rascunho · Dez 2024"
+  }
+}

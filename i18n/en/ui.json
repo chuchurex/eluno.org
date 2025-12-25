@@ -1,0 +1,27 @@
+{
+  "siteTitle": "The One",
+  "bookTitle": "The One — Book Draft",
+  "description": "A philosophical rewrite of the Ra Material (Law of One) as accessible narrative. Explore cosmology, the Creator, densities, and the purpose of existence.",
+  "nav": {
+    "index": "Index",
+    "notes": "Notes",
+    "notesPanel": "Notes & Definitions",
+    "notesEmpty": "Click any <span class=\"term-hint\">highlighted term</span> in the text to see its definition here."
+  },
+  "parts": {
+    "foundations": "Part I — Foundations"
+  },
+  "footer": {
+    "draft": "Draft in Development",
+    "date": "December 2024",
+    "feedbackTitle": "What do you think of this draft?",
+    "feedbackText": "Your feedback is valuable to improve the book.",
+    "feedbackButton": "Send Feedback",
+    "feedbackEmail": "feedback@lawofone.cl",
+    "feedbackSubject": "Feedback Book Draft"
+  },
+  "meta": {
+    "chapters": "Chapters 1–2 of 16",
+    "version": "First Draft · Dec 2024"
+  }
+}

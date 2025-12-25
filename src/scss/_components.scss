@@ -1,0 +1,41 @@
+// =====================================================
+// COMPONENTS - Toggles, Overlays, etc.
+// =====================================================
+
+.toggle {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  background: $bg2;
+  border: 1px solid $border;
+  color: $gold;
+  padding: 0.5rem $spacing-sm;
+  cursor: pointer;
+  font-family: $font-heading;
+  font-size: 0.8rem;
+}
+
+.nav-toggle {
+  top: $spacing-sm;
+  left: $spacing-sm;
+}
+
+.notes-toggle {
+  top: $spacing-sm;
+  right: $spacing-sm;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 90;
+
+  &.active {
+    display: block;
+  }
+}

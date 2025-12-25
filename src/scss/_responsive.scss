@@ -1,0 +1,73 @@
+// =====================================================
+// RESPONSIVE STYLES
+// =====================================================
+
+@media (max-width: $bp-tablet) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .nav,
+  .notes {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 280px;
+    z-index: 100;
+    transition: transform 0.3s;
+  }
+
+  .nav {
+    left: 0;
+    transform: translateX(-100%);
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+
+  .notes {
+    right: 0;
+    transform: translateX(100%);
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+
+  .main {
+    padding: 4rem 1.5rem $spacing-xl;
+    max-width: 100%;
+  }
+
+  .toggle {
+    display: block;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  body {
+    font-size: 16px;
+  }
+
+  .ch-title {
+    font-size: 1.7rem;
+  }
+
+  .sec-title {
+    font-size: 1.15rem;
+  }
+
+  .main {
+    padding: 3.5rem 1rem 2.5rem;
+  }
+
+  .section > p:first-of-type::first-letter {
+    font-size: 2.5rem;
+  }
+
+  .nav,
+  .notes {
+    width: 85vw;
+  }
+}

@@ -1,0 +1,54 @@
+// =====================================================
+// FOOTER
+// =====================================================
+
+.footer {
+  margin-top: $spacing-xl;
+  padding-top: 1.5rem;
+  border-top: 1px solid $border;
+  text-align: center;
+  color: $muted;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.feedback {
+  margin-top: $spacing-lg;
+  padding: $spacing-md;
+  background: $bg2;
+  border: 1px solid $border;
+  border-radius: $radius-sm;
+  text-align: center;
+
+  h3 {
+    font-family: $font-heading;
+    font-size: 1.1rem;
+    color: $gold;
+    margin-bottom: $spacing-xs;
+    font-weight: 500;
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+  }
+}
+
+.feedback-btn {
+  display: inline-block;
+  padding: 0.5rem $spacing-md;
+  margin-top: $spacing-sm;
+  background: transparent;
+  border: 1px solid $gold;
+  color: $gold;
+  text-decoration: none;
+  font-family: $font-heading;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+
+  &:hover {
+    background: $gold;
+    color: $bg;
+  }
+}

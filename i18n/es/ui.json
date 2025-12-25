@@ -1,0 +1,27 @@
+{
+  "siteTitle": "El Uno",
+  "bookTitle": "El Uno — Borrador del Libro",
+  "description": "Una reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.",
+  "nav": {
+    "index": "Índice",
+    "notes": "Notas",
+    "notesPanel": "Notas y Definiciones",
+    "notesEmpty": "Haz clic en cualquier <span class=\"term-hint\">término resaltado</span> en el texto para ver su definición aquí."
+  },
+  "parts": {
+    "foundations": "Parte I — Fundamentos"
+  },
+  "footer": {
+    "draft": "Borrador en Desarrollo",
+    "date": "Diciembre 2024",
+    "feedbackTitle": "¿Qué opinas de este borrador?",
+    "feedbackText": "Tu retroalimentación es valiosa para mejorar el libro.",
+    "feedbackButton": "Enviar Comentarios",
+    "feedbackEmail": "feedback@lawofone.cl",
+    "feedbackSubject": "Comentarios sobre el Borrador"
+  },
+  "meta": {
+    "chapters": "Capítulos 1–2 de 16",
+    "version": "Primer Borrador · Dic 2024"
+  }
+}
