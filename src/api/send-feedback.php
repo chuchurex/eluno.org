@@ -34,8 +34,8 @@ if (empty($name) || empty($message)) {
     exit;
 }
 
-$to = "feedback@lawofone.cl";
-$replyTo = $email ? $email : "feedback@lawofone.cl";
+$to = "chuchurex@gmail.com";
+$replyTo = $email ? $email : "chuchurex@gmail.com";
 $subject = "Feedback Book Draft [" . strtoupper($lang) . "] from $name";
 $body = "Name: $name\nEmail: " . ($email ? $email : "Not provided") . "\nLanguage: $lang\n\nMessage:\n$message";
 $headers = "From: web@lawofone.cl\r\n";

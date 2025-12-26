@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,63 +22,460 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#0d0d0f;--bg2:#141418;--bg3:#1a1a1f;--text:#e8e6e3;--text2:#a8a5a0;--muted:#6b6966;--gold:#c9a962;--gold-dim:#8a7443;--border:rgba(201,169,98,0.15);--border2:rgba(201,169,98,0.3)}
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth}
-        body{font-family:'Spectral',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:18px}
-        body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 20% 20%,rgba(201,169,98,0.03)0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(123,107,138,0.03)0%,transparent 50%);pointer-events:none;z-index:-1}
-        .layout{display:grid;grid-template-columns:240px 1fr 260px;min-height:100vh}
-        .nav{position:sticky;top:0;height:100vh;background:var(--bg2);border-right:1px solid var(--border);padding:2rem 1.25rem;overflow-y:auto}
-        .nav-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
-        .nav-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase}
-        .lang{font-size:0.8rem;color:var(--muted)}
-        .lang a{color:var(--text2);text-decoration:none}
-        .lang a:hover,.lang a.active{color:var(--gold)}
-        .nav-section{margin-bottom:1.5rem}
-        .nav-section-title{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem}
-        .nav-link{display:block;padding:0.35rem 0;color:var(--text2);text-decoration:none;font-size:0.85rem;border-left:2px solid transparent;padding-left:0.75rem;margin-left:-0.75rem;transition:all 0.2s}
-        .nav-link:hover{color:var(--gold);border-left-color:var(--gold-dim)}
-        .nav-link.sub{font-size:0.8rem;padding-left:1.25rem;color:var(--muted)}
-        .main{max-width:680px;padding:3rem 2.5rem 5rem;margin:0 auto}
-        .chapter{margin-bottom:4rem}
-        .ch-head{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
-        .ch-num{font-family:'Cormorant Garamond',serif;font-size:0.8rem;color:var(--gold-dim);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5rem}
-        .ch-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;line-height:1.3}
-        .section{margin-bottom:2.5rem}
-        .sec-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);margin-bottom:1.25rem;padding-top:0.75rem}
-        p{margin-bottom:1.3rem;text-align:justify;hyphens:auto}
-        .section>p:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-size:3rem;float:left;line-height:1;padding-right:0.4rem;color:var(--gold)}
-        strong{font-weight:500;color:var(--gold)}
-        em{color:var(--text2)}
-        .divider{text-align:center;margin:2.5rem 0;color:var(--gold-dim);letter-spacing:1rem}
-        .quote{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--text2);border-left:3px solid var(--gold-dim);padding-left:1.25rem;margin:2rem 0;line-height:1.5}
-        .term{color:var(--gold);border-bottom:1px dotted var(--gold-dim);cursor:pointer;transition:all 0.2s}
-        .term:hover{border-bottom-color:var(--gold)}
-        .term.active{background:rgba(201,169,98,0.15);border-bottom-style:solid}
-        .notes{position:sticky;top:0;height:100vh;background:var(--bg2);border-left:1px solid var(--border);padding:2rem 1.25rem;overflow-y:auto}
-        .notes-head{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border)}
-        .notes-empty{color:var(--muted);font-size:0.85rem;font-style:italic;line-height:1.6}
-        .note{display:none;margin-bottom:1.25rem;padding:0.875rem;background:var(--bg3);border-left:2px solid var(--border);border-radius:0 4px 4px 0;opacity:0.6;transition:all 0.3s}
-        .note.active{display:block;opacity:1;border-left-color:var(--gold);background:rgba(201,169,98,0.08)}
-        .note-title{font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-weight:600;color:var(--gold);margin-bottom:0.4rem}
-        .note-content{font-size:0.8rem;line-height:1.5;color:var(--text2)}
-        .note-content p{text-align:left;margin-bottom:0.4rem}
-        .note-content p:last-child{margin-bottom:0}
-        .footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:0.85rem;font-style:italic}
-        .feedback{margin-top:2rem;padding:1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:4px;text-align:center}
-        .feedback h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);margin-bottom:0.4rem;font-weight:500}
-        .feedback p{text-align:center;margin-bottom:0;font-size:0.85rem}
-        .feedback-btn{display:inline-block;padding:0.5rem 1.25rem;margin-top:0.75rem;background:transparent;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:0.9rem;transition:all 0.3s}
-        .feedback-btn:hover{background:var(--gold);color:var(--bg)}
-        .toggle{display:none;position:fixed;z-index:200;background:var(--bg2);border:1px solid var(--border);color:var(--gold);padding:0.5rem 0.75rem;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:0.8rem}
-        .nav-toggle{top:0.75rem;left:0.75rem}
-        .notes-toggle{top:0.75rem;right:0.75rem}
-        .overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:90}
-        .overlay.active{display:block}
-        @media(max-width:1100px){.layout{grid-template-columns:1fr}.nav,.notes{position:fixed;top:0;height:100vh;width:280px;z-index:100;transition:transform 0.3s}.nav{left:0;transform:translateX(-100%)}.notes{right:0;transform:translateX(100%)}.nav.open,.notes.open{transform:translateX(0)}.main{padding:4rem 1.5rem 3rem;max-width:100%}.toggle{display:block}}
-        @media(max-width:600px){body{font-size:16px}.ch-title{font-size:1.7rem}.sec-title{font-size:1.15rem}.main{padding:3.5rem 1rem 2.5rem}.section>p:first-of-type::first-letter{font-size:2.5rem}.nav,.notes{width:85vw}}
+        :root {
+            --bg: #0d0d0f;
+            --bg2: #141418;
+            --bg3: #1a1a1f;
+            --text: #e8e6e3;
+            --text2: #a8a5a0;
+            --muted: #6b6966;
+            --gold: #c9a962;
+            --gold-dim: #8a7443;
+            --border: rgba(201, 169, 98, 0.15);
+            --border2: rgba(201, 169, 98, 0.3)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Spectral', Georgia, serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 18px
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 20% 20%, rgba(201, 169, 98, 0.03)0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(123, 107, 138, 0.03)0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 240px 1fr 260px;
+            min-height: 100vh
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            background: var(--bg2);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1.25rem;
+            overflow-y: auto
+        }
+
+        .nav-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .nav-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase
+        }
+
+        .lang {
+            font-size: 0.8rem;
+            color: var(--muted)
+        }
+
+        .lang a {
+            color: var(--text2);
+            text-decoration: none
+        }
+
+        .lang a:hover,
+        .lang a.active {
+            color: var(--gold)
+        }
+
+        .nav-section {
+            margin-bottom: 1.5rem
+        }
+
+        .nav-section-title {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.35rem 0;
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-left: 2px solid transparent;
+            padding-left: 0.75rem;
+            margin-left: -0.75rem;
+            transition: all 0.2s
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+            border-left-color: var(--gold-dim)
+        }
+
+        .nav-link.sub {
+            font-size: 0.8rem;
+            padding-left: 1.25rem;
+            color: var(--muted)
+        }
+
+        .main {
+            max-width: 680px;
+            padding: 3rem 2.5rem 5rem;
+            margin: 0 auto
+        }
+
+        .chapter {
+            margin-bottom: 4rem
+        }
+
+        .ch-head {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .ch-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            color: var(--gold-dim);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem
+        }
+
+        .ch-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            line-height: 1.3
+        }
+
+        .section {
+            margin-bottom: 2.5rem
+        }
+
+        .sec-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+            padding-top: 0.75rem
+        }
+
+        p {
+            margin-bottom: 1.3rem;
+            text-align: justify;
+            hyphens: auto
+        }
+
+        .section>p:first-of-type::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            float: left;
+            line-height: 1;
+            padding-right: 0.4rem;
+            color: var(--gold)
+        }
+
+        strong {
+            font-weight: 500;
+            color: var(--gold)
+        }
+
+        em {
+            color: var(--text2)
+        }
+
+        .divider {
+            text-align: center;
+            margin: 2.5rem 0;
+            color: var(--gold-dim);
+            letter-spacing: 1rem
+        }
+
+        .quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text2);
+            border-left: 3px solid var(--gold-dim);
+            padding-left: 1.25rem;
+            margin: 2rem 0;
+            line-height: 1.5
+        }
+
+        .term {
+            color: var(--gold);
+            border-bottom: 1px dotted var(--gold-dim);
+            cursor: pointer;
+            transition: all 0.2s
+        }
+
+        .term:hover {
+            border-bottom-color: var(--gold)
+        }
+
+        .term.active {
+            background: rgba(201, 169, 98, 0.15);
+            border-bottom-style: solid
+        }
+
+        .notes {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            background: var(--bg2);
+            border-left: 1px solid var(--border);
+            padding: 2rem 1.25rem;
+            overflow-y: auto
+        }
+
+        .notes-head {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .notes-empty {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            line-height: 1.6
+        }
+
+        .note {
+            display: none;
+            margin-bottom: 1.25rem;
+            padding: 0.875rem;
+            background: var(--bg3);
+            border-left: 2px solid var(--border);
+            border-radius: 0 4px 4px 0;
+            opacity: 0.6;
+            transition: all 0.3s
+        }
+
+        .note.active {
+            display: block;
+            opacity: 1;
+            border-left-color: var(--gold);
+            background: rgba(201, 169, 98, 0.08)
+        }
+
+        .note-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.4rem
+        }
+
+        .note-content {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: var(--text2)
+        }
+
+        .note-content p {
+            text-align: left;
+            margin-bottom: 0.4rem
+        }
+
+        .note-content p:last-child {
+            margin-bottom: 0
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic
+        }
+
+        .feedback {
+            margin-top: 2rem;
+            padding: 1.25rem;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-align: center
+        }
+
+        .feedback h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 0.4rem;
+            font-weight: 500
+        }
+
+        .feedback p {
+            text-align: center;
+            margin-bottom: 0;
+            font-size: 0.85rem
+        }
+
+        .feedback-btn {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            margin-top: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            transition: all 0.3s
+        }
+
+        .feedback-btn:hover {
+            background: var(--gold);
+            color: var(--bg)
+        }
+
+        .toggle {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--gold);
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem
+        }
+
+        .nav-toggle {
+            top: 0.75rem;
+            left: 0.75rem
+        }
+
+        .notes-toggle {
+            top: 0.75rem;
+            right: 0.75rem
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 90
+        }
+
+        .overlay.active {
+            display: block
+        }
+
+        @media(max-width:1100px) {
+            .layout {
+                grid-template-columns: 1fr
+            }
+
+            .nav,
+            .notes {
+                position: fixed;
+                top: 0;
+                height: 100vh;
+                width: 280px;
+                z-index: 100;
+                transition: transform 0.3s
+            }
+
+            .nav {
+                left: 0;
+                transform: translateX(-100%)
+            }
+
+            .notes {
+                right: 0;
+                transform: translateX(100%)
+            }
+
+            .nav.open,
+            .notes.open {
+                transform: translateX(0)
+            }
+
+            .main {
+                padding: 4rem 1.5rem 3rem;
+                max-width: 100%
+            }
+
+            .toggle {
+                display: block
+            }
+        }
+
+        @media(max-width:600px) {
+            body {
+                font-size: 16px
+            }
+
+            .ch-title {
+                font-size: 1.7rem
+            }
+
+            .sec-title {
+                font-size: 1.15rem
+            }
+
+            .main {
+                padding: 3.5rem 1rem 2.5rem
+            }
+
+            .section>p:first-of-type::first-letter {
+                font-size: 2.5rem
+            }
+
+            .nav,
+            .notes {
+                width: 85vw
+            }
+        }
     </style>
 </head>
+
 <body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ Index</button>
     <button class="toggle notes-toggle" onclick="toggleNotes()">✧ Notes</button>
@@ -311,7 +709,7 @@
                 <div class="feedback">
                     <h3>What do you think of this draft?</h3>
                     <p>Your feedback is valuable to improve the book.</p>
-                    <a href="mailto:feedback@lawofone.cl?subject=Feedback%20Book%20Draft" class="feedback-btn">Send Feedback</a>
+                    <a href="mailto:chuchurex@gmail.com?subject=Feedback%20Book%20Draft" class="feedback-btn">Send Feedback</a>
                 </div>
             </footer>
         </main>
@@ -319,45 +717,243 @@
         <aside class="notes" id="notes">
             <div class="notes-head">Notes & Definitions</div>
             <div class="notes-empty" id="notes-empty">Click any <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">highlighted term</span> in the text to see its definition here.</div>
-            
-            <div class="note" id="note-infinite"><div class="note-title">Infinite</div><div class="note-content"><p>The absolute totality without limits, edges, or divisions. Not "something very large" but the complete absence of limitation.</p><p>The primordial state prior to all form and manifestation—what exists before "something" exists.</p></div></div>
-            <div class="note" id="note-consciousness"><div class="note-title">Consciousness</div><div class="note-content"><p>The capacity to be aware, to perceive, to "know that one exists."</p><p>Here it means the fundamental quality underlying all existence—not just human thought, but the capacity to be and perceive at any level, from a rock to a galaxy.</p></div></div>
-            <div class="note" id="note-intelligent-infinity"><div class="note-title">Intelligent Infinity</div><div class="note-content"><p>The consciousness of the Infinite when it focuses and acquires capacity to discern, create, and act with purpose.</p><p>It is the "active" aspect of Infinity—the conscious creative principle from which all creation arises.</p></div></div>
-            <div class="note" id="note-logos"><div class="note-title">Logos</div><div class="note-content"><p>Greek word meaning "word," "reason," or "ordering principle."</p><p>The conscious creative principle—the "Word" of the Gospel of John: "In the beginning was the Word, and the Word was with God, and the Word was God."</p><p>Synonymous with Love as universal creative force.</p></div></div>
-            <div class="note" id="note-distortion"><div class="note-title">Distortion</div><div class="note-content"><p>Any modification or focus of the original One Infinite. <strong>Does not imply error or degradation.</strong></p><p>Just as white light "distorts" into colors passing through a prism, the Infinite "distorts" into the multiple forms of creation.</p></div></div>
-            <div class="note" id="note-free-will"><div class="note-title">Free Will</div><div class="note-content"><p>The First Distortion of the Infinite.</p><p>The fundamental capacity to choose, to focus, to create. Without it, neither creation nor experience could exist.</p><p>The principle allowing infinite exploration of possibilities.</p></div></div>
-            <div class="note" id="note-love"><div class="note-title">Love (Second Distortion)</div><div class="note-content"><p>Not primarily an emotion, but the creative principle itself—the cohesive force of the universe.</p><p>The energy of supreme order that causes forms to exist, things to hold together, creation to have structure.</p><p>Also called Logos or Creative Principle.</p></div></div>
-            <div class="note" id="note-light"><div class="note-title">Light (Third Distortion)</div><div class="note-content"><p>The first tangible manifestation of the creative process.</p><p>The "building material" of the entire physical universe. Everything that exists is, ultimately, light in different states of vibration.</p><p>The photon is its most basic unit.</p></div></div>
-            <div class="note" id="note-co-creators"><div class="note-title">Co-Creators</div><div class="note-content"><p>Individualized portions of Intelligent Infinity that actively participate in creation.</p><p>Each level of the cosmic hierarchy—from galaxies to human beings—is a co-Creator contributing to the unfolding of the universe.</p><p>You are a co-Creator.</p></div></div>
-            <div class="note" id="note-intelligent-energy"><div class="note-title">Intelligent Energy</div><div class="note-content"><p>The energy that results when Love/Logos acts upon the potential of the Infinite.</p><p>"Intelligent" because it contains purpose and order—not chaotic energy but organized energy.</p><p>The medium through which forms and natural laws of each universe are created.</p></div></div>
-            <div class="note" id="note-sub-logos"><div class="note-title">Sub-Logos</div><div class="note-content"><p>An individualized portion of the Logos operating at a more specific level of creation.</p><p><strong>Hierarchy:</strong><br>• Galactic Logos → creates the galaxy<br>• Solar sub-Logos → our sun<br>• Planetary sub-sub-Logos → Earth<br>• Sub-sub-sub-Logos → each conscious being</p></div></div>
-            <div class="note" id="note-densities"><div class="note-title">Densities</div><div class="note-content"><p>Levels or "degrees" of consciousness and vibration. <strong>Not physical places</strong> but states of being.</p><p>There are 7 main densities (plus an octave). Think of them as "courses" in the cosmic school of evolution.</p><p>Humanity is in <strong>third density</strong>, characterized by self-awareness and the capacity to choose.</p></div></div>
-            <div class="note" id="note-holographic"><div class="note-title">Holographic Principle</div><div class="note-content"><p>In a hologram, each fragment contains the complete image (though less defined).</p><p>Similarly, each part of creation—no matter how small—contains within itself the totality of the Creator.</p><p>You, in your apparent smallness, contain the entire universe.</p></div></div>
-            <div class="note" id="note-spiral"><div class="note-title">The Spiral</div><div class="note-content"><p>The fundamental pattern of creation.</p><p>Appears in galaxies, DNA, seashells, hurricanes, plant growth, and the inner ear structure.</p><p>Represents energy movement from center outward and the evolutionary path of consciousness.</p></div></div>
-            <div class="note" id="note-photon"><div class="note-title">Photon</div><div class="note-content"><p>The fundamental particle/wave of light. In physics, the quantum of electromagnetic radiation.</p><p>Here, it is the "simplest being"—the first and most basic tangible manifestation of creation.</p><p>Everything that exists is photons in different states of vibration and rotation.</p></div></div>
-            <div class="note" id="note-octave"><div class="note-title">The Octave</div><div class="note-content"><p>Just as in music there are 7 notes (do-re-mi-fa-sol-la-ti) before the cycle restarts at a higher level, creation has 7 densities of experience.</p><p>The octave marks the return to unity and a new beginning at a vaster level.</p><p>This 7+1 pattern repeats throughout all creation.</p></div></div>
-            <div class="note" id="note-rays"><div class="note-title">The Rays / Colors</div><div class="note-content"><p>Each density has an associated color representing its vibration:</p><p>1st Red · 2nd Orange · 3rd Yellow · 4th Green · 5th Blue · 6th Indigo · 7th Violet</p><p>These colors also correspond to the energy centers (chakras) of the human body.</p></div></div>
-            <div class="note" id="note-self-awareness"><div class="note-title">Self-Awareness</div><div class="note-content"><p>The capacity to know that one exists, to reflect on oneself, to ask "who am I?"</p><p>What distinguishes third density. Animals have consciousness but don't reflect on it.</p><p>With self-awareness comes the responsibility of conscious choice.</p></div></div>
-            <div class="note" id="note-the-choice"><div class="note-title">The Choice</div><div class="note-content"><p>The fundamental decision each being must make in third density:</p><p>Orient one's life toward <strong>service to others</strong> (love, compassion, unity) or toward <strong>service to self</strong> (control, separation, personal power).</p><p>This choice determines the evolutionary path in subsequent densities.</p></div></div>
-            <div class="note" id="note-service-to-others"><div class="note-title">Service to Others</div><div class="note-content"><p>One of the two polarities of spiritual evolution.</p><p>Characterized by seeing others as oneself, seeking the common good, loving unconditionally.</p><p>The path of unity and compassion. Requires at least 51% orientation toward others to "graduate" from third density.</p></div></div>
-            <div class="note" id="note-service-to-self"><div class="note-title">Service to Self</div><div class="note-content"><p>The other polarity of spiritual evolution.</p><p>Characterized by seeing others as tools, seeking power and control, separating from others.</p><p>Also a valid evolutionary path, though more difficult and solitary. Requires 95% self-orientation to advance.</p></div></div>
-            <div class="note" id="note-polarity"><div class="note-title">Polarity</div><div class="note-content"><p>The fundamental orientation of being: toward service to others (positive) or service to self (negative).</p><p>Like the poles of a magnet, both are necessary for movement and evolution.</p><p>Polarity is chosen in third density and refined in higher densities until they unify in sixth density.</p></div></div>
-            <div class="note" id="note-fractal"><div class="note-title">Fractal</div><div class="note-content"><p>A pattern that repeats itself at different scales.</p><p>Like a fern where each branch is a small version of the complete fern, or like Russian nesting dolls.</p><p>Creation has this quality: within each density are 7 sub-densities, within each one another 7, and so on infinitely.</p></div></div>
-            <div class="note" id="note-illusion"><div class="note-title">Illusion</div><div class="note-content"><p><strong>Does not mean "false" or "non-existent."</strong></p><p>Means focused reality, particularized, experienced from a limited perspective.</p><p>The physical universe is "illusory" because it's vibrating energy that appears solid. Completely real in experience, but not the ultimate reality.</p></div></div>
-            <div class="note" id="note-catalyst"><div class="note-title">Catalyst</div><div class="note-content"><p>Any experience that offers opportunity for learning and growth.</p><p>Includes both "positive" and "negative" experiences. Suffering, joy, challenges, relationships—all can be catalysts.</p><p>What matters is how we respond: whether we use the experience consciously to evolve.</p></div></div>
-            <div class="note" id="note-indras-net"><div class="note-title">Indra's Net</div><div class="note-content"><p>Buddhist/Hindu metaphor describing an infinite net where at each node is a jewel reflecting all other jewels.</p><p>Illustrates how each part of creation contains and reflects the totality—the same holographic principle expressed poetically.</p></div></div>
-            <div class="note" id="note-kybalion"><div class="note-title">The Kybalion</div><div class="note-content"><p>1908 text summarizing the seven Hermetic principles attributed to Hermes Trismegistus (identified with the Egyptian god Thoth).</p><p>Its principles—like "the universe is mental" and "as above, so below"—resonate deeply with these teachings on the nature of creation.</p></div></div>
-            <div class="note" id="note-law-of-confusion"><div class="note-title">Law of Confusion</div><div class="note-content"><p>The principle that each being's free will must be absolutely respected.</p><p>This is why more evolved beings cannot simply "rescue us" or give us all the answers—doing so would violate our right to learn for ourselves.</p><p>"Confusion" (not knowing all the answers) is necessary for genuine choice.</p></div></div>
-            <div class="note" id="note-mind-body-spirit"><div class="note-title">Mind/Body/Spirit Complex</div><div class="note-content"><p>The technical term for a conscious being like a human.</p><p>"Complex" because we are an integration of three aspects:</p><p>• <strong>Mind</strong> — thought, will<br>• <strong>Body</strong> — physical vehicle<br>• <strong>Spirit</strong> — connection to Infinity</p><p>Spirit becomes fully activated in third density with self-awareness.</p></div></div>
+
+            <div class="note" id="note-infinite">
+                <div class="note-title">Infinite</div>
+                <div class="note-content">
+                    <p>The absolute totality without limits, edges, or divisions. Not "something very large" but the complete absence of limitation.</p>
+                    <p>The primordial state prior to all form and manifestation—what exists before "something" exists.</p>
+                </div>
+            </div>
+            <div class="note" id="note-consciousness">
+                <div class="note-title">Consciousness</div>
+                <div class="note-content">
+                    <p>The capacity to be aware, to perceive, to "know that one exists."</p>
+                    <p>Here it means the fundamental quality underlying all existence—not just human thought, but the capacity to be and perceive at any level, from a rock to a galaxy.</p>
+                </div>
+            </div>
+            <div class="note" id="note-intelligent-infinity">
+                <div class="note-title">Intelligent Infinity</div>
+                <div class="note-content">
+                    <p>The consciousness of the Infinite when it focuses and acquires capacity to discern, create, and act with purpose.</p>
+                    <p>It is the "active" aspect of Infinity—the conscious creative principle from which all creation arises.</p>
+                </div>
+            </div>
+            <div class="note" id="note-logos">
+                <div class="note-title">Logos</div>
+                <div class="note-content">
+                    <p>Greek word meaning "word," "reason," or "ordering principle."</p>
+                    <p>The conscious creative principle—the "Word" of the Gospel of John: "In the beginning was the Word, and the Word was with God, and the Word was God."</p>
+                    <p>Synonymous with Love as universal creative force.</p>
+                </div>
+            </div>
+            <div class="note" id="note-distortion">
+                <div class="note-title">Distortion</div>
+                <div class="note-content">
+                    <p>Any modification or focus of the original One Infinite. <strong>Does not imply error or degradation.</strong></p>
+                    <p>Just as white light "distorts" into colors passing through a prism, the Infinite "distorts" into the multiple forms of creation.</p>
+                </div>
+            </div>
+            <div class="note" id="note-free-will">
+                <div class="note-title">Free Will</div>
+                <div class="note-content">
+                    <p>The First Distortion of the Infinite.</p>
+                    <p>The fundamental capacity to choose, to focus, to create. Without it, neither creation nor experience could exist.</p>
+                    <p>The principle allowing infinite exploration of possibilities.</p>
+                </div>
+            </div>
+            <div class="note" id="note-love">
+                <div class="note-title">Love (Second Distortion)</div>
+                <div class="note-content">
+                    <p>Not primarily an emotion, but the creative principle itself—the cohesive force of the universe.</p>
+                    <p>The energy of supreme order that causes forms to exist, things to hold together, creation to have structure.</p>
+                    <p>Also called Logos or Creative Principle.</p>
+                </div>
+            </div>
+            <div class="note" id="note-light">
+                <div class="note-title">Light (Third Distortion)</div>
+                <div class="note-content">
+                    <p>The first tangible manifestation of the creative process.</p>
+                    <p>The "building material" of the entire physical universe. Everything that exists is, ultimately, light in different states of vibration.</p>
+                    <p>The photon is its most basic unit.</p>
+                </div>
+            </div>
+            <div class="note" id="note-co-creators">
+                <div class="note-title">Co-Creators</div>
+                <div class="note-content">
+                    <p>Individualized portions of Intelligent Infinity that actively participate in creation.</p>
+                    <p>Each level of the cosmic hierarchy—from galaxies to human beings—is a co-Creator contributing to the unfolding of the universe.</p>
+                    <p>You are a co-Creator.</p>
+                </div>
+            </div>
+            <div class="note" id="note-intelligent-energy">
+                <div class="note-title">Intelligent Energy</div>
+                <div class="note-content">
+                    <p>The energy that results when Love/Logos acts upon the potential of the Infinite.</p>
+                    <p>"Intelligent" because it contains purpose and order—not chaotic energy but organized energy.</p>
+                    <p>The medium through which forms and natural laws of each universe are created.</p>
+                </div>
+            </div>
+            <div class="note" id="note-sub-logos">
+                <div class="note-title">Sub-Logos</div>
+                <div class="note-content">
+                    <p>An individualized portion of the Logos operating at a more specific level of creation.</p>
+                    <p><strong>Hierarchy:</strong><br>• Galactic Logos → creates the galaxy<br>• Solar sub-Logos → our sun<br>• Planetary sub-sub-Logos → Earth<br>• Sub-sub-sub-Logos → each conscious being</p>
+                </div>
+            </div>
+            <div class="note" id="note-densities">
+                <div class="note-title">Densities</div>
+                <div class="note-content">
+                    <p>Levels or "degrees" of consciousness and vibration. <strong>Not physical places</strong> but states of being.</p>
+                    <p>There are 7 main densities (plus an octave). Think of them as "courses" in the cosmic school of evolution.</p>
+                    <p>Humanity is in <strong>third density</strong>, characterized by self-awareness and the capacity to choose.</p>
+                </div>
+            </div>
+            <div class="note" id="note-holographic">
+                <div class="note-title">Holographic Principle</div>
+                <div class="note-content">
+                    <p>In a hologram, each fragment contains the complete image (though less defined).</p>
+                    <p>Similarly, each part of creation—no matter how small—contains within itself the totality of the Creator.</p>
+                    <p>You, in your apparent smallness, contain the entire universe.</p>
+                </div>
+            </div>
+            <div class="note" id="note-spiral">
+                <div class="note-title">The Spiral</div>
+                <div class="note-content">
+                    <p>The fundamental pattern of creation.</p>
+                    <p>Appears in galaxies, DNA, seashells, hurricanes, plant growth, and the inner ear structure.</p>
+                    <p>Represents energy movement from center outward and the evolutionary path of consciousness.</p>
+                </div>
+            </div>
+            <div class="note" id="note-photon">
+                <div class="note-title">Photon</div>
+                <div class="note-content">
+                    <p>The fundamental particle/wave of light. In physics, the quantum of electromagnetic radiation.</p>
+                    <p>Here, it is the "simplest being"—the first and most basic tangible manifestation of creation.</p>
+                    <p>Everything that exists is photons in different states of vibration and rotation.</p>
+                </div>
+            </div>
+            <div class="note" id="note-octave">
+                <div class="note-title">The Octave</div>
+                <div class="note-content">
+                    <p>Just as in music there are 7 notes (do-re-mi-fa-sol-la-ti) before the cycle restarts at a higher level, creation has 7 densities of experience.</p>
+                    <p>The octave marks the return to unity and a new beginning at a vaster level.</p>
+                    <p>This 7+1 pattern repeats throughout all creation.</p>
+                </div>
+            </div>
+            <div class="note" id="note-rays">
+                <div class="note-title">The Rays / Colors</div>
+                <div class="note-content">
+                    <p>Each density has an associated color representing its vibration:</p>
+                    <p>1st Red · 2nd Orange · 3rd Yellow · 4th Green · 5th Blue · 6th Indigo · 7th Violet</p>
+                    <p>These colors also correspond to the energy centers (chakras) of the human body.</p>
+                </div>
+            </div>
+            <div class="note" id="note-self-awareness">
+                <div class="note-title">Self-Awareness</div>
+                <div class="note-content">
+                    <p>The capacity to know that one exists, to reflect on oneself, to ask "who am I?"</p>
+                    <p>What distinguishes third density. Animals have consciousness but don't reflect on it.</p>
+                    <p>With self-awareness comes the responsibility of conscious choice.</p>
+                </div>
+            </div>
+            <div class="note" id="note-the-choice">
+                <div class="note-title">The Choice</div>
+                <div class="note-content">
+                    <p>The fundamental decision each being must make in third density:</p>
+                    <p>Orient one's life toward <strong>service to others</strong> (love, compassion, unity) or toward <strong>service to self</strong> (control, separation, personal power).</p>
+                    <p>This choice determines the evolutionary path in subsequent densities.</p>
+                </div>
+            </div>
+            <div class="note" id="note-service-to-others">
+                <div class="note-title">Service to Others</div>
+                <div class="note-content">
+                    <p>One of the two polarities of spiritual evolution.</p>
+                    <p>Characterized by seeing others as oneself, seeking the common good, loving unconditionally.</p>
+                    <p>The path of unity and compassion. Requires at least 51% orientation toward others to "graduate" from third density.</p>
+                </div>
+            </div>
+            <div class="note" id="note-service-to-self">
+                <div class="note-title">Service to Self</div>
+                <div class="note-content">
+                    <p>The other polarity of spiritual evolution.</p>
+                    <p>Characterized by seeing others as tools, seeking power and control, separating from others.</p>
+                    <p>Also a valid evolutionary path, though more difficult and solitary. Requires 95% self-orientation to advance.</p>
+                </div>
+            </div>
+            <div class="note" id="note-polarity">
+                <div class="note-title">Polarity</div>
+                <div class="note-content">
+                    <p>The fundamental orientation of being: toward service to others (positive) or service to self (negative).</p>
+                    <p>Like the poles of a magnet, both are necessary for movement and evolution.</p>
+                    <p>Polarity is chosen in third density and refined in higher densities until they unify in sixth density.</p>
+                </div>
+            </div>
+            <div class="note" id="note-fractal">
+                <div class="note-title">Fractal</div>
+                <div class="note-content">
+                    <p>A pattern that repeats itself at different scales.</p>
+                    <p>Like a fern where each branch is a small version of the complete fern, or like Russian nesting dolls.</p>
+                    <p>Creation has this quality: within each density are 7 sub-densities, within each one another 7, and so on infinitely.</p>
+                </div>
+            </div>
+            <div class="note" id="note-illusion">
+                <div class="note-title">Illusion</div>
+                <div class="note-content">
+                    <p><strong>Does not mean "false" or "non-existent."</strong></p>
+                    <p>Means focused reality, particularized, experienced from a limited perspective.</p>
+                    <p>The physical universe is "illusory" because it's vibrating energy that appears solid. Completely real in experience, but not the ultimate reality.</p>
+                </div>
+            </div>
+            <div class="note" id="note-catalyst">
+                <div class="note-title">Catalyst</div>
+                <div class="note-content">
+                    <p>Any experience that offers opportunity for learning and growth.</p>
+                    <p>Includes both "positive" and "negative" experiences. Suffering, joy, challenges, relationships—all can be catalysts.</p>
+                    <p>What matters is how we respond: whether we use the experience consciously to evolve.</p>
+                </div>
+            </div>
+            <div class="note" id="note-indras-net">
+                <div class="note-title">Indra's Net</div>
+                <div class="note-content">
+                    <p>Buddhist/Hindu metaphor describing an infinite net where at each node is a jewel reflecting all other jewels.</p>
+                    <p>Illustrates how each part of creation contains and reflects the totality—the same holographic principle expressed poetically.</p>
+                </div>
+            </div>
+            <div class="note" id="note-kybalion">
+                <div class="note-title">The Kybalion</div>
+                <div class="note-content">
+                    <p>1908 text summarizing the seven Hermetic principles attributed to Hermes Trismegistus (identified with the Egyptian god Thoth).</p>
+                    <p>Its principles—like "the universe is mental" and "as above, so below"—resonate deeply with these teachings on the nature of creation.</p>
+                </div>
+            </div>
+            <div class="note" id="note-law-of-confusion">
+                <div class="note-title">Law of Confusion</div>
+                <div class="note-content">
+                    <p>The principle that each being's free will must be absolutely respected.</p>
+                    <p>This is why more evolved beings cannot simply "rescue us" or give us all the answers—doing so would violate our right to learn for ourselves.</p>
+                    <p>"Confusion" (not knowing all the answers) is necessary for genuine choice.</p>
+                </div>
+            </div>
+            <div class="note" id="note-mind-body-spirit">
+                <div class="note-title">Mind/Body/Spirit Complex</div>
+                <div class="note-content">
+                    <p>The technical term for a conscious being like a human.</p>
+                    <p>"Complex" because we are an integration of three aspects:</p>
+                    <p>• <strong>Mind</strong> — thought, will<br>• <strong>Body</strong> — physical vehicle<br>• <strong>Spirit</strong> — connection to Infinity</p>
+                    <p>Spirit becomes fully activated in third density with self-awareness.</p>
+                </div>
+            </div>
         </aside>
     </div>
 
     <script>
-        function toggleNav(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('notes').classList.remove('open')}
-        function toggleNotes(){document.getElementById('notes').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('sidebar').classList.remove('open')}
-        function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes').classList.remove('open');document.getElementById('overlay').classList.remove('active')}
-        document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){e.preventDefault();const noteId='note-'+this.dataset.note;const note=document.getElementById(noteId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));
-        document.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=1100)closeAll()}));
+        function toggleNav() { document.getElementById('sidebar').classList.toggle('open'); document.getElementById('overlay').classList.toggle('active'); document.getElementById('notes').classList.remove('open') }
+        function toggleNotes() { document.getElementById('notes').classList.toggle('open'); document.getElementById('overlay').classList.toggle('active'); document.getElementById('sidebar').classList.remove('open') }
+        function closeAll() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('notes').classList.remove('open'); document.getElementById('overlay').classList.remove('active') }
+        document.querySelectorAll('.term').forEach(t => t.addEventListener('click', function (e) { e.preventDefault(); const noteId = 'note-' + this.dataset.note; const note = document.getElementById(noteId); if (!note) return; document.querySelectorAll('.term').forEach(x => x.classList.remove('active')); document.querySelectorAll('.note').forEach(n => n.classList.remove('active')); document.getElementById('notes-empty').style.display = 'none'; this.classList.add('active'); note.classList.add('active'); if (window.innerWidth <= 1100) { document.getElementById('notes').classList.add('open'); document.getElementById('overlay').classList.add('active') } note.scrollIntoView({ behavior: 'smooth', block: 'nearest' }) }));
+        document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => { if (window.innerWidth <= 1100) closeAll() }));
     </script>
 </body>
+
 </html>
