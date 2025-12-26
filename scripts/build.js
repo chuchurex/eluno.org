@@ -256,12 +256,15 @@ ${generateNav(chapters, ui, lang, allLangs)}
             const btn = this.querySelector('button');
             const name = document.getElementById('fb-name').value;
             const message = document.getElementById('fb-msg').value;
+            const lang = document.documentElement.lang;
             
             btn.disabled = true;
             btn.style.opacity = '0.5';
             
-            // Supabase integration will go here
-            console.log('Feedback:', { name, message, lang: document.documentElement.lang });
+            // Redirect to mailto
+            const subject = encodeURIComponent(\`Feedback [\${lang.toUpperCase()}] - \${name}\`);
+            const body = encodeURIComponent(\`Name: \${name}\\nLanguage: \${lang}\\n\\nMessage:\\n\${message}\`);
+            window.location.href = \`mailto:feedback@lawofone.cl?subject=\${subject}&body=\${body}\`;
             
             setTimeout(() => {
                 document.getElementById('feedback-form').style.display = 'none';

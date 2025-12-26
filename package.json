@@ -7,7 +7,7 @@
     "sass:build": "sass src/scss/main.scss:dist/css/main.css --style=compressed",
     "serve": "live-server dist --port=3000",
     "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
-    "build": "node scripts/build.js",
+    "build": "npm run sass:build && node scripts/build.js",
     "publish": "./scripts/publish.sh",
     "translate": "node scripts/translate.js"
   },
