@@ -121,14 +121,27 @@ function generateNav(chapters, ui, lang, allLangs) {
 
   // Chapter links
   chapters.forEach(ch => {
-    html += `                <a href="#${ch.id}" class="nav-link">Ch ${ch.number}: ${ch.title}</a>\n`;
+    html += `            <div class="nav-chapter-group" id="nav-group-${ch.id}">\n`;
+    html += `                <div class="nav-chapter-header">\n`;
+    html += `                    <a href="#${ch.id}" class="nav-link">Ch ${ch.number}: ${ch.title}</a>\n`;
+    html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="Toggle sections">▾</button>\n`;
+    html += `                </div>\n`;
+    html += `                <div class="nav-sections-list">\n`;
     ch.sections.forEach(sec => {
-      html += `                <a href="#${sec.id}" class="nav-link sub">${sec.title}</a>\n`;
+      html += `                    <a href="#${sec.id}" class="nav-link sub" onclick="if(window.innerWidth<=1100)closeAll()">${sec.title}</a>\n`;
     });
+    html += `                </div>\n`;
+    html += `            </div>\n`;
   });
 
   html += `            </div>\n`;
-  html += `            <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
+
+  // Feedback Link
+  html += `            <div class="nav-footer-links">\n`;
+  html += `                <a href="#feedback-section" class="nav-link feedback-link" onclick="if(window.innerWidth<=1100)closeAll()">✧ ${ui.footer.formSubmit}</a>\n`;
+  html += `            </div>\n`;
+
+  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
   html += `                ${ui.meta.chapters}<br>${ui.meta.version}\n`;
   html += `            </div>\n`;
   html += `        </nav>\n`;
@@ -223,6 +236,7 @@ ${generateNav(chapters, ui, lang, allLangs)}
         function toggleNav(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('notes').classList.remove('open')}
         function toggleNotes(){document.getElementById('notes').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('sidebar').classList.remove('open')}
         function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes').classList.remove('open');document.getElementById('overlay').classList.remove('active')}
+        function toggleChapter(id){const g=document.getElementById('nav-group-'+id);if(g)g.classList.toggle('expanded')}
         document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){e.preventDefault();const noteId='note-'+this.dataset.note;const note=document.getElementById(noteId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));
         document.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=1100)closeAll()}));
         
