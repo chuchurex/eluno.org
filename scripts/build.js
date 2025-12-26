@@ -261,15 +261,27 @@ ${generateNav(chapters, ui, lang, allLangs)}
             btn.disabled = true;
             btn.style.opacity = '0.5';
             
-            // Redirect to mailto
-            const subject = encodeURIComponent(\`Feedback [\${lang.toUpperCase()}] - \${name}\`);
-            const body = encodeURIComponent(\`Name: \${name}\\nLanguage: \${lang}\\n\\nMessage:\\n\${message}\`);
-            window.location.href = \`mailto:feedback@lawofone.cl?subject=\${subject}&body=\${body}\`;
-            
-            setTimeout(() => {
-                document.getElementById('feedback-form').style.display = 'none';
-                document.getElementById('feedback-success').style.display = 'block';
-            }, 1000);
+            fetch('/api/send-feedback.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, message, lang })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('feedback-form').style.display = 'none';
+                    document.getElementById('feedback-success').style.display = 'block';
+                } else {
+                    alert('Error: ' + (data.error || 'Unknown error'));
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                }
+            })
+            .catch(err => {
+                alert('Connection error. Please try again later.');
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            });
         });
     </script>
 </body>
@@ -362,6 +374,20 @@ function build() {
   if (fs.existsSync(htSrc)) {
     fs.copyFileSync(htSrc, htDest);
     console.log(`📄 Copied .htaccess`);
+  }
+
+  // Copy API folder
+  const apiSrc = path.join(__dirname, '..', 'src', 'api');
+  const apiDest = path.join(DIST_DIR, 'api');
+  if (fs.existsSync(apiSrc)) {
+    if (!fs.existsSync(apiDest)) {
+      fs.mkdirSync(apiDest, { recursive: true });
+    }
+    const files = fs.readdirSync(apiSrc);
+    files.forEach(file => {
+      fs.copyFileSync(path.join(apiSrc, file), path.join(apiDest, file));
+    });
+    console.log(`🔌 Copied API files`);
   }
 
   console.log('\n✨ Build complete!\n');
