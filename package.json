@@ -5,7 +5,7 @@
   "scripts": {
     "sass:watch": "sass --watch src/scss/main.scss:dist/css/main.css",
     "sass:build": "sass src/scss/main.scss:dist/css/main.css --style=compressed",
-    "serve": "live-server dist --port=3000 --no-browser",
+    "serve": "live-server dist --port=3000",
     "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
     "build": "node scripts/build.js",
     "translate": "node scripts/translate.js"
