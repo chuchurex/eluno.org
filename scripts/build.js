@@ -177,6 +177,7 @@ function generatePage(lang, chapters, glossary, ui, allLangs, version) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${ui.bookTitle} | lawofone.cl</title>
     <meta name="description" content="${ui.description}">
+    <meta name="robots" content="noindex, nofollow">
     <link rel="canonical" href="https://lawofone.cl${canonicalPath}">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9LDPDW8V6E"></script>
