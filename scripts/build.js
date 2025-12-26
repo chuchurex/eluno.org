@@ -123,7 +123,7 @@ function generateNav(chapters, ui, lang, allLangs) {
   chapters.forEach(ch => {
     html += `            <div class="nav-chapter-group" id="nav-group-${ch.id}">\n`;
     html += `                <div class="nav-chapter-header">\n`;
-    html += `                    <a href="#${ch.id}" class="nav-link">Ch ${ch.number}: ${ch.title}</a>\n`;
+    html += `                    <a href="#${ch.id}" class="nav-link">${ui.nav.chapter} ${ch.number}: ${ch.title}</a>\n`;
     html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="Toggle sections">▾</button>\n`;
     html += `                </div>\n`;
     html += `                <div class="nav-sections-list">\n`;

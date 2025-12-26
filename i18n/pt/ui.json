@@ -4,6 +4,7 @@
   "description": "Uma reinterpretação filosófica do Material Ra (A Lei do Um) como narrativa acessível. Explore a cosmologia, o Criador, as densidades e o propósito da existência.",
   "nav": {
     "index": "Índice",
+    "chapter": "Cap.",
     "notes": "Notas",
     "notesPanel": "Notas e Definições",
     "notesEmpty": "Clique em qualquer <span class=\"term-hint\">termo destacado</span> no texto para ver sua definição aqui."
