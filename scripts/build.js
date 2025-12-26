@@ -26,9 +26,10 @@ function loadJSON(filePath) {
 
 // Process text with term markers and emphasis
 function processText(text, glossary) {
-  // Replace {term:id} with HTML
-  text = text.replace(/\{term:([^}]+)\}/g, (match, termId) => {
-    return `<span class="term" data-note="${termId}">${glossary[termId]?.title || termId}</span>`;
+  // Replace {term:id} or {term:id|text} with HTML
+  text = text.replace(/\{term:([^}|]+)(?:\|([^}]+))?\}/g, (match, termId, customText) => {
+    const displayText = customText || glossary[termId]?.title || termId;
+    return `<span class="term" data-note="${termId}">${displayText}</span>`;
   });
 
   // Replace **text** with <strong>
