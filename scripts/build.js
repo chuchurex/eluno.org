@@ -341,6 +341,14 @@ function build() {
     console.log(`\n📷 Copied og-image.jpg`);
   }
 
+  // Copy .htaccess if exists
+  const htSrc = path.join(__dirname, '..', 'src', '.htaccess');
+  const htDest = path.join(DIST_DIR, '.htaccess');
+  if (fs.existsSync(htSrc)) {
+    fs.copyFileSync(htSrc, htDest);
+    console.log(`📄 Copied .htaccess`);
+  }
+
   console.log('\n✨ Build complete!\n');
 }
 
