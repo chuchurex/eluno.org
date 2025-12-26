@@ -17,6 +17,7 @@
     "date": "2025",
     "feedbackTitle": "Comentarios",
     "formName": "Tu Nombre",
+    "formEmail": "Tu Email",
     "formMessage": "Tu Mensaje",
     "formSubmit": "Enviar Feedback",
     "formSuccess": "¡Gracias! Tu feedback ha sido recibido."

@@ -157,6 +157,7 @@ function generateFooter(ui) {
   html += `                    <h3>${ui.footer.feedbackTitle}</h3>\n`;
   html += `                    <form class="feedback-form" id="feedback-form">\n`;
   html += `                        <input type="text" id="fb-name" placeholder="${ui.footer.formName}" required>\n`;
+  html += `                        <input type="email" id="fb-email" placeholder="${ui.footer.formEmail}" required>\n`;
   html += `                        <textarea id="fb-msg" placeholder="${ui.footer.formMessage}" required></textarea>\n`;
   html += `                        <button type="submit" class="feedback-btn">${ui.footer.formSubmit}</button>\n`;
   html += `                    </form>\n`;
@@ -255,6 +256,7 @@ ${generateNav(chapters, ui, lang, allLangs)}
             e.preventDefault();
             const btn = this.querySelector('button');
             const name = document.getElementById('fb-name').value;
+            const email = document.getElementById('fb-email').value;
             const message = document.getElementById('fb-msg').value;
             const lang = document.documentElement.lang;
             
@@ -264,7 +266,7 @@ ${generateNav(chapters, ui, lang, allLangs)}
             fetch('/api/send-feedback.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, message, lang })
+                body: JSON.stringify({ name, email, message, lang })
             })
             .then(response => response.json())
             .then(data => {

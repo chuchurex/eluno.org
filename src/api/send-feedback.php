@@ -24,6 +24,7 @@ if (!$data) {
 }
 
 $name = strip_tags(trim($data['name'] ?? ''));
+$email = filter_var(trim($data['email'] ?? ''), FILTER_VALIDATE_EMAIL);
 $message = strip_tags(trim($data['message'] ?? ''));
 $lang = strip_tags(trim($data['lang'] ?? 'en'));
 
@@ -34,10 +35,11 @@ if (empty($name) || empty($message)) {
 }
 
 $to = "feedback@lawofone.cl";
+$replyTo = $email ? $email : "feedback@lawofone.cl";
 $subject = "Feedback Book Draft [" . strtoupper($lang) . "] from $name";
-$body = "Name: $name\nLanguage: $lang\n\nMessage:\n$message";
+$body = "Name: $name\nEmail: " . ($email ? $email : "Not provided") . "\nLanguage: $lang\n\nMessage:\n$message";
 $headers = "From: web@lawofone.cl\r\n";
-$headers .= "Reply-To: feedback@lawofone.cl\r\n";
+$headers .= "Reply-To: $replyTo\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
 if (mail($to, $subject, $body, $headers)) {
