@@ -367,6 +367,7 @@ node scripts/translate-chapter.js 06
 3. **No cambiar IDs** - Romperá links y navegación
 4. **No olvidar los {term:...} tags** - Deben permanecer intactos
 5. **No ejecutar build antes de actualizar navegación** - Orden importa
+6. **No ignorar términos compuestos con guión** - Ver caso especial abajo
 
 ### ✅ HACER
 
@@ -375,6 +376,41 @@ node scripts/translate-chapter.js 06
 3. **Probar build localmente** antes de push
 4. **Verificar navegación** en todos los idiomas
 5. **Revisar commits** con `git diff` antes de push
+6. **Agregar términos específicos al glosario** cuando sea necesario
+
+### 🔍 Caso Especial: Términos Compuestos
+
+**Problema:** Si un capítulo usa `{term:third-density}`, el texto mostrará "third-density" en español en lugar de "Tercera Densidad".
+
+**Causa:** El sistema de build busca coincidencia EXACTA del ID en el glosario. Si solo existe `"densities"` pero no `"third-density"`, no encontrará la traducción.
+
+**Solución:** Agregar entrada específica en glosario ES y PT:
+
+```json
+{
+  "third-density": {
+    "title": "Tercera Densidad",
+    "content": [
+      "La densidad de la autoconciencia y la elección. El rayo amarillo.",
+      "..."
+    ]
+  }
+}
+```
+
+**Ejemplos de términos que requieren entrada propia:**
+- `{term:third-density}` → "third-density" en glosario
+- `{term:fourth-density}` → "fourth-density" en glosario
+- `{term:sixth-density}` → "sixth-density" en glosario
+- `{term:service-to-others}` → Ya existe ✅
+- `{term:service-to-self}` → Ya existe ✅
+
+**Validación:** Después del build, buscar en `dist/es/index.html`:
+```bash
+grep 'data-note="third-density"' dist/es/index.html
+# Debe mostrar: data-note="third-density">Tercera Densidad
+# NO: data-note="third-density">third-density
+```
 
 ---
 
