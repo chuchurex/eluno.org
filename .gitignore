@@ -27,3 +27,4 @@ yarn-error.log*
 # Old files (pre-migration) - root level only
 /es/
 /mnt/
+.env
