@@ -9,7 +9,8 @@
     "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
     "build": "npm run sass:build && node scripts/build.js",
     "publish": "./scripts/publish.sh",
-    "translate": "node scripts/translate.js"
+    "translate": "node scripts/translate.js",
+    "translate:chapter": "node scripts/translate-chapter.js"
   },
   "devDependencies": {
     "basic-ftp": "^5.0.5",
