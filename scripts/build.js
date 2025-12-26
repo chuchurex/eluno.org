@@ -30,13 +30,13 @@ function processText(text, glossary) {
   text = text.replace(/\{term:([^}]+)\}/g, (match, termId) => {
     return `<span class="term" data-note="${termId}">${glossary[termId]?.title || termId}</span>`;
   });
-  
+
   // Replace **text** with <strong>
   text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  
+
   // Replace *text* with <em>
   text = text.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-  
+
   return text;
 }
 
@@ -44,7 +44,7 @@ function processText(text, glossary) {
 function generateSection(section, glossary, isFirst = false) {
   let html = `                <section class="section" id="${section.id}">\n`;
   html += `                    <h2 class="sec-title">${section.title}</h2>\n`;
-  
+
   section.content.forEach(block => {
     const processedText = processText(block.text, glossary);
     if (block.type === 'paragraph') {
@@ -53,7 +53,7 @@ function generateSection(section, glossary, isFirst = false) {
       html += `                    <div class="quote">${processedText}</div>\n`;
     }
   });
-  
+
   html += `                </section>\n`;
   return html;
 }
@@ -65,14 +65,14 @@ function generateChapter(chapter, glossary) {
   html += `                    <div class="ch-num">${chapter.numberText}</div>\n`;
   html += `                    <h1 class="ch-title">${chapter.title}</h1>\n`;
   html += `                </header>\n\n`;
-  
+
   chapter.sections.forEach((section, index) => {
     html += generateSection(section, glossary, index === 0);
     if (index < chapter.sections.length - 1) {
       html += `\n                <div class="divider">· · ·</div>\n\n`;
     }
   });
-  
+
   html += `            </article>\n`;
   return html;
 }
@@ -82,7 +82,7 @@ function generateNotes(glossary, ui) {
   let html = `        <aside class="notes" id="notes">\n`;
   html += `            <div class="notes-head">${ui.nav.notesPanel}</div>\n`;
   html += `            <div class="notes-empty" id="notes-empty">${ui.nav.notesEmpty.replace('class="term-hint"', 'style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)"')}</div>\n\n`;
-  
+
   for (const [id, term] of Object.entries(glossary)) {
     html += `            <div class="note" id="note-${id}">`;
     html += `<div class="note-title">${term.title}</div>`;
@@ -94,7 +94,7 @@ function generateNotes(glossary, ui) {
     });
     html += `</div></div>\n`;
   }
-  
+
   html += `        </aside>\n`;
   return html;
 }
@@ -105,7 +105,7 @@ function generateNav(chapters, ui, lang, allLangs) {
   html += `            <div class="nav-head">\n`;
   html += `                <div class="nav-title">${ui.siteTitle}</div>\n`;
   html += `                <div class="lang">`;
-  
+
   // Language links
   allLangs.forEach((l, i) => {
     const href = l === BASE_LANG ? '/' : `/${l}/`;
@@ -113,12 +113,12 @@ function generateNav(chapters, ui, lang, allLangs) {
     html += `<a href="${href}"${active}>${l.toUpperCase()}</a>`;
     if (i < allLangs.length - 1) html += ' | ';
   });
-  
+
   html += `</div>\n`;
   html += `            </div>\n`;
   html += `            <div class="nav-section">\n`;
   html += `                <div class="nav-section-title">${ui.parts.foundations}</div>\n`;
-  
+
   // Chapter links
   chapters.forEach(ch => {
     html += `                <a href="#${ch.id}" class="nav-link">Ch ${ch.number}: ${ch.title}</a>\n`;
@@ -126,7 +126,7 @@ function generateNav(chapters, ui, lang, allLangs) {
       html += `                <a href="#${sec.id}" class="nav-link sub">${sec.title}</a>\n`;
     });
   });
-  
+
   html += `            </div>\n`;
   html += `            <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
   html += `                ${ui.meta.chapters}<br>${ui.meta.version}\n`;
@@ -139,10 +139,14 @@ function generateNav(chapters, ui, lang, allLangs) {
 function generateFooter(ui) {
   let html = `            <footer class="footer">\n`;
   html += `                <p>${ui.footer.draft} · ${ui.footer.date}</p>\n`;
-  html += `                <div class="feedback">\n`;
+  html += `                <div class="feedback" id="feedback-section">\n`;
   html += `                    <h3>${ui.footer.feedbackTitle}</h3>\n`;
-  html += `                    <p>${ui.footer.feedbackText}</p>\n`;
-  html += `                    <a href="mailto:${ui.footer.feedbackEmail}?subject=${encodeURIComponent(ui.footer.feedbackSubject)}" class="feedback-btn">${ui.footer.feedbackButton}</a>\n`;
+  html += `                    <form class="feedback-form" id="feedback-form">\n`;
+  html += `                        <input type="text" id="fb-name" placeholder="${ui.footer.formName}" required>\n`;
+  html += `                        <textarea id="fb-msg" placeholder="${ui.footer.formMessage}" required></textarea>\n`;
+  html += `                        <button type="submit" class="feedback-btn">${ui.footer.formSubmit}</button>\n`;
+  html += `                    </form>\n`;
+  html += `                    <div id="feedback-success" style="display:none; color:var(--gold); margin-top:1rem; font-family:var(--font-heading);">${ui.footer.formSuccess}</div>\n`;
   html += `                </div>\n`;
   html += `            </footer>\n`;
   return html;
@@ -152,7 +156,7 @@ function generateFooter(ui) {
 function generatePage(lang, chapters, glossary, ui, allLangs) {
   const langCode = lang === BASE_LANG ? 'en' : lang;
   const canonicalPath = lang === BASE_LANG ? '/' : `/${lang}/`;
-  
+
   let html = `<!DOCTYPE html>
 <html lang="${langCode}">
 <head>
@@ -221,6 +225,24 @@ ${generateNav(chapters, ui, lang, allLangs)}
         function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes').classList.remove('open');document.getElementById('overlay').classList.remove('active')}
         document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){e.preventDefault();const noteId='note-'+this.dataset.note;const note=document.getElementById(noteId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));
         document.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=1100)closeAll()}));
+        
+        document.getElementById('feedback-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const name = document.getElementById('fb-name').value;
+            const message = document.getElementById('fb-msg').value;
+            
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            
+            // Supabase integration will go here
+            console.log('Feedback:', { name, message, lang: document.documentElement.lang });
+            
+            setTimeout(() => {
+                document.getElementById('feedback-form').style.display = 'none';
+                document.getElementById('feedback-success').style.display = 'block';
+            }, 1000);
+        });
     </script>
 </body>
 </html>`;
@@ -231,7 +253,7 @@ ${generateNav(chapters, ui, lang, allLangs)}
 // Main build function
 function build() {
   console.log('🔨 Building lawofone.cl...\n');
-  
+
   // Ensure dist directories exist
   LANGUAGES.forEach(lang => {
     const dir = lang === BASE_LANG ? DIST_DIR : path.join(DIST_DIR, lang);
@@ -239,33 +261,33 @@ function build() {
       fs.mkdirSync(dir, { recursive: true });
     }
   });
-  
+
   // Ensure CSS directory exists
   const cssDir = path.join(DIST_DIR, 'css');
   if (!fs.existsSync(cssDir)) {
     fs.mkdirSync(cssDir, { recursive: true });
   }
-  
+
   LANGUAGES.forEach(lang => {
     console.log(`📖 Building ${lang.toUpperCase()} version...`);
-    
+
     // Load UI strings (fall back to EN if not available)
     let ui = loadJSON(path.join(I18N_DIR, lang, 'ui.json'));
     if (!ui) {
       ui = loadJSON(path.join(I18N_DIR, BASE_LANG, 'ui.json'));
     }
-    
+
     // Load glossary (fall back to EN if not available)
     let glossary = loadJSON(path.join(I18N_DIR, lang, 'glossary.json'));
     if (!glossary) {
       glossary = loadJSON(path.join(I18N_DIR, BASE_LANG, 'glossary.json'));
     }
-    
+
     // Load chapters (fall back to EN if not available)
     const chapters = [];
     const chaptersDir = path.join(I18N_DIR, lang, 'chapters');
     const defaultChaptersDir = path.join(I18N_DIR, BASE_LANG, 'chapters');
-    
+
     // Get chapter files
     let chapterFiles = [];
     if (fs.existsSync(chaptersDir)) {
@@ -274,7 +296,7 @@ function build() {
     if (chapterFiles.length === 0 && fs.existsSync(defaultChaptersDir)) {
       chapterFiles = fs.readdirSync(defaultChaptersDir).filter(f => f.endsWith('.json')).sort();
     }
-    
+
     chapterFiles.forEach(file => {
       let chapter = loadJSON(path.join(chaptersDir, file));
       if (!chapter) {
@@ -284,19 +306,19 @@ function build() {
         chapters.push(chapter);
       }
     });
-    
+
     // Generate HTML
     const html = generatePage(lang, chapters, glossary, ui, LANGUAGES);
-    
+
     // Write HTML file
-    const outputPath = lang === BASE_LANG 
+    const outputPath = lang === BASE_LANG
       ? path.join(DIST_DIR, 'index.html')
       : path.join(DIST_DIR, lang, 'index.html');
-    
+
     fs.writeFileSync(outputPath, html);
     console.log(`   ✅ ${outputPath}`);
   });
-  
+
   // Copy og-image if exists
   const ogSrc = path.join(__dirname, '..', 'og-image.jpg');
   const ogDest = path.join(DIST_DIR, 'og-image.jpg');
@@ -304,7 +326,7 @@ function build() {
     fs.copyFileSync(ogSrc, ogDest);
     console.log(`\n📷 Copied og-image.jpg`);
   }
-  
+
   console.log('\n✨ Build complete!\n');
 }
 

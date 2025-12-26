@@ -15,10 +15,10 @@
     "draft": "Draft in Development",
     "date": "December 2024",
     "feedbackTitle": "What do you think of this draft?",
-    "feedbackText": "Your feedback is valuable to improve the book.",
-    "feedbackButton": "Send Feedback",
-    "feedbackEmail": "feedback@lawofone.cl",
-    "feedbackSubject": "Feedback Book Draft"
+    "formName": "Your Name",
+    "formMessage": "Your Message",
+    "formSubmit": "Send Feedback",
+    "formSuccess": "Thank you! Your feedback has been received."
   },
   "meta": {
     "chapters": "Chapters 1–4 of 16",

@@ -15,10 +15,10 @@
     "draft": "Borrador en Desarrollo",
     "date": "Diciembre 2024",
     "feedbackTitle": "¿Qué opinas de este borrador?",
-    "feedbackText": "Tu retroalimentación es valiosa para mejorar el libro.",
-    "feedbackButton": "Enviar Comentarios",
-    "feedbackEmail": "feedback@lawofone.cl",
-    "feedbackSubject": "Comentarios sobre el Borrador"
+    "formName": "Tu Nombre",
+    "formMessage": "Tu Mensaje",
+    "formSubmit": "Enviar Feedback",
+    "formSuccess": "¡Gracias! Tu feedback ha sido recibido."
   },
   "meta": {
     "chapters": "Capítulos 1–4 de 16",

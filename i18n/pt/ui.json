@@ -15,10 +15,10 @@
     "draft": "Rascunho em Desenvolvimento",
     "date": "Dezembro 2024",
     "feedbackTitle": "O que você acha deste rascunho?",
-    "feedbackText": "Seu feedback é valioso para melhorar o livro.",
-    "feedbackButton": "Enviar Feedback",
-    "feedbackEmail": "feedback@lawofone.cl",
-    "feedbackSubject": "Feedback sobre o Rascunho"
+    "formName": "Seu Nome",
+    "formMessage": "Sua Mensagem",
+    "formSubmit": "Enviar Feedback",
+    "formSuccess": "Obrigado! Seu feedback foi recebido."
   },
   "meta": {
     "chapters": "Capítulos 1–4 de 16",
