@@ -166,7 +166,7 @@ function generateFooter(ui) {
 }
 
 // Generate full HTML page
-function generatePage(lang, chapters, glossary, ui, allLangs) {
+function generatePage(lang, chapters, glossary, ui, allLangs, version) {
   const langCode = lang === BASE_LANG ? 'en' : lang;
   const canonicalPath = lang === BASE_LANG ? '/' : `/${lang}/`;
 
@@ -206,7 +206,7 @@ function generatePage(lang, chapters, glossary, ui, allLangs) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="${lang === BASE_LANG ? '' : '../'}css/main.css">
+    <link rel="stylesheet" href="${lang === BASE_LANG ? '' : '../'}css/main.css?v=${version}">
 ${lang === BASE_LANG ? `    <script>
         (function() {
             if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) return;
@@ -331,7 +331,8 @@ function build() {
     });
 
     // Generate HTML
-    const html = generatePage(lang, chapters, glossary, ui, LANGUAGES);
+    const version = Date.now();
+    const html = generatePage(lang, chapters, glossary, ui, LANGUAGES, version);
 
     // Write HTML file
     const outputPath = lang === BASE_LANG
