@@ -178,6 +178,15 @@ function generatePage(lang, chapters, glossary, ui, allLangs) {
     <title>${ui.bookTitle} | lawofone.cl</title>
     <meta name="description" content="${ui.description}">
     <link rel="canonical" href="https://lawofone.cl${canonicalPath}">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9LDPDW8V6E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9LDPDW8V6E');
+    </script>
 `;
 
   // Hreflang tags
