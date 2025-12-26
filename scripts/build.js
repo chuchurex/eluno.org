@@ -181,6 +181,14 @@ function generatePage(lang, chapters, glossary, ui, allLangs) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="${lang === BASE_LANG ? '' : '../'}css/main.css">
+${lang === BASE_LANG ? `    <script>
+        (function() {
+            if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) return;
+            var ln = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+            if (ln.indexOf('es') === 0) window.location.href = '/es/';
+            else if (ln.indexOf('pt') === 0) window.location.href = '/pt/';
+        })();
+    </script>` : ''}
 </head>
 <body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
