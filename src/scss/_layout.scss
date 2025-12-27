@@ -5,10 +5,12 @@
 .layout {
   display: grid;
   grid-template-columns: 240px 1fr 260px;
+  grid-template-areas: "nav main sidebar";
   min-height: 100vh;
 }
 
 .main {
+  grid-area: main;
   max-width: 680px;
   padding: $spacing-xl 2.5rem 5rem;
   margin: 0 auto;

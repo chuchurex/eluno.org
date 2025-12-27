@@ -225,8 +225,6 @@ ${lang === BASE_LANG ? `    <script>
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
     <div class="layout">
-${generateNav(chapters, ui, lang, allLangs)}
-
         <main class="main">
 `;
 
@@ -241,6 +239,8 @@ ${generateNav(chapters, ui, lang, allLangs)}
   html += '\n';
   html += generateFooter(ui);
   html += `        </main>\n\n`;
+  html += generateNav(chapters, ui, lang, allLangs);
+  html += '\n';
   html += generateNotes(glossary, ui);
   html += `    </div>
 

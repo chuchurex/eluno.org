@@ -68,10 +68,12 @@
         .layout {
             display: grid;
             grid-template-columns: 240px 1fr 260px;
+            grid-template-areas: "nav main sidebar";
             min-height: 100vh
         }
 
         .nav {
+            grid-area: nav;
             position: sticky;
             top: 0;
             height: 100vh;
@@ -149,6 +151,7 @@
         }
 
         .main {
+            grid-area: main;
             max-width: 680px;
             padding: 3rem 2.5rem 5rem;
             margin: 0 auto
@@ -251,6 +254,7 @@
         }
 
         .notes {
+            grid-area: sidebar;
             position: sticky;
             top: 0;
             height: 100vh;
@@ -482,41 +486,6 @@
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
     <div class="layout">
-        <nav class="nav" id="sidebar">
-            <div class="nav-head">
-                <div class="nav-title">The One</div>
-                <div class="lang"><a href="/" class="active">EN</a> | <a href="/es/">ES</a></div>
-            </div>
-            <div class="nav-section">
-                <div class="nav-section-title">Part I — Foundations</div>
-                <a href="#ch1" class="nav-link">Ch 1: Cosmology & Genesis</a>
-                <a href="#ch1-infinite" class="nav-link sub">The Infinite</a>
-                <a href="#ch1-paradox" class="nav-link sub">First Paradox</a>
-                <a href="#ch1-architecture" class="nav-link sub">Architecture</a>
-                <a href="#ch1-light" class="nav-link sub">Light</a>
-                <a href="#ch1-densities" class="nav-link sub">Densities</a>
-                <a href="#ch1-fractal" class="nav-link sub">Fractal Structure</a>
-                <a href="#ch1-illusion" class="nav-link sub">Illusion</a>
-                <a href="#ch1-mystery" class="nav-link sub">Mystery</a>
-                <a href="#ch2" class="nav-link" style="margin-top:0.6rem">Ch 2: Creator & Creation</a>
-                <a href="#ch2-nature" class="nav-link sub">Nature of Creator</a>
-                <a href="#ch2-consciousness" class="nav-link sub">Consciousness</a>
-                <a href="#ch2-distortions" class="nav-link sub">Three Distortions</a>
-                <a href="#ch2-process" class="nav-link sub">Creative Process</a>
-                <a href="#ch2-freewill" class="nav-link sub">Free Will</a>
-                <a href="#ch2-cocreator" class="nav-link sub">Co-Creation</a>
-                <a href="#ch2-purpose" class="nav-link sub">Purpose</a>
-                <a href="#ch2-mystery" class="nav-link sub">Mystery Remains</a>
-                <a href="#ch3" class="nav-link" style="margin-top:0.6rem">Ch 3: The Densities</a>
-                <a href="#ch4" class="nav-link" style="margin-top:0.6rem">Ch 4: Earth's History</a>
-                <a href="#ch5" class="nav-link" style="margin-top:0.6rem">Ch 5: Polarity</a>
-                <a href="#ch6" class="nav-link" style="margin-top:0.6rem">Ch 6: Wanderers: Those Who...</a>
-            </div>
-            <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">
-                Chapters 1–6 of 16<br>First Draft · Dec 2024
-            </div>
-        </nav>
-
         <main class="main">
             <!-- CHAPTER 1 -->
             <article class="chapter" id="ch1">
@@ -717,6 +686,41 @@
                 </div>
             </footer>
         </main>
+
+        <nav class="nav" id="sidebar">
+            <div class="nav-head">
+                <div class="nav-title">The One</div>
+                <div class="lang"><a href="/" class="active">EN</a> | <a href="/es/">ES</a></div>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Part I — Foundations</div>
+                <a href="#ch1" class="nav-link">Ch 1: Cosmology & Genesis</a>
+                <a href="#ch1-infinite" class="nav-link sub">The Infinite</a>
+                <a href="#ch1-paradox" class="nav-link sub">First Paradox</a>
+                <a href="#ch1-architecture" class="nav-link sub">Architecture</a>
+                <a href="#ch1-light" class="nav-link sub">Light</a>
+                <a href="#ch1-densities" class="nav-link sub">Densities</a>
+                <a href="#ch1-fractal" class="nav-link sub">Fractal Structure</a>
+                <a href="#ch1-illusion" class="nav-link sub">Illusion</a>
+                <a href="#ch1-mystery" class="nav-link sub">Mystery</a>
+                <a href="#ch2" class="nav-link" style="margin-top:0.6rem">Ch 2: Creator & Creation</a>
+                <a href="#ch2-nature" class="nav-link sub">Nature of Creator</a>
+                <a href="#ch2-consciousness" class="nav-link sub">Consciousness</a>
+                <a href="#ch2-distortions" class="nav-link sub">Three Distortions</a>
+                <a href="#ch2-process" class="nav-link sub">Creative Process</a>
+                <a href="#ch2-freewill" class="nav-link sub">Free Will</a>
+                <a href="#ch2-cocreator" class="nav-link sub">Co-Creation</a>
+                <a href="#ch2-purpose" class="nav-link sub">Purpose</a>
+                <a href="#ch2-mystery" class="nav-link sub">Mystery Remains</a>
+                <a href="#ch3" class="nav-link" style="margin-top:0.6rem">Ch 3: The Densities</a>
+                <a href="#ch4" class="nav-link" style="margin-top:0.6rem">Ch 4: Earth's History</a>
+                <a href="#ch5" class="nav-link" style="margin-top:0.6rem">Ch 5: Polarity</a>
+                <a href="#ch6" class="nav-link" style="margin-top:0.6rem">Ch 6: Wanderers: Those Who...</a>
+            </div>
+            <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">
+                Chapters 1–6 of 16<br>First Draft · Dec 2024
+            </div>
+        </nav>
 
         <aside class="notes" id="notes">
             <div class="notes-head">Notes & Definitions</div>
