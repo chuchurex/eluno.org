@@ -354,4 +354,4 @@ Para términos que tienen AMBOS marcados (como "octava" u "holográfico"), se po
 
 ---
 
-*Documento generado para revisión — 28 de diciembre de 2024*
+*Documento generado para revisión — 28 de diciembre de 2025*

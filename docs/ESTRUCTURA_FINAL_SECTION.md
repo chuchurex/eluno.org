@@ -7,5 +7,5 @@
 
 ---
 
-*Última actualización de estructura: 26 de diciembre de 2024*
+*Última actualización de estructura: 26 de diciembre de 2025*
 *Para estado actual del proyecto, consultar `CONTEXT.md`*

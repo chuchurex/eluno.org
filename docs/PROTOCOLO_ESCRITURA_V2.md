@@ -393,7 +393,7 @@ In practical terms, this suggests a priority that may seem counterintuitive: the
 
 3. **En "Estado Actual":** Incrementar contador
    ```
-   | **Capítulos escritos** | 8 de 16 | 2024-12-29 14:30 |
+   | **Capítulos escritos** | 8 de 16 | 2025-12-29 14:30 |
    ```
 
 4. **Actualizar timestamp** con fecha y hora actual
@@ -409,12 +409,12 @@ In practical terms, this suggests a priority that may seem counterintuitive: the
 
 **Después:**
 ```
-| **Capítulos escritos** | 8 de 16 | 2024-12-29 14:30 |
+| **Capítulos escritos** | 8 de 16 | 2025-12-29 14:30 |
 ...
 | 8 | The Veil of Forgetting | ✅ | - |
 ```
 
 ---
 
-*Última actualización: 28 de diciembre de 2024*
+*Última actualización: 28 de diciembre de 2025*
 *Versión: 2.1*

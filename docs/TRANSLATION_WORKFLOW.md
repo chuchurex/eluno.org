@@ -463,7 +463,7 @@ Cuando recibas el santo y seña:
 Este workflow fue diseñado para lawofone.cl, un proyecto de traducción y reescritura del Material de Ra.
 
 **Desarrollado por:** Claude Sonnet 4.5 (Anthropic)
-**Fecha:** Diciembre 2024
+**Fecha:** Diciembre 2025
 **Versión:** 1.0
 
 ---
