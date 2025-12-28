@@ -153,7 +153,6 @@
           "items": [
             { "role": "Chuchu", "link": "https://chuchurex.cl", "contribution": "Visão, aquisição do domínio, autoridade de aprovação" },
             { "role": "Claude Opus 4.5", "link": "https://www.anthropic.com/claude", "contribution": "Texto, código, traduções, documentação" },
-            { "role": "Gabriel Lugo", "contribution": "Um olhar inicial e um gesto de boa fé" },
             { "role": "L/L Research", "link": "https://www.llresearch.org", "contribution": "Custódia do material original" },
             { "role": "O Material Ra", "link": "https://www.lawofone.info", "contribution": "O arcabouço filosófico subjacente a tudo" }
           ]
