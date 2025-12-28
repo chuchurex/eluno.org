@@ -201,9 +201,9 @@ function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
   html += `                <a href="#feedback-section" class="nav-link feedback-link" onclick="if(window.innerWidth<=1100)closeAll()">✧ ${ui.footer.formSubmit}</a>\n`;
   html += `            </div>\n`;
 
-  // About link (hidden for now)
-  html += `            <div class="nav-footer-links" style="display:none">\n`;
-  html += `                <a href="${langPrefix}/about/" class="nav-link">About this project</a>\n`;
+  // About link
+  html += `            <div class="nav-footer-links">\n`;
+  html += `                <a href="${langPrefix}/about/" class="nav-link">${ui.nav.about}</a>\n`;
   html += `            </div>\n`;
 
   // Dynamic chapter count
@@ -250,9 +250,9 @@ function generateTocNav(chapters, ui, lang, allLangs) {
 
   html += `            </div>\n`;
 
-  // About link (hidden for now)
-  html += `            <div class="nav-footer-links" style="display:none">\n`;
-  html += `                <a href="${langPrefix}/about/" class="nav-link">About this project</a>\n`;
+  // About link
+  html += `            <div class="nav-footer-links">\n`;
+  html += `                <a href="${langPrefix}/about/" class="nav-link">${ui.nav.about}</a>\n`;
   html += `            </div>\n`;
 
   // Dynamic chapter count

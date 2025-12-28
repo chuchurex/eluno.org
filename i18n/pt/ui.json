@@ -6,6 +6,7 @@
     "index": "Índice",
     "chapter": "Cap.",
     "notes": "Notas",
+    "about": "Sobre este projeto",
     "notesPanel": "Notas e Definições",
     "notesEmpty": "Clique em qualquer <span class=\"term-hint\">termo destacado</span> no texto para ver sua definição aqui.",
     "tableOfContents": "Índice de Conteúdos",
