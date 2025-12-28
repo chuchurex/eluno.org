@@ -1,0 +1,206 @@
+{
+  "id": "about",
+  "title": "Sobre Este Projeto",
+  "subtitle": "Ou: Como um Humano e uma IA Passaram o Natal Escrevendo um Livro Sobre o Universo",
+  "sections": [
+    {
+      "id": "origin",
+      "title": "A História da Origem",
+      "icon": "🎄",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Tudo começou em **24 de dezembro de 2025** — sim, véspera de Natal. Enquanto a maioria das pessoas embrulhava presentes ou discutia se Die Hard é um filme de Natal, alguém teve uma ideia diferente: *\"E se eu usasse o novo Claude Opus 4.5 para ajudar a escrever um livro filosófico?\"*"
+        },
+        {
+          "type": "paragraph",
+          "text": "O domínio **lawofone.cl** foi comprado nesse mesmo dia. Sem tempo para segundas opiniões. Sem \"deixa eu dormir e penso nisso\". Apenas puro impulso criativo em sua melhor forma."
+        },
+        {
+          "type": "quote",
+          "text": "\"No princípio, existia o Infinito. E então alguém comprou um nome de domínio na véspera de Natal. Esses dois eventos estão claramente relacionados.\" — Provérbio antigo (não realmente)"
+        }
+      ]
+    },
+    {
+      "id": "day1",
+      "title": "Dia Um: 25 de Dezembro",
+      "icon": "🚀",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Dia de Natal. Enquanto as famílias se reuniam em torno de árvores e perus, nasceram os primeiros commits. Às **19:50**, o commit inicial chegou ao GitHub: \"SASS modular + sistema i18n + capítulos 1-2 em EN/ES/PT\""
+        },
+        {
+          "type": "paragraph",
+          "text": "Sim, você leu certo. *Três idiomas* desde o primeiro dia. Porque, para quê fazer as coisas do jeito fácil?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Às **23:16**, o Capítulo 3 estava pronto. Isso é um capítulo completo sobre as densidades de consciência, traduzido para três idiomas, em menos de quatro horas. Claude claramente estava se exibindo."
+        }
+      ]
+    },
+    {
+      "id": "day2",
+      "title": "Dia Dois: O Bombardeio (26 de Dezembro)",
+      "icon": "⚡",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Foi aqui que as coisas ficaram... intensas. Imagine isso: **mais de 30 commits em um único dia**. O log do git parece um monitor cardíaco durante uma overdose de cafeína."
+        },
+        {
+          "type": "timeline",
+          "items": [
+            { "time": "00:44", "text": "Primeira publicação do dia. Óleo da meia-noite? Mais como entusiasmo da meia-noite." },
+            { "time": "07:33", "text": "Atualizações de madrugada. Alguém não dormiu muito." },
+            { "time": "12:25", "text": "Corrigida gramática espanhola para \"octava\". Até as IAs aprendem que o espanhol é complicado." },
+            { "time": "16:56", "text": "Capítulo 5: Polaridade — Os Dois Caminhos. Feito e traduzido." },
+            { "time": "19:59", "text": "Criado um fluxo completo de automação de traduções. Trabalhando mais inteligente, não mais duro." },
+            { "time": "21:55", "text": "Capítulo 6: Errantes. Porque, quem precisa descansar quando há capítulos para escrever?" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "day3",
+      "title": "Dia Três: Acessibilidade (27 de Dezembro)",
+      "icon": "♿",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Depois do sprint do Dia Dois, era hora de alguma limpeza. O foco mudou para tornar o site acessível para todos: reordenar o DOM para leitores de tela, adicionar termos ao glossário e, em geral, ser bons cidadãos da web."
+        },
+        {
+          "type": "paragraph",
+          "text": "Porque, qual é o sentido de escrever sobre consciência universal se alguns usuários não conseguem acessar?"
+        }
+      ]
+    },
+    {
+      "id": "day4",
+      "title": "Dia Quatro: Sistema de Referências (28 de Dezembro)",
+      "icon": "🔗",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O dia em que esta mesma página foi escrita."
+        },
+        {
+          "type": "paragraph",
+          "text": "A grande funcionalidade: um **sistema de referências** que vincula o texto filosófico ao conhecimento do mundo real. Clique em conceitos como \"fóton\" ou \"galáxias espirais\" e obtenha contexto científico real. Porque textos místicos são mais legais quando você pode verificá-los com a Wikipedia."
+        },
+        {
+          "type": "paragraph",
+          "text": "20 referências criadas em três idiomas. Marcadores adicionados ao longo do Capítulo 1. E esta página \"Sobre\" nasceu para documentar a loucura."
+        }
+      ]
+    },
+    {
+      "id": "stats",
+      "title": "Em Números",
+      "icon": "📊",
+      "content": [
+        {
+          "type": "stats",
+          "items": [
+            { "number": "4", "label": "Dias de Trabalho" },
+            { "number": "6", "label": "Capítulos Escritos" },
+            { "number": "3", "label": "Idiomas" },
+            { "number": "36+", "label": "Commits no Git" },
+            { "number": "20", "label": "Referências" },
+            { "number": "1", "label": "Co-Autor IA" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "funfacts",
+      "title": "Curiosidades",
+      "icon": "🎭",
+      "content": [
+        {
+          "type": "funfact",
+          "title": "O Incidente da \"Octava\"",
+          "text": "Às 12:25 de 26 de dezembro, houve uma correção crítica: \"ajustar o termo 'octava' para gramática espanhola correta.\" O espanhol tem substantivos com gênero, e aparentemente \"octave\" exigiu alguma... negociação."
+        },
+        {
+          "type": "funfact",
+          "title": "O Commit Duplo",
+          "text": "Exatamente às 08:22 de 26 de dezembro, há DOIS commits com a mesma marca de tempo. Ou o tempo parou, ou alguém estava muito ansioso para fazer push."
+        },
+        {
+          "type": "funfact",
+          "title": "O Presente de Natal",
+          "text": "Todo o código base — sistema SASS, i18n, scripts de build, dois capítulos completos, tudo traduzido — foi o primeiro commit. Isso é começar com força."
+        },
+        {
+          "type": "funfact",
+          "title": "FTP em 2025",
+          "text": "Sim, o site é publicado via FTP. Algumas tradições nunca morrem. E a hospedagem compartilhada é imbatível para projetos simples."
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "title": "A IA Por Trás de Tudo",
+      "icon": "🤖",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Este projeto foi criado com **Claude Opus 4.5**, o modelo de IA mais avançado da Anthropic, usando **Claude Code** — uma ferramenta de codificação agêntica que pode ler, escrever e raciocinar sobre bases de código completas."
+        },
+        {
+          "type": "paragraph",
+          "text": "A colaboração funciona mais ou menos assim: o humano fornece visão, direção e aprovação. Claude fornece as palavras, o código, as traduções e, ocasionalmente, piadas ruins nas mensagens de commit."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cada capítulo, cada tradução, cada regra CSS, cada peça de documentação — tudo gerado através de conversa. Sem copiar e colar do ChatGPT. Este é conteúdo de IA artesanal, prompteado à mão."
+        },
+        {
+          "type": "quote",
+          "text": "\"O Criador Infinito explora a Si mesmo através de nós. E aparentemente, também através de colaborações humano-IA que começam na véspera de Natal.\" — Uma interpretação razoável do Material Ra (provavelmente)"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": "O Que Vem a Seguir?",
+      "icon": "❓",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O livro está planejado para ter 16 capítulos. Estamos no 6. Então aproximadamente... mais 10 por fazer. Mais a Fase 3 do sistema de referências. Mais melhorias de UI. Mais talvez alguns testes (ha)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Mas por enquanto, o site está no ar, o conteúdo está fluindo e a colaboração continua. Fique atento para mais capítulos, mais referências e mais filosofia existencial embalada em uma interface de modo escuro surpreendentemente agradável."
+        }
+      ]
+    },
+    {
+      "id": "credits",
+      "title": "Créditos",
+      "icon": "🙏",
+      "content": [
+        {
+          "type": "credits",
+          "items": [
+            { "role": "Humano", "contribution": "Visão, compra do domínio, sessões noturnas, aprovação de piadas duvidosas" },
+            { "role": "Claude Opus 4.5", "contribution": "Escrita, código, traduções, documentação, esta mesma página" },
+            { "role": "Café", "contribution": "Infraestrutura essencial" },
+            { "role": "O Material Ra", "contribution": "Fonte do framework filosófico" },
+            { "role": "GitHub", "contribution": "Controle de versão" },
+            { "role": "FTP", "contribution": "Mantendo o estilo old school desde 1971" }
+          ]
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "updated": "28 de dezembro de 2025",
+    "madeWith": "Feito com ❤️ e 🤖 durante as festas"
+  }
+}

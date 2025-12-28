@@ -467,6 +467,151 @@ ${generateScripts()}
   return html;
 }
 
+// Generate About page content
+function generateAboutContent(about) {
+  let html = `            <article class="chapter about-page">\n`;
+  html += `                <header class="ch-head">\n`;
+  html += `                    <h1 class="ch-title">${about.title}</h1>\n`;
+  html += `                    <p class="about-subtitle">${about.subtitle}</p>\n`;
+  html += `                </header>\n\n`;
+
+  about.sections.forEach((section, index) => {
+    html += `                <section class="section" id="${section.id}">\n`;
+    html += `                    <h2 class="sec-title">${section.icon ? section.icon + ' ' : ''}${section.title}</h2>\n`;
+
+    section.content.forEach(block => {
+      if (block.type === 'paragraph') {
+        let text = block.text;
+        text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+        html += `                    <p>${text}</p>\n`;
+      } else if (block.type === 'quote') {
+        let text = block.text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+        html += `                    <div class="quote">${text}</div>\n`;
+      } else if (block.type === 'timeline') {
+        html += `                    <div class="about-timeline">\n`;
+        block.items.forEach(item => {
+          html += `                        <div class="timeline-item"><span class="timeline-time">${item.time}</span><span class="timeline-text">${item.text}</span></div>\n`;
+        });
+        html += `                    </div>\n`;
+      } else if (block.type === 'stats') {
+        html += `                    <div class="about-stats">\n`;
+        block.items.forEach(item => {
+          html += `                        <div class="stat"><div class="stat-number">${item.number}</div><div class="stat-label">${item.label}</div></div>\n`;
+        });
+        html += `                    </div>\n`;
+      } else if (block.type === 'funfact') {
+        html += `                    <div class="about-funfact">\n`;
+        html += `                        <div class="funfact-title">${block.title}</div>\n`;
+        html += `                        <p>${block.text}</p>\n`;
+        html += `                    </div>\n`;
+      } else if (block.type === 'credits') {
+        html += `                    <div class="about-credits">\n`;
+        block.items.forEach(item => {
+          html += `                        <p><strong>${item.role}:</strong> ${item.contribution}</p>\n`;
+        });
+        html += `                    </div>\n`;
+      }
+    });
+
+    html += `                </section>\n`;
+    if (index < about.sections.length - 1) {
+      html += `\n                <div class="divider">· · ·</div>\n\n`;
+    }
+  });
+
+  html += `\n                <footer class="about-footer">\n`;
+  html += `                    <p>${about.footer.updated}</p>\n`;
+  html += `                    <p>${about.footer.madeWith}</p>\n`;
+  html += `                </footer>\n`;
+  html += `            </article>\n`;
+  return html;
+}
+
+// Generate navigation sidebar for About page
+function generateAboutNav(chapters, about, ui, lang, allLangs) {
+  const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
+
+  let html = `        <nav class="nav" id="sidebar">\n`;
+  html += `            <div class="nav-head">\n`;
+  html += `                <a href="${langPrefix}/" class="nav-title">${ui.siteTitle}</a>\n`;
+  html += `                <div class="lang">`;
+
+  // Language links - switch to about in other language
+  allLangs.forEach((l, i) => {
+    const href = l === BASE_LANG ? '/about/' : `/${l}/about/`;
+    const active = l === lang ? ' class="active"' : '';
+    html += `<a href="${href}"${active}>${l.toUpperCase()}</a>`;
+    if (i < allLangs.length - 1) html += ' | ';
+  });
+
+  html += `</div>\n`;
+  html += `            </div>\n`;
+
+  // Back to index link
+  html += `            <div class="nav-back">\n`;
+  html += `                <a href="${langPrefix}/" class="nav-link">← ${ui.nav.backToIndex}</a>\n`;
+  html += `            </div>\n`;
+
+  html += `            <div class="nav-section">\n`;
+  html += `                <div class="nav-section-title">${about.title}</div>\n`;
+
+  // Section links for about page
+  about.sections.forEach(sec => {
+    html += `                <a href="#${sec.id}" class="nav-link sub" onclick="if(window.innerWidth<=1100)closeAll()">${sec.icon ? sec.icon + ' ' : ''}${sec.title}</a>\n`;
+  });
+
+  html += `            </div>\n`;
+
+  // Chapters section
+  html += `            <div class="nav-section" style="margin-top:1.5rem">\n`;
+  html += `                <div class="nav-section-title">${ui.parts.foundations}</div>\n`;
+  chapters.forEach(ch => {
+    const chapterHref = `${langPrefix}/ch${ch.number}/`;
+    html += `                <a href="${chapterHref}" class="nav-link">${ui.nav.chapter} ${ch.number}: ${ch.title}</a>\n`;
+  });
+  html += `            </div>\n`;
+
+  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
+  html += `                ${ui.meta.chapters}<br>${ui.meta.version}\n`;
+  html += `            </div>\n`;
+  html += `        </nav>\n`;
+  return html;
+}
+
+// Generate About page
+function generateAboutPage(lang, chapters, about, glossary, ui, allLangs, version) {
+  const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
+  const pagePath = '/about/';
+  const cssPath = lang === BASE_LANG ? '../' : '../../';
+  const pageTitle = about.title;
+
+  let html = generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle, false);
+
+  html += `<body>
+    <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
+    <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
+    <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+    <div class="layout">
+        <main class="main">
+`;
+
+  html += generateAboutContent(about);
+  html += `        </main>\n\n`;
+  html += generateAboutNav(chapters, about, ui, lang, allLangs);
+  html += '\n';
+  html += generateNotes(glossary, null, ui);
+  html += `    </div>
+
+${generateScripts()}
+</body>
+</html>`;
+
+  return html;
+}
+
 // Generate individual chapter page
 function generateChapterPage(lang, chapters, chapterIndex, glossary, references, ui, allLangs, version) {
   const chapter = chapters[chapterIndex];
@@ -592,6 +737,23 @@ function build() {
       fs.writeFileSync(chapterPath, chapterHtml);
       console.log(`   ✅ ${chapterPath}`);
     });
+
+    // Generate About page
+    const about = loadJSON(path.join(I18N_DIR, lang, 'about.json'));
+    if (about) {
+      const aboutDir = lang === BASE_LANG
+        ? path.join(DIST_DIR, 'about')
+        : path.join(DIST_DIR, lang, 'about');
+
+      if (!fs.existsSync(aboutDir)) {
+        fs.mkdirSync(aboutDir, { recursive: true });
+      }
+
+      const aboutHtml = generateAboutPage(lang, chapters, about, glossary, ui, LANGUAGES, version);
+      const aboutPath = path.join(aboutDir, 'index.html');
+      fs.writeFileSync(aboutPath, aboutHtml);
+      console.log(`   ✅ ${aboutPath}`);
+    }
   });
 
   // Copy og-image if exists
