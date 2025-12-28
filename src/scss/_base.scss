@@ -33,3 +33,22 @@ body {
     z-index: -1;
   }
 }
+
+// Links - AAA accessible (7:1+ contrast on dark bg)
+a {
+  color: $gold;
+  text-decoration: underline;
+  text-decoration-color: rgba($gold, 0.4);
+  text-underline-offset: 3px;
+  transition: all 0.2s;
+
+  &:hover,
+  &:focus {
+    color: lighten($gold, 15%);
+    text-decoration-color: $gold;
+  }
+
+  &:visited {
+    color: desaturate($gold, 20%);
+  }
+}

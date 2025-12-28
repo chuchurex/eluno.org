@@ -27,7 +27,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Three languages from day one. Not because it was efficient, but because the material speaks of unity across apparent separation—and what better way to demonstrate this than by tripling the translation workload from the start?"
+          "text": "Three languages from day one. Spanish and Portuguese because they are languages close to the author, allowing verification of translation fidelity. But also because this trilingual architecture from the start will facilitate future expansion to other languages—an investment in the accessibility this material deserves."
         },
         {
           "type": "paragraph",
@@ -92,16 +92,33 @@
       ]
     },
     {
+      "id": "publications",
+      "title": "Publication Log",
+      "content": [
+        {
+          "type": "timeline",
+          "items": [
+            { "time": "Dec-25 19:50", "text": "Chapters 1-2: Cosmology and Genesis, The Creator and Creation" },
+            { "time": "Dec-25 23:16", "text": "Chapter 3: The Densities of Consciousness" },
+            { "time": "Dec-26 13:32", "text": "Chapter 4: The Hierarchy of Beings" },
+            { "time": "Dec-26 16:56", "text": "Chapter 5: Polarity—The Two Paths" },
+            { "time": "Dec-26 21:55", "text": "Chapter 6: Wanderers—Star Seeds Among Us" },
+            { "time": "Dec-28 17:07", "text": "Chapter 8: The Veil of Forgetting" }
+          ]
+        }
+      ]
+    },
+    {
       "id": "stats",
       "title": "Quantified",
       "content": [
         {
           "type": "stats",
           "items": [
-            { "number": "4", "label": "Days Elapsed" },
-            { "number": "6", "label": "Chapters Complete" },
+            { "number": "5", "label": "Days Elapsed" },
+            { "number": "7", "label": "Chapters Complete" },
             { "number": "3", "label": "Languages" },
-            { "number": "38+", "label": "Git Commits" },
+            { "number": "50+", "label": "Git Commits" },
             { "number": "20", "label": "References" },
             { "number": "1", "label": "AI Collaborator" }
           ]
@@ -161,7 +178,7 @@
     }
   ],
   "footer": {
-    "updated": "December 28, 2025",
+    "updated": "Last updated: December 28, 2025, 17:07",
     "madeWith": "Assembled with care and curiosity"
   }
 }

@@ -368,6 +368,7 @@ node scripts/translate-chapter.js 06
 4. **No olvidar los {term:...} tags** - Deben permanecer intactos
 5. **No ejecutar build antes de actualizar navegación** - Orden importa
 6. **No ignorar términos compuestos con guión** - Ver caso especial abajo
+7. **🚨 CRÍTICO: No inventar IDs de términos** - Los IDs dentro de `{term:xxx}` DEBEN coincidir EXACTAMENTE con las claves del glosario. Ver regla de oro abajo.
 
 ### ✅ HACER
 
@@ -385,6 +386,56 @@ node scripts/translate-chapter.js 06
 **Causa:** El sistema de build busca coincidencia EXACTA del ID en el glosario. Si solo existe `"densities"` pero no `"third-density"`, no encontrará la traducción.
 
 **Solución:** Agregar entrada específica en glosario ES y PT:
+
+---
+
+### 🚨 REGLA DE ORO: IDs de Términos del Glosario
+
+**NUNCA** uses un ID de término que no exista en el glosario. Los IDs son claves del JSON, NO traducciones.
+
+**Ejemplo del error común (Capítulo 8):**
+
+❌ **INCORRECTO:**
+```json
+"text": "...propicia para la {term:polarization}..."
+```
+El ID `polarization` NO existe en el glosario. El ID correcto es `polarity`.
+
+✅ **CORRECTO:**
+```json
+"text": "...propicia para la {term:polarity}..."
+```
+
+**Proceso de verificación obligatorio:**
+
+1. Antes de usar `{term:xxx}`, verificar que `"xxx"` existe como clave en `i18n/es/glossary.json`
+2. Los IDs son en inglés y son los mismos en todos los idiomas
+3. Si el término no existe, **agregarlo primero** al glosario en los 3 idiomas
+
+**IDs correctos vs. IDs inventados (ejemplos reales):**
+
+| ❌ Incorrecto | ✅ Correcto | Razón |
+|--------------|-------------|-------|
+| `{term:polarization}` | `{term:polarity}` | El glosario usa "polarity" |
+| `{term:mind-body-spirit-complex}` | `{term:mind-body-spirit}` | El glosario usa "mind-body-spirit" |
+| `{term:higher-self}` | `{term:higher-self}` | ✅ Ahora existe (agregado en Ch8 fix) |
+| `{term:adept}` | `{term:adept}` | ✅ Ahora existe (agregado en Ch8 fix) |
+
+**Validación post-traducción:**
+
+```bash
+# Extraer todos los {term:xxx} del capítulo
+grep -oE '\{term:[^}]+\}' i18n/es/chapters/08.json | sort -u
+
+# Verificar que cada uno existe en el glosario
+for term in $(grep -oE '\{term:[^}]+\}' i18n/es/chapters/08.json | sed 's/{term:\([^}]*\)}/\1/' | sort -u); do
+  if ! grep -q "\"$term\":" i18n/es/glossary.json; then
+    echo "⚠️  Término faltante: $term"
+  fi
+done
+```
+
+**Solución:**
 
 ```json
 {
@@ -426,15 +477,20 @@ Cuando recibas el santo y seña:
 **Ejecuta este protocolo:**
 
 1. ✅ Leer `i18n/en/chapters/0X.json`
-2. ✅ Generar traducción ES usando prompt template + glosario
-3. ✅ Generar traducción PT usando prompt template + glosario
-4. ✅ Guardar `i18n/es/chapters/0X.json`
-5. ✅ Guardar `i18n/pt/chapters/0X.json`
-6. ✅ Actualizar navegación en `index.html`
-7. ✅ Actualizar navegación en `es/index.html` (si existe)
-8. ✅ Ejecutar `npm run build`
-9. ✅ Crear commits (2) con mensajes template
-10. ✅ Push a `origin/main`
+2. ✅ Verificar que cada `{term:xxx}` existe en el glosario (ver Regla de Oro)
+3. ✅ Generar traducción ES usando prompt template + glosario
+4. ✅ Generar traducción PT usando prompt template + glosario
+5. ✅ Guardar `i18n/es/chapters/0X.json`
+6. ✅ Guardar `i18n/pt/chapters/0X.json`
+7. ✅ Actualizar navegación en `index.html`
+8. ✅ Actualizar navegación en `es/index.html` (si existe)
+9. ✅ **Actualizar About en los 3 idiomas:**
+   - Agregar entrada al "Registro de Publicaciones" con fecha/hora
+   - Actualizar estadísticas (capítulos, commits)
+   - Actualizar footer con fecha de última actualización
+10. ✅ Ejecutar `npm run build`
+11. ✅ Crear commits con mensajes template
+12. ✅ Push a `origin/main`
 
 ### Validaciones Obligatorias
 

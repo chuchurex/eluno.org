@@ -27,7 +27,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Tres idiomas desde el día uno. No porque fuera eficiente, sino porque el material habla de unidad a través de la separación aparente—¿y qué mejor forma de demostrarlo que triplicando la carga de traducción desde el inicio?"
+          "text": "Tres idiomas desde el día uno. Español y portugués porque son idiomas cercanos al autor que permiten verificar la fidelidad de las traducciones. Pero también porque esta arquitectura trilingüe desde el inicio facilitará la expansión futura a otros idiomas—una inversión en la accesibilidad que el material merece."
         },
         {
           "type": "paragraph",
@@ -92,16 +92,33 @@
       ]
     },
     {
+      "id": "publications",
+      "title": "Registro de Publicaciones",
+      "content": [
+        {
+          "type": "timeline",
+          "items": [
+            { "time": "25-Dic 19:50", "text": "Capítulos 1-2: Cosmología y Génesis, El Creador y la Creación" },
+            { "time": "25-Dic 23:16", "text": "Capítulo 3: Las Densidades de Consciencia" },
+            { "time": "26-Dic 13:32", "text": "Capítulo 4: La Jerarquía de los Seres" },
+            { "time": "26-Dic 16:56", "text": "Capítulo 5: Polaridad—Los Dos Caminos" },
+            { "time": "26-Dic 21:55", "text": "Capítulo 6: Errantes—Semillas Estelares entre Nosotros" },
+            { "time": "28-Dic 17:07", "text": "Capítulo 8: El Velo del Olvido" }
+          ]
+        }
+      ]
+    },
+    {
       "id": "stats",
       "title": "Cuantificado",
       "content": [
         {
           "type": "stats",
           "items": [
-            { "number": "4", "label": "Días Transcurridos" },
-            { "number": "6", "label": "Capítulos Completos" },
+            { "number": "5", "label": "Días Transcurridos" },
+            { "number": "7", "label": "Capítulos Completos" },
             { "number": "3", "label": "Idiomas" },
-            { "number": "38+", "label": "Commits en Git" },
+            { "number": "50+", "label": "Commits en Git" },
             { "number": "20", "label": "Referencias" },
             { "number": "1", "label": "Colaborador IA" }
           ]
@@ -161,7 +178,7 @@
     }
   ],
   "footer": {
-    "updated": "28 de diciembre de 2025",
+    "updated": "Última actualización: 28 de diciembre de 2025, 17:07",
     "madeWith": "Ensamblado con cuidado y curiosidad"
   }
 }
