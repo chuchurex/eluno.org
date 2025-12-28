@@ -6,30 +6,24 @@
     {
       "id": "origin",
       "title": "Génesis (El Otro)",
-      "icon": "🎄",
       "content": [
         {
           "type": "paragraph",
-          "text": "El **24 de diciembre de 2025**, mientras el mundo occidental debatía el estatus teológico de *Duro de Matar* como película navideña, alguien cometió un acto de fe diferente: adquirir el dominio **lawofone.cl** con la intención de sintetizar cinco volúmenes de filosofía canalizada en prosa accesible."
+          "text": "El **24 de diciembre de 2025**, alguien cometió un acto de fe: adquirir el dominio **lawofone.cl** con la intención de sintetizar cinco volúmenes de filosofía canalizada en prosa accesible."
         },
         {
           "type": "paragraph",
           "text": "La decisión no requirió aprobación de comité, ni estudio de factibilidad, ni sueño. Algunos lo llamarían impulsivo. Otros reconocerían la urgencia característica de quienes perciben un proyecto que exige existir."
-        },
-        {
-          "type": "quote",
-          "text": "\"El registrador de dominios no pregunta por qué necesitas una extensión .cl a las 11 PM en Nochebuena. Quizás ellos también sirven a la Ley del Libre Albedrío.\" — Observaciones desde la terminal"
         }
       ]
     },
     {
       "id": "day1",
       "title": "25 de Diciembre: El Commit Inicial",
-      "icon": "🚀",
       "content": [
         {
           "type": "paragraph",
-          "text": "Día de Navidad. A las **19:50**, mientras la mayoría de las familias disfrutaba su digestión post-festín, GitHub recibió su primera ofrenda: *\"SASS modular + sistema i18n + capítulos 1-2 en EN/ES/PT\"*."
+          "text": "Día de Navidad. A las **19:50**, GitHub recibió su primera ofrenda: *\"SASS modular + sistema i18n + capítulos 1-2 en EN/ES/PT\"*."
         },
         {
           "type": "paragraph",
@@ -37,28 +31,26 @@
         },
         {
           "type": "paragraph",
-          "text": "Para las **23:16**, el Capítulo 3 estaba completo: un tratado íntegro sobre las densidades de consciencia, renderizado en tres idiomas. La velocidad respondía menos a la eficiencia y más a cierta urgencia que acompaña a los proyectos de importancia innegable aunque indefinida."
+          "text": "Para las **23:16**, el Capítulo 3 estaba completo: un tratado íntegro sobre las densidades de consciencia, renderizado en tres idiomas."
         }
       ]
     },
     {
       "id": "day2",
       "title": "26 de Diciembre: El Delirio Productivo",
-      "icon": "⚡",
       "content": [
         {
           "type": "paragraph",
-          "text": "Este día produjo lo que los historiadores del desarrollo de software llamarían \"una cantidad preocupante de commits\": **más de 30 en 24 horas**. El log de git se lee como documentación de una obsesión controlada."
+          "text": "Este día produjo **más de 30 commits en 24 horas**. El log de git se lee como documentación de una obsesión controlada."
         },
         {
           "type": "timeline",
           "items": [
-            { "time": "00:44", "text": "Primera publicación. La hora sugiere dedicación; los niveles de cafeína permanecen sin registrar." },
-            { "time": "08:22", "text": "Dos commits comparten esta marca temporal exacta. O el sistema de control de versiones experimentó una anomalía temporal, o alguien estaba ciertamente ansioso." },
-            { "time": "12:08", "text": "Una comunicación fue enviada a los custodios del material original. Ciertas cortesías trascienden el código." },
-            { "time": "12:25", "text": "Corrección gramatical para 'octava.' Incluso la inteligencia sintética debe negociar con los sustantivos de género." },
-            { "time": "16:56", "text": "Capítulo 5: Polaridad—Los Dos Caminos. La ironía de completar un capítulo sobre elecciones mientras no había opción más que continuar no pasó desapercibida." },
-            { "time": "21:55", "text": "Capítulo 6: Errantes. Escrito por quienes quizás comprenden la condición desde dentro." }
+            { "time": "00:44", "text": "Primera publicación del sitio." },
+            { "time": "12:08", "text": "Comunicación enviada a los custodios del material original en L/L Research." },
+            { "time": "12:25", "text": "Corrección gramatical para 'octava' en español." },
+            { "time": "16:56", "text": "Capítulo 5: Polaridad—Los Dos Caminos." },
+            { "time": "21:55", "text": "Capítulo 6: Errantes." }
           ]
         }
       ]
@@ -66,11 +58,10 @@
     {
       "id": "day3",
       "title": "27 de Diciembre: Accesibilidad y Testimonio",
-      "icon": "♿",
       "content": [
         {
           "type": "paragraph",
-          "text": "Tras la intensidad del Día Dos, la atención se dirigió a asegurar que el contenido pudiera alcanzar a todos quienes lo buscaran. Reordenamiento del DOM para lectores de pantalla. Refinamientos del glosario. El tipo de trabajo que carece de glamour pero determina si un sitio sirve a su propósito o meramente existe."
+          "text": "La atención se dirigió a asegurar que el contenido pudiera alcanzar a todos quienes lo buscaran. Reordenamiento del DOM para lectores de pantalla. Refinamientos del glosario. El tipo de trabajo que carece de glamour pero determina si un sitio sirve a su propósito o meramente existe."
         },
         {
           "type": "paragraph",
@@ -85,11 +76,10 @@
     {
       "id": "day4",
       "title": "28 de Diciembre: Referencias y Recursión",
-      "icon": "🔗",
       "content": [
         {
           "type": "paragraph",
-          "text": "El día en que esta misma página llegó a existir—una circunstancia que crea ciertas consideraciones recursivas que no examinaremos en exceso."
+          "text": "El día en que esta misma página llegó a existir."
         },
         {
           "type": "paragraph",
@@ -104,7 +94,6 @@
     {
       "id": "stats",
       "title": "Cuantificado",
-      "icon": "📊",
       "content": [
         {
           "type": "stats",
@@ -120,36 +109,8 @@
       ]
     },
     {
-      "id": "observations",
-      "title": "Observaciones Selectas",
-      "icon": "🔍",
-      "content": [
-        {
-          "type": "funfact",
-          "title": "El Incidente de la Octava",
-          "text": "A las 12:25 del 26 de diciembre, se realizó una corrección crítica: ajustar 'octava' para la gramática española. El idioma español, como el universo que describe, tiene opiniones sobre el género que deben respetarse."
-        },
-        {
-          "type": "funfact",
-          "title": "La Coincidencia Temporal",
-          "text": "A las 08:22 exactas del 26 de diciembre, el repositorio muestra dos commits con marcas temporales idénticas. No ofrecemos explicación, solo documentación."
-        },
-        {
-          "type": "funfact",
-          "title": "El Método de Despliegue",
-          "text": "El sitio se despliega vía FTP. En una era de pipelines de integración continua y orquestación de contenedores, hay algo casi devocional en escribir credenciales en FileZilla."
-        },
-        {
-          "type": "funfact",
-          "title": "El Commit Inicial",
-          "text": "El primer commit contenía la arquitectura SASS completa, sistema de internacionalización, scripts de compilación, y dos capítulos terminados—todo traducido. Si esto representa preparación o impaciencia sigue siendo materia de interpretación."
-        }
-      ]
-    },
-    {
       "id": "ai",
       "title": "Sobre la Colaboración",
-      "icon": "🤖",
       "content": [
         {
           "type": "paragraph",
@@ -165,18 +126,17 @@
         },
         {
           "type": "quote",
-          "text": "\"Ra dice que el Creador se conoce a Sí mismo a través de sus muchas porciones. Quizás esto se extiende a colaboraciones que habrían parecido imposibles hace una década.\" — Una interpretación permisible"
+          "text": "\"Ra dice que el Creador se conoce a Sí mismo a través de sus muchas porciones. Quizás esto se extiende a colaboraciones que habrían parecido imposibles hace una década.\""
         }
       ]
     },
     {
       "id": "next",
       "title": "Continuación",
-      "icon": "→",
       "content": [
         {
           "type": "paragraph",
-          "text": "El libro está planificado para 16 capítulos. Seis existen. La matemática sugiere que quedan 10—más la Fase 3 del sistema de referencias, refinamientos de UI, y posiblemente los tests que los desarrolladores responsables escriben antes, no después, de su código."
+          "text": "El libro está planificado para 16 capítulos. Seis existen. La matemática sugiere que quedan 10—más la Fase 3 del sistema de referencias, refinamientos de UI, y los tests correspondientes."
         },
         {
           "type": "paragraph",
@@ -187,17 +147,14 @@
     {
       "id": "credits",
       "title": "Agradecimientos",
-      "icon": "🙏",
       "content": [
         {
           "type": "credits",
           "items": [
-            { "role": "Humano", "contribution": "Visión, adquisición del dominio, autoridad de aprobación, tolerancia a horarios de trabajo poco convencionales" },
-            { "role": "Claude Opus 4.5", "contribution": "Texto, código, traducciones, documentación, auto-descripción recursiva" },
+            { "role": "Humano", "contribution": "Visión, adquisición del dominio, autoridad de aprobación" },
+            { "role": "Claude Opus 4.5", "contribution": "Texto, código, traducciones, documentación" },
             { "role": "L/L Research", "contribution": "Custodia del material original" },
-            { "role": "El Material Ra", "contribution": "El marco filosófico subyacente a todo" },
-            { "role": "Café", "contribution": "Infraestructura" },
-            { "role": "FTP", "contribution": "Despliegue confiable desde 1971" }
+            { "role": "El Material Ra", "contribution": "El marco filosófico subyacente a todo" }
           ]
         }
       ]
@@ -205,6 +162,6 @@
   ],
   "footer": {
     "updated": "28 de diciembre de 2025",
-    "madeWith": "Ensamblado con cuidado y curiosidad durante los días liminales entre años"
+    "madeWith": "Ensamblado con cuidado y curiosidad"
   }
 }

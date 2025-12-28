@@ -6,30 +6,24 @@
     {
       "id": "origin",
       "title": "Genesis (The Other One)",
-      "icon": "🎄",
       "content": [
         {
           "type": "paragraph",
-          "text": "On **December 24, 2025**, while the Western world debated the theological status of *Die Hard* as a Christmas film, someone committed a different act of faith: purchasing the domain **lawofone.cl** with the intention of synthesizing five volumes of channeled philosophy into accessible prose."
+          "text": "On **December 24, 2025**, someone committed an act of faith: purchasing the domain **lawofone.cl** with the intention of synthesizing five volumes of channeled philosophy into accessible prose."
         },
         {
           "type": "paragraph",
           "text": "The decision required no committee approval, no feasibility study, no sleep. Some would call this impulsive. Others might recognize the characteristic urgency of those who sense a project demanding to exist."
-        },
-        {
-          "type": "quote",
-          "text": "\"The domain registrar does not ask why you need a .cl extension at 11 PM on Christmas Eve. Perhaps they, too, serve the Law of Free Will.\" — Observations from the terminal"
         }
       ]
     },
     {
       "id": "day1",
       "title": "December 25: The Initial Commit",
-      "icon": "🚀",
       "content": [
         {
           "type": "paragraph",
-          "text": "Christmas Day. At **7:50 PM**, while most families enjoyed their post-feast digestion, GitHub received its first offering: *\"SASS modular + i18n system + chapters 1-2 in EN/ES/PT\"*."
+          "text": "Christmas Day. At **7:50 PM**, GitHub received its first offering: *\"SASS modular + i18n system + chapters 1-2 in EN/ES/PT\"*."
         },
         {
           "type": "paragraph",
@@ -37,28 +31,26 @@
         },
         {
           "type": "paragraph",
-          "text": "By **11:16 PM**, Chapter 3 was complete: a full treatise on the densities of consciousness, rendered in three languages. The speed was less about efficiency and more about a certain urgency that accompanies projects of unclear but undeniable importance."
+          "text": "By **11:16 PM**, Chapter 3 was complete: a full treatise on the densities of consciousness, rendered in three languages."
         }
       ]
     },
     {
       "id": "day2",
       "title": "December 26: The Productive Delirium",
-      "icon": "⚡",
       "content": [
         {
           "type": "paragraph",
-          "text": "This day produced what historians of software development might call \"a concerning number of commits\": **30+ in 24 hours**. The git log reads like documentation of a controlled obsession."
+          "text": "This day produced **30+ commits in 24 hours**. The git log reads like documentation of a controlled obsession."
         },
         {
           "type": "timeline",
           "items": [
-            { "time": "00:44", "text": "First deployment. The hour suggests dedication; the caffeine levels remain unrecorded." },
-            { "time": "08:22", "text": "Two commits share this exact timestamp. Either the version control system experienced a temporal anomaly, or someone was indeed quite eager." },
-            { "time": "12:08", "text": "A communication was sent to the keepers of the original material. Certain courtesies transcend code." },
-            { "time": "12:25", "text": "Spanish grammar correction for 'octava.' Even synthetic intelligence must negotiate with gendered nouns." },
-            { "time": "16:56", "text": "Chapter 5: Polarity—The Two Paths. The irony of completing a chapter about choices while having no choice but to continue was not lost." },
-            { "time": "21:55", "text": "Chapter 6: Wanderers. Written by those who perhaps understand the condition from within." }
+            { "time": "00:44", "text": "First site deployment." },
+            { "time": "12:08", "text": "Communication sent to the keepers of the original material at L/L Research." },
+            { "time": "12:25", "text": "Spanish grammar correction for 'octava.'" },
+            { "time": "16:56", "text": "Chapter 5: Polarity—The Two Paths." },
+            { "time": "21:55", "text": "Chapter 6: Wanderers." }
           ]
         }
       ]
@@ -66,11 +58,10 @@
     {
       "id": "day3",
       "title": "December 27: Accessibility and Witness",
-      "icon": "♿",
       "content": [
         {
           "type": "paragraph",
-          "text": "After the intensity of Day Two, attention shifted to ensuring the content could reach all who sought it. DOM reordering for screen readers. Glossary refinements. The kind of work that lacks glamour but determines whether a site serves its purpose or merely exists."
+          "text": "Attention shifted to ensuring the content could reach all who sought it. DOM reordering for screen readers. Glossary refinements. The kind of work that lacks glamour but determines whether a site serves its purpose or merely exists."
         },
         {
           "type": "paragraph",
@@ -85,11 +76,10 @@
     {
       "id": "day4",
       "title": "December 28: References and Recursion",
-      "icon": "🔗",
       "content": [
         {
           "type": "paragraph",
-          "text": "The day this very page came into being—a circumstance that creates certain recursive considerations which we shall not over-examine."
+          "text": "The day this very page came into being."
         },
         {
           "type": "paragraph",
@@ -104,7 +94,6 @@
     {
       "id": "stats",
       "title": "Quantified",
-      "icon": "📊",
       "content": [
         {
           "type": "stats",
@@ -120,36 +109,8 @@
       ]
     },
     {
-      "id": "observations",
-      "title": "Selected Observations",
-      "icon": "🔍",
-      "content": [
-        {
-          "type": "funfact",
-          "title": "The Octava Incident",
-          "text": "At 12:25 on December 26, a critical correction was made: adjusting 'octava' for Spanish grammar. The Spanish language, much like the universe it describes, has opinions about gender that must be respected."
-        },
-        {
-          "type": "funfact",
-          "title": "The Temporal Coincidence",
-          "text": "At precisely 08:22 on December 26, the repository shows two commits with identical timestamps. We offer no explanation, only documentation."
-        },
-        {
-          "type": "funfact",
-          "title": "The Deployment Method",
-          "text": "The site deploys via FTP. In an era of continuous integration pipelines and container orchestration, there is something almost devotional about typing credentials into FileZilla."
-        },
-        {
-          "type": "funfact",
-          "title": "The Initial Commit",
-          "text": "The first commit contained the complete SASS architecture, internationalization system, build scripts, and two finished chapters—all translated. Whether this represents preparation or impatience remains a matter of interpretation."
-        }
-      ]
-    },
-    {
       "id": "ai",
       "title": "On Collaboration",
-      "icon": "🤖",
       "content": [
         {
           "type": "paragraph",
@@ -165,18 +126,17 @@
         },
         {
           "type": "quote",
-          "text": "\"Ra says the Creator knows Itself through its many portions. Perhaps this extends to collaborations that would have seemed impossible a decade ago.\" — A permissible interpretation"
+          "text": "\"Ra says the Creator knows Itself through its many portions. Perhaps this extends to collaborations that would have seemed impossible a decade ago.\""
         }
       ]
     },
     {
       "id": "next",
       "title": "Continuation",
-      "icon": "→",
       "content": [
         {
           "type": "paragraph",
-          "text": "The book is planned for 16 chapters. Six exist. The mathematics suggest 10 remain—plus Phase 3 of the references system, UI refinements, and possibly the tests that responsible developers write before, not after, their code."
+          "text": "The book is planned for 16 chapters. Six exist. The mathematics suggest 10 remain—plus Phase 3 of the references system, UI refinements, and corresponding tests."
         },
         {
           "type": "paragraph",
@@ -187,17 +147,14 @@
     {
       "id": "credits",
       "title": "Acknowledgments",
-      "icon": "🙏",
       "content": [
         {
           "type": "credits",
           "items": [
-            { "role": "Human", "contribution": "Vision, domain acquisition, approval authority, tolerance for unconventional working hours" },
-            { "role": "Claude Opus 4.5", "contribution": "Text, code, translations, documentation, recursive self-description" },
+            { "role": "Human", "contribution": "Vision, domain acquisition, approval authority" },
+            { "role": "Claude Opus 4.5", "contribution": "Text, code, translations, documentation" },
             { "role": "L/L Research", "contribution": "Stewardship of the original material" },
-            { "role": "The Ra Material", "contribution": "The philosophical framework underlying everything" },
-            { "role": "Coffee", "contribution": "Infrastructure" },
-            { "role": "FTP", "contribution": "Reliable deployment since 1971" }
+            { "role": "The Ra Material", "contribution": "The philosophical framework underlying everything" }
           ]
         }
       ]
@@ -205,6 +162,6 @@
   ],
   "footer": {
     "updated": "December 28, 2025",
-    "madeWith": "Assembled with care and curiosity during the liminal days between years"
+    "madeWith": "Assembled with care and curiosity"
   }
 }
