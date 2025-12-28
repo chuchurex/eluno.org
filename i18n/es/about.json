@@ -103,7 +103,8 @@
             { "time": "26-Dic 13:32", "text": "Capítulo 4: La Jerarquía de los Seres" },
             { "time": "26-Dic 16:56", "text": "Capítulo 5: Polaridad—Los Dos Caminos" },
             { "time": "26-Dic 21:55", "text": "Capítulo 6: Errantes—Semillas Estelares entre Nosotros" },
-            { "time": "28-Dic 17:07", "text": "Capítulo 8: El Velo del Olvido" }
+            { "time": "28-Dic 17:07", "text": "Capítulo 8: El Velo del Olvido" },
+            { "time": "28-Dic 18:17", "text": "Capítulo 9: La Muerte y el Viaje Entre Vidas" }
           ]
         }
       ]
@@ -116,7 +117,7 @@
           "type": "stats",
           "items": [
             { "number": "5", "label": "Días Transcurridos" },
-            { "number": "7", "label": "Capítulos Completos" },
+            { "number": "8", "label": "Capítulos Completos" },
             { "number": "3", "label": "Idiomas" },
             { "number": "50+", "label": "Commits en Git" },
             { "number": "20", "label": "Referencias" },
@@ -178,7 +179,7 @@
     }
   ],
   "footer": {
-    "updated": "Última actualización: 28 de diciembre de 2025, 17:07",
+    "updated": "Última actualización: 28 de diciembre de 2025, 18:17",
     "madeWith": "Ensamblado con cuidado y curiosidad"
   }
 }
