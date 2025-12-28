@@ -52,7 +52,7 @@ function processText(text, glossary, references) {
     text = text.replace(/\{ref:([^}]+)\}/g, (match, refId) => {
       const ref = references[refId];
       if (ref) {
-        return `<sup class="ref" data-ref="${refId}">*</sup>`;
+        return `<sup class="ref" data-ref="${refId}" title="${ref.title}">*</sup>`;
       }
       return match;
     });
