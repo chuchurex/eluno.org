@@ -7,7 +7,12 @@
     "chapter": "Ch",
     "notes": "Notes",
     "notesPanel": "Notes & Definitions",
-    "notesEmpty": "Click any <span class=\"term-hint\">highlighted term</span> in the text to see its definition here."
+    "notesEmpty": "Click any <span class=\"term-hint\">highlighted term</span> in the text to see its definition here.",
+    "tableOfContents": "Table of Contents",
+    "previousChapter": "Previous Chapter",
+    "nextChapter": "Next Chapter",
+    "backToIndex": "Back to Index",
+    "readChapter": "Read chapter"
   },
   "parts": {
     "foundations": "Part I — Foundations"

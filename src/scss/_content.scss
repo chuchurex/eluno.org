@@ -82,3 +82,153 @@
     border-bottom-style: solid;
   }
 }
+
+// =====================================================
+// TABLE OF CONTENTS STYLES
+// =====================================================
+
+.toc-header {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $border;
+}
+
+.toc-title {
+  font-family: $font-heading;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: $text;
+  margin-bottom: $spacing-md;
+}
+
+.toc-subtitle {
+  font-family: $font-body;
+  font-size: 1rem;
+  color: $text2;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.toc-section {
+  margin-bottom: $spacing-xl;
+}
+
+.toc-section-title {
+  font-family: $font-heading;
+  font-size: 1.1rem;
+  color: $gold-dim;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-lg;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1px solid $border;
+}
+
+.toc-chapters {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.toc-chapter {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background: $bg2;
+  border: 1px solid $border;
+  border-radius: $radius-sm;
+  text-decoration: none;
+  color: $text;
+  transition: all 0.2s;
+
+  &:hover {
+    background: $bg3;
+    border-color: $border2;
+    transform: translateX(4px);
+
+    .toc-chapter-arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+  }
+}
+
+.toc-chapter-num {
+  font-family: $font-heading;
+  font-size: 0.75rem;
+  color: $gold-dim;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  min-width: 80px;
+}
+
+.toc-chapter-title {
+  font-family: $font-heading;
+  font-size: 1.2rem;
+  flex: 1;
+}
+
+.toc-chapter-arrow {
+  color: $gold;
+  opacity: 0.5;
+  transition: all 0.2s;
+}
+
+// =====================================================
+// CHAPTER NAVIGATION (Prev/Next)
+// =====================================================
+
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-md;
+  margin-top: $spacing-xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $border;
+}
+
+.chapter-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: $spacing-md;
+  text-decoration: none;
+  color: $text;
+  border: 1px solid $border;
+  border-radius: $radius-sm;
+  transition: all 0.2s;
+  max-width: 45%;
+
+  &:hover:not(.disabled) {
+    background: $bg2;
+    border-color: $border2;
+  }
+
+  &.prev {
+    align-items: flex-start;
+  }
+
+  &.next {
+    align-items: flex-end;
+    margin-left: auto;
+  }
+
+  &.disabled {
+    visibility: hidden;
+  }
+}
+
+.chapter-nav-label {
+  font-family: $font-heading;
+  font-size: 0.8rem;
+  color: $gold-dim;
+  letter-spacing: 0.05em;
+}
+
+.chapter-nav-title {
+  font-family: $font-heading;
+  font-size: 1rem;
+  color: $gold;
+}

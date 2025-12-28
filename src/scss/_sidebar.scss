@@ -28,6 +28,11 @@
   color: $gold;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .lang {
@@ -40,6 +45,21 @@
 
     &:hover,
     &.active {
+      color: $gold;
+    }
+  }
+}
+
+.nav-back {
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1px solid $border;
+
+  .nav-link {
+    font-size: 0.85rem;
+    color: $text2;
+
+    &:hover {
       color: $gold;
     }
   }
@@ -71,6 +91,11 @@
   &:hover {
     color: $gold;
     border-left-color: $gold-dim;
+  }
+
+  &.current {
+    color: $gold;
+    border-left-color: $gold;
   }
 
   &.sub {

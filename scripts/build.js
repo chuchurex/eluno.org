@@ -1,8 +1,23 @@
 /**
  * Build Script for lawofone.cl
- * 
+ *
  * Generates HTML files from JSON content and SASS
  * Supports multiple languages (EN, ES, PT)
+ *
+ * Output structure:
+ *   dist/
+ *   ├── index.html          (TOC - English)
+ *   ├── ch1/index.html      (Chapter 1 - English)
+ *   ├── ch2/index.html      (Chapter 2 - English)
+ *   ├── ...
+ *   ├── es/
+ *   │   ├── index.html      (TOC - Spanish)
+ *   │   ├── ch1/index.html  (Chapter 1 - Spanish)
+ *   │   └── ...
+ *   └── pt/
+ *       ├── index.html      (TOC - Portuguese)
+ *       ├── ch1/index.html  (Chapter 1 - Portuguese)
+ *       └── ...
  */
 
 const fs = require('fs');
@@ -42,7 +57,7 @@ function processText(text, glossary) {
 }
 
 // Generate section HTML
-function generateSection(section, glossary, isFirst = false) {
+function generateSection(section, glossary) {
   let html = `                <section class="section" id="${section.id}">\n`;
   html += `                    <h2 class="sec-title">${section.title}</h2>\n`;
 
@@ -59,8 +74,8 @@ function generateSection(section, glossary, isFirst = false) {
   return html;
 }
 
-// Generate chapter HTML
-function generateChapter(chapter, glossary) {
+// Generate chapter HTML (for chapter page)
+function generateChapterContent(chapter, glossary) {
   let html = `            <article class="chapter" id="${chapter.id}">\n`;
   html += `                <header class="ch-head">\n`;
   html += `                    <div class="ch-num">${chapter.numberText}</div>\n`;
@@ -68,7 +83,7 @@ function generateChapter(chapter, glossary) {
   html += `                </header>\n\n`;
 
   chapter.sections.forEach((section, index) => {
-    html += generateSection(section, glossary, index === 0);
+    html += generateSection(section, glossary);
     if (index < chapter.sections.length - 1) {
       html += `\n                <div class="divider">· · ·</div>\n\n`;
     }
@@ -100,8 +115,78 @@ function generateNotes(glossary, ui) {
   return html;
 }
 
-// Generate navigation sidebar
-function generateNav(chapters, ui, lang, allLangs) {
+// Generate navigation sidebar for chapter page
+function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
+  const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
+
+  let html = `        <nav class="nav" id="sidebar">\n`;
+  html += `            <div class="nav-head">\n`;
+  html += `                <a href="${langPrefix}/" class="nav-title">${ui.siteTitle}</a>\n`;
+  html += `                <div class="lang">`;
+
+  // Language links - switch to same chapter in other language
+  allLangs.forEach((l, i) => {
+    const href = l === BASE_LANG ? `/ch${currentChapter.number}/` : `/${l}/ch${currentChapter.number}/`;
+    const active = l === lang ? ' class="active"' : '';
+    html += `<a href="${href}"${active}>${l.toUpperCase()}</a>`;
+    if (i < allLangs.length - 1) html += ' | ';
+  });
+
+  html += `</div>\n`;
+  html += `            </div>\n`;
+
+  // Back to index link
+  html += `            <div class="nav-back">\n`;
+  html += `                <a href="${langPrefix}/" class="nav-link">← ${ui.nav.backToIndex}</a>\n`;
+  html += `            </div>\n`;
+
+  html += `            <div class="nav-section">\n`;
+  html += `                <div class="nav-section-title">${ui.parts.foundations}</div>\n`;
+
+  // Chapter links
+  chapters.forEach(ch => {
+    const isActive = ch.id === currentChapter.id;
+    const chapterHref = `${langPrefix}/ch${ch.number}/`;
+
+    html += `            <div class="nav-chapter-group${isActive ? ' active' : ''}" id="nav-group-${ch.id}">\n`;
+    html += `                <div class="nav-chapter-header">\n`;
+    html += `                    <a href="${chapterHref}" class="nav-link${isActive ? ' current' : ''}">${ui.nav.chapter} ${ch.number}: ${ch.title}</a>\n`;
+
+    if (isActive) {
+      html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="Toggle sections">▾</button>\n`;
+    }
+
+    html += `                </div>\n`;
+
+    if (isActive) {
+      html += `                <div class="nav-sections-list">\n`;
+      ch.sections.forEach(sec => {
+        html += `                    <a href="#${sec.id}" class="nav-link sub" onclick="if(window.innerWidth<=1100)closeAll()">${sec.title}</a>\n`;
+      });
+      html += `                </div>\n`;
+    }
+
+    html += `            </div>\n`;
+  });
+
+  html += `            </div>\n`;
+
+  // Feedback Link
+  html += `            <div class="nav-footer-links">\n`;
+  html += `                <a href="#feedback-section" class="nav-link feedback-link" onclick="if(window.innerWidth<=1100)closeAll()">✧ ${ui.footer.formSubmit}</a>\n`;
+  html += `            </div>\n`;
+
+  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
+  html += `                ${ui.meta.chapters}<br>${ui.meta.version}\n`;
+  html += `            </div>\n`;
+  html += `        </nav>\n`;
+  return html;
+}
+
+// Generate navigation sidebar for TOC page
+function generateTocNav(chapters, ui, lang, allLangs) {
+  const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
+
   let html = `        <nav class="nav" id="sidebar">\n`;
   html += `            <div class="nav-head">\n`;
   html += `                <div class="nav-title">${ui.siteTitle}</div>\n`;
@@ -122,24 +207,15 @@ function generateNav(chapters, ui, lang, allLangs) {
 
   // Chapter links
   chapters.forEach(ch => {
+    const chapterHref = `${langPrefix}/ch${ch.number}/`;
+
     html += `            <div class="nav-chapter-group" id="nav-group-${ch.id}">\n`;
     html += `                <div class="nav-chapter-header">\n`;
-    html += `                    <a href="#${ch.id}" class="nav-link">${ui.nav.chapter} ${ch.number}: ${ch.title}</a>\n`;
-    html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="Toggle sections">▾</button>\n`;
-    html += `                </div>\n`;
-    html += `                <div class="nav-sections-list">\n`;
-    ch.sections.forEach(sec => {
-      html += `                    <a href="#${sec.id}" class="nav-link sub" onclick="if(window.innerWidth<=1100)closeAll()">${sec.title}</a>\n`;
-    });
+    html += `                    <a href="${chapterHref}" class="nav-link">${ui.nav.chapter} ${ch.number}: ${ch.title}</a>\n`;
     html += `                </div>\n`;
     html += `            </div>\n`;
   });
 
-  html += `            </div>\n`;
-
-  // Feedback Link
-  html += `            <div class="nav-footer-links">\n`;
-  html += `                <a href="#feedback-section" class="nav-link feedback-link" onclick="if(window.innerWidth<=1100)closeAll()">✧ ${ui.footer.formSubmit}</a>\n`;
   html += `            </div>\n`;
 
   html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
@@ -149,35 +225,74 @@ function generateNav(chapters, ui, lang, allLangs) {
   return html;
 }
 
+// Generate chapter navigation (prev/next)
+function generateChapterPrevNext(chapters, currentIndex, ui, lang) {
+  const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
+  const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
+  const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
+
+  let html = `            <nav class="chapter-nav" aria-label="Chapter navigation">\n`;
+
+  if (prevChapter) {
+    html += `                <a href="${langPrefix}/ch${prevChapter.number}/" class="chapter-nav-link prev">\n`;
+    html += `                    <span class="chapter-nav-label">← ${ui.nav.previousChapter}</span>\n`;
+    html += `                    <span class="chapter-nav-title">${prevChapter.title}</span>\n`;
+    html += `                </a>\n`;
+  } else {
+    html += `                <a href="${langPrefix}/" class="chapter-nav-link prev">\n`;
+    html += `                    <span class="chapter-nav-label">← ${ui.nav.backToIndex}</span>\n`;
+    html += `                    <span class="chapter-nav-title">${ui.nav.tableOfContents}</span>\n`;
+    html += `                </a>\n`;
+  }
+
+  if (nextChapter) {
+    html += `                <a href="${langPrefix}/ch${nextChapter.number}/" class="chapter-nav-link next">\n`;
+    html += `                    <span class="chapter-nav-label">${ui.nav.nextChapter} →</span>\n`;
+    html += `                    <span class="chapter-nav-title">${nextChapter.title}</span>\n`;
+    html += `                </a>\n`;
+  } else {
+    html += `                <span class="chapter-nav-link next disabled"></span>\n`;
+  }
+
+  html += `            </nav>\n`;
+  return html;
+}
+
 // Generate footer HTML
-function generateFooter(ui) {
+function generateFooter(ui, showFeedback = true) {
   let html = `            <footer class="footer">\n`;
   html += `                <p>${ui.footer.draft} · ${ui.footer.date}</p>\n`;
-  html += `                <div class="feedback" id="feedback-section">\n`;
-  html += `                    <h3>${ui.footer.feedbackTitle}</h3>\n`;
-  html += `                    <form class="feedback-form" id="feedback-form">\n`;
-  html += `                        <input type="text" id="fb-name" placeholder="${ui.footer.formName}" required>\n`;
-  html += `                        <input type="email" id="fb-email" placeholder="${ui.footer.formEmail}" required>\n`;
-  html += `                        <textarea id="fb-msg" placeholder="${ui.footer.formMessage}" required></textarea>\n`;
-  html += `                        <button type="submit" class="feedback-btn">${ui.footer.formSubmit}</button>\n`;
-  html += `                    </form>\n`;
-  html += `                    <div id="feedback-success" style="display:none; color:var(--gold); margin-top:1rem; font-family:var(--font-heading);">${ui.footer.formSuccess}</div>\n`;
-  html += `                </div>\n`;
+
+  if (showFeedback) {
+    html += `                <div class="feedback" id="feedback-section">\n`;
+    html += `                    <h3>${ui.footer.feedbackTitle}</h3>\n`;
+    html += `                    <form class="feedback-form" id="feedback-form">\n`;
+    html += `                        <input type="text" id="fb-name" placeholder="${ui.footer.formName}" required>\n`;
+    html += `                        <input type="email" id="fb-email" placeholder="${ui.footer.formEmail}" required>\n`;
+    html += `                        <textarea id="fb-msg" placeholder="${ui.footer.formMessage}" required></textarea>\n`;
+    html += `                        <button type="submit" class="feedback-btn">${ui.footer.formSubmit}</button>\n`;
+    html += `                    </form>\n`;
+    html += `                    <div id="feedback-success" style="display:none; color:var(--gold); margin-top:1rem; font-family:var(--font-heading);">${ui.footer.formSuccess}</div>\n`;
+    html += `                </div>\n`;
+  }
+
   html += `            </footer>\n`;
   return html;
 }
 
-// Generate full HTML page
-function generatePage(lang, chapters, glossary, ui, allLangs, version) {
+// Generate HTML head section
+// pagePath is the path without language prefix (e.g., "/", "/ch1/")
+function generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle, includeRedirect = false) {
   const langCode = lang === BASE_LANG ? 'en' : lang;
-  const canonicalPath = lang === BASE_LANG ? '/' : `/${lang}/`;
+  // Full canonical path includes language prefix for non-base languages
+  const canonicalPath = lang === BASE_LANG ? pagePath : `/${lang}${pagePath}`;
 
   let html = `<!DOCTYPE html>
 <html lang="${langCode}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${ui.bookTitle} | lawofone.cl</title>
+    <title>${pageTitle} | lawofone.cl</title>
     <meta name="description" content="${ui.description}">
     <meta name="robots" content="noindex, nofollow">
     <link rel="canonical" href="https://lawofone.cl${canonicalPath}">
@@ -192,15 +307,15 @@ function generatePage(lang, chapters, glossary, ui, allLangs, version) {
     </script>
 `;
 
-  // Hreflang tags
+  // Hreflang tags - pagePath is used to build correct URLs for each language
   allLangs.forEach(l => {
-    const href = l === BASE_LANG ? '/' : `/${l}/`;
+    const href = l === BASE_LANG ? pagePath : `/${l}${pagePath}`;
     html += `    <link rel="alternate" hreflang="${l}" href="https://lawofone.cl${href}">\n`;
   });
 
   html += `    <meta property="og:type" content="book">
     <meta property="og:url" content="https://lawofone.cl${canonicalPath}">
-    <meta property="og:title" content="${ui.bookTitle}">
+    <meta property="og:title" content="${pageTitle}">
     <meta property="og:description" content="${ui.description}">
     <meta property="og:locale" content="${langCode === 'en' ? 'en_US' : langCode === 'es' ? 'es_ES' : 'pt_BR'}">
     <meta name="twitter:card" content="summary_large_image">
@@ -209,49 +324,35 @@ function generatePage(lang, chapters, glossary, ui, allLangs, version) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="${lang === BASE_LANG ? '' : '../'}css/main.css?v=${version}">
-${lang === BASE_LANG ? `    <script>
+    <link rel="stylesheet" href="${cssPath}css/main.css?v=${version}">
+`;
+
+  if (includeRedirect && lang === BASE_LANG) {
+    html += `    <script>
         (function() {
             if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) return;
             var ln = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
             if (ln.indexOf('es') === 0) window.location.href = '/es/';
             else if (ln.indexOf('pt') === 0) window.location.href = '/pt/';
         })();
-    </script>` : ''}
-</head>
-<body>
-    <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
-    <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
-    <div class="overlay" id="overlay" onclick="closeAll()"></div>
-
-    <div class="layout">
-        <main class="main">
+    </script>
 `;
+  }
 
-  // Add chapters
-  chapters.forEach((ch, i) => {
-    html += generateChapter(ch, glossary);
-    if (i < chapters.length - 1) {
-      html += '\n';
-    }
-  });
+  html += `</head>\n`;
+  return html;
+}
 
-  html += '\n';
-  html += generateFooter(ui);
-  html += `        </main>\n\n`;
-  html += generateNav(chapters, ui, lang, allLangs);
-  html += '\n';
-  html += generateNotes(glossary, ui);
-  html += `    </div>
-
-    <script>
+// Generate common scripts
+function generateScripts() {
+  return `    <script>
         function toggleNav(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('notes').classList.remove('open')}
         function toggleNotes(){document.getElementById('notes').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('sidebar').classList.remove('open')}
         function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes').classList.remove('open');document.getElementById('overlay').classList.remove('active')}
         function toggleChapter(id){const g=document.getElementById('nav-group-'+id);if(g)g.classList.toggle('expanded')}
         document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){e.preventDefault();const noteId='note-'+this.dataset.note;const note=document.getElementById(noteId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));
         document.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=1100)closeAll()}));
-        
+
         document.getElementById('feedback-form')?.addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = this.querySelector('button');
@@ -259,10 +360,10 @@ ${lang === BASE_LANG ? `    <script>
             const email = document.getElementById('fb-email').value;
             const message = document.getElementById('fb-msg').value;
             const lang = document.documentElement.lang;
-            
+
             btn.disabled = true;
             btn.style.opacity = '0.5';
-            
+
             fetch('/api/send-feedback.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -285,7 +386,92 @@ ${lang === BASE_LANG ? `    <script>
                 btn.style.opacity = '1';
             });
         });
-    </script>
+    </script>`;
+}
+
+// Generate TOC (Table of Contents) page
+function generateTocPage(lang, chapters, glossary, ui, allLangs, version) {
+  const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
+  const pagePath = '/'; // Path without language prefix
+  const cssPath = lang === BASE_LANG ? '' : '../';
+
+  let html = generateHead(lang, ui, allLangs, version, pagePath, cssPath, ui.bookTitle, true);
+
+  html += `<body>
+    <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
+    <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
+    <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+    <div class="layout">
+        <main class="main">
+            <header class="toc-header">
+                <h1 class="toc-title">${ui.bookTitle}</h1>
+                <p class="toc-subtitle">${ui.description}</p>
+            </header>
+
+            <section class="toc-section">
+                <h2 class="toc-section-title">${ui.parts.foundations}</h2>
+                <div class="toc-chapters">
+`;
+
+  chapters.forEach(ch => {
+    const chapterHref = `${langPrefix}/ch${ch.number}/`;
+    html += `                    <a href="${chapterHref}" class="toc-chapter">\n`;
+    html += `                        <span class="toc-chapter-num">${ch.numberText}</span>\n`;
+    html += `                        <span class="toc-chapter-title">${ch.title}</span>\n`;
+    html += `                        <span class="toc-chapter-arrow">→</span>\n`;
+    html += `                    </a>\n`;
+  });
+
+  html += `                </div>
+            </section>
+
+`;
+  html += generateFooter(ui, false);
+  html += `        </main>\n\n`;
+  html += generateTocNav(chapters, ui, lang, allLangs);
+  html += '\n';
+  html += generateNotes(glossary, ui);
+  html += `    </div>
+
+${generateScripts()}
+</body>
+</html>`;
+
+  return html;
+}
+
+// Generate individual chapter page
+function generateChapterPage(lang, chapters, chapterIndex, glossary, ui, allLangs, version) {
+  const chapter = chapters[chapterIndex];
+  const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
+  const pagePath = `/ch${chapter.number}/`; // Path without language prefix
+  const cssPath = lang === BASE_LANG ? '../' : '../../';
+  const pageTitle = `${ui.nav.chapter} ${chapter.number}: ${chapter.title}`;
+
+  let html = generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle, false);
+
+  html += `<body>
+    <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
+    <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
+    <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+    <div class="layout">
+        <main class="main">
+`;
+
+  html += generateChapterContent(chapter, glossary);
+  html += '\n';
+  html += generateChapterPrevNext(chapters, chapterIndex, ui, lang);
+  html += '\n';
+  html += generateFooter(ui, true);
+  html += `        </main>\n\n`;
+  html += generateChapterNav(chapters, chapter, ui, lang, allLangs);
+  html += '\n';
+  html += generateNotes(glossary, ui);
+  html += `    </div>
+
+${generateScripts()}
 </body>
 </html>`;
 
@@ -309,6 +495,8 @@ function build() {
   if (!fs.existsSync(cssDir)) {
     fs.mkdirSync(cssDir, { recursive: true });
   }
+
+  const version = Date.now();
 
   LANGUAGES.forEach(lang => {
     console.log(`📖 Building ${lang.toUpperCase()} version...`);
@@ -349,17 +537,29 @@ function build() {
       }
     });
 
-    // Generate HTML
-    const version = Date.now();
-    const html = generatePage(lang, chapters, glossary, ui, LANGUAGES, version);
-
-    // Write HTML file
-    const outputPath = lang === BASE_LANG
+    // Generate TOC page
+    const tocHtml = generateTocPage(lang, chapters, glossary, ui, LANGUAGES, version);
+    const tocPath = lang === BASE_LANG
       ? path.join(DIST_DIR, 'index.html')
       : path.join(DIST_DIR, lang, 'index.html');
+    fs.writeFileSync(tocPath, tocHtml);
+    console.log(`   ✅ ${tocPath}`);
 
-    fs.writeFileSync(outputPath, html);
-    console.log(`   ✅ ${outputPath}`);
+    // Generate individual chapter pages
+    chapters.forEach((chapter, index) => {
+      const chapterDir = lang === BASE_LANG
+        ? path.join(DIST_DIR, `ch${chapter.number}`)
+        : path.join(DIST_DIR, lang, `ch${chapter.number}`);
+
+      if (!fs.existsSync(chapterDir)) {
+        fs.mkdirSync(chapterDir, { recursive: true });
+      }
+
+      const chapterHtml = generateChapterPage(lang, chapters, index, glossary, ui, LANGUAGES, version);
+      const chapterPath = path.join(chapterDir, 'index.html');
+      fs.writeFileSync(chapterPath, chapterHtml);
+      console.log(`   ✅ ${chapterPath}`);
+    });
   });
 
   // Copy og-image if exists

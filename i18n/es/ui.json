@@ -7,7 +7,12 @@
     "chapter": "Cap.",
     "notes": "Notas",
     "notesPanel": "Notas y Definiciones",
-    "notesEmpty": "Haz clic en cualquier <span class=\"term-hint\">término resaltado</span> en el texto para ver su definición aquí."
+    "notesEmpty": "Haz clic en cualquier <span class=\"term-hint\">término resaltado</span> en el texto para ver su definición aquí.",
+    "tableOfContents": "Tabla de Contenidos",
+    "previousChapter": "Capítulo Anterior",
+    "nextChapter": "Capítulo Siguiente",
+    "backToIndex": "Volver al Índice",
+    "readChapter": "Leer capítulo"
   },
   "parts": {
     "foundations": "Parte I — Fundamentos"

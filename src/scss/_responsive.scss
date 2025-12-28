@@ -71,4 +71,37 @@
   .notes {
     width: 85vw;
   }
+
+  // TOC responsive
+  .toc-title {
+    font-size: 1.8rem;
+  }
+
+  .toc-chapter {
+    padding: $spacing-sm $spacing-md;
+    gap: $spacing-sm;
+  }
+
+  .toc-chapter-num {
+    min-width: 60px;
+    font-size: 0.65rem;
+  }
+
+  .toc-chapter-title {
+    font-size: 1rem;
+  }
+
+  // Chapter nav responsive
+  .chapter-nav {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  .chapter-nav-link {
+    max-width: 100%;
+
+    &.next {
+      align-items: flex-start;
+    }
+  }
 }
