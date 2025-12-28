@@ -106,7 +106,8 @@
             { "time": "28-Dic 17:07", "text": "Capítulo 8: El Velo del Olvido" },
             { "time": "28-Dic 18:17", "text": "Capítulo 9: La Muerte y el Viaje Entre Vidas" },
             { "time": "28-Dic 18:44", "text": "Capítulo 10: Los Centros de Energía" },
-            { "time": "28-Dic 20:03", "text": "Capítulo 11: Catalizador y Experiencia" }
+            { "time": "28-Dic 20:03", "text": "Capítulo 11: Catalizador y Experiencia" },
+            { "time": "28-Dic 21:15", "text": "Capítulo 12: El Yo Superior y la Guía Interior" }
           ]
         }
       ]
@@ -119,7 +120,7 @@
           "type": "stats",
           "items": [
             { "number": "5", "label": "Días Transcurridos" },
-            { "number": "10", "label": "Capítulos Completos" },
+            { "number": "11", "label": "Capítulos Completos" },
             { "number": "3", "label": "Idiomas" },
             { "number": "50+", "label": "Commits en Git" },
             { "number": "20", "label": "Referencias" },
@@ -181,7 +182,7 @@
     }
   ],
   "footer": {
-    "updated": "Última actualización: 28 de diciembre de 2025, 20:03",
+    "updated": "Última actualización: 28 de diciembre de 2025, 21:15",
     "madeWith": "Ensamblado con cuidado y curiosidad"
   }
 }

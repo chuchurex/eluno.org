@@ -106,7 +106,8 @@
             { "time": "Dec-28 17:07", "text": "Chapter 8: The Veil of Forgetting" },
             { "time": "Dec-28 18:17", "text": "Chapter 9: Death and the Journey Between Lives" },
             { "time": "Dec-28 18:44", "text": "Chapter 10: The Energy Centers" },
-            { "time": "Dec-28 20:03", "text": "Chapter 11: Catalyst and Experience" }
+            { "time": "Dec-28 20:03", "text": "Chapter 11: Catalyst and Experience" },
+            { "time": "Dec-28 21:15", "text": "Chapter 12: Higher Self and Inner Guidance" }
           ]
         }
       ]
@@ -119,7 +120,7 @@
           "type": "stats",
           "items": [
             { "number": "5", "label": "Days Elapsed" },
-            { "number": "10", "label": "Chapters Complete" },
+            { "number": "11", "label": "Chapters Complete" },
             { "number": "3", "label": "Languages" },
             { "number": "50+", "label": "Git Commits" },
             { "number": "20", "label": "References" },
@@ -181,7 +182,7 @@
     }
   ],
   "footer": {
-    "updated": "Last updated: December 28, 2025, 20:03",
+    "updated": "Last updated: December 28, 2025, 21:15",
     "madeWith": "Assembled with care and curiosity"
   }
 }

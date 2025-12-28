@@ -106,7 +106,8 @@
             { "time": "28-Dez 17:07", "text": "Capítulo 8: O Véu do Esquecimento" },
             { "time": "28-Dez 18:17", "text": "Capítulo 9: A Morte e a Jornada Entre Vidas" },
             { "time": "28-Dez 18:44", "text": "Capítulo 10: Os Centros de Energia" },
-            { "time": "28-Dez 20:03", "text": "Capítulo 11: Catalisador e Experiência" }
+            { "time": "28-Dez 20:03", "text": "Capítulo 11: Catalisador e Experiência" },
+            { "time": "28-Dez 21:15", "text": "Capítulo 12: O Eu Superior e a Orientação Interior" }
           ]
         }
       ]
@@ -119,7 +120,7 @@
           "type": "stats",
           "items": [
             { "number": "5", "label": "Dias Transcorridos" },
-            { "number": "10", "label": "Capítulos Completos" },
+            { "number": "11", "label": "Capítulos Completos" },
             { "number": "3", "label": "Idiomas" },
             { "number": "50+", "label": "Commits no Git" },
             { "number": "20", "label": "Referências" },
@@ -181,7 +182,7 @@
     }
   ],
   "footer": {
-    "updated": "Última atualização: 28 de dezembro de 2025, 20:03",
+    "updated": "Última atualização: 28 de dezembro de 2025, 21:15",
     "madeWith": "Montado com cuidado e curiosidade"
   }
 }
