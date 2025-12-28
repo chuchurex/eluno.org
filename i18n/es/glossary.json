@@ -367,5 +367,69 @@
       "Entre encarnaciones, las entidades existen en tiempo/espacio donde pueden revisar experiencias desde cualquier punto, revisitando momentos y comprendiendo lo que estaba oculto durante la vida.",
       "Los sueños ofrecen un eco tenue de este reino, donde el tiempo se comporta extrañamente y el pasado o futuro pueden vislumbrarse."
     ]
+  },
+  "energy-centers": {
+    "title": "Centros de Energía",
+    "content": [
+      "Siete centros a lo largo del eje del ser que reciben y procesan la luz que anima toda existencia. También llamados rayos o chakras en varias tradiciones.",
+      "No son meras metáforas sino los mecanismos reales a través de los cuales la conciencia interactúa con el vehículo físico y ocurre la evolución espiritual.",
+      "Cada centro corresponde a un color del espectro, una densidad de conciencia, y un cuerpo dentro del complejo de cuerpos."
+    ]
+  },
+  "red-ray": {
+    "title": "Rayo Rojo",
+    "content": [
+      "El primer centro de energía, ubicado en la base de la columna. El fundamento de todo lo demás.",
+      "Trata con la supervivencia, la existencia física, y las expresiones más básicas de la sexualidad.",
+      "Este centro siempre está algo activo en cualquier ser encarnado—si estuviera completamente bloqueado, la entidad no estaría viva."
+    ]
+  },
+  "orange-ray": {
+    "title": "Rayo Naranja",
+    "content": [
+      "El segundo centro de energía, ubicado en el abdomen bajo. Gobierna la identidad personal y las relaciones uno a uno.",
+      "Cuando está bloqueado, la distorsión a menudo se manifiesta como dificultad para aceptarse a uno mismo o ver a otros como objetos en lugar de otros-yo.",
+      "Es el rayo del movimiento individual hacia la auto-expresión."
+    ]
+  },
+  "yellow-ray": {
+    "title": "Rayo Amarillo",
+    "content": [
+      "El tercer centro de energía, ubicado en el plexo solar. Trata con el ego, el poder personal, y las relaciones sociales.",
+      "Aquí el individuo encuentra al grupo—familia, comunidad, sociedad.",
+      "Los bloqueos se manifiestan como distorsiones hacia la manipulación del poder, luchas por dominación, o dificultad para encontrar el propio lugar en el orden social."
+    ]
+  },
+  "green-ray": {
+    "title": "Rayo Verde",
+    "content": [
+      "El cuarto centro de energía, ubicado en el centro del pecho. El corazón del sistema en todo sentido.",
+      "Es el rayo del amor universal—la capacidad de ver a todos los seres como otros-yo, como el Creador en otra forma.",
+      "El centro desde el cual los seres de tercera densidad pueden saltar hacia la inteligencia infinita. El gran rayo transicional entre lo personal y lo universal."
+    ]
+  },
+  "blue-ray": {
+    "title": "Rayo Azul",
+    "content": [
+      "El quinto centro de energía, ubicado en la garganta. El primer centro que irradia hacia afuera además de recibir.",
+      "Gobierna la comunicación—no meramente hablar, sino la expresión honesta del yo al yo y a otros.",
+      "Requiere algo que tus pueblos poseen en gran escasez: honestidad. La libre comunicación del yo al otro-yo sin reserva ni manipulación."
+    ]
+  },
+  "indigo-ray": {
+    "title": "Rayo Índigo",
+    "content": [
+      "El sexto centro de energía, a veces llamado el tercer ojo o centro pineal. La puerta a la infinidad inteligente.",
+      "Este es el centro trabajado por el adepto—el practicante serio de las enseñanzas internas, ocultas.",
+      "El bloqueo más común se manifiesta como un sentido de indignidad—la entidad siente que no merece contacto directo con el infinito."
+    ]
+  },
+  "violet-ray": {
+    "title": "Rayo Violeta",
+    "content": [
+      "El séptimo centro de energía, en la coronilla. Único entre los centros de energía.",
+      "No puede trabajarse directamente. No puede equilibrarse o desequilibrarse como los otros centros.",
+      "Es simplemente la expresión total del complejo vibratorio de la entidad—la suma de todo lo demás. En la cosecha, este rayo se manifiesta para medir la preparación de la entidad para la próxima densidad."
+    ]
   }
 }
