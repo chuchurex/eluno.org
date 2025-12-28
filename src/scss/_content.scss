@@ -83,6 +83,48 @@
   }
 }
 
+// Reference markers (superscript)
+.ref {
+  color: $gold-dim;
+  cursor: pointer;
+  font-size: 0.7em;
+  margin-left: 1px;
+  transition: all 0.2s;
+
+  &:hover {
+    color: $gold;
+  }
+
+  &.active {
+    color: $gold;
+  }
+}
+
+// Reference notes in sidebar
+.ref-note {
+  border-left: 2px solid $gold-dim;
+  padding-left: $spacing-sm;
+
+  .ref-icon {
+    color: $gold-dim;
+    margin-right: $spacing-xs;
+  }
+
+  .ref-link {
+    margin-top: $spacing-sm;
+    font-size: 0.85rem;
+
+    a {
+      color: $gold;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 // =====================================================
 // TABLE OF CONTENTS STYLES
 // =====================================================

@@ -39,13 +39,24 @@ function loadJSON(filePath) {
   }
 }
 
-// Process text with term markers and emphasis
-function processText(text, glossary) {
+// Process text with term markers, references, and emphasis
+function processText(text, glossary, references) {
   // Replace {term:id} or {term:id|text} with HTML
   text = text.replace(/\{term:([^}|]+)(?:\|([^}]+))?\}/g, (match, termId, customText) => {
     const displayText = customText || glossary[termId]?.title || termId;
     return `<span class="term" data-note="${termId}">${displayText}</span>`;
   });
+
+  // Replace {ref:id} with HTML (reference marker - superscript)
+  if (references) {
+    text = text.replace(/\{ref:([^}]+)\}/g, (match, refId) => {
+      const ref = references[refId];
+      if (ref) {
+        return `<sup class="ref" data-ref="${refId}">*</sup>`;
+      }
+      return match;
+    });
+  }
 
   // Replace **text** with <strong>
   text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -57,12 +68,12 @@ function processText(text, glossary) {
 }
 
 // Generate section HTML
-function generateSection(section, glossary) {
+function generateSection(section, glossary, references) {
   let html = `                <section class="section" id="${section.id}">\n`;
   html += `                    <h2 class="sec-title">${section.title}</h2>\n`;
 
   section.content.forEach(block => {
-    const processedText = processText(block.text, glossary);
+    const processedText = processText(block.text, glossary, references);
     if (block.type === 'paragraph') {
       html += `                    <p>${processedText}</p>\n`;
     } else if (block.type === 'quote') {
@@ -75,7 +86,7 @@ function generateSection(section, glossary) {
 }
 
 // Generate chapter HTML (for chapter page)
-function generateChapterContent(chapter, glossary) {
+function generateChapterContent(chapter, glossary, references) {
   let html = `            <article class="chapter" id="${chapter.id}">\n`;
   html += `                <header class="ch-head">\n`;
   html += `                    <div class="ch-num">${chapter.numberText}</div>\n`;
@@ -83,7 +94,7 @@ function generateChapterContent(chapter, glossary) {
   html += `                </header>\n\n`;
 
   chapter.sections.forEach((section, index) => {
-    html += generateSection(section, glossary);
+    html += generateSection(section, glossary, references);
     if (index < chapter.sections.length - 1) {
       html += `\n                <div class="divider">· · ·</div>\n\n`;
     }
@@ -93,22 +104,36 @@ function generateChapterContent(chapter, glossary) {
   return html;
 }
 
-// Generate glossary notes HTML
-function generateNotes(glossary, ui) {
+// Generate glossary notes and references HTML
+function generateNotes(glossary, references, ui) {
   let html = `        <aside class="notes" id="notes">\n`;
   html += `            <div class="notes-head">${ui.nav.notesPanel}</div>\n`;
   html += `            <div class="notes-empty" id="notes-empty">${ui.nav.notesEmpty.replace('class="term-hint"', 'style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)"')}</div>\n\n`;
 
+  // Glossary terms
   for (const [id, term] of Object.entries(glossary)) {
     html += `            <div class="note" id="note-${id}">`;
     html += `<div class="note-title">${term.title}</div>`;
     html += `<div class="note-content">`;
     term.content.forEach(p => {
-      // Process emphasis in glossary
       let processed = p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
       html += `<p>${processed}</p>`;
     });
     html += `</div></div>\n`;
+  }
+
+  // References
+  if (references) {
+    for (const [id, ref] of Object.entries(references)) {
+      html += `            <div class="note ref-note" id="ref-${id}">`;
+      html += `<div class="note-title"><span class="ref-icon">*</span> ${ref.title}</div>`;
+      html += `<div class="note-content">`;
+      html += `<p>${ref.summary}</p>`;
+      if (ref.learnMore) {
+        html += `<p class="ref-link"><a href="${ref.learnMore}" target="_blank" rel="noopener">Learn more ↗</a></p>`;
+      }
+      html += `</div></div>\n`;
+    }
   }
 
   html += `        </aside>\n`;
@@ -350,7 +375,8 @@ function generateScripts() {
         function toggleNotes(){document.getElementById('notes').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('sidebar').classList.remove('open')}
         function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes').classList.remove('open');document.getElementById('overlay').classList.remove('active')}
         function toggleChapter(id){const g=document.getElementById('nav-group-'+id);if(g)g.classList.toggle('expanded')}
-        document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){e.preventDefault();const noteId='note-'+this.dataset.note;const note=document.getElementById(noteId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));
+        document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){e.preventDefault();const noteId='note-'+this.dataset.note;const note=document.getElementById(noteId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.ref').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));
+        document.querySelectorAll('.ref').forEach(r=>r.addEventListener('click',function(e){e.preventDefault();const refId='ref-'+this.dataset.ref;const note=document.getElementById(refId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.ref').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));
         document.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=1100)closeAll()}));
 
         document.getElementById('feedback-form')?.addEventListener('submit', function(e) {
@@ -390,7 +416,7 @@ function generateScripts() {
 }
 
 // Generate TOC (Table of Contents) page
-function generateTocPage(lang, chapters, glossary, ui, allLangs, version) {
+function generateTocPage(lang, chapters, glossary, references, ui, allLangs, version) {
   const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
   const pagePath = '/'; // Path without language prefix
   const cssPath = lang === BASE_LANG ? '' : '../';
@@ -431,7 +457,7 @@ function generateTocPage(lang, chapters, glossary, ui, allLangs, version) {
   html += `        </main>\n\n`;
   html += generateTocNav(chapters, ui, lang, allLangs);
   html += '\n';
-  html += generateNotes(glossary, ui);
+  html += generateNotes(glossary, references, ui);
   html += `    </div>
 
 ${generateScripts()}
@@ -442,7 +468,7 @@ ${generateScripts()}
 }
 
 // Generate individual chapter page
-function generateChapterPage(lang, chapters, chapterIndex, glossary, ui, allLangs, version) {
+function generateChapterPage(lang, chapters, chapterIndex, glossary, references, ui, allLangs, version) {
   const chapter = chapters[chapterIndex];
   const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
   const pagePath = `/ch${chapter.number}/`; // Path without language prefix
@@ -460,7 +486,7 @@ function generateChapterPage(lang, chapters, chapterIndex, glossary, ui, allLang
         <main class="main">
 `;
 
-  html += generateChapterContent(chapter, glossary);
+  html += generateChapterContent(chapter, glossary, references);
   html += '\n';
   html += generateChapterPrevNext(chapters, chapterIndex, ui, lang);
   html += '\n';
@@ -468,7 +494,7 @@ function generateChapterPage(lang, chapters, chapterIndex, glossary, ui, allLang
   html += `        </main>\n\n`;
   html += generateChapterNav(chapters, chapter, ui, lang, allLangs);
   html += '\n';
-  html += generateNotes(glossary, ui);
+  html += generateNotes(glossary, references, ui);
   html += `    </div>
 
 ${generateScripts()}
@@ -513,6 +539,12 @@ function build() {
       glossary = loadJSON(path.join(I18N_DIR, BASE_LANG, 'glossary.json'));
     }
 
+    // Load references (fall back to EN if not available)
+    let references = loadJSON(path.join(I18N_DIR, lang, 'references.json'));
+    if (!references) {
+      references = loadJSON(path.join(I18N_DIR, BASE_LANG, 'references.json'));
+    }
+
     // Load chapters (fall back to EN if not available)
     const chapters = [];
     const chaptersDir = path.join(I18N_DIR, lang, 'chapters');
@@ -538,7 +570,7 @@ function build() {
     });
 
     // Generate TOC page
-    const tocHtml = generateTocPage(lang, chapters, glossary, ui, LANGUAGES, version);
+    const tocHtml = generateTocPage(lang, chapters, glossary, references, ui, LANGUAGES, version);
     const tocPath = lang === BASE_LANG
       ? path.join(DIST_DIR, 'index.html')
       : path.join(DIST_DIR, lang, 'index.html');
@@ -555,7 +587,7 @@ function build() {
         fs.mkdirSync(chapterDir, { recursive: true });
       }
 
-      const chapterHtml = generateChapterPage(lang, chapters, index, glossary, ui, LANGUAGES, version);
+      const chapterHtml = generateChapterPage(lang, chapters, index, glossary, references, ui, LANGUAGES, version);
       const chapterPath = path.join(chapterDir, 'index.html');
       fs.writeFileSync(chapterPath, chapterHtml);
       console.log(`   ✅ ${chapterPath}`);
