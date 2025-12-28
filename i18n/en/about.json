@@ -151,10 +151,10 @@
         {
           "type": "credits",
           "items": [
-            { "role": "Human", "contribution": "Vision, domain acquisition, approval authority" },
-            { "role": "Claude Opus 4.5", "contribution": "Text, code, translations, documentation" },
-            { "role": "L/L Research", "contribution": "Stewardship of the original material" },
-            { "role": "The Ra Material", "contribution": "The philosophical framework underlying everything" }
+            { "role": "Chuchu", "link": "https://chuchurex.cl", "contribution": "Vision, domain acquisition, approval authority" },
+            { "role": "Claude Opus 4.5", "link": "https://www.anthropic.com/claude", "contribution": "Text, code, translations, documentation" },
+            { "role": "L/L Research", "link": "https://www.llresearch.org", "contribution": "Stewardship of the original material" },
+            { "role": "The Ra Material", "link": "https://www.lawofone.info", "contribution": "The philosophical framework underlying everything" }
           ]
         }
       ]

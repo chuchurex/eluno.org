@@ -523,7 +523,10 @@ function generateAboutContent(about) {
       } else if (block.type === 'credits') {
         html += `                    <div class="about-credits">\n`;
         block.items.forEach(item => {
-          html += `                        <p><strong>${item.role}:</strong> ${item.contribution}</p>\n`;
+          const roleText = item.link
+            ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.role}</a>`
+            : item.role;
+          html += `                        <p><strong>${roleText}:</strong> ${item.contribution}</p>\n`;
         });
         html += `                    </div>\n`;
       }

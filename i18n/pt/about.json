@@ -151,10 +151,10 @@
         {
           "type": "credits",
           "items": [
-            { "role": "Humano", "contribution": "Visão, aquisição do domínio, autoridade de aprovação" },
-            { "role": "Claude Opus 4.5", "contribution": "Texto, código, traduções, documentação" },
-            { "role": "L/L Research", "contribution": "Custódia do material original" },
-            { "role": "O Material Ra", "contribution": "O arcabouço filosófico subjacente a tudo" }
+            { "role": "Chuchu", "link": "https://chuchurex.cl", "contribution": "Visão, aquisição do domínio, autoridade de aprovação" },
+            { "role": "Claude Opus 4.5", "link": "https://www.anthropic.com/claude", "contribution": "Texto, código, traduções, documentação" },
+            { "role": "L/L Research", "link": "https://www.llresearch.org", "contribution": "Custódia do material original" },
+            { "role": "O Material Ra", "link": "https://www.lawofone.info", "contribution": "O arcabouço filosófico subjacente a tudo" }
           ]
         }
       ]
