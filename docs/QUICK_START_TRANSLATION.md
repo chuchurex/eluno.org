@@ -1,37 +1,72 @@
 # 🚀 Quick Start: Traducir un Capítulo
 
+> **Nota:** Este workflow es para **Claude Code**. 
+> La escritura de capítulos nuevos se hace en **Claude Desktop** con `PROTOCOLO_ESCRITURA_V2.md`.
+
+---
+
 ## TL;DR
 
 ```bash
-npm run translate:chapter -- 06
+npm run translate:chapter -- 07
 ```
 
 Eso es todo. El script te guiará paso a paso.
 
 ---
 
-## Paso a Paso
+## Flujo Completo del Proyecto
 
-### 1. Ejecutar el script
-
-```bash
-npm run translate:chapter -- 06
+```
+┌─────────────────────────────────────────────────────────────┐
+│  CLAUDE DESKTOP                                             │
+│  • Escribe capítulo nuevo en inglés                        │
+│  • Sigue PROTOCOLO_ESCRITURA_V2.md                         │
+│  • Entrega archivo XX.json                                  │
+└─────────────────────────────────────────────────────────────┘
+                            ↓
+┌─────────────────────────────────────────────────────────────┐
+│  CLAUDE CODE (este workflow)                                │
+│  • Recibe XX.json y lo guarda en i18n/en/chapters/         │
+│  • Ejecuta: npm run translate:chapter -- XX                │
+│  • Traduce a ES y PT                                        │
+│  • Build + Git + Push                                       │
+│  • Deploy automático a lawofone.cl                         │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### 2. El script generará 2 prompts
+---
+
+## Paso a Paso
+
+### 1. Verificar que existe el capítulo EN
+
+```bash
+ls i18n/en/chapters/07.json
+```
+
+Si no existe, primero debe escribirse en Claude Desktop.
+
+### 2. Ejecutar el script
+
+```bash
+npm run translate:chapter -- 07
+```
+
+### 3. El script generará 2 prompts
 
 Copia cada prompt y pégalo en tu LLM favorito:
 - Claude (recomendado)
 - GPT-4
 - Gemini Pro
 
-### 3. Guardar las respuestas
+### 4. Guardar las respuestas
 
 Pega las respuestas JSON en:
-- `i18n/es/chapters/06.json`
-- `i18n/pt/chapters/06.json`
+- `i18n/es/chapters/07.json`
+- `i18n/pt/chapters/07.json`
 
-### 4. Presionar ENTER
+### 5. Presionar ENTER
 
 El script automáticamente:
 - ✅ Verifica las traducciones
@@ -46,7 +81,7 @@ El script automáticamente:
 
 ```bash
 # Sin push automático
-npm run translate:chapter -- 06 --no-push
+npm run translate:chapter -- 07 --no-push
 
 # Ver ayuda
 npm run translate:chapter
@@ -54,10 +89,9 @@ npm run translate:chapter
 
 ---
 
-## Santo y Seña para Agentes IA
+## Santo y Seña para Claude Code
 
-Si eres un agente IA (Claude Code, ChatGPT, etc.), cuando recibas:
-
+Cuando recibas:
 ```
 "Traducir capítulo [X] con workflow completo de lawofone.cl"
 ```
@@ -68,4 +102,6 @@ Lee y ejecuta: `docs/TRANSLATION_WORKFLOW.md`
 
 ## ¿Problemas?
 
-Lee la documentación completa: `docs/TRANSLATION_WORKFLOW.md`
+- Documentación completa: `docs/TRANSLATION_WORKFLOW.md`
+- Contexto del proyecto: `docs/CONTEXT.md`
+- Protocolo de escritura: `docs/PROTOCOLO_ESCRITURA_V2.md`

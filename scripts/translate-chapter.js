@@ -8,7 +8,8 @@
  * 2. Updates navigation in index.html files
  * 3. Rebuilds the site
  * 4. Creates git commits
- * 5. Optionally pushes to remote
+ * 5. Updates CONTEXT.md (single source of truth for project status)
+ * 6. Optionally pushes to remote
  *
  * Usage:
  *   node scripts/translate-chapter.js <chapter-number>
@@ -85,7 +86,8 @@ const GLOSSARY = {
 const PATHS = {
   i18n: path.join(__dirname, '..', 'i18n'),
   indexHtml: path.join(__dirname, '..', 'index.html'),
-  esIndexHtml: path.join(__dirname, '..', 'es', 'index.html')
+  esIndexHtml: path.join(__dirname, '..', 'es', 'index.html'),
+  contextMd: path.join(__dirname, '..', 'docs', 'CONTEXT.md')
 };
 
 // ============================================================================
@@ -118,6 +120,110 @@ function exec(command, description) {
     return { success: true, output: result };
   } catch (e) {
     return { success: false, error: e.message, output: e.stdout };
+  }
+}
+
+function getTimestamp() {
+  const now = new Date();
+  const date = now.toISOString().split('T')[0];
+  const time = now.toTimeString().split(' ')[0].substring(0, 5);
+  return `${date} ${time}`;
+}
+
+// ============================================================================
+// CONTEXT.MD UPDATE FUNCTION
+// ============================================================================
+
+function updateContextMd(chapterNum) {
+  const chNumber = parseInt(chapterNum);
+  console.log('\n📋 Step 7: Updating CONTEXT.md...');
+
+  if (!fs.existsSync(PATHS.contextMd)) {
+    console.log('   ⚠️  CONTEXT.md not found at', PATHS.contextMd);
+    return false;
+  }
+
+  let content = fs.readFileSync(PATHS.contextMd, 'utf8');
+  const timestamp = getTimestamp();
+
+  // 1. Update chapter row: change ⏳ to ✅ in "Publicado" column
+  // Pattern: | 7 | The Harvest | ✅ | ⏳ |
+  const chapterRowRegex = new RegExp(
+    `(\\| ${chNumber} \\| [^|]+ \\| ✅ \\| )⏳( \\|)`,
+    'g'
+  );
+  
+  if (chapterRowRegex.test(content)) {
+    content = content.replace(chapterRowRegex, '$1✅$2');
+    console.log(`   ✅ Marked chapter ${chNumber} as published`);
+  } else {
+    // Try alternative: chapter might have been marked with -
+    const altRegex = new RegExp(
+      `(\\| ${chNumber} \\| [^|]+ \\| ✅ \\| )-( \\|)`,
+      'g'
+    );
+    if (altRegex.test(content)) {
+      content = content.replace(altRegex, '$1✅$2');
+      console.log(`   ✅ Marked chapter ${chNumber} as published`);
+    } else {
+      console.log(`   ℹ️  Chapter ${chNumber} row pattern not matched (may already be ✅)`);
+    }
+  }
+
+  // 2. Update "Capítulos publicados" counter
+  // Pattern: | **Capítulos publicados** | 6 de 16 | 2025-12-28 09:43 |
+  const publishedRegex = /(\| \*\*Capítulos publicados\*\* \| )(\d+)( de 16 \| )[^|]+( \|)/;
+  const publishedMatch = content.match(publishedRegex);
+  
+  if (publishedMatch) {
+    const currentPublished = parseInt(publishedMatch[2]);
+    // Only increment if this chapter is greater than current count
+    if (chNumber > currentPublished) {
+      const newCount = chNumber; // Since chapters are sequential, chapter number = published count
+      content = content.replace(
+        publishedRegex,
+        `$1${newCount}$3${timestamp}$4`
+      );
+      console.log(`   ✅ Updated published count: ${currentPublished} → ${newCount}`);
+    } else {
+      // Just update timestamp
+      content = content.replace(
+        publishedRegex,
+        `$1${currentPublished}$3${timestamp}$4`
+      );
+      console.log(`   ✅ Updated timestamp (count unchanged)`);
+    }
+  }
+
+  // 3. Update "Próximo Paso" section
+  const nextChapter = chNumber + 1;
+  if (nextChapter <= 16) {
+    // Update the "Ahora" line to show next chapter to publish
+    const ahoraRegex = /(\*\*Ahora:\*\* )Publicar capítulo \d+/;
+    const despuesRegex = /(\*\*Después:\*\* )Escribir capítulo \d+/;
+    
+    // Check if next chapter is already written
+    const nextChapterWrittenRegex = new RegExp(`\\| ${nextChapter} \\| [^|]+ \\| ✅ \\|`);
+    const nextChapterIsWritten = nextChapterWrittenRegex.test(content);
+    
+    if (nextChapterIsWritten) {
+      content = content.replace(ahoraRegex, `$1Publicar capítulo ${nextChapter}`);
+      content = content.replace(despuesRegex, `$1Escribir capítulo ${nextChapter + 1}`);
+    } else {
+      content = content.replace(ahoraRegex, `$1Escribir capítulo ${nextChapter}`);
+      content = content.replace(despuesRegex, `$1Publicar capítulo ${nextChapter}`);
+    }
+    console.log(`   ✅ Updated next steps`);
+  }
+
+  // Save updated content
+  try {
+    fs.writeFileSync(PATHS.contextMd, content, 'utf8');
+    console.log('   ✅ CONTEXT.md saved');
+    return true;
+  } catch (e) {
+    console.error(`   ❌ Error saving CONTEXT.md: ${e.message}`);
+    return false;
   }
 }
 
@@ -251,15 +357,51 @@ async function translateChapter(chapterNum) {
   console.log('\n📦 Step 6: Git operations...');
   gitWorkflow(chNum, sourceChapter.title, esChapter.title, ptChapter.title);
 
+  // Step 7: Update CONTEXT.md (NEW!)
+  updateContextMd(chNum);
+
+  // Step 8: Commit CONTEXT.md update
+  console.log('\n📋 Step 8: Committing CONTEXT.md update...');
+  exec('git add docs/CONTEXT.md', 'Staging CONTEXT.md');
+  const contextCommitMsg = `docs: update CONTEXT.md - chapter ${parseInt(chNum)} published
+
+Automated update after publishing chapter ${parseInt(chNum)}.
+- Marked chapter as ✅ Published
+- Updated chapter counter
+- Updated timestamp
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)`;
+
+  fs.writeFileSync('/tmp/commit-msg-context.txt', contextCommitMsg);
+  exec('git commit -F /tmp/commit-msg-context.txt', 'Creating CONTEXT.md commit');
+
+  // Push if not skipped
+  const skipPush = process.argv.includes('--no-push');
+  if (!skipPush) {
+    console.log('\n🚀 Pushing to remote...');
+    const pushResult = exec('git push origin main', 'Pushing commits');
+    if (pushResult.success) {
+      console.log('   ✅ Pushed successfully');
+    } else {
+      console.log('   ⚠️  Push failed - run manually: git push origin main');
+    }
+  } else {
+    console.log('\n   ℹ️  Skipped push (--no-push flag)');
+    console.log('   Run manually: git push origin main');
+  }
+
   console.log('\n✨ Translation workflow complete!\n');
   console.log('📊 Summary:');
   console.log(`   - Chapter ${chNum} translated to ES and PT`);
   console.log(`   - Navigation updated`);
   console.log(`   - Site rebuilt`);
   console.log(`   - Git commits created`);
+  console.log(`   - CONTEXT.md updated ✅`);
   console.log('\nNext steps:');
-  console.log('   - Review the changes: git diff HEAD~2');
-  console.log('   - Push to remote: git push origin main');
+  console.log('   - Review the changes: git diff HEAD~3');
+  if (skipPush) {
+    console.log('   - Push to remote: git push origin main');
+  }
 }
 
 // ============================================================================
@@ -360,7 +502,6 @@ function updateEsNavigation(chNum, chNumber) {
 
 function gitWorkflow(chNum, titleEn, titleEs, titlePt) {
   const chNumber = parseInt(chNum);
-  const skipPush = process.argv.includes('--no-push');
 
   // Add files
   exec('git add i18n/en/chapters/' + chNum + '.json i18n/es/chapters/' + chNum + '.json i18n/pt/chapters/' + chNum + '.json index.html', 'Staging chapter files');
@@ -400,19 +541,7 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>`;
   exec('git add index.html', 'Staging index.html');
   exec('git commit -F /tmp/commit-msg-2.txt', 'Creating site update commit');
 
-  // Push if not skipped
-  if (!skipPush) {
-    console.log('\n🚀 Pushing to remote...');
-    const pushResult = exec('git push origin main', 'Pushing commits');
-    if (pushResult.success) {
-      console.log('   ✅ Pushed successfully');
-    } else {
-      console.log('   ⚠️  Push failed - run manually: git push origin main');
-    }
-  } else {
-    console.log('\n   ℹ️  Skipped push (use --no-push flag)');
-    console.log('   Run manually: git push origin main');
-  }
+  // Note: Push is now handled after CONTEXT.md update in main workflow
 }
 
 // ============================================================================
@@ -428,6 +557,12 @@ if (!chapterNum) {
   console.log('  node scripts/translate-chapter.js 05 --no-push\n');
   console.log('Options:');
   console.log('  --no-push    Skip git push to remote\n');
+  console.log('Features:');
+  console.log('  - Generates translation prompts for ES and PT');
+  console.log('  - Updates navigation in index.html');
+  console.log('  - Rebuilds site with npm run build');
+  console.log('  - Creates git commits');
+  console.log('  - Updates CONTEXT.md (project status tracker) ✅\n');
   process.exit(0);
 }
 
