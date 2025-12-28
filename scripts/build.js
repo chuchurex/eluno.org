@@ -201,8 +201,15 @@ function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
   html += `                <a href="#feedback-section" class="nav-link feedback-link" onclick="if(window.innerWidth<=1100)closeAll()">✧ ${ui.footer.formSubmit}</a>\n`;
   html += `            </div>\n`;
 
+  // About link (hidden for now)
+  html += `            <div class="nav-footer-links" style="display:none">\n`;
+  html += `                <a href="${langPrefix}/about/" class="nav-link">About this project</a>\n`;
+  html += `            </div>\n`;
+
+  // Dynamic chapter count
+  const chapterCountText = `Chapters 1–${chapters.length} of 16`;
   html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
-  html += `                ${ui.meta.chapters}<br>${ui.meta.version}\n`;
+  html += `                ${chapterCountText}<br>${ui.meta.version}\n`;
   html += `            </div>\n`;
   html += `        </nav>\n`;
   return html;
@@ -243,8 +250,15 @@ function generateTocNav(chapters, ui, lang, allLangs) {
 
   html += `            </div>\n`;
 
+  // About link (hidden for now)
+  html += `            <div class="nav-footer-links" style="display:none">\n`;
+  html += `                <a href="${langPrefix}/about/" class="nav-link">About this project</a>\n`;
+  html += `            </div>\n`;
+
+  // Dynamic chapter count
+  const chapterCountText = `Chapters 1–${chapters.length} of 16`;
   html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
-  html += `                ${ui.meta.chapters}<br>${ui.meta.version}\n`;
+  html += `                ${chapterCountText}<br>${ui.meta.version}\n`;
   html += `            </div>\n`;
   html += `        </nav>\n`;
   return html;
@@ -573,8 +587,10 @@ function generateAboutNav(chapters, about, ui, lang, allLangs) {
   });
   html += `            </div>\n`;
 
+  // Dynamic chapter count
+  const chapterCountText = `Chapters 1–${chapters.length} of 16`;
   html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
-  html += `                ${ui.meta.chapters}<br>${ui.meta.version}\n`;
+  html += `                ${chapterCountText}<br>${ui.meta.version}\n`;
   html += `            </div>\n`;
   html += `        </nav>\n`;
   return html;
