@@ -22,6 +22,12 @@
     "readChapter": "Ler capítulo",
     "learnMore": "Saiba mais"
   },
+  "media": {
+    "downloadPdf": "Baixar PDF do capítulo",
+    "download": "Baixar",
+    "listenAudio": "Ouvir audiolivro do capítulo",
+    "listen": "Ouvir"
+  },
     "footer": {
     "draft": "Primeira Edição",
     "date": "2025",

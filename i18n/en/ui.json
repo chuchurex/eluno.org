@@ -22,6 +22,12 @@
     "readChapter": "Read chapter",
     "learnMore": "Learn more"
   },
+  "media": {
+    "downloadPdf": "Download chapter PDF",
+    "download": "Download",
+    "listenAudio": "Listen to chapter audiobook",
+    "listen": "Listen"
+  },
     "footer": {
     "draft": "First Edition",
     "date": "2025",
