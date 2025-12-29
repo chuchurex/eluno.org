@@ -5,8 +5,7 @@
   "introduction": {
     "title": "",
     "content": [
-      "Una reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.",
-      "Este libro presenta enseñanzas recibidas por Don, Carla y Jim a principios de los años 80. Mi contribución ha sido remover barreras que, en mi opinión, dificultaban el acceso. No lo hice solo: Claude, una inteligencia artificial creada por Anthropic, me ayudó a encontrar palabras que había buscado durante años."
+      "Enseñanzas recibidas por Don, Carla y Jim a principios de los 80, transformadas en narrativa filosófica accesible. Reescrito con la ayuda de Claude, una inteligencia artificial creada por Anthropic."
     ]
   },
   "nav": {
@@ -34,7 +33,7 @@
   },
   "meta": {
     "chapters": "",
-    "version": "2025"
+    "version": "Navidad 2025"
   },
-  "footerVersion": "Navidad 2025"
+  "footerVersion": ""
 }

@@ -205,7 +205,7 @@ function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
   html += `                <a href="${langPrefix}/about/" class="nav-link">${ui.nav.about}</a>\n`;
   html += `            </div>\n`;
 
-  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
+  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted);text-align:center">\n`;
   html += `                ${ui.meta.version}\n`;
   html += `            </div>\n`;
   html += `        </nav>\n`;
@@ -251,7 +251,7 @@ function generateTocNav(chapters, ui, lang, allLangs) {
   html += `                <a href="${langPrefix}/about/" class="nav-link">${ui.nav.about}</a>\n`;
   html += `            </div>\n`;
 
-  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
+  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted);text-align:center">\n`;
   html += `                ${ui.meta.version}\n`;
   html += `            </div>\n`;
   html += `        </nav>\n`;
@@ -294,7 +294,9 @@ function generateChapterPrevNext(chapters, currentIndex, ui, lang) {
 // Generate footer HTML
 function generateFooter(ui, showFeedback = true) {
   let html = `            <footer class="footer">\n`;
-  html += `                <p>${ui.footerVersion}</p>\n`;
+  if (ui.footerVersion) {
+    html += `                <p>${ui.footerVersion}</p>\n`;
+  }
 
   if (showFeedback) {
     html += `                <div class="feedback" id="feedback-section">\n`;
@@ -587,7 +589,7 @@ function generateAboutNav(chapters, about, ui, lang, allLangs) {
   });
   html += `            </div>\n`;
 
-  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
+  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted);text-align:center">\n`;
   html += `                ${ui.meta.version}\n`;
   html += `            </div>\n`;
   html += `        </nav>\n`;
