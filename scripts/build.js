@@ -174,7 +174,7 @@ function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
 
     html += `            <div class="nav-chapter-group${isActive ? ' active' : ''}" id="nav-group-${ch.id}">\n`;
     html += `                <div class="nav-chapter-header">\n`;
-    html += `                    <a href="${chapterHref}" class="nav-link${isActive ? ' current' : ''}">${ui.nav.chapter} ${ch.number}: ${ch.title}</a>\n`;
+    html += `                    <a href="${chapterHref}" class="nav-link${isActive ? ' current' : ''}">${ch.number}. ${ch.title}</a>\n`;
 
     if (isActive) {
       html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="Toggle sections">▾</button>\n`;
@@ -239,7 +239,7 @@ function generateTocNav(chapters, ui, lang, allLangs) {
 
     html += `            <div class="nav-chapter-group" id="nav-group-${ch.id}">\n`;
     html += `                <div class="nav-chapter-header">\n`;
-    html += `                    <a href="${chapterHref}" class="nav-link">${ui.nav.chapter} ${ch.number}: ${ch.title}</a>\n`;
+    html += `                    <a href="${chapterHref}" class="nav-link">${ch.number}. ${ch.title}</a>\n`;
     html += `                </div>\n`;
     html += `            </div>\n`;
   });
@@ -585,7 +585,7 @@ function generateAboutNav(chapters, about, ui, lang, allLangs) {
   html += `            <div class="nav-section" style="margin-top:1.5rem">\n`;
   chapters.forEach(ch => {
     const chapterHref = `${langPrefix}/ch${ch.number}/`;
-    html += `                <a href="${chapterHref}" class="nav-link">${ui.nav.chapter} ${ch.number}: ${ch.title}</a>\n`;
+    html += `                <a href="${chapterHref}" class="nav-link">${ch.number}. ${ch.title}</a>\n`;
   });
   html += `            </div>\n`;
 
