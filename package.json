@@ -11,7 +11,8 @@
     "publish": "./scripts/publish.sh",
     "translate": "node scripts/translate.js",
     "translate:chapter": "node scripts/translate-chapter.js",
-    "build:pdf": "node scripts/build-pdf.js"
+    "build:pdf": "node scripts/build-pdf.js",
+    "publish:media": "node scripts/publish-media.js"
   },
   "devDependencies": {
     "basic-ftp": "^5.0.5",
