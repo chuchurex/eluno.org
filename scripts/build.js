@@ -130,7 +130,7 @@ function generateNotes(glossary, references, ui) {
       html += `<div class="note-content">`;
       html += `<p>${ref.summary}</p>`;
       if (ref.learnMore) {
-        html += `<p class="ref-link"><a href="${ref.learnMore}" target="_blank" rel="noopener">Learn more ↗</a></p>`;
+        html += `<p class="ref-link"><a href="${ref.learnMore}" target="_blank" rel="noopener">${ui.nav.learnMore} ↗</a></p>`;
       }
       html += `</div></div>\n`;
     }
