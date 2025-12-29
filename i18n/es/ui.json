@@ -33,7 +33,8 @@
     "formSuccess": "¡Gracias! Tu feedback ha sido recibido."
   },
   "meta": {
-    "chapters": "Capítulos 1–4 de 16",
-    "version": "Primera Edición · 2025"
-  }
+    "chapters": "",
+    "version": "2025"
+  },
+  "footerVersion": "Navidad 2025"
 }

@@ -205,10 +205,8 @@ function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
   html += `                <a href="${langPrefix}/about/" class="nav-link">${ui.nav.about}</a>\n`;
   html += `            </div>\n`;
 
-  // Dynamic chapter count
-  const chapterCountText = `Chapters 1–${chapters.length} of 16`;
   html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
-  html += `                ${chapterCountText}<br>${ui.meta.version}\n`;
+  html += `                ${ui.meta.version}\n`;
   html += `            </div>\n`;
   html += `        </nav>\n`;
   return html;
@@ -253,10 +251,8 @@ function generateTocNav(chapters, ui, lang, allLangs) {
   html += `                <a href="${langPrefix}/about/" class="nav-link">${ui.nav.about}</a>\n`;
   html += `            </div>\n`;
 
-  // Dynamic chapter count
-  const chapterCountText = `Chapters 1–${chapters.length} of 16`;
   html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
-  html += `                ${chapterCountText}<br>${ui.meta.version}\n`;
+  html += `                ${ui.meta.version}\n`;
   html += `            </div>\n`;
   html += `        </nav>\n`;
   return html;
@@ -298,7 +294,7 @@ function generateChapterPrevNext(chapters, currentIndex, ui, lang) {
 // Generate footer HTML
 function generateFooter(ui, showFeedback = true) {
   let html = `            <footer class="footer">\n`;
-  html += `                <p>${ui.footer.draft} · ${ui.footer.date}</p>\n`;
+  html += `                <p>${ui.footerVersion}</p>\n`;
 
   if (showFeedback) {
     html += `                <div class="feedback" id="feedback-section">\n`;
@@ -591,10 +587,8 @@ function generateAboutNav(chapters, about, ui, lang, allLangs) {
   });
   html += `            </div>\n`;
 
-  // Dynamic chapter count
-  const chapterCountText = `Chapters 1–${chapters.length} of 16`;
   html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)">\n`;
-  html += `                ${chapterCountText}<br>${ui.meta.version}\n`;
+  html += `                ${ui.meta.version}\n`;
   html += `            </div>\n`;
   html += `        </nav>\n`;
   return html;

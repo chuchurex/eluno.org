@@ -33,7 +33,8 @@
     "formSuccess": "Thank you! Your feedback has been received."
   },
   "meta": {
-    "chapters": "Chapters 1–4 of 16",
-    "version": "First Edition · 2025"
-  }
+    "chapters": "",
+    "version": "2025"
+  },
+  "footerVersion": "Christmas 2025"
 }
