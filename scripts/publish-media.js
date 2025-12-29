@@ -69,29 +69,43 @@ async function main() {
   const ftp = require('basic-ftp');
   require('dotenv').config({ path: path.join(ROOT_DIR, '.env') });
 
-  const client = new ftp.Client();
+  const client = new ftp.Client(60000); // 60 second timeout
   client.ftp.verbose = false;
 
-  try {
-    await client.access({
-      host: process.env.FTP_SERVER,
-      user: process.env.FTP_USERNAME,
-      password: process.env.FTP_PASSWORD,
-      secure: false
-    });
+  const maxRetries = 3;
+  let attempt = 0;
 
-    console.log('📂 Connected to FTP server');
+  while (attempt < maxRetries) {
+    attempt++;
+    try {
+      console.log(`📡 Connection attempt ${attempt}/${maxRetries}...`);
 
-    // Upload dist folder
-    await client.ensureDir(process.env.FTP_SERVER_DIR);
-    await client.uploadFromDir(path.join(ROOT_DIR, 'dist'), process.env.FTP_SERVER_DIR);
+      await client.access({
+        host: process.env.FTP_SERVER,
+        user: process.env.FTP_USERNAME,
+        password: process.env.FTP_PASSWORD,
+        secure: false
+      });
 
-    console.log('✅ FTP deployment complete');
-  } catch (error) {
-    console.error('❌ FTP error:', error.message);
-    process.exit(1);
-  } finally {
-    client.close();
+      console.log('📂 Connected to FTP server');
+
+      // Upload dist folder
+      await client.ensureDir(process.env.FTP_SERVER_DIR);
+      await client.uploadFromDir(path.join(ROOT_DIR, 'dist'), process.env.FTP_SERVER_DIR);
+
+      console.log('✅ FTP deployment complete');
+      break; // Success, exit loop
+    } catch (error) {
+      console.error(`❌ FTP error (attempt ${attempt}):`, error.message);
+      if (attempt >= maxRetries) {
+        console.error('❌ All FTP attempts failed');
+        process.exit(1);
+      }
+      console.log('⏳ Retrying in 5 seconds...');
+      await new Promise(r => setTimeout(r, 5000));
+    } finally {
+      client.close();
+    }
   }
 
   console.log('\n' + '=' .repeat(50));
