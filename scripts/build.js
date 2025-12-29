@@ -102,24 +102,25 @@ function generateMediaToolbar(chapterNum, media, ui) {
   let html = '';
 
   // SVG icons (can be styled with CSS color) - 24px size
-  const svgPdf = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM9 13h2v5H9v-5zm4 0h2v5h-2v-5z"/></svg>`;
+  // PDF icon with download arrow pointing down
+  const svgPdfDownload = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zm-2 14l-4-4h2.5v-4h3v4H15l-4 4z"/></svg>`;
   const svgAudio = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>`;
   const svgYoutube = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>`;
 
   // Icon bar (right-aligned)
   html += `                <div class="ch-media-bar">\n`;
-  html += `                    <button class="ch-media-icon${hasPdf ? '' : ' disabled'}" data-panel="pdf" title="PDF"${!hasPdf ? ' disabled' : ''} onclick="toggleMediaPanel('pdf')">${svgPdf}</button>\n`;
-  html += `                    <button class="ch-media-icon${hasAudio ? '' : ' disabled'}" data-panel="audio" title="Audio"${!hasAudio ? ' disabled' : ''} onclick="toggleMediaPanel('audio')">${svgAudio}</button>\n`;
-  html += `                    <button class="ch-media-icon${hasYoutube ? '' : ' disabled'}" data-panel="youtube" title="YouTube"${!hasYoutube ? ' disabled' : ''} onclick="toggleMediaPanel('youtube')">${svgYoutube}</button>\n`;
-  html += `                </div>\n`;
-
-  // PDF Panel
+  // PDF: direct download link (not accordion)
   if (hasPdf) {
-    html += `                <div class="ch-media-panel" id="panel-pdf">\n`;
-    html += `                    <span class="ch-media-panel-text">${ui.media.downloadPdf}</span>\n`;
-    html += `                    <a href="${chapterMedia.pdf}" class="ch-media-panel-btn" download>⬇ ${ui.media.download}</a>\n`;
-    html += `                </div>\n`;
+    html += `                    <a href="${chapterMedia.pdf}" class="ch-media-icon ch-media-download" title="${ui.media.downloadPdf}" download>${svgPdfDownload}</a>\n`;
   }
+  // Audio and YouTube: keep accordion behavior
+  if (hasAudio) {
+    html += `                    <button class="ch-media-icon" data-panel="audio" title="Audio" onclick="toggleMediaPanel('audio')">${svgAudio}</button>\n`;
+  }
+  if (hasYoutube) {
+    html += `                    <button class="ch-media-icon" data-panel="youtube" title="YouTube" onclick="toggleMediaPanel('youtube')">${svgYoutube}</button>\n`;
+  }
+  html += `                </div>\n`;
 
   // Audio Panel
   if (hasAudio) {
@@ -147,9 +148,11 @@ function generateMediaToolbar(chapterNum, media, ui) {
 function generateChapterContent(chapter, glossary, references, media, ui) {
   let html = `            <article class="chapter" id="${chapter.id}">\n`;
   html += `                <header class="ch-head">\n`;
-  html += `                    <div class="ch-num">${chapter.numberText}</div>\n`;
-  html += `                    <h1 class="ch-title">${chapter.title}</h1>\n`;
+  html += `                    <div class="ch-head-top">\n`;
+  html += `                        <div class="ch-num">${chapter.numberText}</div>\n`;
   html += generateMediaToolbar(chapter.number, media, ui);
+  html += `                    </div>\n`;
+  html += `                    <h1 class="ch-title">${chapter.title}</h1>\n`;
   html += `                </header>\n\n`;
 
   chapter.sections.forEach((section, index) => {
