@@ -85,12 +85,71 @@ function generateSection(section, glossary, references) {
   return html;
 }
 
+// Generate media toolbar HTML (PDF, Audio, YouTube) - Accordion style
+function generateMediaToolbar(chapterNum, media, ui) {
+  if (!media || !ui.media) return '';
+
+  const chapterMedia = media[String(chapterNum)];
+  if (!chapterMedia) return '';
+
+  const hasPdf = !!chapterMedia.pdf;
+  const hasAudio = !!chapterMedia.audio;
+  const hasYoutube = !!chapterMedia.youtube;
+
+  // If nothing available, return empty
+  if (!hasPdf && !hasAudio && !hasYoutube) return '';
+
+  let html = '';
+
+  // SVG icons (can be styled with CSS color) - 24px size
+  const svgPdf = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM9 13h2v5H9v-5zm4 0h2v5h-2v-5z"/></svg>`;
+  const svgAudio = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>`;
+  const svgYoutube = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>`;
+
+  // Icon bar (right-aligned)
+  html += `                <div class="ch-media-bar">\n`;
+  html += `                    <button class="ch-media-icon${hasPdf ? '' : ' disabled'}" data-panel="pdf" title="PDF"${!hasPdf ? ' disabled' : ''} onclick="toggleMediaPanel('pdf')">${svgPdf}</button>\n`;
+  html += `                    <button class="ch-media-icon${hasAudio ? '' : ' disabled'}" data-panel="audio" title="Audio"${!hasAudio ? ' disabled' : ''} onclick="toggleMediaPanel('audio')">${svgAudio}</button>\n`;
+  html += `                    <button class="ch-media-icon${hasYoutube ? '' : ' disabled'}" data-panel="youtube" title="YouTube"${!hasYoutube ? ' disabled' : ''} onclick="toggleMediaPanel('youtube')">${svgYoutube}</button>\n`;
+  html += `                </div>\n`;
+
+  // PDF Panel
+  if (hasPdf) {
+    html += `                <div class="ch-media-panel" id="panel-pdf">\n`;
+    html += `                    <span class="ch-media-panel-text">${ui.media.downloadPdf}</span>\n`;
+    html += `                    <a href="${chapterMedia.pdf}" class="ch-media-panel-btn" download>⬇ ${ui.media.download}</a>\n`;
+    html += `                </div>\n`;
+  }
+
+  // Audio Panel
+  if (hasAudio) {
+    html += `                <div class="ch-media-panel" id="panel-audio">\n`;
+    html += `                    <div class="ch-media-audio">\n`;
+    html += `                        <audio controls preload="metadata">\n`;
+    html += `                            <source src="${chapterMedia.audio}" type="audio/mpeg">\n`;
+    html += `                        </audio>\n`;
+    html += `                    </div>\n`;
+    html += `                </div>\n`;
+  }
+
+  // YouTube Panel
+  if (hasYoutube) {
+    html += `                <div class="ch-media-panel" id="panel-youtube">\n`;
+    html += `                    <span class="ch-media-panel-text">${ui.media.listenAudio}</span>\n`;
+    html += `                    <a href="${chapterMedia.youtube}" class="ch-media-panel-btn" target="_blank" rel="noopener">▶ ${ui.media.listen}</a>\n`;
+    html += `                </div>\n`;
+  }
+
+  return html;
+}
+
 // Generate chapter HTML (for chapter page)
-function generateChapterContent(chapter, glossary, references) {
+function generateChapterContent(chapter, glossary, references, media, ui) {
   let html = `            <article class="chapter" id="${chapter.id}">\n`;
   html += `                <header class="ch-head">\n`;
   html += `                    <div class="ch-num">${chapter.numberText}</div>\n`;
   html += `                    <h1 class="ch-title">${chapter.title}</h1>\n`;
+  html += generateMediaToolbar(chapter.number, media, ui);
   html += `                </header>\n\n`;
 
   chapter.sections.forEach((section, index) => {
@@ -385,6 +444,7 @@ function generateScripts() {
         function toggleNotes(){document.getElementById('notes').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('sidebar').classList.remove('open')}
         function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes').classList.remove('open');document.getElementById('overlay').classList.remove('active')}
         function toggleChapter(id){const g=document.getElementById('nav-group-'+id);if(g)g.classList.toggle('expanded')}
+        function toggleMediaPanel(type){const panel=document.getElementById('panel-'+type);const btn=document.querySelector('[data-panel="'+type+'"]');if(!panel||!btn)return;const isActive=panel.classList.contains('active');document.querySelectorAll('.ch-media-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.ch-media-icon').forEach(b=>b.classList.remove('active'));if(!isActive){panel.classList.add('active');btn.classList.add('active')}}
         document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){e.preventDefault();const noteId='note-'+this.dataset.note;const note=document.getElementById(noteId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.ref').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));
         document.querySelectorAll('.ref').forEach(r=>r.addEventListener('click',function(e){e.preventDefault();const refId='ref-'+this.dataset.ref;const note=document.getElementById(refId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.ref').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));
         document.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=1100)closeAll()}));
@@ -629,7 +689,7 @@ ${generateScripts()}
 }
 
 // Generate individual chapter page
-function generateChapterPage(lang, chapters, chapterIndex, glossary, references, ui, allLangs, version) {
+function generateChapterPage(lang, chapters, chapterIndex, glossary, references, ui, allLangs, version, media) {
   const chapter = chapters[chapterIndex];
   const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
   const pagePath = `/ch${chapter.number}/`; // Path without language prefix
@@ -647,7 +707,7 @@ function generateChapterPage(lang, chapters, chapterIndex, glossary, references,
         <main class="main">
 `;
 
-  html += generateChapterContent(chapter, glossary, references);
+  html += generateChapterContent(chapter, glossary, references, media, ui);
   html += '\n';
   html += generateChapterPrevNext(chapters, chapterIndex, ui, lang);
   html += '\n';
@@ -706,6 +766,9 @@ function build() {
       references = loadJSON(path.join(I18N_DIR, BASE_LANG, 'references.json'));
     }
 
+    // Load media configuration (optional, per language)
+    const media = loadJSON(path.join(I18N_DIR, lang, 'media.json'));
+
     // Load chapters (fall back to EN if not available)
     const chapters = [];
     const chaptersDir = path.join(I18N_DIR, lang, 'chapters');
@@ -748,7 +811,7 @@ function build() {
         fs.mkdirSync(chapterDir, { recursive: true });
       }
 
-      const chapterHtml = generateChapterPage(lang, chapters, index, glossary, references, ui, LANGUAGES, version);
+      const chapterHtml = generateChapterPage(lang, chapters, index, glossary, references, ui, LANGUAGES, version, media);
       const chapterPath = path.join(chapterDir, 'index.html');
       fs.writeFileSync(chapterPath, chapterHtml);
       console.log(`   ✅ ${chapterPath}`);

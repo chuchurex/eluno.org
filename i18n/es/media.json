@@ -1,0 +1,82 @@
+{
+  "1": {
+    "pdf": "/pdf/es/ch01.pdf",
+    "audio": "/audio/es/ch01.mp3",
+    "youtube": "https://www.youtube.com/watch?v=bqyMQwZA3eo"
+  },
+  "2": {
+    "pdf": "/pdf/es/ch02.pdf",
+    "audio": "/audio/es/ch02.mp3",
+    "youtube": "https://www.youtube.com/watch?v=xmBgN1m4kj4"
+  },
+  "3": {
+    "pdf": "/pdf/es/ch03.pdf",
+    "audio": "/audio/es/ch03.mp3",
+    "youtube": ""
+  },
+  "4": {
+    "pdf": "/pdf/es/ch04.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "5": {
+    "pdf": "/pdf/es/ch05.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "6": {
+    "pdf": "/pdf/es/ch06.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "7": {
+    "pdf": "/pdf/es/ch07.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "8": {
+    "pdf": "/pdf/es/ch08.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "9": {
+    "pdf": "/pdf/es/ch09.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "10": {
+    "pdf": "/pdf/es/ch10.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "11": {
+    "pdf": "/pdf/es/ch11.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "12": {
+    "pdf": "/pdf/es/ch12.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "13": {
+    "pdf": "/pdf/es/ch13.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "14": {
+    "pdf": "/pdf/es/ch14.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "15": {
+    "pdf": "/pdf/es/ch15.pdf",
+    "audio": "",
+    "youtube": ""
+  },
+  "16": {
+    "pdf": "/pdf/es/ch16.pdf",
+    "audio": "",
+    "youtube": ""
+  }
+}
