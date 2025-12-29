@@ -353,6 +353,15 @@ async function translateChapter(chapterNum) {
   }
   console.log('   ✅ Build complete');
 
+  // Step 5b: Generate PDFs
+  console.log('\n📄 Step 5b: Generating PDFs...');
+  const pdfResult = exec(`node scripts/build-pdf.js ${chNum}`, 'Generating chapter PDFs');
+  if (pdfResult.success) {
+    console.log('   ✅ PDFs generated for EN, ES, PT');
+  } else {
+    console.log('   ⚠️  PDF generation failed (non-critical)');
+  }
+
   // Step 6: Git operations
   console.log('\n📦 Step 6: Git operations...');
   gitWorkflow(chNum, sourceChapter.title, esChapter.title, ptChapter.title);
@@ -395,6 +404,7 @@ Automated update after publishing chapter ${parseInt(chNum)}.
   console.log(`   - Chapter ${chNum} translated to ES and PT`);
   console.log(`   - Navigation updated`);
   console.log(`   - Site rebuilt`);
+  console.log(`   - PDFs generated (EN, ES, PT)`);
   console.log(`   - Git commits created`);
   console.log(`   - CONTEXT.md updated ✅`);
   console.log('\nNext steps:');
