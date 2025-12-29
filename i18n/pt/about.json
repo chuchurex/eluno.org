@@ -5,18 +5,12 @@
   "sections": [
     {
       "id": "what",
-      "title": "O que é isso",
+      "title": "",
       "content": [
         {
           "type": "paragraph",
           "text": "Uma reescrita do Material Ra (A Lei do Um) em formato de livro narrativo. O material original, recebido por Don Elkins, Carla L. Rueckert e Jim McCarty entre 1981 e 1984, está em formato de perguntas e respostas. Este projeto o transforma em prosa contínua para facilitar a leitura."
-        }
-      ]
-    },
-    {
-      "id": "who",
-      "title": "Quem fez",
-      "content": [
+        },
         {
           "type": "paragraph",
           "text": "**Chuchu** — Direção, decisões editoriais, verificação de fidelidade ao material original."
@@ -24,20 +18,6 @@
         {
           "type": "paragraph",
           "text": "**Claude Opus 4.5** (Anthropic) — Escrita, código, traduções. Cada capítulo emergiu de conversa entre humano e IA."
-        }
-      ]
-    },
-    {
-      "id": "how",
-      "title": "Como foi feito",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "O projeto começou em 24 de dezembro de 2025. Em cinco dias, os 16 capítulos foram completados em três idiomas (inglês, espanhol, português)."
-        },
-        {
-          "type": "paragraph",
-          "text": "O processo para cada capítulo: 1) Criar índice temático com referências às sessões originais. 2) Escrever o capítulo em inglês seguindo protocolos de voz e terminologia. 3) Traduzir para espanhol e português. 4) Publicar."
         }
       ]
     },
@@ -84,26 +64,18 @@
         {
           "type": "credits",
           "items": [
-            { "role": "Material original", "link": "https://www.llresearch.org", "contribution": "L/L Research" },
-            { "role": "Base de dados de referência", "link": "https://www.lawofone.info", "contribution": "lawofone.info" },
-            { "role": "Fonte", "link": "", "contribution": "Ra, um humilde mensageiro da Lei do Um" }
+            { "role": "Chuchu", "link": "https://chuchurex.cl", "contribution": "" },
+            { "role": "Claude Opus 4.5", "link": "https://www.anthropic.com", "contribution": "" },
+            { "role": "L/L Research", "link": "https://www.llresearch.org", "contribution": "" },
+            { "role": "lawofone.info", "link": "https://www.lawofone.info", "contribution": "" },
+            { "role": "Ra", "link": "", "contribution": "Um humilde mensageiro da Lei do Um" }
           ]
-        }
-      ]
-    },
-    {
-      "id": "contact",
-      "title": "Contato",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "chuchurex@gmail.com"
         }
       ]
     }
   ],
   "footer": {
-    "updated": "Primeira Edição · 2025",
+    "updated": "2025",
     "madeWith": ""
   }
 }

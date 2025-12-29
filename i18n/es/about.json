@@ -5,18 +5,12 @@
   "sections": [
     {
       "id": "what",
-      "title": "Qué es esto",
+      "title": "",
       "content": [
         {
           "type": "paragraph",
           "text": "Una reescritura del Material Ra (La Ley del Uno) en formato de libro narrativo. El material original, recibido por Don Elkins, Carla L. Rueckert y Jim McCarty entre 1981 y 1984, está en formato de preguntas y respuestas. Este proyecto lo transforma en prosa continua para facilitar su lectura."
-        }
-      ]
-    },
-    {
-      "id": "who",
-      "title": "Quién lo hizo",
-      "content": [
+        },
         {
           "type": "paragraph",
           "text": "**Chuchu** — Dirección, decisiones editoriales, verificación de fidelidad al material original."
@@ -24,20 +18,6 @@
         {
           "type": "paragraph",
           "text": "**Claude Opus 4.5** (Anthropic) — Escritura, código, traducciones. Cada capítulo emergió de conversación entre humano e IA."
-        }
-      ]
-    },
-    {
-      "id": "how",
-      "title": "Cómo se hizo",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "El proyecto comenzó el 24 de diciembre de 2025. En cinco días se completaron los 16 capítulos en tres idiomas (inglés, español, portugués)."
-        },
-        {
-          "type": "paragraph",
-          "text": "El proceso para cada capítulo: 1) Crear índice temático con referencias a las sesiones originales. 2) Escribir el capítulo en inglés siguiendo protocolos de voz y terminología. 3) Traducir a español y portugués. 4) Publicar."
         }
       ]
     },
@@ -84,26 +64,18 @@
         {
           "type": "credits",
           "items": [
-            { "role": "Material original", "link": "https://www.llresearch.org", "contribution": "L/L Research" },
-            { "role": "Base de datos de referencia", "link": "https://www.lawofone.info", "contribution": "lawofone.info" },
-            { "role": "Fuente", "link": "", "contribution": "Ra, un humilde mensajero de la Ley del Uno" }
+            { "role": "Chuchu", "link": "https://chuchurex.cl", "contribution": "" },
+            { "role": "Claude Opus 4.5", "link": "https://www.anthropic.com", "contribution": "" },
+            { "role": "L/L Research", "link": "https://www.llresearch.org", "contribution": "" },
+            { "role": "lawofone.info", "link": "https://www.lawofone.info", "contribution": "" },
+            { "role": "Ra", "link": "", "contribution": "Un humilde mensajero de la Ley del Uno" }
           ]
-        }
-      ]
-    },
-    {
-      "id": "contact",
-      "title": "Contacto",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "chuchurex@gmail.com"
         }
       ]
     }
   ],
   "footer": {
-    "updated": "Primera Edición · 2025",
+    "updated": "2025",
     "madeWith": ""
   }
 }
