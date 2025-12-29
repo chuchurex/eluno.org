@@ -166,7 +166,6 @@ function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
   html += `            </div>\n`;
 
   html += `            <div class="nav-section">\n`;
-  html += `                <div class="nav-section-title">${ui.parts.foundations}</div>\n`;
 
   // Chapter links
   chapters.forEach(ch => {
@@ -235,7 +234,6 @@ function generateTocNav(chapters, ui, lang, allLangs) {
   html += `</div>\n`;
   html += `            </div>\n`;
   html += `            <div class="nav-section">\n`;
-  html += `                <div class="nav-section-title">${ui.parts.foundations}</div>\n`;
 
   // Chapter links
   chapters.forEach(ch => {
@@ -455,7 +453,6 @@ function generateTocPage(lang, chapters, glossary, references, ui, allLangs, ver
             </section>
 
             <section class="toc-section">
-                <h2 class="toc-section-title">${ui.parts.foundations}</h2>
                 <div class="toc-chapters">
 `;
 
@@ -588,7 +585,6 @@ function generateAboutNav(chapters, about, ui, lang, allLangs) {
 
   // Chapters section
   html += `            <div class="nav-section" style="margin-top:1.5rem">\n`;
-  html += `                <div class="nav-section-title">${ui.parts.foundations}</div>\n`;
   chapters.forEach(ch => {
     const chapterHref = `${langPrefix}/ch${ch.number}/`;
     html += `                <a href="${chapterHref}" class="nav-link">${ui.nav.chapter} ${ch.number}: ${ch.title}</a>\n`;

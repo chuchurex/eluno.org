@@ -5,7 +5,7 @@
   "introduction": {
     "title": "Introdução",
     "content": [
-      "Este livro apresenta ensinamentos que não são meus. Foram recebidos por Don, Carla e Jim entre 1981 e 1984. Minha única contribuição foi remover as barreiras que dificultavam o acesso, e construir pontes entre este material e outras tradições espirituais. Não fiz isso sozinho: Claude, uma inteligência artificial criada pela Anthropic, me ajudou a encontrar palavras que eu havia buscado durante anos.",
+      "Este livro apresenta ensinamentos recebidos por Don, Carla e Jim no início dos anos 80. Minha contribuição foi remover barreiras que, na minha opinião, dificultavam o acesso. Não fiz isso sozinho: Claude, uma inteligência artificial criada pela Anthropic, me ajudou a encontrar palavras que eu havia buscado durante anos.",
       "O que segue pertence a todos os buscadores. Leve o que ressoa. Deixe o que não ressoa. Os ensinamentos não pedem nada mais."
     ]
   },
@@ -22,10 +22,7 @@
     "backToIndex": "Voltar ao Índice",
     "readChapter": "Ler capítulo"
   },
-  "parts": {
-    "foundations": "Parte I — Fundamentos"
-  },
-  "footer": {
+    "footer": {
     "draft": "Primeira Edição",
     "date": "2025",
     "feedbackTitle": "Comentários",
