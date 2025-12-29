@@ -64,10 +64,10 @@
         {
           "type": "credits",
           "items": [
-            { "role": "Chuchu", "link": "https://chuchurex.cl", "contribution": "" },
-            { "role": "Claude Opus 4.5", "link": "https://www.anthropic.com", "contribution": "" },
-            { "role": "L/L Research", "link": "https://www.llresearch.org", "contribution": "" },
-            { "role": "lawofone.info", "link": "https://www.lawofone.info", "contribution": "" },
+            { "role": "Chuchu", "link": "https://chuchurex.cl", "contribution": "Dirección y edición" },
+            { "role": "Claude Opus 4.5", "link": "https://www.anthropic.com", "contribution": "Escritura, código, traducciones" },
+            { "role": "L/L Research", "link": "https://www.llresearch.org", "contribution": "Material original" },
+            { "role": "lawofone.info", "link": "https://www.lawofone.info", "contribution": "Base de datos de referencia" },
             { "role": "Ra", "link": "", "contribution": "Un humilde mensajero de la Ley del Uno" }
           ]
         }
