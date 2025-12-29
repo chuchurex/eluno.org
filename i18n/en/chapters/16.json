@@ -3,25 +3,6 @@
   "number": 16,
   "numberText": "Chapter Sixteen",
   "title": "The Return",
-  "metadata": {
-    "sources": {
-      "primary": [
-        {"topic": "You are the Creator", "refs": ["1.7"]},
-        {"topic": "Infinity is creation", "refs": ["13.5", "13.6", "13.7", "13.8"]},
-        {"topic": "Mystery remains", "refs": ["13.13", "28.1"]},
-        {"topic": "All is love", "refs": ["Q'uo Vol 9", "Q'uo Vol 10"]},
-        {"topic": "Life as gift", "refs": ["Q'uo Vol 10"]},
-        {"topic": "Adonai meaning", "refs": ["Q'uo Vol 11"]}
-      ],
-      "glossary_terms": ["infinite", "consciousness", "love", "densities", "the-choice", "harvest", "meditation"]
-    },
-    "writing_parameters": {
-      "voice": "first person plural",
-      "tone": "elevated, ceremonial, intimate, reverent",
-      "practical_application": "Level 1 - contemplative",
-      "closing_type": "Type A - Contemplative-ceremonial"
-    }
-  },
   "sections": [
     {
       "id": "ch16-circle",
