@@ -449,6 +449,11 @@ function generateTocPage(lang, chapters, glossary, references, ui, allLangs, ver
                 <p class="toc-subtitle">${ui.description}</p>
             </header>
 
+            <section class="introduction">
+                <h2 class="intro-title">${ui.introduction.title}</h2>
+                ${ui.introduction.content.map(p => `<p class="intro-text">${p}</p>`).join('\n                ')}
+            </section>
+
             <section class="toc-section">
                 <h2 class="toc-section-title">${ui.parts.foundations}</h2>
                 <div class="toc-chapters">

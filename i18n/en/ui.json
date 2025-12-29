@@ -2,6 +2,13 @@
   "siteTitle": "The One",
   "bookTitle": "The One — Book Draft",
   "description": "A philosophical rewrite of the Ra Material (Law of One) as accessible narrative. Explore cosmology, the Creator, densities, and the purpose of existence.",
+  "introduction": {
+    "title": "Introduction",
+    "content": [
+      "This book presents teachings that are not mine. They were given by Ra, an humble messenger of the Law of One, through the instrument Carla L. Rueckert, with questions from Don Elkins and transcription by Jim McCarty, between 1981 and 1984. My only contribution has been to remove barriers that made access difficult, and to build bridges between this material and other spiritual traditions. I did not do this alone: Claude, an artificial intelligence created by Anthropic, helped me find words I had searched for over years.",
+      "What follows belongs to all seekers. Take what resonates. Leave what does not. The teachings ask nothing more."
+    ]
+  },
   "nav": {
     "index": "Index",
     "chapter": "Ch",
