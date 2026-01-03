@@ -5,7 +5,7 @@
   "introduction": {
     "title": "",
     "content": [
-      "Ensinamentos recebidos por Don, Carla e Jim no início dos anos 80, transformados em narrativa filosófica acessível. Reescrito com a ajuda de Claude, uma inteligência artificial criada pela Anthropic."
+      "Ensinamentos recebidos por Don, Carla e Jim no início dos anos 80, transformados em narrativa filosófica acessível. Reescrito com assistência de IA."
     ]
   },
   "nav": {
@@ -24,9 +24,13 @@
   },
   "media": {
     "downloadPdf": "Baixar PDF do capítulo",
+    "downloadAudio": "Baixar áudio MP3 do capítulo",
     "download": "Baixar",
     "listenAudio": "Ouvir audiolivro do capítulo",
-    "listen": "Ouvir"
+    "listen": "Ouvir",
+    "labelAudio": "MP3",
+    "labelPdf": "PDF",
+    "labelYoutube": "YouTube"
   },
     "footer": {
     "draft": "Primeira Edição",
@@ -36,11 +40,21 @@
     "formEmail": "Seu Email",
     "formMessage": "Sua Mensagem",
     "formSubmit": "Enviar Feedback",
-    "formSuccess": "Obrigado! Seu feedback foi recebido."
+    "formSuccess": "Obrigado! Seu feedback foi recebido.",
+    "attribution": "Este trabalho é uma interpretação do Material Ra, publicado originalmente por L/L Research.",
+    "originalSessions": "Sessões originais gratuitas em",
+    "derivedFrom": "Conteúdo derivado do material de L/L Research"
   },
   "meta": {
     "chapters": "",
-    "version": "Natal 2025"
+    "version": "v0.2 · Janeiro 2026"
   },
-  "footerVersion": ""
+  "footerVersion": "",
+  "disclaimer": {
+    "title": "Sobre Esta Interpretação",
+    "text1": "O Material Ra foi entregue em um formato preciso de pergunta e resposta, com Ra escolhendo cada palavra intencionalmente. Este projeto transforma esse formato em prosa narrativa—um processo que necessariamente envolve interpretação através da compreensão do autor.",
+    "text2": "Este trabalho foi criado com assistência de IA, o que pode introduzir imprecisões ou inconsistências. Deve ser usado apenas como uma ferramenta complementar, não como um estudo primário do material.",
+    "text3": "Encorajamos todos os buscadores a ler as sessões originais em",
+    "text3b": "e formar sua própria relação com as palavras reais de Ra."
+  }
 }

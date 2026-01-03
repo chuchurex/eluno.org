@@ -85,7 +85,7 @@ function generateSection(section, glossary, references) {
   return html;
 }
 
-// Generate media toolbar HTML (PDF, Audio, YouTube) - Accordion style
+// Generate media toolbar HTML (Audio, PDF, YouTube) - Inline with accordion
 function generateMediaToolbar(chapterNum, media, ui) {
   if (!media || !ui.media) return '';
 
@@ -101,45 +101,35 @@ function generateMediaToolbar(chapterNum, media, ui) {
 
   let html = '';
 
-  // SVG icons (can be styled with CSS color) - 24px size
-  // PDF icon with download arrow pointing down
-  const svgPdfDownload = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zm-2 14l-4-4h2.5v-4h3v4H15l-4 4z"/></svg>`;
-  const svgAudio = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>`;
-  const svgYoutube = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>`;
+  // SVG icons - 22px size
+  const svgPdf = `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zm-2 14l-4-4h2.5v-4h3v4H15l-4 4z"/></svg>`;
+  const svgAudio = `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>`;
+  const svgYoutube = `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>`;
 
-  // Icon bar (right-aligned)
+  // Get labels (with fallbacks)
+  const labelPdf = ui.media.labelPdf || 'PDF';
+  const labelAudio = ui.media.labelAudio || 'MP3';
+  const labelYoutube = ui.media.labelYoutube || 'YouTube';
+
+  // Icon bar - order: PDF, Audio, YouTube
   html += `                <div class="ch-media-bar">\n`;
-  // PDF: direct download link (not accordion)
+
+  // PDF: direct download link
   if (hasPdf) {
-    html += `                    <a href="${chapterMedia.pdf}" class="ch-media-icon ch-media-download" title="${ui.media.downloadPdf}" download>${svgPdfDownload}</a>\n`;
+    html += `                    <a href="${chapterMedia.pdf}" class="ch-media-icon" title="${ui.media.downloadPdf}" download>${svgPdf}<span class="ch-media-label">${labelPdf}</span></a>\n`;
   }
-  // Audio and YouTube: keep accordion behavior
+
+  // Audio MP3: direct download link
   if (hasAudio) {
-    html += `                    <button class="ch-media-icon" data-panel="audio" title="Audio" onclick="toggleMediaPanel('audio')">${svgAudio}</button>\n`;
+    html += `                    <a href="${chapterMedia.audio}" class="ch-media-icon" title="${ui.media.listenAudio || 'Descargar audio'}" download>${svgAudio}<span class="ch-media-label">${labelAudio}</span></a>\n`;
   }
+
+  // YouTube: external link
   if (hasYoutube) {
-    html += `                    <button class="ch-media-icon" data-panel="youtube" title="YouTube" onclick="toggleMediaPanel('youtube')">${svgYoutube}</button>\n`;
+    html += `                    <a href="${chapterMedia.youtube}" class="ch-media-icon" target="_blank" rel="noopener" title="${ui.media.listenAudio}">${svgYoutube}<span class="ch-media-label">${labelYoutube}</span></a>\n`;
   }
+
   html += `                </div>\n`;
-
-  // Audio Panel
-  if (hasAudio) {
-    html += `                <div class="ch-media-panel" id="panel-audio">\n`;
-    html += `                    <div class="ch-media-audio">\n`;
-    html += `                        <audio controls preload="metadata">\n`;
-    html += `                            <source src="${chapterMedia.audio}" type="audio/mpeg">\n`;
-    html += `                        </audio>\n`;
-    html += `                    </div>\n`;
-    html += `                </div>\n`;
-  }
-
-  // YouTube Panel
-  if (hasYoutube) {
-    html += `                <div class="ch-media-panel" id="panel-youtube">\n`;
-    html += `                    <span class="ch-media-panel-text">${ui.media.listenAudio}</span>\n`;
-    html += `                    <a href="${chapterMedia.youtube}" class="ch-media-panel-btn" target="_blank" rel="noopener">▶ ${ui.media.listen}</a>\n`;
-    html += `                </div>\n`;
-  }
 
   return html;
 }
@@ -373,6 +363,15 @@ function generateFooter(ui, showFeedback = true) {
     html += `                </div>\n`;
   }
 
+  // L/L Research Attribution
+  if (ui.footer.attribution) {
+    html += `                <div class="footer-attribution">\n`;
+    html += `                    <p>${ui.footer.attribution}</p>\n`;
+    html += `                    <p>${ui.footer.originalSessions} <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a></p>\n`;
+    html += `                    <p class="footer-copyright">© ${ui.footer.derivedFrom}</p>\n`;
+    html += `                </div>\n`;
+  }
+
   html += `            </footer>\n`;
   return html;
 }
@@ -511,6 +510,14 @@ function generateTocPage(lang, chapters, glossary, references, ui, allLangs, ver
             <section class="introduction">
                 <h2 class="intro-title">${ui.introduction.title}</h2>
                 ${ui.introduction.content.map(p => `<p class="intro-text">${p}</p>`).join('\n                ')}
+${lang === 'es' ? `                <p class="intro-audiobook">También disponible como <a href="https://www.youtube.com/playlist?list=PL5xfCBL9Dh7HF-DJ7aXX9jfTagZ1U4fl2" target="_blank" rel="noopener">playlist en YouTube <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a></p>
+` : ''}            </section>
+
+            <section class="disclaimer-banner">
+                <h3 class="disclaimer-title">${ui.disclaimer.title}</h3>
+                <p>${ui.disclaimer.text1}</p>
+                <p>${ui.disclaimer.text2}</p>
+                <p>${ui.disclaimer.text3} <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a> ${ui.disclaimer.text3b}</p>
             </section>
 
             <section class="toc-section">
@@ -854,7 +861,46 @@ function build() {
     console.log(`📄 Copied .htaccess`);
   }
 
-  // Copy API folder
+  // Copy _headers for Cloudflare Pages
+  const headersSrc = path.join(__dirname, '..', '_headers');
+  const headersDest = path.join(DIST_DIR, '_headers');
+  if (fs.existsSync(headersSrc)) {
+    fs.copyFileSync(headersSrc, headersDest);
+    console.log(`📋 Copied _headers`);
+  }
+
+  // Copy books/ (PDFs)
+  const booksSrc = path.join(__dirname, '..', 'books');
+  const booksDest = path.join(DIST_DIR, 'books');
+  if (fs.existsSync(booksSrc)) {
+    if (!fs.existsSync(booksDest)) {
+      fs.mkdirSync(booksDest, { recursive: true });
+    }
+    const files = fs.readdirSync(booksSrc);
+    files.forEach(file => {
+      fs.copyFileSync(path.join(booksSrc, file), path.join(booksDest, file));
+    });
+    console.log(`📚 Copied books/`);
+  }
+
+  // Copy audiobook/ (MP3s)
+  const audioSrc = path.join(__dirname, '..', 'audiobook');
+  const audioDest = path.join(DIST_DIR, 'audiobook');
+  if (fs.existsSync(audioSrc)) {
+    if (!fs.existsSync(audioDest)) {
+      fs.mkdirSync(audioDest, { recursive: true });
+    }
+    const files = fs.readdirSync(audioSrc);
+    files.forEach(file => {
+      fs.copyFileSync(path.join(audioSrc, file), path.join(audioDest, file));
+    });
+    console.log(`🎧 Copied audiobook/`);
+  }
+
+  // Copy icons if they exist (e.g. android-chrome)
+  // Not strictly needed if everything is inline SVG/data URI, but good practice if listed in manifest
+
+  // Copy API folder (Legacy PHP support - won't work on CF Pages but kept for migration)
   const apiSrc = path.join(__dirname, '..', 'src', 'api');
   const apiDest = path.join(DIST_DIR, 'api');
   if (fs.existsSync(apiSrc)) {

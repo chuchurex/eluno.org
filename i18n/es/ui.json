@@ -5,7 +5,7 @@
   "introduction": {
     "title": "",
     "content": [
-      "Enseñanzas recibidas por Don, Carla y Jim a principios de los 80, transformadas en narrativa filosófica accesible. Reescrito con la ayuda de Claude, una inteligencia artificial creada por Anthropic."
+      "Enseñanzas recibidas por Don, Carla y Jim a principios de los 80, transformadas en narrativa filosófica accesible. Reescrito con asistencia de IA."
     ]
   },
   "nav": {
@@ -24,9 +24,13 @@
   },
   "media": {
     "downloadPdf": "Descargar PDF del capítulo",
+    "downloadAudio": "Descargar audio MP3 del capítulo",
     "download": "Descargar",
     "listenAudio": "Escuchar audiolibro del capítulo en YouTube",
-    "listen": "Escuchar"
+    "listen": "Escuchar",
+    "labelAudio": "MP3",
+    "labelPdf": "PDF",
+    "labelYoutube": "YouTube"
   },
     "footer": {
     "draft": "Primera Edición",
@@ -36,11 +40,21 @@
     "formEmail": "Tu Email",
     "formMessage": "Tu Mensaje",
     "formSubmit": "Enviar Feedback",
-    "formSuccess": "¡Gracias! Tu feedback ha sido recibido."
+    "formSuccess": "¡Gracias! Tu feedback ha sido recibido.",
+    "attribution": "Este trabajo es una interpretación del Material Ra, publicado originalmente por L/L Research.",
+    "originalSessions": "Sesiones originales gratis en",
+    "derivedFrom": "Contenido derivado del material de L/L Research"
   },
   "meta": {
     "chapters": "",
-    "version": "Navidad 2025"
+    "version": "v0.2 · Enero 2026"
   },
-  "footerVersion": ""
+  "footerVersion": "",
+  "disclaimer": {
+    "title": "Sobre Esta Interpretación",
+    "text1": "El Material Ra fue entregado en un formato preciso de pregunta y respuesta, con Ra eligiendo cada palabra intencionalmente. Este proyecto transforma ese formato en prosa narrativa—un proceso que necesariamente involucra interpretación a través de la comprensión del autor.",
+    "text2": "Este trabajo fue creado con asistencia de IA, lo cual puede introducir inexactitudes o inconsistencias. Debe usarse solo como una herramienta complementaria, no como un estudio primario del material.",
+    "text3": "Animamos a todos los buscadores a leer las sesiones originales en",
+    "text3b": "y formar su propia relación con las palabras reales de Ra."
+  }
 }

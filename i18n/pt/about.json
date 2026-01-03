@@ -13,69 +13,27 @@
         },
         {
           "type": "paragraph",
-          "text": "**Chuchu** — Direção, decisões editoriais, verificação de fidelidade ao material original."
-        },
-        {
-          "type": "paragraph",
-          "text": "**Claude Opus 4.5** (Anthropic) — Escrita, código, traduções. Cada capítulo emergiu de conversa entre humano e IA."
+          "text": "Este trabalho foi realizado por <a href=\"https://chuchurex.cl\" target=\"_blank\">Carlos Martínez</a> com a ajuda de inteligência artificial."
         }
       ]
     },
     {
-      "id": "editorial",
-      "title": "Decisões editoriais",
+      "id": "ai-disclosure",
+      "title": "Divulgação de Assistência de IA",
       "content": [
         {
           "type": "paragraph",
-          "text": "**Voz**: Primeira pessoa do plural, como se Ra estivesse escrevendo diretamente."
+          "text": "Este projeto foi criado com assistência de IA. Embora todo esforço tenha sido feito para manter a precisão e fidelidade ao material original, o conteúdo gerado por IA pode conter imprecisões, inconsistências ou interpretações errôneas."
         },
         {
           "type": "paragraph",
-          "text": "**Sem atribuição explícita**: Os ensinamentos são apresentados como verdade filosófica, não como \"Ra disse que...\""
-        },
-        {
-          "type": "paragraph",
-          "text": "**Terminologia preservada**: \"Densidade\" (não dimensão), \"distorção\", \"complexo de memória social\"."
-        },
-        {
-          "type": "paragraph",
-          "text": "**Fidelidade**: O conteúdo é 100% do material original. Apenas a forma mudou."
-        }
-      ]
-    },
-    {
-      "id": "status",
-      "title": "Estado atual",
-      "content": [
-        {
-          "type": "stats",
-          "items": [
-            { "number": "16", "label": "Capítulos Completos" },
-            { "number": "3", "label": "Idiomas" },
-            { "number": "40+", "label": "Termos Definidos" }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "credits",
-      "title": "Créditos",
-      "content": [
-        {
-          "type": "credits",
-          "items": [
-            { "role": "Chuchu", "link": "https://chuchurex.cl", "contribution": "Direção e edição" },
-            { "role": "Claude Opus 4.5", "link": "https://www.anthropic.com", "contribution": "Escrita, código, traduções" },
-            { "role": "L/L Research", "link": "https://www.llresearch.org", "contribution": "Material original" },
-            { "role": "lawofone.info", "link": "https://www.lawofone.info", "contribution": "Base de dados de referência" },
-            { "role": "Ra", "link": "", "contribution": "Um humilde mensageiro da Lei do Um" }
-          ]
+          "text": "Este trabalho deve ser usado apenas como ferramenta de estudo complementar. Para uma compreensão autorizada, sempre consulte o Material Ra original em <a href=\"https://www.llresearch.org\" target=\"_blank\">llresearch.org</a>."
         }
       ]
     }
   ],
   "footer": {
-    "updated": "2025",
+    "updated": "",
     "madeWith": ""
   }
 }

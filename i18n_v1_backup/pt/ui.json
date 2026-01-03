@@ -1,0 +1,46 @@
+{
+  "siteTitle": "O Um",
+  "bookTitle": "O Um",
+  "description": "Uma reinterpretação filosófica do Material Ra (A Lei do Um) como narrativa acessível. Explore a cosmologia, o Criador, as densidades e o propósito da existência.",
+  "introduction": {
+    "title": "",
+    "content": [
+      "Ensinamentos recebidos por Don, Carla e Jim no início dos anos 80, transformados em narrativa filosófica acessível. Reescrito com assistência de IA."
+    ]
+  },
+  "nav": {
+    "index": "Índice",
+    "chapter": "Cap.",
+    "notes": "Notas",
+    "about": "Sobre este projeto",
+    "notesPanel": "Notas e Definições",
+    "notesEmpty": "Clique em qualquer <span class=\"term-hint\">termo destacado</span> no texto para ver sua definição aqui.",
+    "tableOfContents": "Índice de Conteúdos",
+    "previousChapter": "Capítulo Anterior",
+    "nextChapter": "Próximo Capítulo",
+    "backToIndex": "Voltar ao Índice",
+    "readChapter": "Ler capítulo",
+    "learnMore": "Saiba mais"
+  },
+  "media": {
+    "downloadPdf": "Baixar PDF do capítulo",
+    "download": "Baixar",
+    "listenAudio": "Ouvir audiolivro do capítulo",
+    "listen": "Ouvir"
+  },
+    "footer": {
+    "draft": "Primeira Edição",
+    "date": "2025",
+    "feedbackTitle": "Comentários",
+    "formName": "Seu Nome",
+    "formEmail": "Seu Email",
+    "formMessage": "Sua Mensagem",
+    "formSubmit": "Enviar Feedback",
+    "formSuccess": "Obrigado! Seu feedback foi recebido."
+  },
+  "meta": {
+    "chapters": "",
+    "version": "Natal 2025"
+  },
+  "footerVersion": ""
+}

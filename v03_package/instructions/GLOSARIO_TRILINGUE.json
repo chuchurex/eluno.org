@@ -1,0 +1,323 @@
+{
+  "metadata": {
+    "description": "Glosario de términos técnicos para traducción v0.3",
+    "usage": "Usar estas traducciones exactas para mantener consistencia"
+  },
+  "terms": {
+    "acceptance": {
+      "en": "Acceptance",
+      "es": "Aceptación",
+      "pt": "Aceitação"
+    },
+    "adept": {
+      "en": "Adept",
+      "es": "Adepto",
+      "pt": "Adepto"
+    },
+    "balancing": {
+      "en": "Balancing",
+      "es": "Equilibrio",
+      "pt": "Equilíbrio"
+    },
+    "blue-ray": {
+      "en": "Blue Ray",
+      "es": "Rayo Azul",
+      "pt": "Raio Azul"
+    },
+    "calling": {
+      "en": "The Calling",
+      "es": "El Llamado",
+      "pt": "O Chamado"
+    },
+    "catalyst": {
+      "en": "Catalyst",
+      "es": "Catalizador",
+      "pt": "Catalisador"
+    },
+    "co-creators": {
+      "en": "Co-Creators",
+      "es": "Co-Creadores",
+      "pt": "Co-Criadores"
+    },
+    "confederation": {
+      "en": "Confederation",
+      "es": "Confederación",
+      "pt": "Confederação"
+    },
+    "consciousness": {
+      "en": "Consciousness",
+      "es": "Conciencia",
+      "pt": "Consciência"
+    },
+    "densities": {
+      "en": "Densities",
+      "es": "Densidades",
+      "pt": "Densidades"
+    },
+    "distortion": {
+      "en": "Distortion",
+      "es": "Distorsión",
+      "pt": "Distorção"
+    },
+    "dual-activated": {
+      "en": "Dual-Activated Bodies",
+      "es": "Cuerpos de Doble Activación",
+      "pt": "Corpos de Dupla Ativação"
+    },
+    "energy-centers": {
+      "en": "Energy Centers",
+      "es": "Centros de Energía",
+      "pt": "Centros de Energia"
+    },
+    "experience": {
+      "en": "Experience",
+      "es": "Experiencia",
+      "pt": "Experiência"
+    },
+    "faith": {
+      "en": "Faith",
+      "es": "Fe",
+      "pt": "Fé"
+    },
+    "fifth-density": {
+      "en": "Fifth Density",
+      "es": "Quinta Densidad",
+      "pt": "Quinta Densidade"
+    },
+    "first-distortion": {
+      "en": "First Distortion",
+      "es": "Primera Distorsión",
+      "pt": "Primeira Distorção"
+    },
+    "form-maker": {
+      "en": "Form-Maker Body",
+      "es": "Cuerpo Formador",
+      "pt": "Corpo Formador"
+    },
+    "fourth-density": {
+      "en": "Fourth Density",
+      "es": "Cuarta Densidad",
+      "pt": "Quarta Densidade"
+    },
+    "free-will": {
+      "en": "Free Will",
+      "es": "Libre Albedrío",
+      "pt": "Livre-Arbítrio"
+    },
+    "green-ray": {
+      "en": "Green Ray",
+      "es": "Rayo Verde",
+      "pt": "Raio Verde"
+    },
+    "guardians": {
+      "en": "Guardians",
+      "es": "Guardianes",
+      "pt": "Guardiões"
+    },
+    "harvest": {
+      "en": "Harvest",
+      "es": "Cosecha",
+      "pt": "Colheita"
+    },
+    "higher-self": {
+      "en": "Higher Self",
+      "es": "Yo Superior",
+      "pt": "Eu Superior"
+    },
+    "indigo-ray": {
+      "en": "Indigo Ray",
+      "es": "Rayo Índigo",
+      "pt": "Raio Índigo"
+    },
+    "infinite": {
+      "en": "The Infinite",
+      "es": "El Infinito",
+      "pt": "O Infinito"
+    },
+    "infinity": {
+      "en": "Infinity",
+      "es": "Infinito",
+      "pt": "Infinito"
+    },
+    "intelligent-energy": {
+      "en": "Intelligent Energy",
+      "es": "Energía Inteligente",
+      "pt": "Energia Inteligente"
+    },
+    "intelligent-infinity": {
+      "en": "Intelligent Infinity",
+      "es": "Infinito Inteligente",
+      "pt": "Infinito Inteligente"
+    },
+    "karma": {
+      "en": "Karma",
+      "es": "Karma",
+      "pt": "Karma"
+    },
+    "law-of-confusion": {
+      "en": "Law of Confusion",
+      "es": "Ley de Confusión",
+      "pt": "Lei da Confusão"
+    },
+    "light": {
+      "en": "Light (Third Distortion)",
+      "es": "Luz (Tercera Distorsión)",
+      "pt": "Luz (Terceira Distorção)"
+    },
+    "logos": {
+      "en": "Logos",
+      "es": "Logos",
+      "pt": "Logos"
+    },
+    "love": {
+      "en": "Love (Second Distortion)",
+      "es": "Amor (Segunda Distorsión)",
+      "pt": "Amor (Segunda Distorção)"
+    },
+    "maldek": {
+      "en": "Maldek",
+      "es": "Maldek",
+      "pt": "Maldek"
+    },
+    "mars": {
+      "en": "Mars",
+      "es": "Marte",
+      "pt": "Marte"
+    },
+    "meditation": {
+      "en": "Meditation",
+      "es": "Meditación",
+      "pt": "Meditação"
+    },
+    "mind-body-spirit": {
+      "en": "Mind/Body/Spirit Complex",
+      "es": "Complejo Mente/Cuerpo/Espíritu",
+      "pt": "Complexo Mente/Corpo/Espírito"
+    },
+    "octave": {
+      "en": "The Octave",
+      "es": "La Octava",
+      "pt": "A Oitava"
+    },
+    "orange-ray": {
+      "en": "Orange Ray",
+      "es": "Rayo Naranja",
+      "pt": "Raio Laranja"
+    },
+    "orion-group": {
+      "en": "Orion Group",
+      "es": "Grupo de Orión",
+      "pt": "Grupo de Órion"
+    },
+    "other-self": {
+      "en": "Other-Self",
+      "es": "Otro-Yo",
+      "pt": "Outro-Eu"
+    },
+    "polarity": {
+      "en": "Polarity",
+      "es": "Polaridad",
+      "pt": "Polaridade"
+    },
+    "polarization": {
+      "en": "Polarization",
+      "es": "Polarización",
+      "pt": "Polarização"
+    },
+    "quarantine": {
+      "en": "Quarantine",
+      "es": "Cuarentena",
+      "pt": "Quarentena"
+    },
+    "red-ray": {
+      "en": "Red Ray",
+      "es": "Rayo Rojo",
+      "pt": "Raio Vermelho"
+    },
+    "service-to-others": {
+      "en": "Service to Others",
+      "es": "Servicio a Otros",
+      "pt": "Serviço aos Outros"
+    },
+    "service-to-self": {
+      "en": "Service to Self",
+      "es": "Servicio a Sí Mismo",
+      "pt": "Serviço a Si Mesmo"
+    },
+    "sixth-density": {
+      "en": "Sixth Density",
+      "es": "Sexta Densidad",
+      "pt": "Sexta Densidade"
+    },
+    "social-memory-complex": {
+      "en": "Social Memory Complex",
+      "es": "Complejo de Memoria Social",
+      "pt": "Complexo de Memória Social"
+    },
+    "sub-logos": {
+      "en": "Sub-Logos",
+      "es": "Sub-Logos",
+      "pt": "Sub-Logos"
+    },
+    "the-choice": {
+      "en": "The Choice",
+      "es": "La Elección",
+      "pt": "A Escolha"
+    },
+    "third-density": {
+      "en": "Third Density",
+      "es": "Tercera Densidad",
+      "pt": "Terceira Densidade"
+    },
+    "time-space": {
+      "en": "Time/Space",
+      "es": "Tiempo/Espacio",
+      "pt": "Tempo/Espaço"
+    },
+    "totality-complex": {
+      "en": "Mind/Body/Spirit Complex Totality",
+      "es": "Totalidad del Complejo Mente/Cuerpo/Espíritu",
+      "pt": "Totalidade do Complexo Mente/Corpo/Espírito"
+    },
+    "veil": {
+      "en": "Veil of Forgetting",
+      "es": "Velo del Olvido",
+      "pt": "Véu do Esquecimento"
+    },
+    "violet-ray": {
+      "en": "Violet Ray",
+      "es": "Rayo Violeta",
+      "pt": "Raio Violeta"
+    },
+    "wanderers": {
+      "en": "Wanderers",
+      "es": "Errantes",
+      "pt": "Errantes"
+    },
+    "yellow-ray": {
+      "en": "Yellow Ray",
+      "es": "Rayo Amarillo",
+      "pt": "Raio Amarelo"
+    }
+  },
+  "special_terms": {
+    "adonai": {
+      "note": "NEVER translate - keep as 'Adonai' in all languages"
+    },
+    "law_of_one": {
+      "en": "Law of One",
+      "es": "Ley del Uno",
+      "pt": "Lei do Um"
+    },
+    "infinite_creator": {
+      "en": "Infinite Creator",
+      "es": "Creador Infinito",
+      "pt": "Criador Infinito"
+    },
+    "one_infinite_creator": {
+      "en": "One Infinite Creator",
+      "es": "Creador Infinito Único",
+      "pt": "Criador Infinito Único"
+    }
+  }
+}

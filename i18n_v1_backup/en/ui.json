@@ -1,0 +1,46 @@
+{
+  "siteTitle": "The One",
+  "bookTitle": "The One",
+  "description": "A philosophical rewrite of the Ra Material (Law of One) as accessible narrative. Explore cosmology, the Creator, densities, and the purpose of existence.",
+  "introduction": {
+    "title": "",
+    "content": [
+      "Teachings received by Don, Carla, and Jim in the early 80s, transformed into accessible philosophical narrative. Rewritten with AI assistance."
+    ]
+  },
+  "nav": {
+    "index": "Index",
+    "chapter": "Ch",
+    "notes": "Notes",
+    "about": "About this project",
+    "notesPanel": "Notes & Definitions",
+    "notesEmpty": "Click any <span class=\"term-hint\">highlighted term</span> in the text to see its definition here.",
+    "tableOfContents": "Table of Contents",
+    "previousChapter": "Previous Chapter",
+    "nextChapter": "Next Chapter",
+    "backToIndex": "Back to Index",
+    "readChapter": "Read chapter",
+    "learnMore": "Learn more"
+  },
+  "media": {
+    "downloadPdf": "Download chapter PDF",
+    "download": "Download",
+    "listenAudio": "Listen to chapter audiobook",
+    "listen": "Listen"
+  },
+    "footer": {
+    "draft": "First Edition",
+    "date": "2025",
+    "feedbackTitle": "Comments",
+    "formName": "Your Name",
+    "formEmail": "Your Email",
+    "formMessage": "Your Message",
+    "formSubmit": "Send Feedback",
+    "formSuccess": "Thank you! Your feedback has been received."
+  },
+  "meta": {
+    "chapters": "",
+    "version": "Christmas 2025"
+  },
+  "footerVersion": ""
+}

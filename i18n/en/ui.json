@@ -5,7 +5,7 @@
   "introduction": {
     "title": "",
     "content": [
-      "Teachings received by Don, Carla, and Jim in the early 80s, transformed into accessible philosophical narrative. Rewritten with the help of Claude, an artificial intelligence created by Anthropic."
+      "Teachings received by Don, Carla, and Jim in the early 80s, transformed into accessible philosophical narrative. Rewritten with AI assistance."
     ]
   },
   "nav": {
@@ -24,9 +24,13 @@
   },
   "media": {
     "downloadPdf": "Download chapter PDF",
+    "downloadAudio": "Download chapter MP3 audio",
     "download": "Download",
     "listenAudio": "Listen to chapter audiobook",
-    "listen": "Listen"
+    "listen": "Listen",
+    "labelAudio": "MP3",
+    "labelPdf": "PDF",
+    "labelYoutube": "YouTube"
   },
     "footer": {
     "draft": "First Edition",
@@ -36,11 +40,21 @@
     "formEmail": "Your Email",
     "formMessage": "Your Message",
     "formSubmit": "Send Feedback",
-    "formSuccess": "Thank you! Your feedback has been received."
+    "formSuccess": "Thank you! Your feedback has been received.",
+    "attribution": "This work is an interpretation of the Ra Material, originally published by L/L Research.",
+    "originalSessions": "Original sessions free at",
+    "derivedFrom": "Content derived from L/L Research material"
   },
   "meta": {
     "chapters": "",
-    "version": "Christmas 2025"
+    "version": "v0.2 · January 2026"
   },
-  "footerVersion": ""
+  "footerVersion": "",
+  "disclaimer": {
+    "title": "About This Interpretation",
+    "text1": "The Ra Material was delivered in a precise question-and-answer format, with Ra choosing each word intentionally. This project transforms that format into narrative prose—a process that necessarily involves interpretation through the author's understanding.",
+    "text2": "This work was created with AI assistance, which may introduce inaccuracies or inconsistencies. It should be used only as a supplementary tool, not as a primary study of the material.",
+    "text3": "We encourage all seekers to read the original sessions at",
+    "text3b": "and form their own relationship with Ra's actual words."
+  }
 }

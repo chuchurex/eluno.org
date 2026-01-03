@@ -25,6 +25,13 @@ yarn-error.log*
 .env.*.local
 
 # Old files (pre-migration) - root level only
-/es/
+
 /mnt/
 .env
+video/
+audiobook/
+client_secret*.json
+video/client_secret.json
+.env
+
+

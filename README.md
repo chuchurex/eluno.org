@@ -44,11 +44,17 @@ npm run build
 
 ## 🔄 Deploy
 
-El deploy es automático via GitHub Actions:
+Este proyecto usa **Cloudflare Pages** para deploys automáticos.
+
+### Deploy Automático
+Cada push a `main` despliega automáticamente a producción:
 
 1. Push a `main`
-2. GitHub Actions compila SASS + HTML
-3. FTP upload a lawofone.cl
+2. Cloudflare Pages compila el proyecto (`npm run build`)
+3. Deploy automático a https://lawofone.cl
+
+### Deploy Manual (legacy)
+El script `npm run publish` sigue disponible para FTP si es necesario.
 
 ## 📝 Escribir Nuevos Capítulos
 
