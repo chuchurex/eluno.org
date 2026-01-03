@@ -28,6 +28,8 @@ const LANGUAGES = ['en', 'es', 'pt'];
 const BASE_LANG = 'en';
 const I18N_DIR = path.join(__dirname, '..', 'i18n');
 const DIST_DIR = path.join(__dirname, '..', 'dist');
+const STATIC_BASE_URL = 'https://static.lawofone.cl';
+
 
 // Load JSON file
 function loadJSON(filePath) {
@@ -38,6 +40,16 @@ function loadJSON(filePath) {
     return null;
   }
 }
+
+// Resolve asset URL (local or external)
+function resolveUrl(url) {
+  if (!url) return '';
+  if (url.startsWith('/') && !url.startsWith('//')) {
+    return STATIC_BASE_URL + url;
+  }
+  return url;
+}
+
 
 // Process text with term markers, references, and emphasis
 function processText(text, glossary, references) {
@@ -116,12 +128,14 @@ function generateMediaToolbar(chapterNum, media, ui) {
 
   // PDF: direct download link
   if (hasPdf) {
-    html += `                    <a href="${chapterMedia.pdf}" class="ch-media-icon" title="${ui.media.downloadPdf}" download>${svgPdf}<span class="ch-media-label">${labelPdf}</span></a>\n`;
+    const pdfUrl = resolveUrl(chapterMedia.pdf);
+    html += `                    <a href="${pdfUrl}" class="ch-media-icon" title="${ui.media.downloadPdf}" download>${svgPdf}<span class="ch-media-label">${labelPdf}</span></a>\n`;
   }
 
   // Audio MP3: direct download link
   if (hasAudio) {
-    html += `                    <a href="${chapterMedia.audio}" class="ch-media-icon" title="${ui.media.listenAudio || 'Descargar audio'}" download>${svgAudio}<span class="ch-media-label">${labelAudio}</span></a>\n`;
+    const audioUrl = resolveUrl(chapterMedia.audio);
+    html += `                    <a href="${audioUrl}" class="ch-media-icon" title="${ui.media.listenAudio || 'Descargar audio'}" download>${svgAudio}<span class="ch-media-label">${labelAudio}</span></a>\n`;
   }
 
   // YouTube: external link
@@ -869,33 +883,10 @@ function build() {
     console.log(`📋 Copied _headers`);
   }
 
-  // Copy books/ (PDFs)
-  const booksSrc = path.join(__dirname, '..', 'books');
-  const booksDest = path.join(DIST_DIR, 'books');
-  if (fs.existsSync(booksSrc)) {
-    if (!fs.existsSync(booksDest)) {
-      fs.mkdirSync(booksDest, { recursive: true });
-    }
-    const files = fs.readdirSync(booksSrc);
-    files.forEach(file => {
-      fs.copyFileSync(path.join(booksSrc, file), path.join(booksDest, file));
-    });
-    console.log(`📚 Copied books/`);
-  }
+  // Asset copying removed: served via static.lawofone.cl
 
-  // Copy audiobook/ (MP3s)
-  const audioSrc = path.join(__dirname, '..', 'audiobook');
-  const audioDest = path.join(DIST_DIR, 'audiobook');
-  if (fs.existsSync(audioSrc)) {
-    if (!fs.existsSync(audioDest)) {
-      fs.mkdirSync(audioDest, { recursive: true });
-    }
-    const files = fs.readdirSync(audioSrc);
-    files.forEach(file => {
-      fs.copyFileSync(path.join(audioSrc, file), path.join(audioDest, file));
-    });
-    console.log(`🎧 Copied audiobook/`);
-  }
+
+
 
   // Copy icons if they exist (e.g. android-chrome)
   // Not strictly needed if everything is inline SVG/data URI, but good practice if listed in manifest
