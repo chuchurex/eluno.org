@@ -27,13 +27,19 @@ function isRateLimited(ip) {
   return false;
 }
 
-export async function onRequestPost(context) {
-  const { request } = context;
-
-  const allowedOrigins = [
-    'https://lawofone.cl',
-    'https://www.lawofone.cl'
+// Get allowed origins from environment variable (set in wrangler.toml)
+function getAllowedOrigins(env) {
+  const domain = env.DOMAIN || 'lawofone.cl';
+  return [
+    `https://${domain}`,
+    `https://www.${domain}`
   ];
+}
+
+export async function onRequestPost(context) {
+  const { request, env } = context;
+
+  const allowedOrigins = getAllowedOrigins(env);
 
   const origin = request.headers.get('Origin');
   const corsOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
@@ -93,13 +99,9 @@ export async function onRequestPost(context) {
 }
 
 export async function onRequestOptions(context) {
-  const { request } = context;
+  const { request, env } = context;
 
-  const allowedOrigins = [
-    'https://lawofone.cl',
-    'https://www.lawofone.cl'
-  ];
-
+  const allowedOrigins = getAllowedOrigins(env);
   const origin = request.headers.get('Origin');
   const corsOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
 

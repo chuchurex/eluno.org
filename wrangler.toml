@@ -3,3 +3,7 @@ compatibility_date = "2024-01-01"
 
 [site]
 bucket = "./dist"
+
+# Domain configuration - change these when migrating to new domain
+[vars]
+DOMAIN = "lawofone.cl"

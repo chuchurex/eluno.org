@@ -24,13 +24,19 @@
 
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
+
+// Domain Configuration (from .env)
+const DOMAIN = process.env.DOMAIN || 'lawofone.cl';
+const STATIC_SUBDOMAIN = process.env.STATIC_SUBDOMAIN || 'static';
+const SITE_URL = `https://${DOMAIN}`;
+const STATIC_BASE_URL = `https://${STATIC_SUBDOMAIN}.${DOMAIN}`;
 
 // Configuration
 const LANGUAGES = ['en', 'es', 'pt'];
 const BASE_LANG = 'en';
 const I18N_DIR = path.join(__dirname, '..', 'i18n');
 const DIST_DIR = path.join(__dirname, '..', 'dist');
-const STATIC_BASE_URL = 'https://static.lawofone.cl';
 
 
 // Load JSON file
@@ -404,10 +410,10 @@ function generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle,
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${pageTitle} | lawofone.cl</title>
+    <title>${pageTitle} | ${DOMAIN}</title>
     <meta name="description" content="${ui.description}">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="canonical" href="https://lawofone.cl${canonicalPath}">
+    <link rel="canonical" href="${SITE_URL}${canonicalPath}">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9LDPDW8V6E"></script>
     <script>
@@ -422,11 +428,11 @@ function generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle,
   // Hreflang tags - pagePath is used to build correct URLs for each language
   allLangs.forEach(l => {
     const href = l === BASE_LANG ? pagePath : `/${l}${pagePath}`;
-    html += `    <link rel="alternate" hreflang="${l}" href="https://lawofone.cl${href}">\n`;
+    html += `    <link rel="alternate" hreflang="${l}" href="${SITE_URL}${href}">\n`;
   });
 
   html += `    <meta property="og:type" content="book">
-    <meta property="og:url" content="https://lawofone.cl${canonicalPath}">
+    <meta property="og:url" content="${SITE_URL}${canonicalPath}">
     <meta property="og:title" content="${pageTitle}">
     <meta property="og:description" content="${ui.description}">
     <meta property="og:locale" content="${langCode === 'en' ? 'en_US' : langCode === 'es' ? 'es_ES' : 'pt_BR'}">
@@ -882,12 +888,14 @@ function build() {
     console.log(`📄 Copied .htaccess`);
   }
 
-  // Copy _headers for Cloudflare Pages
-  const headersSrc = path.join(__dirname, '..', '_headers');
+  // Generate _headers from template (replaces {{DOMAIN}} placeholder)
+  const headersTemplate = path.join(__dirname, '..', '_headers.template');
   const headersDest = path.join(DIST_DIR, '_headers');
-  if (fs.existsSync(headersSrc)) {
-    fs.copyFileSync(headersSrc, headersDest);
-    console.log(`📋 Copied _headers`);
+  if (fs.existsSync(headersTemplate)) {
+    let headersContent = fs.readFileSync(headersTemplate, 'utf8');
+    headersContent = headersContent.replace(/\{\{DOMAIN\}\}/g, DOMAIN);
+    fs.writeFileSync(headersDest, headersContent);
+    console.log(`📋 Generated _headers (domain: ${DOMAIN})`);
   }
 
   // Copy fonts folder
