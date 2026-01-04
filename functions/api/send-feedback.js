@@ -1,15 +1,15 @@
 /**
  * Cloudflare Pages Function - Feedback Handler
- * Sends feedback via email using Mailchannels (free for CF Workers)
+ * Logs feedback to console (visible in CF dashboard)
+ * Future: Add Discord webhook or email integration
  */
 
 export async function onRequestPost(context) {
   const { request } = context;
 
-  // CORS headers
   const headers = {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'https://lawofone.cl',
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };
@@ -29,44 +29,20 @@ export async function onRequestPost(context) {
       );
     }
 
-    // Send email via MailChannels (free for Cloudflare Workers)
-    const emailResponse = await fetch('https://api.mailchannels.net/tx/v1/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        personalizations: [
-          {
-            to: [{ email: 'chuchurex@gmail.com', name: 'Chuchu' }],
-          },
-        ],
-        from: {
-          email: 'feedback@lawofone.cl',
-          name: 'lawofone.cl Feedback',
-        },
-        reply_to: email ? { email, name } : undefined,
-        subject: `Feedback [${lang.toUpperCase()}] from ${name}`,
-        content: [
-          {
-            type: 'text/plain',
-            value: `Name: ${name}\nEmail: ${email || 'Not provided'}\nLanguage: ${lang}\n\nMessage:\n${message}`,
-          },
-        ],
-      }),
-    });
+    // Log feedback (visible in Cloudflare Pages > Functions > Real-time Logs)
+    console.log(JSON.stringify({
+      type: 'FEEDBACK',
+      timestamp: new Date().toISOString(),
+      name,
+      email,
+      message,
+      lang
+    }));
 
-    if (emailResponse.ok || emailResponse.status === 202) {
-      return new Response(
-        JSON.stringify({ success: true }),
-        { status: 200, headers }
-      );
-    } else {
-      const errorText = await emailResponse.text();
-      console.error('MailChannels error:', errorText);
-      return new Response(
-        JSON.stringify({ error: 'Failed to send email' }),
-        { status: 500, headers }
-      );
-    }
+    return new Response(
+      JSON.stringify({ success: true }),
+      { status: 200, headers }
+    );
   } catch (error) {
     console.error('Feedback error:', error);
     return new Response(
@@ -76,11 +52,10 @@ export async function onRequestPost(context) {
   }
 }
 
-// Handle CORS preflight
 export async function onRequestOptions() {
   return new Response(null, {
     headers: {
-      'Access-Control-Allow-Origin': 'https://lawofone.cl',
+      'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Max-Age': '86400',

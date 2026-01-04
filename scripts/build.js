@@ -481,7 +481,12 @@ function generateScripts() {
             fetch('/api/send-feedback', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, message, lang })
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message,
+                    lang: lang
+                })
             })
             .then(response => response.json())
             .then(data => {
@@ -489,7 +494,7 @@ function generateScripts() {
                     document.getElementById('feedback-form').style.display = 'none';
                     document.getElementById('feedback-success').style.display = 'block';
                 } else {
-                    alert('Error: ' + (data.error || 'Unknown error'));
+                    alert('Error: ' + (data.message || 'Unknown error'));
                     btn.disabled = false;
                     btn.style.opacity = '1';
                 }
