@@ -32,7 +32,7 @@ function run(cmd, options = {}) {
 
 async function main() {
   console.log('\n📦 Media Update Publisher\n');
-  console.log('=' .repeat(50));
+  console.log('='.repeat(50));
 
   // Step 1: Build the site
   console.log('\n📖 Step 1: Building site...');
@@ -63,8 +63,8 @@ async function main() {
     console.log('ℹ️  Git operations skipped');
   }
 
-  // Step 3: FTP Deploy
-  console.log('\n🔌 Step 3: Deploying via FTP...');
+  // Step 3: FTP Deploy Static Assets (Bananahosting)
+  console.log('\n🔌 Step 3: Deploying static assets via FTP...');
 
   const ftp = require('basic-ftp');
   require('dotenv').config({ path: path.join(ROOT_DIR, '.env') });
@@ -75,6 +75,9 @@ async function main() {
   const maxRetries = 3;
   let attempt = 0;
 
+  // Static directory on remote server (adjust this in .env or use default)
+  const remoteStaticDir = process.env.FTP_STATIC_DIR || '/static.lawofone.cl';
+
   while (attempt < maxRetries) {
     attempt++;
     try {
@@ -84,16 +87,29 @@ async function main() {
         host: process.env.FTP_SERVER,
         user: process.env.FTP_USERNAME,
         password: process.env.FTP_PASSWORD,
+        port: parseInt(process.env.FTP_PORT || '21'),
         secure: false
       });
 
       console.log('📂 Connected to FTP server');
 
-      // Upload dist folder
-      await client.ensureDir(process.env.FTP_SERVER_DIR);
-      await client.uploadFromDir(path.join(ROOT_DIR, 'dist'), process.env.FTP_SERVER_DIR);
+      // 1. Upload books/ (PDFs)
+      const localBooks = path.join(ROOT_DIR, 'books');
+      if (require('fs').existsSync(localBooks)) {
+        console.log('📤 Uploading books/...');
+        await client.ensureDir(path.join(remoteStaticDir, 'books'));
+        await client.uploadFromDir(localBooks, path.join(remoteStaticDir, 'books'));
+      }
 
-      console.log('✅ FTP deployment complete');
+      // 2. Upload audiobook/ (MP3s)
+      const localAudio = path.join(ROOT_DIR, 'audiobook');
+      if (require('fs').existsSync(localAudio)) {
+        console.log('📤 Uploading audiobook/...');
+        await client.ensureDir(path.join(remoteStaticDir, 'audiobook'));
+        await client.uploadFromDir(localAudio, path.join(remoteStaticDir, 'audiobook'));
+      }
+
+      console.log('✅ FTP deployment of static assets complete');
       break; // Success, exit loop
     } catch (error) {
       console.error(`❌ FTP error (attempt ${attempt}):`, error.message);
@@ -108,7 +124,7 @@ async function main() {
     }
   }
 
-  console.log('\n' + '=' .repeat(50));
+  console.log('\n' + '='.repeat(50));
   console.log('✨ Media update published successfully!\n');
 }
 
