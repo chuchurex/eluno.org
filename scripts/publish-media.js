@@ -31,6 +31,7 @@ function run(cmd, options = {}) {
 }
 
 async function main() {
+  require('dotenv').config({ path: path.join(ROOT_DIR, '.env') });
   console.log('\n📦 Media Update Publisher\n');
   console.log('='.repeat(50));
 
@@ -63,66 +64,40 @@ async function main() {
     console.log('ℹ️  Git operations skipped');
   }
 
-  // Step 3: FTP Deploy Static Assets (Bananahosting)
-  console.log('\n🔌 Step 3: Deploying static assets via FTP...');
+  // Step 3: Deployment via SSH/rsync (Hostinger)
+  console.log('\n🚀 Step 3: Deploying static assets via SSH/rsync...');
 
-  const ftp = require('basic-ftp');
-  require('dotenv').config({ path: path.join(ROOT_DIR, '.env') });
+  const { UPLOAD_HOST, UPLOAD_PORT, UPLOAD_USER, UPLOAD_PASS, UPLOAD_DIR } = process.env;
 
-  const client = new ftp.Client(60000); // 60 second timeout
-  client.ftp.verbose = false;
-
-  const maxRetries = 3;
-  let attempt = 0;
-
-  // Static directory on remote server (adjust this in .env or use default)
-  const remoteStaticDir = process.env.FTP_STATIC_DIR || '/static.lawofone.cl';
-
-  while (attempt < maxRetries) {
-    attempt++;
-    try {
-      console.log(`📡 Connection attempt ${attempt}/${maxRetries}...`);
-
-      await client.access({
-        host: process.env.FTP_SERVER,
-        user: process.env.FTP_USERNAME,
-        password: process.env.FTP_PASSWORD,
-        port: parseInt(process.env.FTP_PORT || '21'),
-        secure: false
-      });
-
-      console.log('📂 Connected to FTP server');
-
-      // 1. Upload books/ (PDFs)
-      const localBooks = path.join(ROOT_DIR, 'books');
-      if (require('fs').existsSync(localBooks)) {
-        console.log('📤 Uploading books/...');
-        await client.ensureDir(path.join(remoteStaticDir, 'books'));
-        await client.uploadFromDir(localBooks, path.join(remoteStaticDir, 'books'));
-      }
-
-      // 2. Upload audiobook/ (MP3s)
-      const localAudio = path.join(ROOT_DIR, 'audiobook');
-      if (require('fs').existsSync(localAudio)) {
-        console.log('📤 Uploading audiobook/...');
-        await client.ensureDir(path.join(remoteStaticDir, 'audiobook'));
-        await client.uploadFromDir(localAudio, path.join(remoteStaticDir, 'audiobook'));
-      }
-
-      console.log('✅ FTP deployment of static assets complete');
-      break; // Success, exit loop
-    } catch (error) {
-      console.error(`❌ FTP error (attempt ${attempt}):`, error.message);
-      if (attempt >= maxRetries) {
-        console.error('❌ All FTP attempts failed');
-        process.exit(1);
-      }
-      console.log('⏳ Retrying in 5 seconds...');
-      await new Promise(r => setTimeout(r, 5000));
-    } finally {
-      client.close();
-    }
+  if (!UPLOAD_HOST || !UPLOAD_USER || !UPLOAD_PASS) {
+    console.error('❌ Error: Missing SSH/Upload credentials in .env');
+    process.exit(1);
   }
+
+  // Ensure remote directory exists
+  const mkdirCmd = `sshpass -p '${UPLOAD_PASS}' ssh -p ${UPLOAD_PORT} -o StrictHostKeyChecking=no ${UPLOAD_USER}@${UPLOAD_HOST} "mkdir -p ${UPLOAD_DIR}"`;
+  if (!run(mkdirCmd)) {
+    console.error('❌ Failed to create remote directory');
+    process.exit(1);
+  }
+
+  // Rsync books/
+  const localBooks = path.join(ROOT_DIR, 'books/');
+  if (require('fs').existsSync(localBooks)) {
+    console.log('📤 Uploading books/...');
+    const rsyncBooks = `sshpass -p '${UPLOAD_PASS}' rsync -avz -e "ssh -p ${UPLOAD_PORT} -o StrictHostKeyChecking=no" ${localBooks} ${UPLOAD_USER}@${UPLOAD_HOST}:${UPLOAD_DIR}/books/`;
+    run(rsyncBooks);
+  }
+
+  // Rsync audiobook/
+  const localAudio = path.join(ROOT_DIR, 'audiobook/');
+  if (require('fs').existsSync(localAudio)) {
+    console.log('📤 Uploading audiobook/...');
+    const rsyncAudio = `sshpass -p '${UPLOAD_PASS}' rsync -avz -e "ssh -p ${UPLOAD_PORT} -o StrictHostKeyChecking=no" ${localAudio} ${UPLOAD_USER}@${UPLOAD_HOST}:${UPLOAD_DIR}/audiobook/`;
+    run(rsyncAudio);
+  }
+
+  console.log('✅ SSH/rsync deployment complete');
 
   console.log('\n' + '='.repeat(50));
   console.log('✨ Media update published successfully!\n');
