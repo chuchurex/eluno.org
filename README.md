@@ -2,20 +2,24 @@
 
 Reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible.
 
-## 🚀 Desarrollo Local
+## Desarrollo Local
 
 ```bash
 # Instalar dependencias
 npm install
 
+# Copiar configuración de entorno
+cp .env.example .env
+# Editar .env con tus credenciales
+
 # Desarrollo (SASS watch + live-server)
 npm run dev
 
-# Solo build
+# Build
 npm run build
 ```
 
-## 📁 Estructura
+## Estructura
 
 ```
 ├── src/scss/           # SASS modular
@@ -23,43 +27,33 @@ npm run build
 │   ├── en/             # Inglés (base)
 │   ├── es/             # Español
 │   └── pt/             # Portugués
-├── scripts/build.js    # Genera HTML desde JSON
-├── dist/               # Output (generado por CI)
-└── docs/CONTEXT.md     # Contexto para Claude Desktop
+├── scripts/            # Scripts de build y deploy
+├── dist/               # Output (generado)
+└── .env.example        # Template de configuración
 ```
 
-## 🌍 Idiomas
+## Arquitectura
 
-- **EN**: Inglés (idioma base, controlado para traducciones)
-- **ES**: Español
-- **PT**: Portugués
+| Componente | Servicio | URL |
+|------------|----------|-----|
+| Frontend | Cloudflare Pages | lawofone.cl |
+| Static Assets | Hostinger | static.lawofone.cl |
 
-## 📖 Capítulos
+## Deploy
 
-| # | Título | Estado |
-|---|--------|--------|
-| 1 | Cosmology and Genesis | ✅ EN/ES/PT |
-| 2 | The Creator and Creation | ✅ EN/ES/PT |
-| 3-16 | Por escribir | 📝 |
+### Automático (Frontend)
+Push a `main` → Cloudflare Pages compila y despliega.
 
-## 🔄 Deploy
+### Media (MP3/PDF)
+```bash
+npm run publish:media
+```
+Requiere credenciales SSH en `.env`.
 
-Este proyecto usa **Cloudflare Pages** para deploys automáticos.
+## Escribir Capítulos
 
-### Deploy Automático
-Cada push a `main` despliega automáticamente a producción:
+Ver `.agent/workflows/chapter-writing.md`
 
-1. Push a `main`
-2. Cloudflare Pages compila el proyecto (`npm run build`)
-3. Deploy automático a https://lawofone.cl
+## Licencia
 
-### Deploy Manual (legacy)
-El script `npm run publish` sigue disponible para FTP si es necesario.
-
-## 📝 Escribir Nuevos Capítulos
-
-Ver workflow en `.agent/workflows/chapter-writing.md`
-
-## 📜 Licencia
-
-Contenido basado en el Material Ra (dominio público).
+Contenido derivado del Material Ra. Ver footer del sitio para atribución.

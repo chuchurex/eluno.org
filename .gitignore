@@ -19,19 +19,50 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Environment
+# ===========================================
+# SECRETS & CREDENTIALS (NEVER COMMIT)
+# ===========================================
 .env
 .env.local
 .env.*.local
-
-# Old files (pre-migration) - root level only
-
-/mnt/
-.env
-video/
-audiobook/
+.env.production
+.env.staging
+*.pem
+*.key
+id_rsa*
 client_secret*.json
-video/client_secret.json
-.env
+
+# ===========================================
+# INFRASTRUCTURE & CONTEXT DOCS (SENSITIVE)
+# ===========================================
+# These contain server IPs, ports, users, architecture details
+context*.md
+CONTEXT*.md
+CONTEXTO*.md
+DOCUMENTACION*.md
+EVOLUCION*.md
+RESUMEN*.md
+TAREA_*.md
+CORRESPONDENCIA*.md
+INSTRUCCIONES*.md
+.claude-context.md
+docs/CONTEXT.md
+docs/AYUDA-CONTEXTUAL.md
+inbox/
+
+# ===========================================
+# MEDIA FILES (stored on static.lawofone.cl)
+# ===========================================
+audiobook/
+books/
+video/
+*.mp3
+*.mp4
+*.pdf
+
+# ===========================================
+# OLD/LEGACY FILES
+# ===========================================
+/mnt/
 
 
