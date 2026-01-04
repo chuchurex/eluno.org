@@ -5,6 +5,11 @@
  *
  * Rebuilds the site and publishes changes when media.json files are updated.
  *
+ * IMPORTANT: After significant changes, update private-context.md with:
+ * - New media uploaded
+ * - Progress updates
+ * - Any relevant notes
+ *
  * Usage:
  *   npm run publish:media
  *   node scripts/publish-media.js
@@ -100,7 +105,8 @@ async function main() {
   console.log('✅ SSH/rsync deployment complete');
 
   console.log('\n' + '='.repeat(50));
-  console.log('✨ Media update published successfully!\n');
+  console.log('✨ Media update published successfully!');
+  console.log('\n💡 Reminder: Update private-context.md if needed\n');
 }
 
 main().catch(err => {

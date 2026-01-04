@@ -4,6 +4,8 @@
  * Generates HTML files from JSON content and SASS
  * Supports multiple languages (EN, ES, PT)
  *
+ * IMPORTANT: After significant builds, remember to update private-context.md
+ *
  * Output structure:
  *   dist/
  *   ├── index.html          (TOC - English)
