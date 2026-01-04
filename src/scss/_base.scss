@@ -8,6 +8,16 @@
   box-sizing: border-box;
 }
 
+// Hide scrollbars but keep functionality
+.hide-scrollbar {
+  -ms-overflow-style: none;  // IE/Edge
+  scrollbar-width: none;     // Firefox
+
+  &::-webkit-scrollbar {
+    display: none;           // Chrome/Safari
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
