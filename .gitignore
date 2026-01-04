@@ -33,9 +33,12 @@ id_rsa*
 client_secret*.json
 
 # ===========================================
-# INFRASTRUCTURE & CONTEXT DOCS (SENSITIVE)
+# PRIVATE CONTEXT (NEVER COMMIT)
 # ===========================================
-# These contain server IPs, ports, users, architecture details
+# Single file with all private info
+private-context.md
+
+# Legacy context files (keep for backwards compatibility)
 context*.md
 CONTEXT*.md
 CONTEXTO*.md
