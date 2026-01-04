@@ -478,7 +478,7 @@ function generateScripts() {
             btn.disabled = true;
             btn.style.opacity = '0.5';
 
-            fetch('/api/send-feedback.php', {
+            fetch('/api/send-feedback', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, message, lang })
@@ -893,19 +893,7 @@ function build() {
   // Copy icons if they exist (e.g. android-chrome)
   // Not strictly needed if everything is inline SVG/data URI, but good practice if listed in manifest
 
-  // Copy API folder (Legacy PHP support - won't work on CF Pages but kept for migration)
-  const apiSrc = path.join(__dirname, '..', 'src', 'api');
-  const apiDest = path.join(DIST_DIR, 'api');
-  if (fs.existsSync(apiSrc)) {
-    if (!fs.existsSync(apiDest)) {
-      fs.mkdirSync(apiDest, { recursive: true });
-    }
-    const files = fs.readdirSync(apiSrc);
-    files.forEach(file => {
-      fs.copyFileSync(path.join(apiSrc, file), path.join(apiDest, file));
-    });
-    console.log(`🔌 Copied API files`);
-  }
+  // Note: API is now handled by Cloudflare Pages Functions (see /functions folder)
 
   console.log('\n✨ Build complete!\n');
 }
