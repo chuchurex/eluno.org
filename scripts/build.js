@@ -433,9 +433,9 @@ function generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle,
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#0d0d0f">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✧</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/fonts/fonts.css">
     <link rel="stylesheet" href="${cssPath}css/main.css?v=${version}">
 `;
 
@@ -890,10 +890,19 @@ function build() {
     console.log(`📋 Copied _headers`);
   }
 
-  // Asset copying removed: served via static.lawofone.cl
-
-
-
+  // Copy fonts folder
+  const fontsSrc = path.join(__dirname, '..', 'src', 'fonts');
+  const fontsDest = path.join(DIST_DIR, 'fonts');
+  if (fs.existsSync(fontsSrc)) {
+    if (!fs.existsSync(fontsDest)) {
+      fs.mkdirSync(fontsDest, { recursive: true });
+    }
+    const fontFiles = fs.readdirSync(fontsSrc).filter(f => f.endsWith('.woff2') || f.endsWith('.css'));
+    fontFiles.forEach(file => {
+      fs.copyFileSync(path.join(fontsSrc, file), path.join(fontsDest, file));
+    });
+    console.log(`🔤 Copied ${fontFiles.length} font files`);
+  }
 
   // Copy icons if they exist (e.g. android-chrome)
   // Not strictly needed if everything is inline SVG/data URI, but good practice if listed in manifest
