@@ -19,6 +19,7 @@ const { execSync } = require('child_process');
 const path = require('path');
 
 const ROOT_DIR = path.join(__dirname, '..');
+const DIST_DIR = path.join(ROOT_DIR, 'dist');
 
 function run(cmd, options = {}) {
   console.log(`\n🔧 ${cmd}`);
@@ -100,6 +101,14 @@ async function main() {
     console.log('📤 Uploading audiobook/...');
     const rsyncAudio = `sshpass -p '${UPLOAD_PASS}' rsync -avz -e "ssh -p ${UPLOAD_PORT} -o StrictHostKeyChecking=no" ${localAudio} ${UPLOAD_USER}@${UPLOAD_HOST}:${UPLOAD_DIR}/audiobook/`;
     run(rsyncAudio);
+  }
+
+  // Rsync dist/pdf/
+  const localPdf = path.join(DIST_DIR, 'pdf/');
+  if (require('fs').existsSync(localPdf)) {
+    console.log('📤 Uploading dist/pdf/...');
+    const rsyncPdf = `sshpass -p '${UPLOAD_PASS}' rsync -avz -e "ssh -p ${UPLOAD_PORT} -o StrictHostKeyChecking=no" ${localPdf} ${UPLOAD_USER}@${UPLOAD_HOST}:${UPLOAD_DIR}/pdf/`;
+    run(rsyncPdf);
   }
 
   console.log('✅ SSH/rsync deployment complete');
