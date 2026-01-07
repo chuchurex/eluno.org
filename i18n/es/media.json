@@ -1,6 +1,8 @@
 {
   "all": {
-    "audio": "/audiobook/audio/es/LA-LEY-DEL-UNO-AUDIOLIBRO-COMPLETO-TTS.mp3"
+    "audio": "/audiobook/audio/es/LA-LEY-DEL-UNO-AUDIOLIBRO-COMPLETO-TTS.mp3",
+    "pdf": "/pdf/es/complete-book.pdf",
+    "youtube": "https://www.youtube.com/playlist?list=PL5xfCBL9Dh7HF-DJ7aXX9jfTagZ1U4fl2"
   },
   "1": {
     "pdf": "/pdf/es/ch01.pdf",

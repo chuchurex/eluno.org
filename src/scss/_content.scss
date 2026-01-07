@@ -39,6 +39,14 @@
   display: flex;
   align-items: center;
   gap: 0;
+
+  &.homepage-media {
+    justify-content: center;
+    margin: $spacing-md 0;
+    border-top: 1px solid $border;
+    border-bottom: 1px solid $border;
+    padding: $spacing-md 0;
+  }
 }
 
 .ch-media-icon {
