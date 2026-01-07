@@ -131,19 +131,22 @@ function generateMediaToolbar(chapterNum, media, ui) {
   const labelAudio = ui.media.labelAudio || 'MP3';
   const labelYoutube = ui.media.labelYoutube || 'YouTube';
 
-  // Icon bar - order: PDF, Audio, YouTube
+  // Icon bar - order: MP3, PDF, YouTube
   html += `                <div class="ch-media-bar">\n`;
+
+  // Audio MP3: accordion toggle and panel
+  if (hasAudio) {
+    const audioUrl = resolveUrl(chapterMedia.audio);
+    html += `                    <div class="ch-media-audio-panel" id="audio-panel-${chapterNum}">\n`;
+    html += `                        <audio src="${audioUrl}" controls preload="none"></audio>\n`;
+    html += `                    </div>\n`;
+    html += `                    <button class="ch-media-icon" onclick="toggleAudio('${chapterNum}')" title="${ui.media.listenAudio || 'Escuchar audio'}" data-audio-btn="${chapterNum}">${svgAudio}<span class="ch-media-label">${labelAudio}</span></button>\n`;
+  }
 
   // PDF: direct download link
   if (hasPdf) {
     const pdfUrl = resolveUrl(chapterMedia.pdf);
     html += `                    <a href="${pdfUrl}" class="ch-media-icon" title="${ui.media.downloadPdf}" download>${svgPdf}<span class="ch-media-label">${labelPdf}</span></a>\n`;
-  }
-
-  // Audio MP3: direct download link
-  if (hasAudio) {
-    const audioUrl = resolveUrl(chapterMedia.audio);
-    html += `                    <a href="${audioUrl}" class="ch-media-icon" title="${ui.media.listenAudio || 'Descargar audio'}" download>${svgAudio}<span class="ch-media-label">${labelAudio}</span></a>\n`;
   }
 
   // YouTube: external link
@@ -468,6 +471,34 @@ function generateScripts() {
         function toggleNotes(){document.getElementById('notes').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('sidebar').classList.remove('open')}
         function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes').classList.remove('open');document.getElementById('overlay').classList.remove('active')}
         function toggleChapter(id){const g=document.getElementById('nav-group-'+id);if(g)g.classList.toggle('expanded')}
+        function toggleAudio(num){
+            const panel = document.getElementById('audio-panel-'+num);
+            const btn = document.querySelector('[data-audio-btn="'+num+'"]');
+            if(!panel || !btn) return;
+            const isActive = panel.classList.contains('active');
+            
+            // Close all other audio panels
+            document.querySelectorAll('.ch-media-audio-panel').forEach(p => {
+                if(p.id !== 'audio-panel-'+num) {
+                    p.classList.remove('active');
+                    const a = p.querySelector('audio');
+                    if(a) a.pause();
+                }
+            });
+            document.querySelectorAll('[data-audio-btn]').forEach(b => b.classList.remove('active'));
+
+            if(!isActive) {
+                panel.classList.add('active');
+                btn.classList.add('active');
+                const audio = panel.querySelector('audio');
+                if(audio && audio.paused) audio.play().catch(()=>{});
+            } else {
+                panel.classList.remove('active');
+                btn.classList.remove('active');
+                const audio = panel.querySelector('audio');
+                if(audio) audio.pause();
+            }
+        }
         function toggleMediaPanel(type){const panel=document.getElementById('panel-'+type);const btn=document.querySelector('[data-panel="'+type+'"]');if(!panel||!btn)return;const isActive=panel.classList.contains('active');document.querySelectorAll('.ch-media-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.ch-media-icon').forEach(b=>b.classList.remove('active'));if(!isActive){panel.classList.add('active');btn.classList.add('active')}}
         document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){e.preventDefault();const noteId='note-'+this.dataset.note;const note=document.getElementById(noteId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.ref').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));
         document.querySelectorAll('.ref').forEach(r=>r.addEventListener('click',function(e){e.preventDefault();const refId='ref-'+this.dataset.ref;const note=document.getElementById(refId);if(!note)return;document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.ref').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));document.getElementById('notes-empty').style.display='none';this.classList.add('active');note.classList.add('active');if(window.innerWidth<=1100){document.getElementById('notes').classList.add('open');document.getElementById('overlay').classList.add('active')}note.scrollIntoView({behavior:'smooth',block:'nearest'})}));

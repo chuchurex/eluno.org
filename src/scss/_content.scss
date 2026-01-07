@@ -90,16 +90,23 @@
   color: $gold;
 }
 
-// Audio accordion panel - inline expansion to the right
+// Audio accordion panel - inline expansion to the left
 .ch-media-audio-panel {
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
   align-items: center;
-  margin-left: $spacing-sm;
-  padding-left: $spacing-sm;
-  border-left: 1px solid $border;
 
   &.active {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
+    width: 220px;
+    margin-right: $spacing-xs;
+    padding-right: $spacing-xs;
+    border-right: 1px solid $border;
   }
 
   audio {
