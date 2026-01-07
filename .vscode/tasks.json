@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🚀 Dev Mode",
+      "type": "npm",
+      "script": "dev",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "detail": "Start local server with SASS watch"
+    },
+    {
+      "label": "🔨 Build Production",
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "detail": "Compile site to /dist"
+    },
+    {
+      "label": "☁️ Deploy Frontend (Manual)",
+      "type": "shell",
+      "command": "npx wrangler pages deploy dist --project-name=lawofone",
+      "group": "none",
+      "presentation": {
+        "reveal": "always"
+      },
+      "detail": "Deploy /dist to Cloudflare Pages (requires login)"
+    },
+    {
+      "label": "📦 Deploy Media (Hostinger)",
+      "type": "npm",
+      "script": "publish:media",
+      "group": "none",
+      "detail": "Upload static assets via SFTP"
+    }
+  ]
+}

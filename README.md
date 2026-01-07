@@ -1,59 +1,51 @@
 # The One — lawofone.cl
 
-Reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible.
+> Reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible y moderna.
 
-## Desarrollo Local
+Este proyecto es una aplicación web estática generada con Node.js, diseñada para ofrecer una experiencia de lectura inmersiva con soporte multilingüe (EN, ES, PT), generación de PDF y audiolibros.
+
+## 📚 Documentación
+
+Hemos profesionalizado la documentación para facilitar el onboarding y despliegue:
+
+- **[Guía de Desarrollo Local](docs/DEVELOPMENT.md)**: Cómo instalar, configurar y correr el proyecto en tu máquina.
+- **[Guía de Despliegue](docs/DEPLOY.md)**: Cómo llevar el proyecto a producción (Cloudflare + Hostinger).
+- **[Arquitectura](docs/ARQUITECTURA.md)**: Detalles técnicos profundos sobre el stack híbrido y decisiones de diseño.
+
+## 🚀 Quick Start (Para impacientes)
+
+**Requisitos:** Node.js v20+
 
 ```bash
-# Instalar dependencias
+# 1. Instalar dependencias
 npm install
 
-# Copiar configuración de entorno
+# 2. Configurar entorno (opcional para dev básico)
 cp .env.example .env
-# Editar .env con tus credenciales
 
-# Desarrollo (SASS watch + live-server)
+# 3. Correr entorno de desarrollo
 npm run dev
-
-# Build
-npm run build
 ```
 
-## Estructura
+El sitio estará disponible en `http://127.0.0.1:3002`.
 
-```
-├── src/scss/           # SASS modular
-├── i18n/               # Contenido JSON por idioma
-│   ├── en/             # Inglés (base)
-│   ├── es/             # Español
-│   └── pt/             # Portugués
-├── scripts/            # Scripts de build y deploy
-├── dist/               # Output (generado)
-└── .env.example        # Template de configuración
-```
+## 🛠 Scripts Principales
 
-## Arquitectura
+| Script | Descripción |
+|--------|-------------|
+| `npm run dev` | **Dev Mode**: SASS watch + Live Server. |
+| `npm run build` | **Build**: Genera el sitio estático en `/dist`. |
+| `npm run publish:media` | **Assets**: Sube PDFs y MP3s al servidor de medios. |
 
-| Componente | Servicio | URL |
-|------------|----------|-----|
-| Frontend | Cloudflare Pages | lawofone.cl |
-| Static Assets | Hostinger | static.lawofone.cl |
+## 🏗 Arquitectura Resumida
 
-## Deploy
+El proyecto utiliza una estrategia de **Hosting Híbrido**:
 
-### Automático (Frontend)
-Push a `main` → Cloudflare Pages compila y despliega.
+- **Frontend**: Alojado en **Cloudflare Pages** (Despliegue automático vía Git).
+- **Assets Pesados**: Alojados en **Hostinger** (Despliegue manual vía script).
 
-### Media (MP3/PDF)
-```bash
-npm run publish:media
-```
-Requiere credenciales SSH en `.env`.
+Para más detalles, consulta [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
 
-## Escribir Capítulos
+## 📄 Licencia
 
-Ver `.agent/workflows/chapter-writing.md`
-
-## Licencia
-
-Contenido derivado del Material Ra. Ver footer del sitio para atribución.
+Contenido derivado del Material Ra (L/L Research). Consultar el footer del sitio web para información detallada sobre atribución y licencia.
