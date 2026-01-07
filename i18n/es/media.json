@@ -1,4 +1,7 @@
 {
+  "all": {
+    "audio": "/audiobook/audio/es/LA-LEY-DEL-UNO-AUDIOLIBRO-COMPLETO-TTS.mp3"
+  },
   "1": {
     "pdf": "/pdf/es/ch01.pdf",
     "audio": "/audiobook/audio/es/01-cosmologia-y-genesis.mp3",
