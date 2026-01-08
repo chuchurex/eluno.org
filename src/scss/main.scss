@@ -1,16 +1,17 @@
 // =====================================================
 // MAIN SCSS - The One / lawofone.cl
 // =====================================================
-// This file imports all SASS modules in the correct order
+// This file uses all SASS modules in the correct order
+// Migrated from @import to @use (Dart Sass 2.0 compatible)
 
-@import 'variables';
-@import 'base';
-@import 'typography';
-@import 'layout';
-@import 'sidebar';
-@import 'content';
-@import 'notes';
-@import 'footer';
-@import 'components';
-@import 'responsive';
-@import 'print';
+@use 'variables' as *;
+@use 'base';
+@use 'typography';
+@use 'layout';
+@use 'sidebar';
+@use 'content';
+@use 'notes';
+@use 'footer';
+@use 'components';
+@use 'responsive';
+@use 'print';
