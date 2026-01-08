@@ -38,13 +38,6 @@ const I18N_DIR = path.join(__dirname, '..', 'i18n');
 const DIST_DIR = path.join(__dirname, '..', 'dist');
 const PDF_DIR = path.join(DIST_DIR, 'pdf');
 
-// UI strings for each language
-const UI_STRINGS = {
-  en: { siteTitle: 'lawofone.cl', bookTitle: 'The One', chapter: 'Chapter' },
-  es: { siteTitle: 'lawofone.cl', bookTitle: 'El Uno', chapter: 'Capítulo' },
-  pt: { siteTitle: 'lawofone.cl', bookTitle: 'O Um', chapter: 'Capítulo' }
-};
-
 // ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================
@@ -104,8 +97,7 @@ function processTextWithFootnotes(text, glossary, collectedFootnotes) {
 // HTML TEMPLATE GENERATION
 // ============================================================================
 
-function generatePdfHtml(chapter, glossary, lang) {
-  const ui = UI_STRINGS[lang];
+function generatePdfHtml(chapter, glossary, lang, ui) {
   const collectedFootnotes = new Map();
 
   // Process all sections and collect footnotes
@@ -132,7 +124,7 @@ function generatePdfHtml(chapter, glossary, lang) {
   // Generate footnotes section
   const footnotesHtml = collectedFootnotes.size > 0 ? `
     <div class="footnotes">
-      <div class="footnotes-title">Notas</div>
+      <div class="footnotes-title">${ui.nav.notes || 'Notes'}</div>
       ${Array.from(collectedFootnotes.entries()).map(([id, term], index) => {
     const content = term.content.map(p =>
       p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
@@ -334,8 +326,8 @@ function generatePdfHtml(chapter, glossary, lang) {
 // PDF GENERATION
 // ============================================================================
 
-async function generatePdf(chapter, glossary, lang, outputPath) {
-  const html = generatePdfHtml(chapter, glossary, lang);
+async function generatePdf(chapter, glossary, lang, ui, outputPath) {
+  const html = generatePdfHtml(chapter, glossary, lang, ui);
 
   const browser = await puppeteer.launch({
     headless: true,
@@ -375,6 +367,16 @@ async function generatePdf(chapter, glossary, lang, outputPath) {
 // MAIN BUILD FUNCTION
 // ============================================================================
 
+function loadUI(lang) {
+  const uiPath = path.join(I18N_DIR, lang, 'ui.json');
+  const ui = loadJSON(uiPath);
+  if (!ui) {
+      // Fallback to English if not found, but we expect it to exist
+      return loadJSON(path.join(I18N_DIR, BASE_LANG, 'ui.json')) || {};
+  }
+  return ui;
+}
+
 async function buildPdf(chapterNum, targetLang = null) {
   const chNum = String(chapterNum).padStart(2, '0');
   const langs = targetLang ? [targetLang] : LANGUAGES;
@@ -385,6 +387,9 @@ async function buildPdf(chapterNum, targetLang = null) {
     // Ensure output directory exists
     const langPdfDir = path.join(PDF_DIR, lang);
     ensureDir(langPdfDir);
+
+    // Load UI strings
+    const ui = loadUI(lang);
 
     // Load chapter
     const chapterPath = path.join(I18N_DIR, lang, 'chapters', `${chNum}.json`);
@@ -404,7 +409,7 @@ async function buildPdf(chapterNum, targetLang = null) {
 
     // Generate PDF
     const outputPath = path.join(langPdfDir, `ch${chNum}.pdf`);
-    await generatePdf(chapter, glossary, lang, outputPath);
+    await generatePdf(chapter, glossary, lang, ui, outputPath);
   }
 }
 
@@ -433,6 +438,8 @@ async function buildCompleteBookPdf(targetLang = null) {
     const langPdfDir = path.join(PDF_DIR, lang);
     ensureDir(langPdfDir);
 
+    const ui = loadUI(lang);
+
     // Load all chapters
     const chaptersDir = path.join(I18N_DIR, lang, 'chapters');
     if (!fs.existsSync(chaptersDir)) {
@@ -458,7 +465,6 @@ async function buildCompleteBookPdf(targetLang = null) {
       glossary = loadJSON(path.join(I18N_DIR, BASE_LANG, 'glossary.json')) || {};
     }
 
-    const ui = UI_STRINGS[lang];
     const collectedFootnotes = new Map();
 
     // Compile sections from all chapters
@@ -496,7 +502,7 @@ async function buildCompleteBookPdf(targetLang = null) {
     // Generate footnotes section
     const footnotesHtml = collectedFootnotes.size > 0 ? `
       <div class="footnotes" style="page-break-before: always;">
-        <div class="footnotes-title">Glosario de Términos</div>
+        <div class="footnotes-title">${ui.nav.notesPanel || 'Glossary'}</div>
         ${Array.from(collectedFootnotes.entries()).map(([id, term], index) => {
       const content = term.content.map(p =>
         p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
