@@ -71,9 +71,13 @@ function processText(text, glossary, references) {
   if (references) {
     text = text.replace(/\{ref:([^}]+)\}/g, (match, refId) => {
       const ref = references[refId];
-      if (ref) {
+      // Only render if reference exists AND has a summary
+      if (ref && ref.summary) {
         return `<sup class="ref" data-ref="${refId}" title="${ref.title}">*</sup>`;
       }
+      // If reference exists but has no summary, hide it (return empty string)
+      if (ref) return '';
+
       return match;
     });
   }
