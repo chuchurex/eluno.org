@@ -1,23 +1,17 @@
-@use 'variables' as *;
+@use '../abstracts' as *;
 
 // =====================================================
 // RESPONSIVE STYLES
 // =====================================================
 
-@media (max-width: $bp-tablet) {
+@include tablet {
   .layout {
     grid-template-columns: 1fr;
   }
 
   .nav,
   .notes {
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    width: 280px;
-    padding-top: 4rem;
-    z-index: 100;
-    transition: transform 0.3s;
+    @include fixed-panel(left);
   }
 
   .nav {
@@ -30,6 +24,7 @@
   }
 
   .notes {
+    left: auto;
     right: 0;
     transform: translateX(100%);
 
@@ -48,7 +43,7 @@
   }
 }
 
-@media (max-width: $bp-mobile) {
+@include mobile {
   body {
     font-size: 16px;
   }

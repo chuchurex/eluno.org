@@ -1,17 +1,23 @@
 // =====================================================
 // MAIN SCSS - The One / lawofone.cl
 // =====================================================
-// This file uses all SASS modules in the correct order
-// Migrated from @import to @use (Dart Sass 2.0 compatible)
+// Professional 7-1 Architecture with Placeholders
+// Dart Sass 2.0 compatible (@use/@forward)
 
-@use 'variables' as *;
+// Abstracts (no CSS output - variables, placeholders, mixins)
+@use 'abstracts' as *;
+
+// Base (reset, typography fundamentals)
 @use 'base';
-@use 'typography';
+
+// Layout (grid, nav, notes, footer)
 @use 'layout';
-@use 'sidebar';
-@use 'content';
-@use 'notes';
-@use 'footer';
+
+// Components (toggles, panels, media)
 @use 'components';
-@use 'responsive';
-@use 'print';
+
+// Pages (chapter, toc, about)
+@use 'pages';
+
+// Utilities (responsive, print - last for specificity)
+@use 'utilities';

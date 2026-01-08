@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use '../abstracts' as *;
 
 // =====================================================
 // SIDEBAR NAVIGATION
@@ -6,28 +6,17 @@
 
 .nav {
   grid-area: nav;
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  @extend %sticky-panel;
   background: $bg2;
   border-right: 1px solid $border;
   padding: $spacing-lg $spacing-md;
-  overflow-y: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 .nav-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @extend %flex-between;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid $border;
+  @extend %border-bottom-subtle;
 }
 
 .nav-title {
@@ -61,7 +50,7 @@
 .nav-back {
   margin-bottom: $spacing-md;
   padding-bottom: $spacing-sm;
-  border-bottom: 1px solid $border;
+  @extend %border-bottom-subtle;
 
   .nav-link {
     font-size: 0.85rem;
@@ -86,18 +75,12 @@
 }
 
 .nav-link {
-  display: block;
-  padding: 0.35rem 0;
-  color: $text2;
-  text-decoration: none;
-  font-size: 0.85rem;
+  @extend %nav-link-base;
   border-left: 2px solid transparent;
   padding-left: $spacing-sm;
   margin-left: -$spacing-sm;
-  transition: all 0.2s;
 
   &:hover {
-    color: $gold;
     border-left-color: $gold-dim;
   }
 
@@ -138,9 +121,7 @@
 }
 
 .nav-chapter-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @extend %flex-between;
 
   .nav-link {
     flex-grow: 1;
@@ -155,9 +136,7 @@
   padding: 0.5rem;
   font-size: 0.8rem;
   transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @extend %flex-center;
 
   &:hover {
     color: $gold;
@@ -167,6 +146,8 @@
 .nav-footer-links {
   margin-top: 1.5rem;
   padding-top: 1rem;
+  @extend %border-bottom-subtle;
+  border-bottom: none;
   border-top: 1px solid $border;
 
   .feedback-link {

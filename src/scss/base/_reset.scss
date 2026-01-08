@@ -1,7 +1,7 @@
-@use 'variables' as *;
+@use '../abstracts' as *;
 
 // =====================================================
-// BASE STYLES - Reset & Fundamental
+// RESET - Fundamental Styles
 // =====================================================
 
 * {
@@ -10,19 +10,13 @@
   box-sizing: border-box;
 }
 
-// Hide scrollbars but keep functionality
 .hide-scrollbar {
-  -ms-overflow-style: none; // IE/Edge
-  scrollbar-width: none; // Firefox
-
-  &::-webkit-scrollbar {
-    display: none; // Chrome/Safari
-  }
+  @extend %hide-scrollbar;
 }
 
 html {
   scroll-behavior: smooth;
-  font-size: 18px; // Sets explicit base for REM units (1rem = 18px)
+  font-size: 18px;
 }
 
 body {
@@ -30,7 +24,6 @@ body {
   background: $bg;
   color: $text;
   line-height: 1.4;
-  // font-size removed (inherited from html)
   transition: background-color 0.3s ease, color 0.3s ease;
 
   &::before {
@@ -45,24 +38,5 @@ body {
       radial-gradient(ellipse at 80% 80%, rgba(123, 107, 138, 0.03) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
-  }
-}
-
-// Links - AAA accessible (7:1+ contrast on dark bg)
-a {
-  color: $gold;
-  text-decoration: underline;
-  text-decoration-color: rgba(var(--gold-rgb), 0.4);
-  text-underline-offset: 3px;
-  transition: all 0.2s;
-
-  &:hover,
-  &:focus {
-    color: var(--gold-hover);
-    text-decoration-color: $gold;
-  }
-
-  &:visited {
-    color: var(--gold-visited);
   }
 }

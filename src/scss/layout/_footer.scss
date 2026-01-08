@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use '../abstracts' as *;
 
 // =====================================================
 // FOOTER
@@ -7,6 +7,8 @@
 .footer {
   margin-top: $spacing-xl;
   padding-top: 1.5rem;
+  @extend %border-bottom-subtle;
+  border-bottom: none;
   border-top: 1px solid $border;
   text-align: center;
   color: $muted;
@@ -15,11 +17,9 @@
 }
 
 .feedback {
+  @extend %panel-base;
   margin-top: $spacing-lg;
   padding: $spacing-md;
-  background: $bg2;
-  border: 1px solid $border;
-  border-radius: $radius-sm;
   text-align: center;
 
   h3 {
@@ -40,24 +40,7 @@
 
   input,
   textarea {
-    background: $bg3;
-    border: 1px solid $border;
-    color: $text;
-    padding: $spacing-sm;
-    font-family: $font-body;
-    font-size: 0.9rem;
-    border-radius: $radius-sm;
-    outline: none;
-    transition: all 0.3s;
-
-    &:focus {
-      border-color: $gold-dim;
-      background: rgba(201, 169, 98, 0.05);
-    }
-
-    &::placeholder {
-      color: $muted;
-    }
+    @extend %input-base;
   }
 
   textarea {
@@ -67,23 +50,12 @@
 }
 
 .feedback-btn {
+  @extend %button-ghost;
   display: inline-block;
-  padding: 0.5rem $spacing-md;
   margin-top: $spacing-xs;
-  background: transparent;
-  border: 1px solid $gold;
-  color: $gold;
   text-decoration: none;
-  font-family: $font-heading;
   font-size: 0.95rem;
-  transition: all 0.3s;
-  cursor: pointer;
   align-self: center;
-
-  &:hover {
-    background: $gold;
-    color: $bg;
-  }
 
   &:disabled {
     opacity: 0.5;
@@ -95,6 +67,8 @@
 .footer-attribution {
   margin-top: $spacing-lg;
   padding-top: $spacing-md;
+  @extend %border-bottom-subtle;
+  border-bottom: none;
   border-top: 1px solid $border;
   text-align: center;
   font-size: 0.9rem;
