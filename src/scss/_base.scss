@@ -10,24 +10,26 @@
 
 // Hide scrollbars but keep functionality
 .hide-scrollbar {
-  -ms-overflow-style: none;  // IE/Edge
-  scrollbar-width: none;     // Firefox
+  -ms-overflow-style: none; // IE/Edge
+  scrollbar-width: none; // Firefox
 
   &::-webkit-scrollbar {
-    display: none;           // Chrome/Safari
+    display: none; // Chrome/Safari
   }
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 18px; // Sets explicit base for REM units (1rem = 18px)
 }
 
 body {
   font-family: $font-body;
   background: $bg;
   color: $text;
-  line-height: 1.8;
-  font-size: 18px;
+  line-height: 1.4;
+  // font-size removed (inherited from html)
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   &::before {
     content: '';
@@ -37,7 +39,7 @@ body {
     width: 100%;
     height: 100%;
     background:
-      radial-gradient(ellipse at 20% 20%, rgba(201, 169, 98, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 20% 20%, rgba(var(--gold-rgb), 0.03) 0%, transparent 50%),
       radial-gradient(ellipse at 80% 80%, rgba(123, 107, 138, 0.03) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
@@ -48,17 +50,17 @@ body {
 a {
   color: $gold;
   text-decoration: underline;
-  text-decoration-color: rgba($gold, 0.4);
+  text-decoration-color: rgba(var(--gold-rgb), 0.4);
   text-underline-offset: 3px;
   transition: all 0.2s;
 
   &:hover,
   &:focus {
-    color: lighten($gold, 15%);
+    color: var(--gold-hover);
     text-decoration-color: $gold;
   }
 
   &:visited {
-    color: desaturate($gold, 20%);
+    color: var(--gold-visited);
   }
 }

@@ -514,6 +514,54 @@ function generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle,
 // Generate common scripts
 function generateScripts() {
   return `    <script>
+        // Theme Management
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            // const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let currentTheme = 'dark';
+
+            if (savedTheme) {
+                currentTheme = savedTheme;
+            }
+            // Temporarily ignore system preference to enforce Dark Mode default per user request
+            // else if (!systemDark) {
+            //    currentTheme = 'light';
+            // }
+
+            if (currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                updateThemeButton('light');
+            } else {
+                document.documentElement.removeAttribute('data-theme'); // Ensure dark (default)
+                updateThemeButton('dark');
+            }
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'light' ? 'dark' : 'light';
+            
+            if (newTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        }
+
+        function updateThemeButton(theme) {
+            const btns = document.querySelectorAll('.theme-toggle');
+            btns.forEach(btn => {
+                btn.innerHTML = theme === 'light' ? '☾' : '☀';
+                btn.setAttribute('aria-label', theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode');
+            });
+        }
+
+        // Run immediately
+        initTheme();
+
         function toggleNav(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('notes').classList.remove('open')}
         function toggleNotes(){document.getElementById('notes').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('sidebar').classList.remove('open')}
         function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes').classList.remove('open');document.getElementById('overlay').classList.remove('active')}
@@ -602,6 +650,7 @@ function generateTocPage(lang, chapters, glossary, references, ui, allLangs, ver
 
   html += `<body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
+    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
     <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
@@ -782,6 +831,7 @@ function generateAboutPage(lang, chapters, about, glossary, ui, allLangs, versio
 
   html += `<body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
+    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
     <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
@@ -815,6 +865,7 @@ function generateChapterPage(lang, chapters, chapterIndex, glossary, references,
 
   html += `<body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
+    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
     <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 

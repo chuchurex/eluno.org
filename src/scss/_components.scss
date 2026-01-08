@@ -12,7 +12,7 @@
   padding: 0.5rem $spacing-sm;
   cursor: pointer;
   font-family: $font-heading;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .nav-toggle {
@@ -23,6 +23,13 @@
 .notes-toggle {
   top: $spacing-sm;
   right: $spacing-sm;
+}
+
+.theme-toggle {
+  top: $spacing-sm;
+  right: 4.5rem; // Positioned to the left of notes-toggle
+  font-size: 1rem; // Slightly larger for icon
+  padding: 0.4rem $spacing-sm;
 }
 
 .overlay {
