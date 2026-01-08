@@ -73,7 +73,7 @@ function processText(text, glossary, references) {
       const ref = references[refId];
       // Only render if reference exists AND has a summary
       if (ref && ref.summary) {
-        return `<sup class="ref" data-ref="${refId}" title="${ref.title}">*</sup>`;
+        return `<sup class="ref" data-ref="${refId}" title="${ref.title}">&#42;</sup>`;
       }
       // If reference exists but has no summary, hide it (return empty string)
       if (ref) return '';
