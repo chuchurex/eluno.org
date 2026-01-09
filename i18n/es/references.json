@@ -118,5 +118,95 @@
     "title": "Mecánica Cuántica",
     "summary": "Las partículas son ondas de probabilidad que colapsan solo al ser observadas.",
     "learnMore": "https://es.wikipedia.org/wiki/Mec%C3%A1nica_cu%C3%A1ntica"
+  },
+  "sci:hoffman-consciousness": {
+    "category": "science",
+    "title": "Donald Hoffman y la Conciencia",
+    "summary": "El científico cognitivo Donald Hoffman argumenta que la conciencia es fundamental y que el espacio-tiempo es una interfaz de usuario, no la realidad última.",
+    "learnMore": "https://es.wikipedia.org/wiki/Donald_Hoffman"
+  },
+  "phil:plato-cave": {
+    "category": "philosophy",
+    "title": "La Alegoría de la Caverna de Platón",
+    "summary": "En la República de Platón, prisioneros en una caverna confunden sombras con la realidad, simbolizando cómo confundimos apariencias con verdad hasta alcanzar la iluminación filosófica.",
+    "learnMore": "https://es.wikipedia.org/wiki/Alegor%C3%ADa_de_la_caverna"
+  },
+  "phil:technology-ethics": {
+    "category": "philosophy",
+    "title": "Ética de la Tecnología",
+    "summary": "El examen filosófico de cómo el poder tecnológico debe ser guiado por la sabiduría y la consideración ética, no meramente por la capacidad.",
+    "learnMore": "https://es.wikipedia.org/wiki/%C3%89tica_de_la_tecnolog%C3%ADa"
+  },
+  "astro:asteroid-belt": {
+    "category": "astronomy",
+    "title": "El Cinturón de Asteroides",
+    "summary": "Región entre Marte y Júpiter con millones de objetos rocosos. Algunas teorías sugieren que podría ser restos de un planeta que nunca se formó o fue destruido.",
+    "learnMore": "https://es.wikipedia.org/wiki/Cintur%C3%B3n_de_asteroides"
+  },
+  "hist:giza-pyramids": {
+    "category": "history",
+    "title": "Las Pirámides de Giza",
+    "summary": "Monumentos del antiguo Egipto construidos hace aproximadamente 4,500 años. La Gran Pirámide fue la estructura más alta hecha por el hombre durante más de 3,800 años.",
+    "learnMore": "https://es.wikipedia.org/wiki/Pir%C3%A1mides_de_Guiza"
+  },
+  "trad:hinduism-karma": {
+    "category": "traditions",
+    "title": "El Karma",
+    "summary": "Principio de causa y efecto donde las acciones influyen en experiencias futuras. Presente en hinduismo, budismo y jainismo como ley fundamental de equilibrio espiritual.",
+    "learnMore": "https://es.wikipedia.org/wiki/Karma"
+  },
+  "psych:jung-collective-unconscious": {
+    "category": "psychology",
+    "title": "El Inconsciente Colectivo",
+    "summary": "Concepto de Carl Jung: una capa de la psique compartida por toda la humanidad, conteniendo arquetipos y memorias ancestrales comunes a todos.",
+    "learnMore": "https://es.wikipedia.org/wiki/Inconsciente_colectivo"
+  },
+  "trad:eschatology-comparative": {
+    "category": "traditions",
+    "title": "Escatología Comparada",
+    "summary": "Estudio de las creencias sobre el fin de los tiempos y la transformación del mundo en diversas tradiciones: el Apocalipsis cristiano, el Kali Yuga hindú, el Maitreya budista.",
+    "learnMore": "https://es.wikipedia.org/wiki/Escatolog%C3%ADa"
+  },
+  "psych:jung-unconscious": {
+    "category": "psychology",
+    "title": "El Inconsciente en Jung",
+    "summary": "Para Carl Jung, el inconsciente contiene no solo material reprimido sino también potenciales creativos, sabiduría ancestral y la conexión con lo trascendente.",
+    "learnMore": "https://es.wikipedia.org/wiki/Inconsciente"
+  },
+  "trad:chakra-kundalini": {
+    "category": "traditions",
+    "title": "Kundalini y los Chakras",
+    "summary": "En tradiciones yóguicas, kundalini es la energía dormida en la base de la columna que, al despertar, asciende activando cada centro de energía hasta alcanzar la corona.",
+    "learnMore": "https://es.wikipedia.org/wiki/Kundalini"
+  },
+  "trad:buddhism-dukkha": {
+    "category": "traditions",
+    "title": "Dukkha: El Sufrimiento",
+    "summary": "Primera Noble Verdad del budismo: la existencia implica insatisfacción inherente. No es pesimismo sino reconocimiento de que el apego causa sufrimiento, y la liberación es posible.",
+    "learnMore": "https://es.wikipedia.org/wiki/Dukkha"
+  },
+  "psych:jung-synchronicity": {
+    "category": "psychology",
+    "title": "Sincronicidad",
+    "summary": "Concepto de Carl Jung: coincidencias significativas que no tienen relación causal pero están conectadas por su significado. Sugiere una conexión profunda entre mente y materia.",
+    "learnMore": "https://es.wikipedia.org/wiki/Sincronicidad"
+  },
+  "bio:meditation-brain": {
+    "category": "biology",
+    "title": "Meditación y el Cerebro",
+    "summary": "Estudios neurocientíficos muestran que la meditación regular produce cambios medibles: aumenta la materia gris, reduce la actividad de la amígdala y fortalece la corteza prefrontal.",
+    "learnMore": "https://es.wikipedia.org/wiki/Meditaci%C3%B3n#Efectos_en_el_cerebro"
+  },
+  "trad:contemplative-prayer": {
+    "category": "traditions",
+    "title": "Oración Contemplativa",
+    "summary": "Práctica presente en misticismo cristiano, sufismo e hinduismo: silenciar la mente para experimentar la presencia divina directamente, más allá de palabras e imágenes.",
+    "learnMore": "https://es.wikipedia.org/wiki/Contemplaci%C3%B3n"
+  },
+  "trad:hermetic-principles": {
+    "category": "traditions",
+    "title": "Principios Herméticos",
+    "summary": "Siete leyes universales del Kybalion: Mentalismo, Correspondencia, Vibración, Polaridad, Ritmo, Causa y Efecto, Género. Resumen de la antigua sabiduría atribuida a Hermes Trismegisto.",
+    "learnMore": "https://es.wikipedia.org/wiki/Kybalion"
   }
 }

@@ -6,25 +6,110 @@
   "metadata": {
     "sources": {
       "primary": [
-        {"topic": "Definition of wanderers", "refs": ["12.26", "12.27", "12.28"]},
-        {"topic": "Risks and dangers", "refs": ["12.28", "12.29", "36.16", "36.17"]},
-        {"topic": "Physical difficulties", "refs": ["12.30", "12.31"]},
-        {"topic": "Reasons for incarnating", "refs": ["52.8", "52.9", "65.11"]},
-        {"topic": "Three functions", "refs": ["65.12"]},
-        {"topic": "Forgetting and penetration", "refs": ["36.17", "36.19", "65.18", "65.19"]},
-        {"topic": "Pre-incarnative choices", "refs": ["59.3"]}
+        {
+          "topic": "Definition of wanderers",
+          "refs": [
+            "12.26",
+            "12.27",
+            "12.28"
+          ]
+        },
+        {
+          "topic": "Risks and dangers",
+          "refs": [
+            "12.28",
+            "12.29",
+            "36.16",
+            "36.17"
+          ]
+        },
+        {
+          "topic": "Physical difficulties",
+          "refs": [
+            "12.30",
+            "12.31"
+          ]
+        },
+        {
+          "topic": "Reasons for incarnating",
+          "refs": [
+            "52.8",
+            "52.9",
+            "65.11"
+          ]
+        },
+        {
+          "topic": "Three functions",
+          "refs": [
+            "65.12"
+          ]
+        },
+        {
+          "topic": "Forgetting and penetration",
+          "refs": [
+            "36.17",
+            "36.19",
+            "65.18",
+            "65.19"
+          ]
+        },
+        {
+          "topic": "Pre-incarnative choices",
+          "refs": [
+            "59.3"
+          ]
+        }
       ],
       "secondary": [
-        {"source": "Q'uo Vol 09", "topics": ["wanderer experience", "mission", "loneliness"]},
-        {"source": "Q'uo Vol 10", "topics": ["service", "being vs doing", "meditation"]},
-        {"source": "Q'uo Vol 11", "topics": ["sympathy", "warriors of love", "vibratory mismatch"]}
+        {
+          "source": "Q'uo Vol 09",
+          "topics": [
+            "wanderer experience",
+            "mission",
+            "loneliness"
+          ]
+        },
+        {
+          "source": "Q'uo Vol 10",
+          "topics": [
+            "service",
+            "being vs doing",
+            "meditation"
+          ]
+        },
+        {
+          "source": "Q'uo Vol 11",
+          "topics": [
+            "sympathy",
+            "warriors of love",
+            "vibratory mismatch"
+          ]
+        }
       ],
-      "glossary_terms": ["wanderer", "brothers-sisters-of-sorrow", "forgetting", "karma", "harvest", "veil", "catalyst", "sixth-density", "beacon", "shepherd"]
+      "glossary_terms": [
+        "wanderer",
+        "brothers-sisters-of-sorrow",
+        "forgetting",
+        "karma",
+        "harvest",
+        "veil",
+        "catalyst",
+        "sixth-density",
+        "beacon",
+        "shepherd"
+      ]
     },
     "writing_parameters": {
       "voice": "first person plural",
       "tone": "compassionate, validating yet grounding, philosophical",
-      "terminology": ["density", "distortion", "wanderer", "catalyst", "veil", "harvest"]
+      "terminology": [
+        "density",
+        "distortion",
+        "wanderer",
+        "catalyst",
+        "veil",
+        "harvest"
+      ]
     }
   },
   "sections": [
@@ -64,7 +149,7 @@
         },
         {
           "type": "paragraph",
-          "text": "O maior número de andarilhos são de {term:sixth-density}—a densidade da unidade. Isso pode parecer estranho. Por que seres que quase completaram sua jornada evolutiva escolheriam retornar ao começo? A resposta revela algo essencial sobre a natureza da evolução espiritual: quanto mais se aproxima da unidade, mais se sente o chamado daqueles ainda em separação. Seres de sexta densidade aprenderam a balancear sabedoria e compaixão. Veem o Criador em todas as coisas. O sofrimento de qualquer parte da criação é sentido como seu próprio sofrimento. Não podem ignorar o chamado."
+          "text": "O maior número de andarilhos são de {term:sixth-density} {ref:psych:jung-collective-unconscious}—a densidade da unidade. Isso pode parecer estranho. Por que seres que quase completaram sua jornada evolutiva escolheriam retornar ao começo? A resposta revela algo essencial sobre a natureza da evolução espiritual: quanto mais se aproxima da unidade, mais se sente o chamado daqueles ainda em separação. Seres de sexta densidade aprenderam a balancear sabedoria e compaixão. Veem o Criador em todas as coisas. O sofrimento de qualquer parte da criação é sentido como seu próprio sofrimento. Não podem ignorar o chamado."
         },
         {
           "type": "paragraph",
@@ -168,7 +253,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Este reconhecimento é bloqueado de várias maneiras, e o bloqueio difere de entidade para entidade. Para alguns, o bloqueio é mental—crenças que negam a natureza espiritual da realidade, conceitos que reduzem a consciência a mera bioquímica. Para outros, o bloqueio é emocional—medo, tristeza, raiva que calcificou ao redor do coração. Para outros ainda, o bloqueio está no corpo mesmo—tensão, dor crônica, doença que demanda atenção constante e não deixa espaço para consciência interior."
+          "text": "Este reconhecimento é bloqueado de várias maneiras, e o bloqueio difere de entidade para entidade. Para alguns, o bloqueio é mental—crenças que negam a natureza espiritual da realidade, conceitos que reduzem a consciência a mera bioquímica. Para outros, o bloqueio é emocional—medo, tristeza, raiva que calcificou ao redor do coração.  {ref:trad:chakra-kundalini}Para outros ainda, o bloqueio está no corpo mesmo—tensão, dor crônica, doença que demanda atenção constante e não deixa espaço para consciência interior."
         },
         {
           "type": "paragraph",

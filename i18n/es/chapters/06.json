@@ -6,25 +6,110 @@
   "metadata": {
     "sources": {
       "primary": [
-        {"topic": "Definition of wanderers", "refs": ["12.26", "12.27", "12.28"]},
-        {"topic": "Risks and dangers", "refs": ["12.28", "12.29", "36.16", "36.17"]},
-        {"topic": "Physical difficulties", "refs": ["12.30", "12.31"]},
-        {"topic": "Reasons for incarnating", "refs": ["52.8", "52.9", "65.11"]},
-        {"topic": "Three functions", "refs": ["65.12"]},
-        {"topic": "Forgetting and penetration", "refs": ["36.17", "36.19", "65.18", "65.19"]},
-        {"topic": "Pre-incarnative choices", "refs": ["59.3"]}
+        {
+          "topic": "Definition of wanderers",
+          "refs": [
+            "12.26",
+            "12.27",
+            "12.28"
+          ]
+        },
+        {
+          "topic": "Risks and dangers",
+          "refs": [
+            "12.28",
+            "12.29",
+            "36.16",
+            "36.17"
+          ]
+        },
+        {
+          "topic": "Physical difficulties",
+          "refs": [
+            "12.30",
+            "12.31"
+          ]
+        },
+        {
+          "topic": "Reasons for incarnating",
+          "refs": [
+            "52.8",
+            "52.9",
+            "65.11"
+          ]
+        },
+        {
+          "topic": "Three functions",
+          "refs": [
+            "65.12"
+          ]
+        },
+        {
+          "topic": "Forgetting and penetration",
+          "refs": [
+            "36.17",
+            "36.19",
+            "65.18",
+            "65.19"
+          ]
+        },
+        {
+          "topic": "Pre-incarnative choices",
+          "refs": [
+            "59.3"
+          ]
+        }
       ],
       "secondary": [
-        {"source": "Q'uo Vol 09", "topics": ["wanderer experience", "mission", "loneliness"]},
-        {"source": "Q'uo Vol 10", "topics": ["service", "being vs doing", "meditation"]},
-        {"source": "Q'uo Vol 11", "topics": ["sympathy", "warriors of love", "vibratory mismatch"]}
+        {
+          "source": "Q'uo Vol 09",
+          "topics": [
+            "wanderer experience",
+            "mission",
+            "loneliness"
+          ]
+        },
+        {
+          "source": "Q'uo Vol 10",
+          "topics": [
+            "service",
+            "being vs doing",
+            "meditation"
+          ]
+        },
+        {
+          "source": "Q'uo Vol 11",
+          "topics": [
+            "sympathy",
+            "warriors of love",
+            "vibratory mismatch"
+          ]
+        }
       ],
-      "glossary_terms": ["wanderer", "brothers-sisters-of-sorrow", "forgetting", "karma", "harvest", "veil", "catalyst", "sixth-density", "beacon", "shepherd"]
+      "glossary_terms": [
+        "wanderer",
+        "brothers-sisters-of-sorrow",
+        "forgetting",
+        "karma",
+        "harvest",
+        "veil",
+        "catalyst",
+        "sixth-density",
+        "beacon",
+        "shepherd"
+      ]
     },
     "writing_parameters": {
       "voice": "first person plural",
       "tone": "compassionate, validating yet grounding, philosophical",
-      "terminology": ["density", "distortion", "wanderer", "catalyst", "veil", "harvest"]
+      "terminology": [
+        "density",
+        "distortion",
+        "wanderer",
+        "catalyst",
+        "veil",
+        "harvest"
+      ]
     }
   },
   "sections": [
@@ -64,7 +149,7 @@
         },
         {
           "type": "paragraph",
-          "text": "El mayor número de errantes son de {term:sixth-density}—la densidad de la unidad. Esto puede parecer extraño. ¿Por qué seres que han casi completado su jornada evolutiva elegirían regresar al comienzo? La respuesta revela algo esencial sobre la naturaleza de la evolución espiritual: cuanto más uno se aproxima a la unidad, más siente el llamado de aquellos aún en separación. Los seres de sexta densidad han aprendido a balancear sabiduría y compasión. Ven al Creador en todas las cosas. El sufrimiento de cualquier parte de la creación es sentido como su propio sufrimiento. No pueden ignorar el llamado."
+          "text": "El mayor número de errantes son de {term:sixth-density} {ref:psych:jung-collective-unconscious}—la densidad de la unidad. Esto puede parecer extraño. ¿Por qué seres que han casi completado su jornada evolutiva elegirían regresar al comienzo? La respuesta revela algo esencial sobre la naturaleza de la evolución espiritual: cuanto más uno se aproxima a la unidad, más siente el llamado de aquellos aún en separación. Los seres de sexta densidad han aprendido a balancear sabiduría y compasión. Ven al Creador en todas las cosas. El sufrimiento de cualquier parte de la creación es sentido como su propio sufrimiento. No pueden ignorar el llamado."
         },
         {
           "type": "paragraph",
@@ -168,7 +253,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Este reconocimiento está bloqueado de varias maneras, y el bloqueo difiere de entidad a entidad. Para algunos, el bloqueo es mental—creencias que niegan la naturaleza espiritual de la realidad, conceptos que reducen la consciencia a mera bioquímica. Para otros, el bloqueo es emocional—miedo, pena, ira que se ha calcificado alrededor del corazón. Para otros más, el bloqueo está en el cuerpo mismo—tensión, dolor crónico, enfermedad que demanda atención constante y no deja espacio para la conciencia interior."
+          "text": "Este reconocimiento está bloqueado de varias maneras, y el bloqueo difiere de entidad a entidad. Para algunos, el bloqueo es mental—creencias que niegan la naturaleza espiritual de la realidad, conceptos que reducen la consciencia a mera bioquímica. Para otros, el bloqueo es emocional—miedo, pena, ira que se ha calcificado alrededor del corazón.  {ref:trad:chakra-kundalini}Para otros más, el bloqueo está en el cuerpo mismo—tensión, dolor crónico, enfermedad que demanda atención constante y no deja espacio para la conciencia interior."
         },
         {
           "type": "paragraph",

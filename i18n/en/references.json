@@ -118,5 +118,95 @@
     "title": "Quantum Mechanics",
     "summary": "Particles are probability waves that collapse only when observed.",
     "learnMore": "https://en.wikipedia.org/wiki/Quantum_mechanics"
+  },
+  "sci:hoffman-consciousness": {
+    "category": "science",
+    "title": "Donald Hoffman on Consciousness",
+    "summary": "Cognitive scientist Donald Hoffman argues that consciousness is fundamental and that spacetime is a user interface, not ultimate reality.",
+    "learnMore": "https://en.wikipedia.org/wiki/Donald_D._Hoffman"
+  },
+  "phil:plato-cave": {
+    "category": "philosophy",
+    "title": "Plato's Allegory of the Cave",
+    "summary": "In Plato's Republic, prisoners in a cave mistake shadows for reality, symbolizing how we confuse appearances for truth until we achieve philosophical enlightenment.",
+    "learnMore": "https://en.wikipedia.org/wiki/Allegory_of_the_cave"
+  },
+  "phil:technology-ethics": {
+    "category": "philosophy",
+    "title": "Technology Ethics",
+    "summary": "The philosophical examination of how technological power should be guided by wisdom and ethical consideration, not merely capability.",
+    "learnMore": "https://en.wikipedia.org/wiki/Ethics_of_technology"
+  },
+  "astro:asteroid-belt": {
+    "category": "astronomy",
+    "title": "The Asteroid Belt",
+    "summary": "A region between Mars and Jupiter containing millions of rocky objects. Some theories suggest it could be remnants of a planet that never formed or was destroyed.",
+    "learnMore": "https://en.wikipedia.org/wiki/Asteroid_belt"
+  },
+  "hist:giza-pyramids": {
+    "category": "history",
+    "title": "The Pyramids of Giza",
+    "summary": "Ancient Egyptian monuments built approximately 4,500 years ago. The Great Pyramid was the tallest man-made structure for over 3,800 years.",
+    "learnMore": "https://en.wikipedia.org/wiki/Giza_pyramid_complex"
+  },
+  "trad:hinduism-karma": {
+    "category": "traditions",
+    "title": "Karma",
+    "summary": "The principle of cause and effect where actions influence future experiences. Present in Hinduism, Buddhism, and Jainism as a fundamental law of spiritual balance.",
+    "learnMore": "https://en.wikipedia.org/wiki/Karma"
+  },
+  "psych:jung-collective-unconscious": {
+    "category": "psychology",
+    "title": "The Collective Unconscious",
+    "summary": "Carl Jung's concept: a layer of the psyche shared by all humanity, containing archetypes and ancestral memories common to everyone.",
+    "learnMore": "https://en.wikipedia.org/wiki/Collective_unconscious"
+  },
+  "trad:eschatology-comparative": {
+    "category": "traditions",
+    "title": "Comparative Eschatology",
+    "summary": "The study of beliefs about the end times and world transformation across traditions: Christian Apocalypse, Hindu Kali Yuga, Buddhist Maitreya.",
+    "learnMore": "https://en.wikipedia.org/wiki/Eschatology"
+  },
+  "psych:jung-unconscious": {
+    "category": "psychology",
+    "title": "The Unconscious in Jung",
+    "summary": "For Carl Jung, the unconscious contains not only repressed material but also creative potentials, ancestral wisdom, and connection to the transcendent.",
+    "learnMore": "https://en.wikipedia.org/wiki/Unconscious_mind"
+  },
+  "trad:chakra-kundalini": {
+    "category": "traditions",
+    "title": "Kundalini and the Chakras",
+    "summary": "In yogic traditions, kundalini is dormant energy at the spine's base that, when awakened, rises through each energy center to reach the crown.",
+    "learnMore": "https://en.wikipedia.org/wiki/Kundalini"
+  },
+  "trad:buddhism-dukkha": {
+    "category": "traditions",
+    "title": "Dukkha: Suffering",
+    "summary": "First Noble Truth of Buddhism: existence involves inherent unsatisfactoriness. Not pessimism but recognition that attachment causes suffering, and liberation is possible.",
+    "learnMore": "https://en.wikipedia.org/wiki/Dukkha"
+  },
+  "psych:jung-synchronicity": {
+    "category": "psychology",
+    "title": "Synchronicity",
+    "summary": "Carl Jung's concept: meaningful coincidences without causal connection yet linked by significance. Suggests a deep connection between mind and matter.",
+    "learnMore": "https://en.wikipedia.org/wiki/Synchronicity"
+  },
+  "bio:meditation-brain": {
+    "category": "biology",
+    "title": "Meditation and the Brain",
+    "summary": "Neuroscience studies show regular meditation produces measurable changes: increases gray matter, reduces amygdala activity, strengthens prefrontal cortex.",
+    "learnMore": "https://en.wikipedia.org/wiki/Research_on_meditation"
+  },
+  "trad:contemplative-prayer": {
+    "category": "traditions",
+    "title": "Contemplative Prayer",
+    "summary": "Practice found in Christian mysticism, Sufism, and Hinduism: silencing the mind to directly experience divine presence, beyond words and images.",
+    "learnMore": "https://en.wikipedia.org/wiki/Contemplation"
+  },
+  "trad:hermetic-principles": {
+    "category": "traditions",
+    "title": "Hermetic Principles",
+    "summary": "Seven universal laws from the Kybalion: Mentalism, Correspondence, Vibration, Polarity, Rhythm, Cause and Effect, Gender. Summary of ancient wisdom attributed to Hermes Trismegistus.",
+    "learnMore": "https://en.wikipedia.org/wiki/Kybalion"
   }
 }
