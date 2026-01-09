@@ -30,15 +30,15 @@ jobs:
       - name: Sync files
         run: |
           # Create directories if they don't exist
-          mkdir -p book-template/src/scss
-          mkdir -p book-template/src/templates
-          mkdir -p book-template/src/fonts
+          mkdir -p book-template/scss
+          mkdir -p book-template/templates
+          mkdir -p book-template/fonts
           mkdir -p book-template/scripts
 
-          # Copy frontend files to book-template
-          rsync -av --delete src/scss/ book-template/src/scss/
-          rsync -av --delete src/templates/ book-template/src/templates/
-          rsync -av --delete src/fonts/ book-template/src/fonts/
+          # Copy frontend files to book-template (from src/ to root)
+          rsync -av --delete src/scss/ book-template/scss/
+          rsync -av --delete src/templates/ book-template/templates/
+          rsync -av --delete src/fonts/ book-template/fonts/
 
           # Copy specific scripts (not all)
           cp scripts/build.js book-template/scripts/build.js
