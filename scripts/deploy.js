@@ -1,40 +1,38 @@
 require('dotenv').config();
-const ftp = require("basic-ftp");
-const path = require("path");
+const { execSync } = require('child_process');
+const path = require('path');
 
 async function deploy() {
-    const client = new ftp.Client();
-    client.ftp.verbose = true;
-
     // Check for required environment variables
-    if (!process.env.FTP_SERVER || !process.env.FTP_USERNAME || !process.env.FTP_PASSWORD) {
-        console.error("❌ Error: Missing FTP credentials in .env file.");
-        console.error("Please ensure FTP_SERVER, FTP_USERNAME, and FTP_PASSWORD are set.");
+    if (!process.env.UPLOAD_HOST || !process.env.UPLOAD_USER || !process.env.UPLOAD_PASS || !process.env.UPLOAD_PORT) {
+        console.error("❌ Error: Missing SSH credentials in .env file.");
+        console.error("Please ensure UPLOAD_HOST, UPLOAD_USER, UPLOAD_PASS, and UPLOAD_PORT are set.");
         process.exit(1);
     }
 
-    const remoteDir = process.env.FTP_SERVER_DIR || "/public_html";
+    const host = process.env.UPLOAD_HOST;
+    const port = process.env.UPLOAD_PORT;
+    const user = process.env.UPLOAD_USER;
+    const password = process.env.UPLOAD_PASS;
+    const remoteDir = "domains/lawofone.cl/public_html/";
+    const localDir = path.join(__dirname, "../dist/");
+
+    console.log(`🚀 Deploying via rsync over SSH...`);
+    console.log(`📂 Local:  ${localDir}`);
+    console.log(`📂 Remote: ${user}@${host}:${remoteDir}`);
 
     try {
-        console.log(`🔌 Connecting to FTP (${process.env.FTP_SERVER})...`);
-        await client.access({
-            host: process.env.FTP_SERVER,
-            user: process.env.FTP_USERNAME,
-            password: process.env.FTP_PASSWORD,
-            secure: false // Set to true if using FTPS
-        });
+        // Use rsync with SSH and sshpass for authentication
+        const rsyncCmd = `sshpass -p "${password}" rsync -avz --delete -e "ssh -p ${port} -o StrictHostKeyChecking=no" ${localDir} ${user}@${host}:${remoteDir}`;
 
-        console.log(`📂 Uploading files to ${remoteDir}...`);
-        
-        // Upload the contents of the local 'dist' directory to the remote directory
-        await client.uploadFromDir(path.join(__dirname, "../dist"), remoteDir);
+        console.log(`\n⚡ Syncing files...`);
+        execSync(rsyncCmd, { stdio: 'inherit' });
 
-        console.log("✅ FTP Deployment complete!");
+        console.log("\n✅ Deployment complete!");
     } catch(err) {
-        console.error("❌ Deployment failed:", err);
+        console.error("❌ Deployment failed:", err.message);
         process.exit(1);
     }
-    client.close();
 }
 
 deploy();
