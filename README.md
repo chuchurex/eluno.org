@@ -35,14 +35,17 @@ El sitio estará disponible en `http://127.0.0.1:3002`.
 |--------|-------------|
 | `npm run dev` | **Dev Mode**: SASS watch + Live Server. |
 | `npm run build` | **Build**: Genera el sitio estático en `/dist`. |
-| `npm run publish:media` | **Assets**: Sube PDFs y MP3s al servidor de medios. |
+| `npm run publish` | **Deploy**: Build + Deploy automático via rsync/SSH. |
+| `npm run build:pdf` | **PDFs**: Genera PDFs de capítulos (ej: `npm run build:pdf 01 es`). |
 
 ## 🏗 Arquitectura Resumida
 
-El proyecto utiliza una estrategia de **Hosting Híbrido**:
+El proyecto utiliza **Hostinger** con deploy automatizado:
 
-- **Frontend**: Alojado en **Cloudflare Pages** (Despliegue automático vía Git).
-- **Assets Pesados**: Alojados en **Hostinger** (Despliegue manual vía script).
+- **Sitio Web Completo**: Deploy automático via **rsync sobre SSH**
+- **HTMLs + PDFs**: Generados con Node.js y Puppeteer
+- **Glosario + Referencias**: Sistema de términos con notas al pie
+- **Multilingüe**: Soporte completo para EN, ES, PT
 
 Para más detalles, consulta [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
 
