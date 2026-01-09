@@ -62,12 +62,12 @@ function ensureDir(dir) {
 // ============================================================================
 
 /**
- * Process text and collect footnotes for glossary terms
- * Returns { html: string, footnotes: Map<termId, termData> }
+ * Process text and collect footnotes for glossary terms and references
+ * Returns processed HTML string
  */
-function processTextWithFootnotes(text, glossary, collectedFootnotes) {
+function processTextWithFootnotes(text, glossary, references, collectedFootnotes) {
   // Replace {term:id} or {term:id|text} with superscript number
-  const processed = text.replace(/\{term:([^}|]+)(?:\|([^}]+))?\}/g, (match, termId, customText) => {
+  let processed = text.replace(/\{term:([^}|]+)(?:\|([^}]+))?\}/g, (match, termId, customText) => {
     const term = glossary[termId];
     if (!term) return customText || termId;
 
@@ -75,7 +75,7 @@ function processTextWithFootnotes(text, glossary, collectedFootnotes) {
 
     // Add to collected footnotes if not already present
     if (!collectedFootnotes.has(termId)) {
-      collectedFootnotes.set(termId, term);
+      collectedFootnotes.set(termId, { ...term, type: 'term' });
     }
 
     // Get footnote number (1-indexed position in map)
@@ -83,6 +83,11 @@ function processTextWithFootnotes(text, glossary, collectedFootnotes) {
 
     return `<span class="term">${displayText}<sup class="fn-ref">${footnoteNum}</sup></span>`;
   });
+
+  // Remove {ref:id} completely from PDF (references not shown in PDF)
+  if (references) {
+    processed = processed.replace(/\{ref:([^}]+)\}/g, '');
+  }
 
   // Replace **text** with <strong>
   let html = processed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -97,13 +102,13 @@ function processTextWithFootnotes(text, glossary, collectedFootnotes) {
 // HTML TEMPLATE GENERATION
 // ============================================================================
 
-function generatePdfHtml(chapter, glossary, lang, ui) {
+function generatePdfHtml(chapter, glossary, references, lang, ui) {
   const collectedFootnotes = new Map();
 
   // Process all sections and collect footnotes
   const sectionsHtml = chapter.sections.map((section, index) => {
     const contentHtml = section.content.map(block => {
-      const processedText = processTextWithFootnotes(block.text, glossary, collectedFootnotes);
+      const processedText = processTextWithFootnotes(block.text, glossary, references, collectedFootnotes);
       if (block.type === 'paragraph') {
         return `<p>${processedText}</p>`;
       } else if (block.type === 'quote') {
@@ -121,15 +126,17 @@ function generatePdfHtml(chapter, glossary, lang, ui) {
     `;
   }).join('\n');
 
-  // Generate footnotes section
-  const footnotesHtml = collectedFootnotes.size > 0 ? `
+  // Generate footnotes section (only glossary terms, not references)
+  const glossaryFootnotes = Array.from(collectedFootnotes.entries()).filter(([id, item]) => item.type !== 'ref');
+  const footnotesHtml = glossaryFootnotes.length > 0 ? `
     <div class="footnotes">
       <div class="footnotes-title">${ui.nav.notes || 'Notes'}</div>
-      ${Array.from(collectedFootnotes.entries()).map(([id, term], index) => {
-    const content = term.content.map(p =>
+      ${glossaryFootnotes.map(([id, item], index) => {
+    // Term: show content
+    const content = item.content.map(p =>
       p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     ).join(' ');
-    return `<div class="footnote"><sup>${index + 1}</sup> <strong>${term.title}:</strong> ${content}</div>`;
+    return `<div class="footnote"><sup>${index + 1}</sup> <strong>${item.title}:</strong> ${content}</div>`;
   }).join('\n')}
     </div>
   ` : '';
@@ -253,8 +260,7 @@ function generatePdfHtml(chapter, glossary, lang, ui) {
 
     /* Terms and footnote references */
     .term {
-      color: var(--gold);
-      border-bottom: 1px dotted var(--gold);
+      /* No special styling for PDF - just normal text */
     }
 
     .fn-ref {
@@ -326,8 +332,8 @@ function generatePdfHtml(chapter, glossary, lang, ui) {
 // PDF GENERATION
 // ============================================================================
 
-async function generatePdf(chapter, glossary, lang, ui, outputPath) {
-  const html = generatePdfHtml(chapter, glossary, lang, ui);
+async function generatePdf(chapter, glossary, references, lang, ui, outputPath) {
+  const html = generatePdfHtml(chapter, glossary, references, lang, ui);
 
   const browser = await puppeteer.launch({
     headless: true,
@@ -407,9 +413,16 @@ async function buildPdf(chapterNum, targetLang = null) {
       glossary = loadJSON(path.join(I18N_DIR, BASE_LANG, 'glossary.json')) || {};
     }
 
+    // Load references
+    const referencesPath = path.join(I18N_DIR, lang, 'references.json');
+    let references = loadJSON(referencesPath);
+    if (!references) {
+      references = loadJSON(path.join(I18N_DIR, BASE_LANG, 'references.json')) || {};
+    }
+
     // Generate PDF
     const outputPath = path.join(langPdfDir, `ch${chNum}.pdf`);
-    await generatePdf(chapter, glossary, lang, ui, outputPath);
+    await generatePdf(chapter, glossary, references, lang, ui, outputPath);
   }
 }
 
@@ -465,13 +478,20 @@ async function buildCompleteBookPdf(targetLang = null) {
       glossary = loadJSON(path.join(I18N_DIR, BASE_LANG, 'glossary.json')) || {};
     }
 
+    // Load references
+    const referencesPath = path.join(I18N_DIR, lang, 'references.json');
+    let references = loadJSON(referencesPath);
+    if (!references) {
+      references = loadJSON(path.join(I18N_DIR, BASE_LANG, 'references.json')) || {};
+    }
+
     const collectedFootnotes = new Map();
 
     // Compile sections from all chapters
     const chaptersHtml = chapters.map((chapter) => {
       const sectionsHtml = chapter.sections.map((section, index) => {
         const contentHtml = section.content.map(block => {
-          const processedText = processTextWithFootnotes(block.text, glossary, collectedFootnotes);
+          const processedText = processTextWithFootnotes(block.text, glossary, references, collectedFootnotes);
           if (block.type === 'paragraph') {
             return `<p>${processedText}</p>`;
           } else if (block.type === 'quote') {
@@ -499,15 +519,17 @@ async function buildCompleteBookPdf(targetLang = null) {
       `;
     }).join('\n');
 
-    // Generate footnotes section
-    const footnotesHtml = collectedFootnotes.size > 0 ? `
+    // Generate footnotes section (only glossary terms, not references)
+    const glossaryFootnotes = Array.from(collectedFootnotes.entries()).filter(([id, item]) => item.type !== 'ref');
+    const footnotesHtml = glossaryFootnotes.length > 0 ? `
       <div class="footnotes" style="page-break-before: always;">
         <div class="footnotes-title">${ui.nav.notesPanel || 'Glossary'}</div>
-        ${Array.from(collectedFootnotes.entries()).map(([id, term], index) => {
-      const content = term.content.map(p =>
+        ${glossaryFootnotes.map(([id, item], index) => {
+      // Term: show content
+      const content = item.content.map(p =>
         p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       ).join(' ');
-      return `<div class="footnote"><sup>${index + 1}</sup> <strong>${term.title}:</strong> ${content}</div>`;
+      return `<div class="footnote"><sup>${index + 1}</sup> <strong>${item.title}:</strong> ${content}</div>`;
     }).join('\n')}
       </div>
     ` : '';
@@ -541,7 +563,7 @@ async function buildCompleteBookPdf(targetLang = null) {
     .section p:first-of-type { text-indent: 0; }
     .quote { margin: 1.5rem 2rem; padding: 1rem 1.5rem; border-left: 3px solid var(--gold); font-style: italic; color: var(--muted); background: #fafafa; }
     .divider { text-align: center; color: var(--gold); font-size: 14pt; margin: 2rem 0; letter-spacing: 0.5em; }
-    .term { color: var(--gold); border-bottom: 1px dotted var(--gold); }
+    .term { /* No special styling for PDF - just normal text */ }
     .fn-ref { font-size: 8pt; color: var(--gold); margin-left: 1px; }
     .footnotes { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; }
     .footnotes-title { font-family: var(--font-heading); font-size: 14pt; font-weight: 600; color: var(--gold); margin-bottom: 1.5rem; text-align: center; }
