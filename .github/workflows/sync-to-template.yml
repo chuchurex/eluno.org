@@ -1,0 +1,75 @@
+name: Sync to Book Template
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/scss/**'
+      - 'scripts/build.js'
+      - 'scripts/build-pdf.js'
+      - 'templates/**'
+      - 'fonts/**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout lawofone.cl
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout book-template
+        uses: actions/checkout@v4
+        with:
+          repository: chuchurex/book-template
+          token: ${{ secrets.TEMPLATE_SYNC_TOKEN }}
+          path: book-template
+
+      - name: Sync files
+        run: |
+          # Copy frontend files to book-template
+          rsync -av --delete src/scss/ book-template/src/scss/
+          rsync -av templates/ book-template/templates/
+          rsync -av fonts/ book-template/fonts/
+
+          # Copy specific scripts (not all)
+          cp scripts/build.js book-template/scripts/build.js
+          cp scripts/build-pdf.js book-template/scripts/build-pdf.js
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          cd book-template
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.check_changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.TEMPLATE_SYNC_TOKEN }}
+          path: book-template
+          commit-message: "sync: update from lawofone.cl"
+          branch: sync-from-lawofone
+          title: "🔄 Sync: Frontend updates from lawofone.cl"
+          body: |
+            ## 🔄 Automated Sync from lawofone.cl
+
+            This PR contains frontend updates from the main lawofone.cl repository.
+
+            ### Changed files:
+            - SCSS styles
+            - Build scripts
+            - Templates
+            - Fonts
+
+            **Source commit**: ${{ github.sha }}
+            **Triggered by**: ${{ github.event.head_commit.message }}
+
+            Please review and merge if everything looks good.
+          labels: automated-sync
