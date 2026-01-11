@@ -131,3 +131,47 @@
     margin-bottom: $spacing-xs;
   }
 }
+
+// =====================================================
+// SITEMAP PAGE STYLES
+// =====================================================
+
+.sitemap-section {
+  margin-bottom: $spacing-xl;
+
+  h2 {
+    color: $gold;
+    font-size: 1.5rem;
+    margin-bottom: $spacing-md;
+    font-family: $font-heading;
+  }
+}
+
+.sitemap-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: $spacing-sm;
+    padding-left: $spacing-md;
+    position: relative;
+
+    &::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: $gold;
+    }
+
+    a {
+      color: $text;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $gold;
+      }
+    }
+  }
+}

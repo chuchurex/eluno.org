@@ -269,7 +269,8 @@ function generateNotes(glossary, references, ui) {
   html += `            <div class="notes-empty" id="notes-empty">${ui.nav.notesEmpty.replace('class="term-hint"', 'style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)"')}</div>\n\n`;
 
   // Glossary terms
-  for (const [id, term] of Object.entries(glossary)) {
+  if (glossary) {
+    for (const [id, term] of Object.entries(glossary)) {
     html += `            <div class="note" id="note-${id}">`;
     html += `<div class="note-title">${term.title}</div>`;
     html += `<div class="note-content">`;
@@ -278,6 +279,7 @@ function generateNotes(glossary, references, ui) {
       html += `<p>${processed}</p>`;
     });
     html += `</div></div>\n`;
+    }
   }
 
   // References
@@ -922,6 +924,122 @@ ${generateScripts()}
   return html;
 }
 
+// Generate simple navigation for sitemap/about pages
+function generateSimpleNav(chapters, ui, lang, allLangs, pagePath) {
+  const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
+
+  let html = `        <nav class="nav" id="sidebar">\n`;
+  html += `            <div class="nav-head">\n`;
+  html += `                <a href="${langPrefix}/" class="nav-title">${ui.siteTitle}</a>\n`;
+  html += `                <div class="lang">`;
+
+  // Language links
+  allLangs.forEach((l, i) => {
+    const href = l === BASE_LANG ? pagePath : `/${l}${pagePath}`;
+    const active = l === lang ? ' class="active"' : '';
+    html += `<a href="${href}"${active}>${l.toUpperCase()}</a>`;
+    if (i < allLangs.length - 1) html += ' | ';
+  });
+
+  html += `</div>\n`;
+  html += `            </div>\n`;
+
+  // Back to index link
+  html += `            <div class="nav-back">\n`;
+  html += `                <a href="${langPrefix}/" class="nav-link">← ${ui.nav.backToIndex}</a>\n`;
+  html += `            </div>\n`;
+
+  html += `            <div class="nav-section">\n`;
+
+  // Chapter links
+  chapters.forEach(ch => {
+    const chapterSlug = getChapterSlug(lang, ch.number);
+    html += `                <a href="${langPrefix}/${chapterSlug}/" class="nav-link">\n`;
+    html += `                    <span class="nav-num">${ui.nav.chapter} ${ch.number}</span>\n`;
+    html += `                    <span class="nav-text">${ch.title}</span>\n`;
+    html += `                </a>\n`;
+  });
+
+  html += `            </div>\n`;
+
+  // About link in footer
+  html += `            <div class="nav-footer">\n`;
+  html += `                <a href="${langPrefix}/about/" class="nav-link">✧ ${ui.nav.about || 'About'}</a>\n`;
+  html += `            </div>\n`;
+
+  html += `        </nav>\n`;
+  return html;
+}
+
+// Generate Sitemap page for humans
+function generateSitemapPage(lang, chapters, ui, allLangs, version) {
+  const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
+  const pagePath = '/sitemap/';
+  const cssPath = lang === BASE_LANG ? '../' : '../../';
+  const pageTitle = lang === 'es' ? 'Mapa del Sitio' : lang === 'pt' ? 'Mapa do Site' : 'Sitemap';
+
+  let html = generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle, false);
+
+  html += `<body>
+    <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
+    <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
+    <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+    <div class="layout">
+        <main class="main">
+            <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
+            <header class="about-header">
+                <h1 class="about-title">${pageTitle}</h1>
+            </header>
+
+            <section class="sitemap-section">
+                <h2>${ui.bookTitle}</h2>
+                <ul class="sitemap-list">
+                    <li><a href="${langPrefix}/">${lang === 'es' ? 'Índice' : lang === 'pt' ? 'Índice' : 'Index'}</a></li>
+`;
+
+  // Add all chapters
+  chapters.forEach(chapter => {
+    const chapterSlug = getChapterSlug(lang, chapter.number);
+    html += `                    <li><a href="${langPrefix}/${chapterSlug}/">${ui.nav.chapter} ${chapter.number}: ${chapter.title}</a></li>\n`;
+  });
+
+  html += `                    <li><a href="${langPrefix}/about/">${lang === 'es' ? 'Acerca de' : lang === 'pt' ? 'Sobre' : 'About'}</a></li>
+                </ul>
+            </section>
+
+            <section class="sitemap-section">
+                <h2>${lang === 'es' ? 'Otros Idiomas' : lang === 'pt' ? 'Outros Idiomas' : 'Other Languages'}</h2>
+                <ul class="sitemap-list">
+                    <li><a href="/" hreflang="en">English</a></li>
+                    <li><a href="/es/" hreflang="es">Español</a></li>
+                    <li><a href="/pt/" hreflang="pt">Português</a></li>
+                </ul>
+            </section>
+
+            <section class="sitemap-section">
+                <h2>${lang === 'es' ? 'Recursos' : lang === 'pt' ? 'Recursos' : 'Resources'}</h2>
+                <ul class="sitemap-list">
+                    <li><a href="/sitemap.xml">Sitemap XML (${lang === 'es' ? 'para motores de búsqueda' : lang === 'pt' ? 'para motores de busca' : 'for search engines'})</a></li>
+                    <li><a href="/robots.txt">Robots.txt</a></li>
+                    <li><a href="https://www.llresearch.org" target="_blank" rel="noopener">${lang === 'es' ? 'Material Ra Original' : lang === 'pt' ? 'Material Ra Original' : 'Original Ra Material'} (L/L Research)</a></li>
+                </ul>
+            </section>
+        </main>
+
+`;
+  html += generateSimpleNav(chapters, ui, lang, allLangs, '/sitemap/');
+  html += '\n';
+  html += generateNotes(null, null, ui);
+  html += `    </div>
+
+${generateScripts()}
+</body>
+</html>`;
+
+  return html;
+}
+
 // Generate individual chapter page
 function generateChapterPage(lang, chapters, chapterIndex, glossary, references, ui, allLangs, version, media) {
   const chapter = chapters[chapterIndex];
@@ -1070,6 +1188,20 @@ function build() {
       fs.writeFileSync(aboutPath, aboutHtml);
       console.log(`   ✅ ${aboutPath}`);
     }
+
+    // Generate Sitemap page
+    const sitemapDir = lang === BASE_LANG
+      ? path.join(DIST_DIR, 'sitemap')
+      : path.join(DIST_DIR, lang, 'sitemap');
+
+    if (!fs.existsSync(sitemapDir)) {
+      fs.mkdirSync(sitemapDir, { recursive: true });
+    }
+
+    const sitemapHtml = generateSitemapPage(lang, chapters, ui, LANGUAGES, version);
+    const sitemapPath = path.join(sitemapDir, 'index.html');
+    fs.writeFileSync(sitemapPath, sitemapHtml);
+    console.log(`   ✅ ${sitemapPath}`);
   });
 
   // Copy og-image if exists
