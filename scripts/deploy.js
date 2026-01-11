@@ -14,7 +14,7 @@ async function deploy() {
     const port = process.env.UPLOAD_PORT;
     const user = process.env.UPLOAD_USER;
     const password = process.env.UPLOAD_PASS;
-    const remoteDir = "domains/lawofone.cl/public_html/";
+    const remoteDir = process.env.UPLOAD_DIR || "domains/lawofone.chuchurex.cl/public_html/";
     const localDir = path.join(__dirname, "../dist/");
 
     console.log(`🚀 Deploying via rsync over SSH...`);
