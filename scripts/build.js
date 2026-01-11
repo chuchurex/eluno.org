@@ -722,12 +722,12 @@ function generateTocPage(lang, chapters, glossary, references, ui, allLangs, ver
 
   html += `<body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
-    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
     <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
     <div class="layout">
         <main class="main">
+            <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
             <header class="toc-header">
                 <h1 class="toc-title">${ui.bookTitle}</h1>
                 <p class="toc-subtitle">${ui.description}</p>
@@ -900,12 +900,12 @@ function generateAboutPage(lang, chapters, about, glossary, ui, allLangs, versio
 
   html += `<body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
-    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
     <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
     <div class="layout">
         <main class="main">
+            <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
 `;
 
   html += generateAboutContent(about);
@@ -935,12 +935,12 @@ function generateChapterPage(lang, chapters, chapterIndex, glossary, references,
 
   html += `<body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.nav.index}</button>
-    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
     <button class="toggle notes-toggle" onclick="toggleNotes()">✧ ${ui.nav.notes}</button>
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
     <div class="layout">
         <main class="main">
+            <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
 `;
 
   html += generateChapterContent(chapter, glossary, references, media, ui);

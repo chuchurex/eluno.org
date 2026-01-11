@@ -13,7 +13,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Este trabajo fue realizado por <a href=\"https://chuchurex.cl\" target=\"_blank\">Carlos Martínez</a> con la ayuda de Claude (Opus 4.5) de Anthropic."
+          "text": "Este trabajo fue realizado por <a href=\"https://chuchurex.cl\" target=\"_blank\">Carlos Martínez</a> con la ayuda de Claude."
         }
       ]
     },
@@ -23,7 +23,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Este proyecto fue creado con asistencia de Claude (Opus 4.5) de Anthropic. Aunque se ha hecho todo el esfuerzo por mantener la precisión y fidelidad al material original, el contenido generado por IA puede contener inexactitudes, inconsistencias o malinterpretaciones."
+          "text": "Este proyecto fue creado con asistencia de una IA (Claude de Anthropic). Aunque se ha hecho todo el esfuerzo por mantener la precisión y fidelidad al material original, el contenido generado por IA puede contener inexactitudes, inconsistencias o malinterpretaciones."
         },
         {
           "type": "paragraph",
@@ -49,7 +49,7 @@
         },
         {
           "type": "paragraph",
-          "text": "El material original es denso: tres años de sesiones donde los temas aparecen, desaparecen y vuelven. Traté de ordenarlo para mí mismo de una manera coherente y organizada. Usé Opus 4.5, él fue quien escribió cada palabra, yo solo di la guía. Esas notas terminaron convirtiéndose en este libro."
+          "text": "El material original es complejo de abordar, tres años de sesiones donde los temas aparecen, desaparecen y vuelven. Traté de ordenarlo para mí mismo de una manera coherente y organizada. Trabajé el libro como un proyecto de Claude donde pude trabajar con un contexto que podía disponer de los libros originales, con la ayuda del motor Opus 4.5 desarrollamos la estructura y luego fuimos avanzando por los capítulos Opus escribía y yo revisaba."
         },
         {
           "type": "paragraph",

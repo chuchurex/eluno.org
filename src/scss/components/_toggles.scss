@@ -27,8 +27,10 @@
 }
 
 .theme-toggle {
+  display: block !important; // Always visible, including desktop
+  position: absolute; // Positioned relative to .main in desktop
   top: $spacing-sm;
-  right: 4.5rem;
+  right: $spacing-sm;
   font-size: 1rem;
   padding: 0.4rem $spacing-sm;
 }
