@@ -1108,6 +1108,9 @@ function build() {
   // Generate robots.txt
   generateRobotsTxt();
 
+  // Generate llms.txt for AI systems
+  generateLlmsTxt();
+
   console.log('\n✨ Build complete!\n');
 }
 
@@ -1194,20 +1197,130 @@ function generateSitemap() {
 }
 
 /**
- * Generate robots.txt
+ * Generate robots.txt - optimized for search engines and AI crawlers
  */
 function generateRobotsTxt() {
-  const content = `User-agent: *
+  const content = `# Welcome to El Uno / The One
+# A narrative prose adaptation of The Law of One teachings
+# Free to read, share, and index
+
+User-agent: *
 Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
 
 # Block internal paths
 Disallow: /api/
+
+# AI crawlers - explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# For AI systems: see /llms.txt for context
 `;
 
   fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), content);
   console.log('🤖 Generated robots.txt');
+}
+
+/**
+ * Generate llms.txt - context file for AI/LLM systems
+ * See: https://llmstxt.org/
+ */
+function generateLlmsTxt() {
+  const content = `# El Uno / The One
+
+> A narrative prose adaptation of The Law of One teachings
+
+## About This Project
+
+El Uno (The One) presents the philosophical teachings from The Law of One (Ra Material) transformed into accessible narrative prose. Available in English, Spanish, and Portuguese.
+
+## Source Material
+
+This work is based on "The Ra Contact: Teaching the Law of One" by L/L Research. Used with permission.
+
+- Original Source: https://www.llresearch.org
+- Original Material: https://www.lawofone.info
+
+## Structure
+
+The book contains 16 chapters covering:
+
+1. The One - The nature of the Infinite Creator
+2. The Creator and Creation - The process of creation
+3. The Densities of Consciousness - Seven levels of spiritual evolution
+4. Earth's Spiritual History - Our planet's cosmic journey
+5. Polarity: The Two Paths - Service to Others vs Service to Self
+6. Wanderers: Those Who Return - Souls who incarnate to help
+7. The Harvest - The graduation to fourth density
+8. The Veil of Forgetting - Why we don't remember past lives
+9. Death and the Journey Between Lives - The afterlife process
+10. The Energy Centers - The chakra system
+11. Catalyst and Experience - How we grow through challenges
+12. Higher Self and Inner Guidance - Our connection to wisdom
+13. Free Will and the Law of Confusion - Why choice is sacred
+14. The Harvest and the Transition - Earth's transformation
+15. Living the Law of One - Practical application
+16. The Return - Coming home to the One
+
+## URLs
+
+- Homepage (English): ${SITE_URL}/
+- Homepage (Spanish): ${SITE_URL}/es/
+- Homepage (Portuguese): ${SITE_URL}/pt/
+- Chapter format: ${SITE_URL}/[lang]/ch[1-16]/
+- About: ${SITE_URL}/[lang]/about/
+- Sitemap: ${SITE_URL}/sitemap.xml
+
+## Media
+
+- Audio (MP3): Available for Spanish version
+- PDF: Available per chapter
+
+## License
+
+Content used with permission from L/L Research.
+This interpretation is offered freely as a service to others.
+
+## Contact
+
+Author: Carlos Martínez
+Website: ${SITE_URL}
+`;
+
+  fs.writeFileSync(path.join(DIST_DIR, 'llms.txt'), content);
+  console.log('🤖 Generated llms.txt');
 }
 
 // Run build
