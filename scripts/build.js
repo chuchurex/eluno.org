@@ -466,7 +466,7 @@ function generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle,
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${pageTitle} | ${DOMAIN}</title>
     <meta name="description" content="${ui.description}">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="${SITE_URL}${canonicalPath}">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9LDPDW8V6E"></script>
@@ -510,6 +510,58 @@ function generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle,
     </script>
 `;
   }
+
+  // JSON-LD structured data (schema.org)
+  const bookName = lang === 'es' ? 'El Uno' : lang === 'pt' ? 'O Um' : 'The One';
+  const bookDesc = lang === 'es'
+    ? 'Las enseñanzas filosóficas de La Ley del Uno transformadas en prosa narrativa'
+    : lang === 'pt'
+    ? 'Os ensinamentos filosóficos da Lei do Um transformados em prosa narrativa'
+    : 'The philosophical teachings of The Law of One transformed into narrative prose';
+
+  html += `    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "${bookName}",
+      "alternateName": ["The One", "El Uno", "O Um"],
+      "description": "${bookDesc}",
+      "author": {
+        "@type": "Person",
+        "name": "Carlos Martínez"
+      },
+      "inLanguage": ["en", "es", "pt"],
+      "genre": ["Philosophy", "Spirituality", "Metaphysics"],
+      "about": {
+        "@type": "Thing",
+        "name": "The Law of One",
+        "sameAs": "https://www.llresearch.org"
+      },
+      "isBasedOn": {
+        "@type": "Book",
+        "name": "The Ra Contact: Teaching the Law of One",
+        "author": {
+          "@type": "Organization",
+          "name": "L/L Research",
+          "url": "https://www.llresearch.org"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Carlos Martínez"
+      },
+      "copyrightHolder": {
+        "@type": "Organization",
+        "name": "L/L Research",
+        "url": "https://www.llresearch.org"
+      },
+      "license": "Used with permission from L/L Research",
+      "url": "${SITE_URL}",
+      "numberOfPages": 16,
+      "bookFormat": "EBook"
+    }
+    </script>
+`;
 
   html += `</head>\n`;
   return html;
@@ -1050,7 +1102,112 @@ function build() {
 
   // Note: API is now handled by Cloudflare Pages Functions (see /functions folder)
 
+  // Generate sitemap.xml
+  generateSitemap();
+
+  // Generate robots.txt
+  generateRobotsTxt();
+
   console.log('\n✨ Build complete!\n');
+}
+
+/**
+ * Generate sitemap.xml with all pages and hreflang alternates
+ */
+function generateSitemap() {
+  const today = new Date().toISOString().split('T')[0];
+  const chapters = Array.from({ length: 16 }, (_, i) => i + 1);
+
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+`;
+
+  // Homepage for each language
+  const homepages = [
+    { path: '/', lang: 'en' },
+    { path: '/es/', lang: 'es' },
+    { path: '/pt/', lang: 'pt' }
+  ];
+
+  homepages.forEach(page => {
+    xml += `  <url>
+    <loc>${SITE_URL}${page.path}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${SITE_URL}/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="${SITE_URL}/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="${SITE_URL}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/"/>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+`;
+  });
+
+  // Chapter pages for each language
+  chapters.forEach(ch => {
+    const paths = [
+      { path: `/ch${ch}/`, lang: 'en' },
+      { path: `/es/ch${ch}/`, lang: 'es' },
+      { path: `/pt/ch${ch}/`, lang: 'pt' }
+    ];
+
+    paths.forEach(page => {
+      xml += `  <url>
+    <loc>${SITE_URL}${page.path}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${SITE_URL}/ch${ch}/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="${SITE_URL}/es/ch${ch}/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="${SITE_URL}/pt/ch${ch}/"/>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+`;
+    });
+  });
+
+  // About pages
+  const aboutPages = [
+    { path: '/about/', lang: 'en' },
+    { path: '/es/about/', lang: 'es' },
+    { path: '/pt/about/', lang: 'pt' }
+  ];
+
+  aboutPages.forEach(page => {
+    xml += `  <url>
+    <loc>${SITE_URL}${page.path}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${SITE_URL}/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="${SITE_URL}/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="${SITE_URL}/pt/about/"/>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+`;
+  });
+
+  xml += `</urlset>
+`;
+
+  fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), xml);
+  console.log('🗺️  Generated sitemap.xml');
+}
+
+/**
+ * Generate robots.txt
+ */
+function generateRobotsTxt() {
+  const content = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+
+# Block internal paths
+Disallow: /api/
+`;
+
+  fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), content);
+  console.log('🤖 Generated robots.txt');
 }
 
 // Run build
