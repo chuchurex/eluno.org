@@ -1,25 +1,25 @@
 /**
- * Build Script for lawofone.cl
+ * Build Script for eluno.org (formerly lawofone.cl)
  *
  * Generates HTML files from JSON content and SASS
  * Supports multiple languages (EN, ES, PT)
  *
- * IMPORTANT: After significant builds, remember to update private-context.md
- *
- * Output structure:
+ * Output structure (SEO-friendly URLs):
  *   dist/
- *   ├── index.html          (TOC - English)
- *   ├── ch1/index.html      (Chapter 1 - English)
- *   ├── ch2/index.html      (Chapter 2 - English)
+ *   ├── index.html              (TOC - English)
+ *   ├── the-one/index.html      (Chapter 1 - English)
+ *   ├── the-harvest/index.html  (Chapter 7 - English)
  *   ├── ...
  *   ├── es/
- *   │   ├── index.html      (TOC - Spanish)
- *   │   ├── ch1/index.html  (Chapter 1 - Spanish)
+ *   │   ├── index.html          (TOC - Spanish)
+ *   │   ├── el-uno/index.html   (Chapter 1 - Spanish)
  *   │   └── ...
  *   └── pt/
- *       ├── index.html      (TOC - Portuguese)
- *       ├── ch1/index.html  (Chapter 1 - Portuguese)
+ *       ├── index.html          (TOC - Portuguese)
+ *       ├── o-um/index.html     (Chapter 1 - Portuguese)
  *       └── ...
+ *
+ * Redirects from old /ch{n}/ URLs are generated in _redirects
  */
 
 const fs = require('fs');
@@ -37,6 +37,36 @@ const LANGUAGES = ['en', 'es', 'pt'];
 const BASE_LANG = 'en';
 const I18N_DIR = path.join(__dirname, '..', 'i18n');
 const DIST_DIR = path.join(__dirname, '..', 'dist');
+
+// Load chapter titles/slugs for SEO-friendly URLs
+const CHAPTER_TITLES = JSON.parse(
+  fs.readFileSync(path.join(__dirname, '..', 'v03_package', 'instructions', 'TITULOS_CAPITULOS.json'), 'utf8')
+);
+
+/**
+ * Get the slug for a chapter URL (SEO-friendly)
+ * @param {string} lang - Language code (en, es, pt)
+ * @param {number} chapterNum - Chapter number (1-16)
+ * @returns {string} - Slug without number prefix (e.g., "the-one", "el-uno")
+ */
+function getChapterSlug(lang, chapterNum) {
+  const chapter = CHAPTER_TITLES.chapters.find(ch => ch.number === chapterNum);
+  if (!chapter) return `ch${chapterNum}`;
+  const filename = chapter[lang]?.filename || chapter.en?.filename || `ch${chapterNum}`;
+  // Remove the number prefix (e.g., "01-the-one" -> "the-one")
+  return filename.replace(/^\d+-/, '');
+}
+
+/**
+ * Get the full chapter path for a language
+ * @param {string} lang - Language code
+ * @param {number} chapterNum - Chapter number
+ * @returns {string} - Full path (e.g., "/the-one/", "/es/el-uno/")
+ */
+function getChapterPath(lang, chapterNum) {
+  const slug = getChapterSlug(lang, chapterNum);
+  return lang === BASE_LANG ? `/${slug}/` : `/${lang}/${slug}/`;
+}
 
 
 // Load JSON file
@@ -279,7 +309,7 @@ function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
 
   // Language links - switch to same chapter in other language
   allLangs.forEach((l, i) => {
-    const href = l === BASE_LANG ? `/ch${currentChapter.number}/` : `/${l}/ch${currentChapter.number}/`;
+    const href = getChapterPath(l, currentChapter.number);
     const active = l === lang ? ' class="active"' : '';
     html += `<a href="${href}"${active}>${l.toUpperCase()}</a>`;
     if (i < allLangs.length - 1) html += ' | ';
@@ -298,7 +328,7 @@ function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
   // Chapter links
   chapters.forEach(ch => {
     const isActive = ch.id === currentChapter.id;
-    const chapterHref = `${langPrefix}/ch${ch.number}/`;
+    const chapterHref = getChapterPath(lang, ch.number);
 
     html += `            <div class="nav-chapter-group${isActive ? ' active' : ''}" id="nav-group-${ch.id}">\n`;
     html += `                <div class="nav-chapter-header">\n`;
@@ -363,7 +393,7 @@ function generateTocNav(chapters, ui, lang, allLangs) {
 
   // Chapter links
   chapters.forEach(ch => {
-    const chapterHref = `${langPrefix}/ch${ch.number}/`;
+    const chapterHref = getChapterPath(lang, ch.number);
 
     html += `            <div class="nav-chapter-group" id="nav-group-${ch.id}">\n`;
     html += `                <div class="nav-chapter-header">\n`;
@@ -395,7 +425,7 @@ function generateChapterPrevNext(chapters, currentIndex, ui, lang) {
   let html = `            <nav class="chapter-nav" aria-label="Chapter navigation">\n`;
 
   if (prevChapter) {
-    html += `                <a href="${langPrefix}/ch${prevChapter.number}/" class="chapter-nav-link prev">\n`;
+    html += `                <a href="${getChapterPath(lang, prevChapter.number)}" class="chapter-nav-link prev">\n`;
     html += `                    <span class="chapter-nav-label">← ${ui.nav.previousChapter}</span>\n`;
     html += `                    <span class="chapter-nav-title">${prevChapter.title}</span>\n`;
     html += `                </a>\n`;
@@ -407,7 +437,7 @@ function generateChapterPrevNext(chapters, currentIndex, ui, lang) {
   }
 
   if (nextChapter) {
-    html += `                <a href="${langPrefix}/ch${nextChapter.number}/" class="chapter-nav-link next">\n`;
+    html += `                <a href="${getChapterPath(lang, nextChapter.number)}" class="chapter-nav-link next">\n`;
     html += `                    <span class="chapter-nav-label">${ui.nav.nextChapter} →</span>\n`;
     html += `                    <span class="chapter-nav-title">${nextChapter.title}</span>\n`;
     html += `                </a>\n`;
@@ -735,7 +765,7 @@ function generateTocPage(lang, chapters, glossary, references, ui, allLangs, ver
 `;
 
   chapters.forEach(ch => {
-    const chapterHref = `${langPrefix}/ch${ch.number}/`;
+    const chapterHref = getChapterPath(lang, ch.number);
     html += `                    <a href="${chapterHref}" class="toc-chapter">\n`;
     html += `                        <span class="toc-chapter-num">${ch.numberText}</span>\n`;
     html += `                        <span class="toc-chapter-title">${ch.title}</span>\n`;
@@ -864,7 +894,7 @@ function generateAboutNav(chapters, about, ui, lang, allLangs) {
   // Chapters section
   html += `            <div class="nav-section" style="margin-top:1.5rem">\n`;
   chapters.forEach(ch => {
-    const chapterHref = `${langPrefix}/ch${ch.number}/`;
+    const chapterHref = getChapterPath(lang, ch.number);
     html += `                <a href="${chapterHref}" class="nav-link">${ch.number}. ${ch.title}</a>\n`;
   });
   html += `            </div>\n`;
@@ -913,7 +943,8 @@ ${generateScripts()}
 function generateChapterPage(lang, chapters, chapterIndex, glossary, references, ui, allLangs, version, media) {
   const chapter = chapters[chapterIndex];
   const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
-  const pagePath = `/ch${chapter.number}/`; // Path without language prefix
+  const chapterSlug = getChapterSlug(lang, chapter.number);
+  const pagePath = `/${chapterSlug}/`; // Path without language prefix (SEO-friendly slug)
   const cssPath = lang === BASE_LANG ? '../' : '../../';
   const pageTitle = `${ui.nav.chapter} ${chapter.number}: ${chapter.title}`;
 
@@ -1025,9 +1056,10 @@ function build() {
 
     // Generate individual chapter pages
     chapters.forEach((chapter, index) => {
+      const chapterSlug = getChapterSlug(lang, chapter.number);
       const chapterDir = lang === BASE_LANG
-        ? path.join(DIST_DIR, `ch${chapter.number}`)
-        : path.join(DIST_DIR, lang, `ch${chapter.number}`);
+        ? path.join(DIST_DIR, chapterSlug)
+        : path.join(DIST_DIR, lang, chapterSlug);
 
       if (!fs.existsSync(chapterDir)) {
         fs.mkdirSync(chapterDir, { recursive: true });
@@ -1111,6 +1143,9 @@ function build() {
   // Generate llms.txt for AI systems
   generateLlmsTxt();
 
+  // Generate _redirects for old URLs (ch1 -> slug)
+  generateRedirects();
+
   console.log('\n✨ Build complete!\n');
 }
 
@@ -1149,18 +1184,22 @@ function generateSitemap() {
 
   // Chapter pages for each language
   chapters.forEach(ch => {
+    const enSlug = getChapterSlug('en', ch);
+    const esSlug = getChapterSlug('es', ch);
+    const ptSlug = getChapterSlug('pt', ch);
+
     const paths = [
-      { path: `/ch${ch}/`, lang: 'en' },
-      { path: `/es/ch${ch}/`, lang: 'es' },
-      { path: `/pt/ch${ch}/`, lang: 'pt' }
+      { path: `/${enSlug}/`, lang: 'en' },
+      { path: `/es/${esSlug}/`, lang: 'es' },
+      { path: `/pt/${ptSlug}/`, lang: 'pt' }
     ];
 
     paths.forEach(page => {
       xml += `  <url>
     <loc>${SITE_URL}${page.path}</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="${SITE_URL}/ch${ch}/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="${SITE_URL}/es/ch${ch}/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="${SITE_URL}/pt/ch${ch}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="${SITE_URL}/${enSlug}/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="${SITE_URL}/es/${esSlug}/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="${SITE_URL}/pt/${ptSlug}/"/>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1299,8 +1338,8 @@ The book contains 16 chapters covering:
 - Homepage (English): ${SITE_URL}/
 - Homepage (Spanish): ${SITE_URL}/es/
 - Homepage (Portuguese): ${SITE_URL}/pt/
-- Chapter format: ${SITE_URL}/[lang]/ch[1-16]/
-- About: ${SITE_URL}/[lang]/about/
+- Chapter URLs use SEO-friendly slugs (e.g., /the-one/, /es/el-uno/, /pt/o-um/)
+- About: ${SITE_URL}/about/, ${SITE_URL}/es/about/, ${SITE_URL}/pt/about/
 - Sitemap: ${SITE_URL}/sitemap.xml
 
 ## Media
@@ -1321,6 +1360,39 @@ Website: ${SITE_URL}
 
   fs.writeFileSync(path.join(DIST_DIR, 'llms.txt'), content);
   console.log('🤖 Generated llms.txt');
+}
+
+/**
+ * Generate _redirects file for Cloudflare Pages
+ * Redirects old /ch1/ URLs to new SEO-friendly slugs
+ */
+function generateRedirects() {
+  let content = `# Redirects from old URLs to new SEO-friendly slugs
+# Format: /old-path /new-path [status]
+
+`;
+
+  // Redirect old ch{n} URLs to new slugs for each language
+  for (let ch = 1; ch <= 16; ch++) {
+    const enSlug = getChapterSlug('en', ch);
+    const esSlug = getChapterSlug('es', ch);
+    const ptSlug = getChapterSlug('pt', ch);
+
+    // English (base language)
+    content += `/ch${ch} /${enSlug}/ 301\n`;
+    content += `/ch${ch}/ /${enSlug}/ 301\n`;
+
+    // Spanish
+    content += `/es/ch${ch} /es/${esSlug}/ 301\n`;
+    content += `/es/ch${ch}/ /es/${esSlug}/ 301\n`;
+
+    // Portuguese
+    content += `/pt/ch${ch} /pt/${ptSlug}/ 301\n`;
+    content += `/pt/ch${ch}/ /pt/${ptSlug}/ 301\n`;
+  }
+
+  fs.writeFileSync(path.join(DIST_DIR, '_redirects'), content);
+  console.log('🔀 Generated _redirects');
 }
 
 // Run build
