@@ -26,6 +26,9 @@ jobs:
       run: npm run sass:build
 
     - name: Build HTML from JSON
+      env:
+        DOMAIN: eluno.org
+        STATIC_SUBDOMAIN: static
       run: npm run build
 
     - name: Remove large files (audio/pdf go to Hostinger)
