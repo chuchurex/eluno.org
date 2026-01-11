@@ -27,12 +27,15 @@ function isRateLimited(ip) {
   return false;
 }
 
-// Get allowed origins from environment variable (set in wrangler.toml)
+// Get allowed origins from environment variable
 function getAllowedOrigins(env) {
-  const domain = env.DOMAIN || 'lawofone.cl';
+  const domain = env.DOMAIN || 'eluno.org';
   return [
     `https://${domain}`,
-    `https://www.${domain}`
+    `https://www.${domain}`,
+    // Keep old domain for backwards compatibility during transition
+    'https://lawofone.cl',
+    'https://www.lawofone.cl'
   ];
 }
 
