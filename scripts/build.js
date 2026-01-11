@@ -358,14 +358,6 @@ function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
   html += `                <a href="#feedback-section" class="nav-link feedback-link" onclick="if(window.innerWidth<=1100)closeAll()">✧ ${ui.footer.formSubmit}</a>\n`;
   html += `            </div>\n`;
 
-  // About link
-  html += `            <div class="nav-footer-links">\n`;
-  html += `                <a href="${langPrefix}/about/" class="nav-link">${ui.nav.about}</a>\n`;
-  html += `            </div>\n`;
-
-  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted);text-align:center">\n`;
-  html += `                ${ui.meta.version}\n`;
-  html += `            </div>\n`;
   html += `        </nav>\n`;
   return html;
 }
@@ -404,14 +396,6 @@ function generateTocNav(chapters, ui, lang, allLangs) {
 
   html += `            </div>\n`;
 
-  // About link
-  html += `            <div class="nav-footer-links">\n`;
-  html += `                <a href="${langPrefix}/about/" class="nav-link">${ui.nav.about}</a>\n`;
-  html += `            </div>\n`;
-
-  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted);text-align:center">\n`;
-  html += `                ${ui.meta.version}\n`;
-  html += `            </div>\n`;
   html += `        </nav>\n`;
   return html;
 }
@@ -450,7 +434,7 @@ function generateChapterPrevNext(chapters, currentIndex, ui, lang) {
 }
 
 // Generate footer HTML
-function generateFooter(ui, showFeedback = true) {
+function generateFooter(ui, lang, showFeedback = true) {
   let html = `            <footer class="footer">\n`;
   if (ui.footerVersion) {
     html += `                <p>${ui.footerVersion}</p>\n`;
@@ -475,6 +459,8 @@ function generateFooter(ui, showFeedback = true) {
     html += `                    <p>${ui.footer.attribution}</p>\n`;
     html += `                    <p>${ui.footer.originalSessions} <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a></p>\n`;
     html += `                    <p class="footer-copyright">© ${ui.footer.derivedFrom}</p>\n`;
+    const langPrefix = lang === BASE_LANG ? '' : `/${lang}`;
+    html += `                    <p style="margin-top:1rem"><a href="${langPrefix}/about/" style="color:var(--gold);text-decoration:none">${ui.nav.about}</a></p>\n`;
     html += `                </div>\n`;
   }
 
@@ -777,7 +763,7 @@ function generateTocPage(lang, chapters, glossary, references, ui, allLangs, ver
             </section>
 
 `;
-  html += generateFooter(ui, false);
+  html += generateFooter(ui, lang, false);
   html += `        </main>\n\n`;
   html += generateTocNav(chapters, ui, lang, allLangs);
   html += '\n';
@@ -899,9 +885,6 @@ function generateAboutNav(chapters, about, ui, lang, allLangs) {
   });
   html += `            </div>\n`;
 
-  html += `            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted);text-align:center">\n`;
-  html += `                ${ui.meta.version}\n`;
-  html += `            </div>\n`;
   html += `        </nav>\n`;
   return html;
 }
@@ -964,7 +947,7 @@ function generateChapterPage(lang, chapters, chapterIndex, glossary, references,
   html += '\n';
   html += generateChapterPrevNext(chapters, chapterIndex, ui, lang);
   html += '\n';
-  html += generateFooter(ui, true);
+  html += generateFooter(ui, lang, true);
   html += `        </main>\n\n`;
   html += generateChapterNav(chapters, chapter, ui, lang, allLangs);
   html += '\n';
