@@ -18,8 +18,22 @@
       ]
     },
     {
+      "id": "ai-disclosure",
+      "title": "Divulgación de Asistencia de IA",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Este proyecto fue creado con asistencia de Claude (Opus 4.5) de Anthropic. Aunque se ha hecho todo el esfuerzo por mantener la precisión y fidelidad al material original, el contenido generado por IA puede contener inexactitudes, inconsistencias o malinterpretaciones."
+        },
+        {
+          "type": "paragraph",
+          "text": "Este trabajo debe usarse solo como herramienta de estudio complementaria. Para una comprensión autorizada, siempre consulte el Material Ra original en <a href=\"https://www.llresearch.org\" target=\"_blank\">llresearch.org</a>."
+        }
+      ]
+    },
+    {
       "id": "prologue",
-      "title": "Prólogo del Director",
+      "title": "",
       "content": [
         {
           "type": "paragraph",
@@ -52,20 +66,6 @@
         {
           "type": "paragraph",
           "text": "<em>Adonai,</em><br>Carlos Cristóbal (chuchurex)<br>2025"
-        }
-      ]
-    },
-    {
-      "id": "ai-disclosure",
-      "title": "Divulgación de Asistencia de IA",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Este proyecto fue creado con asistencia de Claude (Opus 4.5) de Anthropic. Aunque se ha hecho todo el esfuerzo por mantener la precisión y fidelidad al material original, el contenido generado por IA puede contener inexactitudes, inconsistencias o malinterpretaciones."
-        },
-        {
-          "type": "paragraph",
-          "text": "Este trabajo debe usarse solo como herramienta de estudio complementaria. Para una comprensión autorizada, siempre consulte el Material Ra original en <a href=\"https://www.llresearch.org\" target=\"_blank\">llresearch.org</a>."
         }
       ]
     }
