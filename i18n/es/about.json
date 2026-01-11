@@ -37,7 +37,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Hay cuentos sobre buscar un tesoro por el mundo para encontrarlo en casa. El Pájaro Azul. El Alquimista. El rabino que viaja a Praga y descubre que el tesoro estaba enterrado bajo su propia cocina. Y por supuesto, Ángel buscando la flor de los siete colores."
+          "text": "Hay cuentos sobre buscar un tesoro por el mundo para encontrarlo en casa. El Pájaro Azul. El Alquimista. El rabino que viaja a Praga y descubre que el tesoro estaba enterrado bajo su propia cocina. Y por supuesto, Angel buscando la flor de los siete colores."
         },
         {
           "type": "paragraph",
@@ -49,7 +49,7 @@
         },
         {
           "type": "paragraph",
-          "text": "El material original es denso: tres años de sesiones donde los temas aparecen, desaparecen y vuelven. Traté de ordenarlo para mí mismo en palabras más simples. Usé Claude (Opus 4.5) de Anthropic como herramienta. Esas notas terminaron convirtiéndose en este libro."
+          "text": "El material original es denso: tres años de sesiones donde los temas aparecen, desaparecen y vuelven. Traté de ordenarlo para mí mismo de una manera coherente y organizada. Usé un motor de IA llamado Claude, él fue quien escribió cada palabra, yo solo di la guía. Esas notas terminaron convirtiéndose en este libro."
         },
         {
           "type": "paragraph",
@@ -57,7 +57,19 @@
         },
         {
           "type": "paragraph",
-          "text": "A mi familia: Marcela, Víctor, Sandra, Carlos, Jorge, Estefanía, Bruno, Tomás, Luci y Ariel. A Claudia, Nancy, Gabriel y Ximena, compañeros de camino. A Jim, Austin y todos quienes mantienen viva la fuente en L/L Research."
+          "text": "A mi familia: Marcela, Víctor, Sandra, Carlos, Jorge, Estefanía, Bruno, Tomás, Luci y Ariel."
+        },
+        {
+          "type": "paragraph",
+          "text": "A Claudia, Nancy, Gabriel y Ximena, compañeros de camino."
+        },
+        {
+          "type": "paragraph",
+          "text": "A Austin y todos quienes mantienen viva la fuente en L/L Research."
+        },
+        {
+          "type": "paragraph",
+          "text": "A Ra, Carla, Jim y especialmente a Don que iluminó mi camino."
         },
         {
           "type": "paragraph",

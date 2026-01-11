@@ -11,6 +11,14 @@
     padding-right: 0;
     color: inherit;
   }
+
+  .section p {
+    margin-bottom: $spacing-md;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .about-subtitle {
