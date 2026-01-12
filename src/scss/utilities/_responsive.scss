@@ -42,6 +42,10 @@
     display: block;
     position: fixed; // Override absolute positioning in mobile/tablet
   }
+
+  .theme-toggle {
+    right: 120px; // Position 120px from right to leave 10px space with notes button
+  }
 }
 
 @include mobile {
