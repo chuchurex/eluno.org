@@ -6,11 +6,24 @@ This project is a static web application built with Node.js, designed to provide
 
 ## 📚 Documentation
 
+### Technical Documentation
+
 Professional documentation for easy onboarding and deployment:
 
 - **[Development Guide](docs/DEVELOPMENT.md)**: How to install, configure, and run the project locally.
 - **[Deployment Guide](docs/DEPLOY.md)**: How to deploy to production (Cloudflare + Hostinger).
 - **[Architecture](docs/ARCHITECTURE.md)**: Technical details about the hybrid stack and design decisions.
+
+### AI Methodology Documentation
+
+This book was created with AI assistance. **We openly share our complete methodology:**
+
+- **[AI Writing Prompt](ai/AI_WRITING_PROMPT.md)**: Complete system prompt to replicate the writing process.
+- **[Quick Start Guide](ai/QUICK_START.md)**: 5-step guide to replicate this book (30 minutes).
+- **[Methodology](ai/METHODOLOGY.md)**: Editorial decisions, iterations, and lessons learned.
+- **[Source Materials](ai/SOURCES.md)**: Direct links to Ra Contact and Q'uo PDFs.
+
+**→ Start here to replicate**: [ai/QUICK_START.md](ai/QUICK_START.md)
 
 ## 🚀 Quick Start
 
@@ -54,6 +67,38 @@ For more details, see [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
 - **Production**: [https://eluno.org](https://eluno.org)
 - **GitHub**: [https://github.com/chuchurex/eluno.org](https://github.com/chuchurex/eluno.org)
 
+## 🤖 AI-Assisted Creation & Transparency
+
+This book was created with AI assistance (Claude by Anthropic). We believe in **radical transparency** about our methodology:
+
+### Why We Share This
+
+1. **Transparency**: Readers deserve to know how the content was created
+2. **Reproducibility**: Others can replicate, improve, or create similar projects
+3. **Trust**: Open methodology builds credibility
+4. **Contribution**: Clear guidelines help future contributors
+
+### The Human-AI Collaboration
+
+- **Human role**: Philosophical direction, editorial decisions, quality control, final approval
+- **AI role**: Synthesizing source material, maintaining consistent voice, drafting and formatting
+- **Source authority**: The Ra Contact (1981-1984) is the sole doctrinal authority
+- **Fidelity**: Every concept traces back to the original Ra Material
+
+**The AI served as a writing tool, not as an autonomous author.**
+
+### Replicate This Book
+
+See the [`ai/` folder](./ai/) for complete instructions to replicate this writing process in ~30 minutes.
+
+---
+
 ## 📄 License
 
-Content derived from the Ra Material (L/L Research). See the website footer for detailed attribution and licensing information.
+**Content**: Derived from the Ra Material © L/L Research. Authorization received January 10, 2026.
+
+**Code & Documentation**: See LICENSE file for details.
+
+**AI Methodology**: Open source — freely replicable and improvable.
+
+See the website footer for detailed attribution and licensing information.
