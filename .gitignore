@@ -6,6 +6,7 @@ dist/
 
 # OS files
 .DS_Store
+**/.DS_Store
 Thumbs.db
 
 # Editor
@@ -68,5 +69,16 @@ video/
 # OLD/LEGACY FILES
 # ===========================================
 /mnt/
+
+# ===========================================
+# BACKUPS & HISTORICAL DOCUMENTATION
+# ===========================================
+backups/
+
+# Temporary/obsolete documentation in ai/
+ai/TRANSLATION_TODO.md
+ai/TRANSLATION_STATUS.md
+ai/es/
+ai/pt/
 
 
