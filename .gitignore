@@ -21,6 +21,7 @@ yarn-error.log*
 # ===========================================
 # SECRETS & CREDENTIALS (NEVER COMMIT)
 # ===========================================
+.env
 .env.local
 .env.*.local
 .env.production
