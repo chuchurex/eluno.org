@@ -225,14 +225,18 @@ function generateHomepageMediaToolbar(media, ui) {
 }
 
 // Generate chapter HTML (for chapter page)
-function generateChapterContent(chapter, glossary, references, media, ui) {
+function generateChapterContent(chapter, glossary, references, media, ui, lang) {
+  // Get the title from TITULOS_CAPITULOS.json instead of chapter JSON
+  const chapterTitleData = CHAPTER_TITLES.chapters.find(ch => ch.number === chapter.number);
+  const chapterTitle = chapterTitleData?.[lang]?.title || chapter.title;
+
   let html = `            <article class="chapter" id="${chapter.id}">\n`;
   html += `                <header class="ch-head">\n`;
   html += `                    <div class="ch-head-top">\n`;
   html += `                        <div class="ch-num">${chapter.numberText}</div>\n`;
   html += generateMediaToolbar(chapter.number, media, ui);
   html += `                    </div>\n`;
-  html += `                    <h1 class="ch-title">${chapter.title}</h1>\n`;
+  html += `                    <h1 class="ch-title">${chapterTitle}</h1>\n`;
   html += `                </header>\n\n`;
 
   chapter.sections.forEach((section, index) => {
@@ -315,10 +319,13 @@ function generateChapterNav(chapters, currentChapter, ui, lang, allLangs) {
   chapters.forEach(ch => {
     const isActive = ch.id === currentChapter.id;
     const chapterHref = getChapterPath(lang, ch.number);
+    // Get title from TITULOS_CAPITULOS.json
+    const chapterTitleData = CHAPTER_TITLES.chapters.find(c => c.number === ch.number);
+    const chapterTitle = chapterTitleData?.[lang]?.title || ch.title;
 
     html += `            <div class="nav-chapter-group${isActive ? ' active' : ''}" id="nav-group-${ch.id}">\n`;
     html += `                <div class="nav-chapter-header">\n`;
-    html += `                    <a href="${chapterHref}" class="nav-link${isActive ? ' current' : ''}">${ch.number}. ${ch.title}</a>\n`;
+    html += `                    <a href="${chapterHref}" class="nav-link${isActive ? ' current' : ''}">${ch.number}. ${chapterTitle}</a>\n`;
 
     if (isActive) {
       html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="Toggle sections">▾</button>\n`;
@@ -372,10 +379,13 @@ function generateTocNav(chapters, ui, lang, allLangs) {
   // Chapter links
   chapters.forEach(ch => {
     const chapterHref = getChapterPath(lang, ch.number);
+    // Get title from TITULOS_CAPITULOS.json
+    const chapterTitleData = CHAPTER_TITLES.chapters.find(c => c.number === ch.number);
+    const chapterTitle = chapterTitleData?.[lang]?.title || ch.title;
 
     html += `            <div class="nav-chapter-group" id="nav-group-${ch.id}">\n`;
     html += `                <div class="nav-chapter-header">\n`;
-    html += `                    <a href="${chapterHref}" class="nav-link">${ch.number}. ${ch.title}</a>\n`;
+    html += `                    <a href="${chapterHref}" class="nav-link">${ch.number}. ${chapterTitle}</a>\n`;
     html += `                </div>\n`;
     html += `            </div>\n`;
   });
@@ -395,9 +405,13 @@ function generateChapterPrevNext(chapters, currentIndex, ui, lang) {
   let html = `            <nav class="chapter-nav" aria-label="Chapter navigation">\n`;
 
   if (prevChapter) {
+    // Get title from TITULOS_CAPITULOS.json
+    const prevTitleData = CHAPTER_TITLES.chapters.find(c => c.number === prevChapter.number);
+    const prevTitle = prevTitleData?.[lang]?.title || prevChapter.title;
+
     html += `                <a href="${getChapterPath(lang, prevChapter.number)}" class="chapter-nav-link prev">\n`;
     html += `                    <span class="chapter-nav-label">← ${ui.nav.previousChapter}</span>\n`;
-    html += `                    <span class="chapter-nav-title">${prevChapter.title}</span>\n`;
+    html += `                    <span class="chapter-nav-title">${prevTitle}</span>\n`;
     html += `                </a>\n`;
   } else {
     html += `                <a href="${langPrefix}/" class="chapter-nav-link prev">\n`;
@@ -407,9 +421,13 @@ function generateChapterPrevNext(chapters, currentIndex, ui, lang) {
   }
 
   if (nextChapter) {
+    // Get title from TITULOS_CAPITULOS.json
+    const nextTitleData = CHAPTER_TITLES.chapters.find(c => c.number === nextChapter.number);
+    const nextTitle = nextTitleData?.[lang]?.title || nextChapter.title;
+
     html += `                <a href="${getChapterPath(lang, nextChapter.number)}" class="chapter-nav-link next">\n`;
     html += `                    <span class="chapter-nav-label">${ui.nav.nextChapter} →</span>\n`;
-    html += `                    <span class="chapter-nav-title">${nextChapter.title}</span>\n`;
+    html += `                    <span class="chapter-nav-title">${nextTitle}</span>\n`;
     html += `                </a>\n`;
   } else {
     html += `                <span class="chapter-nav-link next disabled"></span>\n`;
@@ -738,9 +756,13 @@ function generateTocPage(lang, chapters, glossary, references, ui, allLangs, ver
 
   chapters.forEach(ch => {
     const chapterHref = getChapterPath(lang, ch.number);
+    // Get title from TITULOS_CAPITULOS.json
+    const chapterTitleData = CHAPTER_TITLES.chapters.find(c => c.number === ch.number);
+    const chapterTitle = chapterTitleData?.[lang]?.title || ch.title;
+
     html += `                    <a href="${chapterHref}" class="toc-chapter">\n`;
     html += `                        <span class="toc-chapter-num">${ch.numberText}</span>\n`;
-    html += `                        <span class="toc-chapter-title">${ch.title}</span>\n`;
+    html += `                        <span class="toc-chapter-title">${chapterTitle}</span>\n`;
     html += `                        <span class="toc-chapter-arrow">→</span>\n`;
     html += `                    </a>\n`;
   });
@@ -867,7 +889,10 @@ function generateAboutNav(chapters, about, ui, lang, allLangs) {
   html += `            <div class="nav-section" style="margin-top:1.5rem">\n`;
   chapters.forEach(ch => {
     const chapterHref = getChapterPath(lang, ch.number);
-    html += `                <a href="${chapterHref}" class="nav-link">${ch.number}. ${ch.title}</a>\n`;
+    // Get title from TITULOS_CAPITULOS.json
+    const chapterTitleData = CHAPTER_TITLES.chapters.find(c => c.number === ch.number);
+    const chapterTitle = chapterTitleData?.[lang]?.title || ch.title;
+    html += `                <a href="${chapterHref}" class="nav-link">${ch.number}. ${chapterTitle}</a>\n`;
   });
   html += `            </div>\n`;
 
@@ -938,9 +963,12 @@ function generateSimpleNav(chapters, ui, lang, allLangs, pagePath) {
   // Chapter links
   chapters.forEach(ch => {
     const chapterSlug = getChapterSlug(lang, ch.number);
+    // Get title from TITULOS_CAPITULOS.json
+    const chapterTitleData = CHAPTER_TITLES.chapters.find(c => c.number === ch.number);
+    const chapterTitle = chapterTitleData?.[lang]?.title || ch.title;
     html += `                <a href="${langPrefix}/${chapterSlug}/" class="nav-link">\n`;
     html += `                    <span class="nav-num">${ui.nav.chapter} ${ch.number}</span>\n`;
-    html += `                    <span class="nav-text">${ch.title}</span>\n`;
+    html += `                    <span class="nav-text">${chapterTitle}</span>\n`;
     html += `                </a>\n`;
   });
 
@@ -985,7 +1013,10 @@ function generateSitemapPage(lang, chapters, ui, allLangs, version) {
   // Add all chapters
   chapters.forEach(chapter => {
     const chapterSlug = getChapterSlug(lang, chapter.number);
-    html += `                    <li><a href="${langPrefix}/${chapterSlug}/">${ui.nav.chapter} ${chapter.number}: ${chapter.title}</a></li>\n`;
+    // Get title from TITULOS_CAPITULOS.json
+    const chapterTitleData = CHAPTER_TITLES.chapters.find(c => c.number === chapter.number);
+    const chapterTitle = chapterTitleData?.[lang]?.title || chapter.title;
+    html += `                    <li><a href="${langPrefix}/${chapterSlug}/">${ui.nav.chapter} ${chapter.number}: ${chapterTitle}</a></li>\n`;
   });
 
   html += `                    <li><a href="${langPrefix}/about/">${lang === 'es' ? 'Acerca de' : lang === 'pt' ? 'Sobre' : 'About'}</a></li>
@@ -1031,7 +1062,10 @@ function generateChapterPage(lang, chapters, chapterIndex, glossary, references,
   const chapterSlug = getChapterSlug(lang, chapter.number);
   const pagePath = `/${chapterSlug}/`; // Path without language prefix (SEO-friendly slug)
   const cssPath = lang === BASE_LANG ? '../' : '../../';
-  const pageTitle = `${ui.nav.chapter} ${chapter.number}: ${chapter.title}`;
+  // Get title from TITULOS_CAPITULOS.json
+  const chapterTitleData = CHAPTER_TITLES.chapters.find(c => c.number === chapter.number);
+  const chapterTitle = chapterTitleData?.[lang]?.title || chapter.title;
+  const pageTitle = `${ui.nav.chapter} ${chapter.number}: ${chapterTitle}`;
 
   let html = generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle, false);
 
@@ -1045,7 +1079,7 @@ function generateChapterPage(lang, chapters, chapterIndex, glossary, references,
             <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
 `;
 
-  html += generateChapterContent(chapter, glossary, references, media, ui);
+  html += generateChapterContent(chapter, glossary, references, media, ui, lang);
   html += '\n';
   html += generateChapterPrevNext(chapters, chapterIndex, ui, lang);
   html += '\n';
