@@ -1,107 +1,108 @@
-# Guía de Despliegue (Deployment)
+# Deployment Guide
 
-Esta guía detalla los procesos para desplegar **The One (lawofone.cl)** en producción. El proyecto utiliza una arquitectura híbrida para optimizar costos y rendimiento.
+This guide details the deployment processes for **The One (eluno.org)** to production. The project uses a hybrid architecture to optimize costs and performance.
 
-## 🏗 Arquitectura de Despliegue
+## 🏗 Deployment Architecture
 
-| Componente | Servicio | Método de Despliegue |
-|------------|----------|----------------------|
-| **Frontend** (HTML/JS/CSS) | **Cloudflare Pages** | Automático vía GitHub (o manual con Wrangler) |
-| **Static Assets** (PDF/Audio) | **Hostinger** | Manual vía Script `npm run publish:media` |
+| Component | Service | Deployment Method |
+|-----------|---------|-------------------|
+| **Frontend** (HTML/JS/CSS) | **Cloudflare Pages** | Automatic via GitHub (or manual with Wrangler) |
+| **Static Assets** (PDF/Audio) | **Hostinger** | Manual via `npm run publish:media` script |
 
 ---
 
-## 1. Despliegue del Frontend (Cloudflare Pages)
+## 1. Frontend Deployment (Cloudflare Pages)
 
-El frontend incluye todo el sitio web, lógica, estilos y contenido de texto.
+The frontend includes the entire website, logic, styles, and text content.
 
-### Opción A: Despliegue Automático (Recomendado)
-Cada vez que haces un **push** a la rama `main` en GitHub, se dispara una acción automática que construye y despliega el sitio.
+### Option A: Automatic Deployment (Recommended)
+Every time you **push** to the `main` branch on GitHub, an automatic action is triggered that builds and deploys the site.
 
-1. Realiza tus cambios localmente.
-2. Haz commit y push:
+1. Make your changes locally.
+2. Commit and push:
    ```bash
    git add .
-   git commit -m "feat: actualización de contenido"
+   git commit -m "feat: content update"
    git push origin main
    ```
-3. Verifica el estado en [GitHub Actions](https://github.com/chuchurex/lawofone.cl/actions) o en el Dashboard de Cloudflare Pages.
+3. Check the status in [GitHub Actions](https://github.com/chuchurex/eluno.org/actions) or in the Cloudflare Pages Dashboard.
 
-### Opción B: Despliegue Manual (Desde IDE/Terminal)
-Si necesitas desplegar sin pasar por git (ej. hotfix rápido o pruebas) o si falla el CI/CD, puedes usar **Wrangler** (CLI de Cloudflare).
+### Option B: Manual Deployment (From IDE/Terminal)
+If you need to deploy without going through git (e.g., quick hotfix or testing) or if CI/CD fails, you can use **Wrangler** (Cloudflare CLI).
 
-**Requisitos:**
-- Tener cuenta en Cloudflare.
-- Estar logueado: `npx wrangler login`
+**Requirements:**
+- Have a Cloudflare account.
+- Be logged in: `npx wrangler login`
 
-**Comando:**
+**Command:**
 ```bash
-# Construir el proyecto
+# Build the project
 npm run build
 
-# Desplegar a producción
+# Deploy to production
 npx wrangler pages deploy dist --project-name=lawofone
 ```
 
 ---
 
-## 2. Despliegue de Media (Hostinger)
+## 2. Media Deployment (Hostinger)
 
-Los archivos pesados (PDFs generados y Audiobooks en MP3) se alojan en un servidor tradicional (Hostinger) bajo el subdominio `static.lawofone.cl` para evitar los límites de tamaño de Cloudflare Pages.
+Heavy files (generated PDFs and MP3 audiobooks) are hosted on a traditional server (Hostinger) under the subdomain `static.eluno.org` to avoid Cloudflare Pages size limits.
 
-**Este proceso es MANUAL y debe ejecutarse cuando se generan nuevos audios o PDFs.**
+**This process is MANUAL and should be executed when new audio or PDFs are generated.**
 
-### Requisitos
-Asegúrate de tener las credenciales SSH/SFTP configuradas en tu archivo `.env`:
+### Requirements
+Make sure you have SSH/SFTP credentials configured in your `.env` file:
 ```bash
 UPLOAD_HOST=x.x.x.x
 UPLOAD_PORT=xxxxx
-UPLOAD_USER=usuario
-UPLOAD_PASS=contraseña
-UPLOAD_DIR=domains/lawofone.cl/public_html/static
+UPLOAD_USER=username
+UPLOAD_PASS=password
+UPLOAD_DIR=domains/eluno.org/public_html/static
 ```
 
-### Comandos
+### Commands
 
-**Publicar todo el contenido media:**
+**Publish all media content:**
 ```bash
 npm run publish:media
 ```
 
-Este script:
-1. Conecta por SFTP al servidor.
-2. Sube el contenido de las carpetas locales de audio y libros.
-3. Mantiene la estructura de directorios correcta.
+This script:
+1. Connects via SFTP to the server.
+2. Uploads content from local audio and books folders.
+3. Maintains correct directory structure.
 
 ---
 
-## 3. Configuración de Secretos (Variables de Entorno)
+## 3. Secrets Configuration (Environment Variables)
 
-Para que los despliegues funcionen (tanto local como en CI/CD), se requieren ciertas variables.
+For deployments to work (both local and CI/CD), certain variables are required.
 
-### En Local (`.env`)
-Copia `.env.example` a `.env` y rellena:
-- `DOMAIN`: Dominio principal (lawofone.cl).
-- Credenciales de Hostinger (`UPLOAD_*`) para subir media.
+### Local (`.env`)
+Copy `.env.example` to `.env` and fill in:
+- `DOMAIN`: Main domain (eluno.org).
+- Hostinger credentials (`UPLOAD_*`) for uploading media.
 
-### En GitHub (Secrets)
-Para que el CI/CD funcione, configura en el repositorio (Settings > Secrets and variables > Actions):
+### GitHub (Secrets)
+For CI/CD to work, configure in the repository (Settings > Secrets and variables > Actions):
 
-- `CF_API_KEY`: API Key de Cloudflare.
-- `CF_EMAIL`: Email de tu cuenta Cloudflare.
-- `CF_ACCOUNT_ID`: ID de cuenta Cloudflare.
+- `CF_API_KEY`: Cloudflare API Key.
+- `CF_EMAIL`: Your Cloudflare account email.
+- `CF_ACCOUNT_ID`: Cloudflare account ID.
 
 ---
 
-## 4. Solución de Problemas (Troubleshooting)
+## 4. Troubleshooting
 
-**Error: "Quota Exceeded" en Cloudflare**
-- Causa: Has subido demasiados archivos o archivos muy grandes al Frontend.
-- Solución: Asegúrate de que los MP3 y PDF no estén en la carpeta `dist` que se sube a Cloudflare. El script de build debería borrarlos automáticamente de `dist`, pero verifícalo.
+**Error: "Quota Exceeded" on Cloudflare**
+- Cause: You've uploaded too many files or files that are too large to the Frontend.
+- Solution: Make sure MP3 and PDF files are not in the `dist` folder that gets uploaded to Cloudflare. The build script should automatically remove them from `dist`, but verify this.
 
-**Error: Fallo de conexión SFTP**
-- Verificación: Revisa que tu IP no esté bloqueada por el firewall de Hostinger y que el puerto (usualmente no estándar, ver `.env`) sea correcto en `.env`.
+**Error: SFTP Connection Failure**
+- Verification: Check that your IP is not blocked by Hostinger's firewall and that the port (usually non-standard, see `.env`) is correct in `.env`.
 
-**El sitio no muestra los cambios**
-- Cloudflare hace cache agresivo. Purgar caché:
-  - Desde Dashboard de Cloudflare > Caching > Configuration > Purge Everything.
+**Site doesn't show changes**
+- Cloudflare has aggressive caching. Purge cache:
+  - From Cloudflare Dashboard > Caching > Configuration > Purge Everything.
+  - Or use the purge cache script with your `.env` credentials.
