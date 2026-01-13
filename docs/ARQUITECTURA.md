@@ -160,8 +160,8 @@ DOMAIN=lawofone.cl
 STATIC_SUBDOMAIN=static
 
 # HOSTINGER - Static Assets
-UPLOAD_HOST=195.35.41.9
-UPLOAD_PORT=65002
+UPLOAD_HOST=xxx.xxx.xxx.xxx
+UPLOAD_PORT=xxxxx
 UPLOAD_USER=usuario
 UPLOAD_PASS=password
 UPLOAD_DIR=domains/lawofone.cl/public_html/static

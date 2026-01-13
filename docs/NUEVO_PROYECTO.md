@@ -31,7 +31,7 @@ Antes de comenzar, define estos parámetros:
 
 #### b) Crear Cuenta SSH/FTP (si es necesario)
 1. Ve a **Archivos** → **Cuentas FTP**
-2. Usar las credenciales existentes (`u363856815`)
+2. Usar las credenciales existentes (ver `.env` para detalles)
 3. El deploy apuntará a: `domains/lawofone.cl/public_html/nombre/`
 
 ### 3. Configuración DNS (Cloudflare - Opcional)

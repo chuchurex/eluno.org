@@ -100,7 +100,7 @@ Para que el CI/CD funcione, configura en el repositorio (Settings > Secrets and 
 - Solución: Asegúrate de que los MP3 y PDF no estén en la carpeta `dist` que se sube a Cloudflare. El script de build debería borrarlos automáticamente de `dist`, pero verifícalo.
 
 **Error: Fallo de conexión SFTP**
-- Verificación: Revisa que tu IP no esté bloqueada por el firewall de Hostinger y que el puerto (usualmente no estandar, ej. 65002) sea correcto en `.env`.
+- Verificación: Revisa que tu IP no esté bloqueada por el firewall de Hostinger y que el puerto (usualmente no estándar, ver `.env`) sea correcto en `.env`.
 
 **El sitio no muestra los cambios**
 - Cloudflare hace cache agresivo. Purgar caché:
