@@ -42,6 +42,8 @@ npm run dev
 
 The site will be available at `http://127.0.0.1:3002`.
 
+**Want to contribute?** See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on submitting improvements.
+
 ## 🛠 Main Scripts
 
 | Script | Description |
