@@ -97,7 +97,7 @@ node audiobook/scripts/generate-audio.js 01 es
 
 ### Variables de Entorno (.env)
 ```bash
-FISH_API_KEY=6a052bf29a5b428d816f48d84110b2f2
+FISH_API_KEY=your-fish-api-key
 FISH_VOICE_ID=60f3d0bf60cd4f5e88d1116e22eb19a7
 ```
 

@@ -54,10 +54,10 @@ cp .env .env.nombre
 
 # Editar variables específicas
 DOMAIN=nombre.lawofone.cl
-UPLOAD_HOST=195.35.41.9
-UPLOAD_PORT=65002
-UPLOAD_USER=u363856815
-UPLOAD_PASS=Lo.qwerty-44
+UPLOAD_HOST=your-server-ip
+UPLOAD_PORT=22
+UPLOAD_USER=your-username
+UPLOAD_PASS=your-password
 ```
 
 #### b) Actualizar `i18n/{lang}/ui.json`
