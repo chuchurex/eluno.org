@@ -1,87 +1,70 @@
 {
   "all": {
     "pdf": "/pdf/en/complete-book.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "1": {
     "pdf": "/pdf/en/ch01.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "2": {
     "pdf": "/pdf/en/ch02.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "3": {
     "pdf": "/pdf/en/ch03.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "4": {
     "pdf": "/pdf/en/ch04.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "5": {
     "pdf": "/pdf/en/ch05.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "6": {
     "pdf": "/pdf/en/ch06.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "7": {
     "pdf": "/pdf/en/ch07.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "8": {
     "pdf": "/pdf/en/ch08.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "9": {
     "pdf": "/pdf/en/ch09.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "10": {
     "pdf": "/pdf/en/ch10.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "11": {
     "pdf": "/pdf/en/ch11.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "12": {
     "pdf": "/pdf/en/ch12.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "13": {
     "pdf": "/pdf/en/ch13.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "14": {
     "pdf": "/pdf/en/ch14.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "15": {
     "pdf": "/pdf/en/ch15.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   },
   "16": {
     "pdf": "/pdf/en/ch16.pdf",
-    "audio": "",
-    "youtube": ""
+    "audio": ""
   }
 }

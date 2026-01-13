@@ -1,0 +1,12 @@
+[
+  {
+    "key": "cmd+d",
+    "command": "workbench.action.toggleAuxiliaryBar",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "cmd+d",
+    "command": "workbench.action.toggleAuxiliaryBar",
+    "when": "editorTextFocus"
+  }
+]

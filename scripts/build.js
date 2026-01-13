@@ -139,7 +139,7 @@ function generateSection(section, glossary, references) {
   return html;
 }
 
-// Generate media toolbar HTML (Audio, PDF, YouTube) - Inline with accordion
+// Generate media toolbar HTML (Audio, PDF) - Inline with accordion
 function generateMediaToolbar(chapterNum, media, ui) {
   if (!media || !ui.media) return '';
 
@@ -148,24 +148,21 @@ function generateMediaToolbar(chapterNum, media, ui) {
 
   const hasPdf = !!chapterMedia.pdf;
   const hasAudio = !!chapterMedia.audio;
-  const hasYoutube = !!chapterMedia.youtube;
 
   // If nothing available, return empty
-  if (!hasPdf && !hasAudio && !hasYoutube) return '';
+  if (!hasPdf && !hasAudio) return '';
 
   let html = '';
 
   // SVG icons - 22px size
   const svgPdf = `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zm-2 14l-4-4h2.5v-4h3v4H15l-4 4z"/></svg>`;
   const svgAudio = `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>`;
-  const svgYoutube = `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>`;
 
   // Get labels (with fallbacks)
   const labelPdf = ui.media.labelPdf || 'PDF';
   const labelAudio = ui.media.labelAudio || 'MP3';
-  const labelYoutube = ui.media.labelYoutube || 'YouTube';
 
-  // Icon bar - order: MP3, PDF, YouTube
+  // Icon bar - order: MP3, PDF
   html += `                <div class="ch-media-bar">\n`;
 
   // Audio MP3: accordion toggle and panel
@@ -174,18 +171,13 @@ function generateMediaToolbar(chapterNum, media, ui) {
     html += `                    <div class="ch-media-audio-panel" id="audio-panel-${chapterNum}">\n`;
     html += `                        <audio src="${audioUrl}" controls preload="none"></audio>\n`;
     html += `                    </div>\n`;
-    html += `                    <button class="ch-media-icon" onclick="toggleAudio('${chapterNum}')" title="${ui.media.listenAudio || 'Escuchar audio'}" data-audio-btn="${chapterNum}">${svgAudio}<span class="ch-media-label">${labelAudio}</span></button>\n`;
+    html += `                    <button class="ch-media-icon" onclick="toggleAudio('${chapterNum}')" title="${ui.media.downloadAudio || 'Descargar audio'}" data-audio-btn="${chapterNum}">${svgAudio}<span class="ch-media-label">${labelAudio}</span></button>\n`;
   }
 
   // PDF: direct download link
   if (hasPdf) {
     const pdfUrl = resolveUrl(chapterMedia.pdf);
     html += `                    <a href="${pdfUrl}" class="ch-media-icon" title="${ui.media.downloadPdf}" download>${svgPdf}<span class="ch-media-label">${labelPdf}</span></a>\n`;
-  }
-
-  // YouTube: external link
-  if (hasYoutube) {
-    html += `                    <a href="${chapterMedia.youtube}" class="ch-media-icon" target="_blank" rel="noopener" title="${ui.media.listenAudio}">${svgYoutube}<span class="ch-media-label">${labelYoutube}</span></a>\n`;
   }
 
   html += `                </div>\n`;
@@ -202,19 +194,16 @@ function generateHomepageMediaToolbar(media, ui) {
 
   const hasPdf = !!allMedia.pdf;
   const hasAudio = !!allMedia.audio;
-  const hasYoutube = !!allMedia.youtube;
 
-  if (!hasPdf && !hasAudio && !hasYoutube) return '';
+  if (!hasPdf && !hasAudio) return '';
 
   let html = '';
 
   const svgPdf = `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zm-2 14l-4-4h2.5v-4h3v4H15l-4 4z"/></svg>`;
   const svgAudio = `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>`;
-  const svgYoutube = `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47.13-1.33.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>`;
 
   const labelPdf = ui.media.labelPdf || 'Libro Completo (PDF)';
   const labelAudio = ui.media.labelAudio || 'Audiolibro (MP3)';
-  const labelYoutube = ui.media.labelYoutube || 'Lista de Reproducción';
 
   html += `                <div class="ch-media-bar homepage-media">\n`;
 
@@ -228,11 +217,6 @@ function generateHomepageMediaToolbar(media, ui) {
   if (hasPdf) {
     const pdfUrl = resolveUrl(allMedia.pdf);
     html += `                    <a href="${pdfUrl}" class="ch-media-icon" title="${ui.media.downloadPdf}" download>${svgPdf}<span class="ch-media-label">${labelPdf}</span></a>\n`;
-  }
-
-  // YouTube: external link
-  if (hasYoutube) {
-    html += `                    <a href="${allMedia.youtube}" class="ch-media-icon" target="_blank" rel="noopener" title="${ui.media.playlistYoutube || 'Ver en YouTube'}">${svgYoutube}<span class="ch-media-label">${labelYoutube}</span></a>\n`;
   }
 
   html += `                </div>\n`;

@@ -26,11 +26,8 @@
     "downloadPdf": "Descargar PDF del capítulo",
     "downloadAudio": "Descargar audio MP3 del capítulo",
     "download": "Descargar",
-    "listenAudio": "Escuchar audiolibro del capítulo en YouTube",
-    "listen": "Escuchar",
     "labelAudio": "MP3",
-    "labelPdf": "PDF",
-    "labelYoutube": "YouTube"
+    "labelPdf": "PDF"
   },
     "footer": {
     "draft": "Primera Edición",

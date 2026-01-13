@@ -40,11 +40,10 @@
 
   .toggle {
     display: block;
-    position: fixed; // Override absolute positioning in mobile/tablet
   }
 
   .theme-toggle {
-    right: 120px; // Position 120px from right to leave 10px space with notes button
+    right: 120px; // Position 120px from right to leave space with notes button
   }
 }
 
@@ -72,6 +71,38 @@
   .nav,
   .notes {
     width: 85vw;
+  }
+
+  // Reorganize chapter header in mobile
+  .ch-head {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+    border-bottom: none;
+  }
+
+  .ch-head-top {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .ch-media-bar {
+    order: 1; // Media bar comes first
+    margin-top: 6px; // Add separation from top controls
+    margin-bottom: 0.75rem;
+    justify-content: center;
+  }
+
+  .ch-num {
+    order: 2; // Number comes second
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .ch-title {
+    order: 3; // Title comes last
   }
 
   // TOC responsive
