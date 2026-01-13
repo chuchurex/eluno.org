@@ -1,54 +1,59 @@
-# The One — lawofone.cl
+# The One — eluno.org
 
-> Reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible y moderna.
+> A philosophical reinterpretation of the Ra Material (Law of One) as accessible, modern narrative prose.
 
-Este proyecto es una aplicación web estática generada con Node.js, diseñada para ofrecer una experiencia de lectura inmersiva con soporte multilingüe (EN, ES, PT), generación de PDF y audiolibros.
+This project is a static web application built with Node.js, designed to provide an immersive reading experience with multilingual support (EN, ES, PT), PDF generation, and audiobooks.
 
-## 📚 Documentación
+## 📚 Documentation
 
-Hemos profesionalizado la documentación para facilitar el onboarding y despliegue:
+Professional documentation for easy onboarding and deployment:
 
-- **[Guía de Desarrollo Local](docs/DEVELOPMENT.md)**: Cómo instalar, configurar y correr el proyecto en tu máquina.
-- **[Guía de Despliegue](docs/DEPLOY.md)**: Cómo llevar el proyecto a producción (Cloudflare + Hostinger).
-- **[Arquitectura](docs/ARQUITECTURA.md)**: Detalles técnicos profundos sobre el stack híbrido y decisiones de diseño.
+- **[Development Guide](docs/DEVELOPMENT.md)**: How to install, configure, and run the project locally.
+- **[Deployment Guide](docs/DEPLOY.md)**: How to deploy to production (Cloudflare + Hostinger).
+- **[Architecture](docs/ARQUITECTURA.md)**: Technical details about the hybrid stack and design decisions.
 
-## 🚀 Quick Start (Para impacientes)
+## 🚀 Quick Start
 
-**Requisitos:** Node.js v20+
+**Requirements:** Node.js v20+
 
 ```bash
-# 1. Instalar dependencias
+# 1. Install dependencies
 npm install
 
-# 2. Configurar entorno (opcional para dev básico)
+# 2. Configure environment (optional for basic dev)
 cp .env.example .env
 
-# 3. Correr entorno de desarrollo
+# 3. Run development server
 npm run dev
 ```
 
-El sitio estará disponible en `http://127.0.0.1:3002`.
+The site will be available at `http://127.0.0.1:3002`.
 
-## 🛠 Scripts Principales
+## 🛠 Main Scripts
 
-| Script | Descripción |
+| Script | Description |
 |--------|-------------|
 | `npm run dev` | **Dev Mode**: SASS watch + Live Server. |
-| `npm run build` | **Build**: Genera el sitio estático en `/dist`. |
-| `npm run publish` | **Deploy**: Build + Deploy automático via rsync/SSH. |
-| `npm run build:pdf` | **PDFs**: Genera PDFs de capítulos (ej: `npm run build:pdf 01 es`). |
+| `npm run build` | **Build**: Generate static site in `/dist`. |
+| `npm run publish:media` | **Deploy Media**: Upload audio/PDF files to static server. |
+| `npm run build:pdf` | **PDFs**: Generate chapter PDFs (e.g., `npm run build:pdf 01 es`). |
 
-## 🏗 Arquitectura Resumida
+## 🏗 Architecture Overview
 
-El proyecto utiliza **Hostinger** con deploy automatizado:
+The project uses a hybrid deployment architecture:
 
-- **Sitio Web Completo**: Deploy automático via **rsync sobre SSH**
-- **HTMLs + PDFs**: Generados con Node.js y Puppeteer
-- **Glosario + Referencias**: Sistema de términos con notas al pie
-- **Multilingüe**: Soporte completo para EN, ES, PT
+- **Frontend**: Deployed to **Cloudflare Pages** (HTML, CSS, JS)
+- **Static Assets**: Hosted on **Hostinger** (PDFs, Audio files)
+- **Content**: Generated from JSON with Puppeteer for PDFs
+- **Features**: Glossary system, references, multilingual support (EN, ES, PT)
 
-Para más detalles, consulta [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
+For more details, see [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
 
-## 📄 Licencia
+## 🌐 Live Site
 
-Contenido derivado del Material Ra (L/L Research). Consultar el footer del sitio web para información detallada sobre atribución y licencia.
+- **Production**: [https://eluno.org](https://eluno.org)
+- **GitHub**: [https://github.com/chuchurex/eluno.org](https://github.com/chuchurex/eluno.org)
+
+## 📄 License
+
+Content derived from the Ra Material (L/L Research). See the website footer for detailed attribution and licensing information.
