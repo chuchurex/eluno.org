@@ -70,9 +70,8 @@ Upload these files to the chat (drag and drop):
 ### Recommended
 - [`METHODOLOGY.md`](./METHODOLOGY.md) — Editorial decisions and lessons learned
 
-**Available in other languages:**
-- 🇪🇸 Spanish versions in [`docs/es/`](../docs/es/)
-- 🇵🇹 Portuguese versions in [`docs/pt/`](../docs/pt/) (coming soon)
+**Spanish backups:**
+- 🇪🇸 Spanish documentation preserved in [`backups/spanish-docs/`](../backups/spanish-docs/) for reference
 
 **Note**: These files provide additional context beyond the system prompt.
 

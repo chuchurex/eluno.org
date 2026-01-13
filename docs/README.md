@@ -1,120 +1,89 @@
 # Documentation — eluno.org
 
-This folder contains all project documentation in multiple languages.
+> **Language**: All documentation is in English for international accessibility.
+>
+> **Spanish backups**: Available in `/backups/spanish-docs/` for reference.
 
 ---
 
-## 📚 Main Documentation (English)
+## 📚 Documentation Index
 
 ### Technical Documentation
-- **[DEVELOPMENT.md](./DEVELOPMENT.md)** — Local development setup guide
-- **[DEPLOY.md](./DEPLOY.md)** — Production deployment guide (Cloudflare + Hostinger)
-- **[ARCHITECTURE.md](./ARCHITECTURE.md)** — Complete technical architecture (535 lines)
+| File | Description | Lines |
+|------|-------------|-------|
+| **[DEVELOPMENT.md](./DEVELOPMENT.md)** | Local development setup guide | ~75 |
+| **[DEPLOY.md](./DEPLOY.md)** | Production deployment guide (Cloudflare + Hostinger) | ~90 |
+| **[ARCHITECTURE.md](./ARCHITECTURE.md)** | Complete technical architecture | 535 |
+| **[CLAUDE.md](./CLAUDE.md)** | Claude AI integration guide (internal) | ~150 |
 
 ### AI Writing Methodology
-- **[WRITING_PROTOCOL_V3.md](./WRITING_PROTOCOL_V3.md)** — Complete writing protocol (424 lines)
-- **[BOOK_STRUCTURE_16_CHAPTERS.md](./BOOK_STRUCTURE_16_CHAPTERS.md)** — 16-chapter structure with themes
-
-### Additional Guides
-- **[CLAUDE.md](./CLAUDE.md)** — Claude AI integration guide
-- **[PROJECT_STATUS.md](../PROJECT_STATUS.md)** — Current project status and versioning
+| File | Description | Lines |
+|------|-------------|-------|
+| **[WRITING_PROTOCOL_V3.md](./WRITING_PROTOCOL_V3.md)** | Complete writing protocol and voice guidelines | 424 |
+| **[BOOK_STRUCTURE_16_CHAPTERS.md](./BOOK_STRUCTURE_16_CHAPTERS.md)** | 16-chapter structure with themes | 337 |
 
 ---
 
-## 🌐 Documentation in Other Languages
-
-### 🇪🇸 Spanish (Español)
-Complete documentation available in [`es/`](./es/) folder:
-- [PROTOCOLO_ESCRITURA_V3.md](./es/PROTOCOLO_ESCRITURA_V3.md)
-- [ESTRUCTURA_LIBRO_16_CAPITULOS.md](./es/ESTRUCTURA_LIBRO_16_CAPITULOS.md)
-- [ARQUITECTURA.md](./es/ARQUITECTURA.md)
-- [And more...](./es/)
-
-### 🇵🇹 Portuguese (Português)
-Portuguese documentation will be available in [`pt/`](./pt/) folder (coming soon).
-
----
-
-## 📂 Directory Structure
-
-```
-docs/
-├── README.md                          ← You are here
-├── DEVELOPMENT.md                     🇬🇧 English
-├── DEPLOY.md                          🇬🇧 English
-├── ARCHITECTURE.md                    🇬🇧 English
-├── WRITING_PROTOCOL_V3.md            🇬🇧 English
-├── BOOK_STRUCTURE_16_CHAPTERS.md     🇬🇧 English
-├── CLAUDE.md                          🇬🇧 English
-│
-├── es/                                🇪🇸 Spanish
-│   ├── README.md
-│   ├── PROTOCOLO_ESCRITURA_V3.md
-│   ├── ESTRUCTURA_LIBRO_16_CAPITULOS.md
-│   ├── ARQUITECTURA.md
-│   └── ...
-│
-└── pt/                                🇵🇹 Portuguese (coming soon)
-    └── README.md
-```
-
----
-
-## 🔗 Quick Links
+## 🚀 Quick Start
 
 ### For Developers
-- [Local Setup](./DEVELOPMENT.md) — Get started in < 30 minutes
-- [Deployment](./DEPLOY.md) — Deploy to production
-- [Architecture](./ARCHITECTURE.md) — Understand the tech stack
+**Want to run the project locally?**
+1. Read [DEVELOPMENT.md](./DEVELOPMENT.md) — Setup in < 30 minutes
+2. Run `npm install && npm run dev`
+3. Site available at `http://127.0.0.1:3002`
 
 ### For Writers (AI Replication)
-- [AI Writing Prompt](../ai/AI_WRITING_PROMPT.md) — System prompt for replication
-- [Quick Start Guide](../ai/QUICK_START.md) — 5-step replication guide
-- [Writing Protocol](./WRITING_PROTOCOL_V3.md) — Voice and style guidelines
-- [Book Structure](./BOOK_STRUCTURE_16_CHAPTERS.md) — Complete chapter outline
+**Want to replicate the book writing process?**
+1. Read [../ai/QUICK_START.md](../ai/QUICK_START.md) — 5-step guide
+2. Download source PDFs from [../ai/SOURCES.md](../ai/SOURCES.md)
+3. Follow the writing protocol in [WRITING_PROTOCOL_V3.md](./WRITING_PROTOCOL_V3.md)
+
+### For Deployment
+**Want to deploy to production?**
+1. Read [DEPLOY.md](./DEPLOY.md) — Cloudflare Pages + Hostinger setup
+2. Configure environment variables
+3. Run `npm run build && npx wrangler pages deploy dist`
 
 ---
 
-## 📖 Content vs Code Documentation
+## 🔗 Related Documentation
 
-**This folder (`docs/`) contains:**
-- Technical architecture and setup
-- AI writing methodology
-- Development and deployment guides
+### AI Methodology (Complete)
+See the [`ai/` folder](../ai/) for comprehensive AI replication guides:
+- [AI Writing Prompt](../ai/AI_WRITING_PROMPT.md) — System prompt
+- [Quick Start Guide](../ai/QUICK_START.md) — 30-minute replication
+- [Methodology](../ai/METHODOLOGY.md) — Editorial decisions
+- [Sources](../ai/SOURCES.md) — PDF links
 
-**Content files (the book itself) are in:**
-- `i18n/en/chapters/` — English chapters (JSON)
-- `i18n/es/chapters/` — Spanish chapters (JSON)
-- `i18n/pt/chapters/` — Portuguese chapters (JSON)
+### Content Files (The Book)
+The actual book content is in JSON format:
+- `i18n/en/chapters/` — 16 English chapters
+- `i18n/es/chapters/` — 16 Spanish chapters
+- `i18n/pt/chapters/` — 16 Portuguese chapters
 
----
-
-## 🤝 Contributing
-
-When adding or updating documentation:
-
-1. **English first**: Write or update English version in `docs/`
-2. **Spanish translation**: Add translation to `docs/es/`
-3. **Portuguese translation**: Add translation to `docs/pt/` (when available)
-4. **Update READMEs**: Update this file and language-specific READMEs
-5. **Cross-reference**: Ensure links between languages work
+### Backups
+Historical and non-English documentation:
+- [../backups/spanish-docs/](../backups/spanish-docs/) — Spanish documentation
+- [../backups/discontinued-features/](../backups/discontinued-features/) — YouTube generation
 
 ---
 
-## 🌍 Language Priority
+## 🌐 Language Policy
 
-| Language | Status | Priority |
-|----------|--------|----------|
-| English 🇬🇧 | ✅ Complete | Primary |
-| Spanish 🇪🇸 | ✅ Complete | Secondary |
-| Portuguese 🇵🇹 | 🚧 Planned | Tertiary |
+**Primary**: English (this folder)
+- All active documentation maintained in English
+- International accessibility
+- Standard for open source projects
 
-**Primary language**: English (for international accessibility)
+**Backups**: Spanish (../backups/spanish-docs/)
+- Original Spanish docs preserved
+- Not actively maintained
+- Reference only
 
-**Why multiple languages?**
-- Project author is Spanish-speaking
-- Content is available in EN/ES/PT
-- Documentation should match content availability
+**Content**: Multilingual (../i18n/)
+- Book chapters in EN, ES, PT
+- Glossaries and UI in 3 languages
+- Fully multilingual reading experience
 
 ---
 

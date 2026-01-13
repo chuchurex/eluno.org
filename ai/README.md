@@ -71,9 +71,8 @@ Follow [QUICK_START.md](./QUICK_START.md) for step-by-step instructions:
 - ⬇️ The Ra Contact PDFs (Volumes 1-2) — See [SOURCES.md](./SOURCES.md)
 - ⬇️ Q'uo Archive PDFs (Volumes 9-11) — See [SOURCES.md](./SOURCES.md)
 
-**Also available in other languages:**
-- 🇪🇸 Spanish: [docs/es/PROTOCOLO_ESCRITURA_V3.md](../docs/es/PROTOCOLO_ESCRITURA_V3.md) | [docs/es/ESTRUCTURA_LIBRO_16_CAPITULOS.md](../docs/es/ESTRUCTURA_LIBRO_16_CAPITULOS.md)
-- 🇵🇹 Portuguese: [docs/pt/](../docs/pt/) (coming soon)
+**Spanish backups available:**
+- 🇪🇸 Spanish documentation preserved in [backups/spanish-docs/](../backups/spanish-docs/) for reference
 
 ## Questions?
 
