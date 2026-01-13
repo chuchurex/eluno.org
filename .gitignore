@@ -37,6 +37,7 @@ client_secret*.json
 # Single file with all private info
 private-context.md
 CREDENTIALS_BACKUP.md
+YOUTUBE_BACKUP.md
 
 # Legacy context files (keep for backwards compatibility)
 context*.md
