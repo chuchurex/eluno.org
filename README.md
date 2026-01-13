@@ -10,7 +10,7 @@ Professional documentation for easy onboarding and deployment:
 
 - **[Development Guide](docs/DEVELOPMENT.md)**: How to install, configure, and run the project locally.
 - **[Deployment Guide](docs/DEPLOY.md)**: How to deploy to production (Cloudflare + Hostinger).
-- **[Architecture](docs/ARQUITECTURA.md)**: Technical details about the hybrid stack and design decisions.
+- **[Architecture](docs/ARCHITECTURE.md)**: Technical details about the hybrid stack and design decisions.
 
 ## 🚀 Quick Start
 
