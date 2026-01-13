@@ -102,3 +102,8 @@ See the [`ai/` folder](./ai/) for complete instructions to replicate this writin
 **AI Methodology**: Open source — freely replicable and improvable.
 
 See the website footer for detailed attribution and licensing information.
+
+---
+
+**Contributing**: See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
+**Roadmap**: See [ROADMAP.md](ROADMAP.md) for planned features and improvements.

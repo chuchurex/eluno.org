@@ -14,6 +14,12 @@ Thumbs.db
 *.swp
 *.swo
 
+# Editor-specific personal settings (not shared)
+.cursorrules
+.vscode/settings.json
+.vscode/keybindings.json
+.agent/
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
