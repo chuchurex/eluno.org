@@ -12,6 +12,7 @@
     "translate": "node scripts/translate.js",
     "translate:chapter": "node scripts/translate-chapter.js",
     "build:pdf": "node scripts/build-pdf.js",
+    "update:mp3-tags": "node scripts/update-mp3-tags.js",
     "publish:media": "node scripts/publish-media.js"
   },
   "devDependencies": {
@@ -24,6 +25,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
+    "node-id3": "^0.2.9",
     "puppeteer": "^24.34.0"
   }
 }

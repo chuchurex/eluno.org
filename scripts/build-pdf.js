@@ -39,6 +39,64 @@ const DIST_DIR = path.join(__dirname, '..', 'dist');
 const PDF_DIR = path.join(DIST_DIR, 'pdf');
 
 // ============================================================================
+// L/L RESEARCH ATTRIBUTION (Required by licensing agreement)
+// ============================================================================
+
+const FOOTER_ATTRIBUTION = {
+  es: 'Basado en el Material Ra © L/L Research | llresearch.org | Interpretación: eluno.org',
+  en: 'Based on The Ra Material © L/L Research | llresearch.org | Interpretation: eluno.org',
+  pt: 'Baseado no Material Ra © L/L Research | llresearch.org | Interpretação: eluno.org'
+};
+
+const CREDITS_PAGE = {
+  es: {
+    title: 'CRÉDITOS Y ATRIBUCIÓN',
+    body: `Este trabajo es una interpretación del Material Ra (La Ley del Uno),
+originalmente recibido por Don Elkins, Carla L. Rueckert y Jim McCarty
+entre 1981-1984.
+
+Material Original: © L/L Research
+Disponible gratis en: llresearch.org
+
+Esta interpretación fue creada por Carlos Martínez (eluno.org)
+con asistencia de IA (Claude de Anthropic).
+
+Esta es solo una herramienta de estudio. Para una comprensión
+autorizada, consulte siempre las sesiones originales del Material Ra.`
+  },
+  en: {
+    title: 'CREDITS & ATTRIBUTION',
+    body: `This work is an interpretation of The Ra Material (The Law of One),
+originally received by Don Elkins, Carla L. Rueckert, and Jim McCarty
+between 1981-1984.
+
+Original Material: © L/L Research
+Available free at: llresearch.org
+
+This interpretation was created by Carlos Martínez (eluno.org)
+with AI assistance (Claude by Anthropic).
+
+This is a study aid only. For authoritative understanding,
+always consult the original Ra Material sessions.`
+  },
+  pt: {
+    title: 'CRÉDITOS E ATRIBUIÇÃO',
+    body: `Este trabalho é uma interpretação do Material Ra (A Lei do Um),
+originalmente recebido por Don Elkins, Carla L. Rueckert e Jim McCarty
+entre 1981-1984.
+
+Material Original: © L/L Research
+Disponível gratuitamente em: llresearch.org
+
+Esta interpretação foi criada por Carlos Martínez (eluno.org)
+com assistência de IA (Claude da Anthropic).
+
+Esta é apenas uma ferramenta de estudo. Para uma compreensão
+autorizada, consulte sempre as sessões originais do Material Ra.`
+  }
+};
+
+// ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================
 
@@ -349,7 +407,7 @@ async function generatePdf(chapter, glossary, references, lang, ui, outputPath) 
       format: 'Letter', // Carta size
       margin: {
         top: '1in',
-        bottom: '1in',
+        bottom: '1.2in',
         left: '1in',
         right: '1in'
       },
@@ -357,8 +415,9 @@ async function generatePdf(chapter, glossary, references, lang, ui, outputPath) 
       displayHeaderFooter: true,
       headerTemplate: '<div></div>',
       footerTemplate: `
-        <div style="width:100%;text-align:center;font-size:9pt;font-family:Georgia,serif;color:#999;">
-          <span class="pageNumber"></span>
+        <div style="width:100%;text-align:center;font-size:7pt;font-family:Georgia,serif;color:#999;padding:0 0.5in;">
+          <div style="margin-bottom:4px;">${FOOTER_ATTRIBUTION[lang]}</div>
+          <div><span class="pageNumber"></span></div>
         </div>
       `
     });
@@ -534,6 +593,17 @@ async function buildCompleteBookPdf(targetLang = null) {
       </div>
     ` : '';
 
+    // Credits page (L/L Research attribution)
+    const credits = CREDITS_PAGE[lang];
+    const creditsPageHtml = `
+      <div class="credits-page" style="page-break-before: always; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <div style="border-top: 1px solid #c9a227; border-bottom: 1px solid #c9a227; padding: 3rem 2rem; max-width: 500px;">
+          <h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 14pt; font-weight: 600; color: #c9a227; margin-bottom: 2rem; letter-spacing: 0.15em;">${credits.title}</h2>
+          <p style="font-family: 'Spectral', Georgia, serif; font-size: 10pt; line-height: 1.8; color: #666; white-space: pre-line;">${credits.body}</p>
+        </div>
+      </div>
+    `;
+
     const html = `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
@@ -581,6 +651,7 @@ async function buildCompleteBookPdf(targetLang = null) {
     <p style="font-family: var(--font-heading); font-size: 18pt; color: var(--gold);">${ui.siteTitle}</p>
   </div>
   ${chaptersHtml}
+  ${creditsPageHtml}
   ${footnotesHtml}
 </body>
 </html>`;
@@ -600,13 +671,14 @@ async function buildCompleteBookPdf(targetLang = null) {
       await page.pdf({
         path: outputPath,
         format: 'Letter',
-        margin: { top: '1in', bottom: '1in', left: '1in', right: '1in' },
+        margin: { top: '1in', bottom: '1.2in', left: '1in', right: '1in' },
         printBackground: true,
         displayHeaderFooter: true,
         headerTemplate: '<div></div>',
         footerTemplate: `
-          <div style="width:100%;text-align:center;font-size:9pt;font-family:Georgia,serif;color:#999;">
-            <span class="pageNumber"></span> / <span class="totalPages"></span>
+          <div style="width:100%;text-align:center;font-size:7pt;font-family:Georgia,serif;color:#999;padding:0 0.5in;">
+            <div style="margin-bottom:4px;">${FOOTER_ATTRIBUTION[lang]}</div>
+            <div><span class="pageNumber"></span> / <span class="totalPages"></span></div>
           </div>
         `
       });
