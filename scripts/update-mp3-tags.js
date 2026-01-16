@@ -104,8 +104,9 @@ function isCompleteAudiobook(filename) {
 }
 
 function isChapterFile(filename) {
-  // Only process files that start with 2 digits (01-, 02-, etc.)
-  return /^\d{2}-/.test(filename);
+  // Process files that start with 2 digits (01-, 02-, etc.)
+  // OR new SEO format: el-uno-cap-01-, the-one-ch-01-, o-um-cap-01-
+  return /^\d{2}-/.test(filename) || /^(el-uno|the-one|o-um)-(cap|ch)-\d{2}-/.test(filename);
 }
 
 // ============================================================================

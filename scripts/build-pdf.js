@@ -48,6 +48,63 @@ const FOOTER_ATTRIBUTION = {
   pt: 'Baseado no Material Ra © L/L Research | llresearch.org | Interpretação: eluno.org'
 };
 
+// Book titles for SEO filenames
+const BOOK_TITLES = {
+  es: 'el-uno',
+  en: 'the-one',
+  pt: 'o-um'
+};
+
+const CHAPTER_PREFIX = {
+  es: 'cap',
+  en: 'ch',
+  pt: 'cap'
+};
+
+const COMPLETE_BOOK_SUFFIX = {
+  es: 'libro-completo',
+  en: 'complete-book',
+  pt: 'livro-completo'
+};
+
+/**
+ * Convert title to SEO-friendly slug
+ */
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // Remove accents
+    .replace(/[^a-z0-9\s-]/g, '') // Remove special chars
+    .replace(/\s+/g, '-') // Spaces to hyphens
+    .replace(/-+/g, '-') // Multiple hyphens to single
+    .trim();
+}
+
+/**
+ * Generate SEO filename for chapter PDF
+ * Format: {book-title}-{chapter-prefix}-{number}-{chapter-title}.pdf
+ * Example: el-uno-cap-01-cosmologia-y-genesis.pdf
+ */
+function generateChapterFilename(chapterNum, chapterTitle, lang) {
+  const bookTitle = BOOK_TITLES[lang];
+  const prefix = CHAPTER_PREFIX[lang];
+  const num = String(chapterNum).padStart(2, '0');
+  const titleSlug = slugify(chapterTitle);
+  return `${bookTitle}-${prefix}-${num}-${titleSlug}.pdf`;
+}
+
+/**
+ * Generate SEO filename for complete book PDF
+ * Format: {book-title}-{complete-suffix}.pdf
+ * Example: el-uno-libro-completo.pdf
+ */
+function generateCompleteBookFilename(lang) {
+  const bookTitle = BOOK_TITLES[lang];
+  const suffix = COMPLETE_BOOK_SUFFIX[lang];
+  return `${bookTitle}-${suffix}.pdf`;
+}
+
 const CREDITS_PAGE = {
   es: {
     title: 'CRÉDITOS Y ATRIBUCIÓN',
@@ -479,8 +536,9 @@ async function buildPdf(chapterNum, targetLang = null) {
       references = loadJSON(path.join(I18N_DIR, BASE_LANG, 'references.json')) || {};
     }
 
-    // Generate PDF
-    const outputPath = path.join(langPdfDir, `ch${chNum}.pdf`);
+    // Generate PDF with SEO filename
+    const seoFilename = generateChapterFilename(chapter.number, chapter.title, lang);
+    const outputPath = path.join(langPdfDir, seoFilename);
     await generatePdf(chapter, glossary, references, lang, ui, outputPath);
   }
 }
@@ -656,7 +714,8 @@ async function buildCompleteBookPdf(targetLang = null) {
 </body>
 </html>`;
 
-    const outputPath = path.join(langPdfDir, `complete-book.pdf`);
+    const seoFilename = generateCompleteBookFilename(lang);
+    const outputPath = path.join(langPdfDir, seoFilename);
 
     // Launch browser separately for complete book to handle potentially larger document
     const browser = await puppeteer.launch({
