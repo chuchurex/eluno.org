@@ -40,7 +40,7 @@ If you need to deploy without going through git (e.g., quick hotfix or testing) 
 npm run build
 
 # Deploy to production
-npx wrangler pages deploy dist --project-name=lawofone
+npx wrangler pages deploy dist --project-name=eluno
 ```
 
 ---

@@ -25,7 +25,7 @@
     {
       "label": "☁️ Deploy Frontend (Manual)",
       "type": "shell",
-      "command": "npx wrangler pages deploy dist --project-name=lawofone",
+      "command": "npx wrangler pages deploy dist --project-name=eluno",
       "group": "none",
       "presentation": {
         "reveal": "always"

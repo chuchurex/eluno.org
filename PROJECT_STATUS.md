@@ -154,7 +154,7 @@ i18n/pt/ui.json - UI strings in Portuguese
 
 4. **Deploy:**
    ```bash
-   npx wrangler pages deploy dist --project-name=lawofone
+   npx wrangler pages deploy dist --project-name=eluno
    ```
 
 ---
@@ -245,7 +245,7 @@ npm run dev              # Start dev server with hot reload
 npm run build            # Generate static site
 
 # Deploy to production
-npx wrangler pages deploy dist --project-name=lawofone
+npx wrangler pages deploy dist --project-name=eluno
 
 # Purge Cloudflare cache
 source .env && curl -X POST "https://api.cloudflare.com/client/v4/zones/${CF_ZONE_ID}/purge_cache" \
@@ -263,7 +263,7 @@ source .env && curl -X POST "https://api.cloudflare.com/client/v4/zones/${CF_ZON
 
 1. Edit `v03_package/instructions/TITULOS_CAPITULOS.json`
 2. Run `npm run build`
-3. Deploy: `npx wrangler pages deploy dist --project-name=lawofone`
+3. Deploy: `npx wrangler pages deploy dist --project-name=eluno`
 4. Purge cache (command above)
 
 **Example:**
