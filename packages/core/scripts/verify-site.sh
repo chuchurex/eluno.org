@@ -4,7 +4,7 @@
 SITE_NAME=$1
 
 if [ -z "$SITE_NAME" ]; then
-  echo "Uso: ./verify-site.sh chuchu.lawofone.cl"
+  echo "Uso: ./verify-site.sh ejemplo.eluno.org"
   exit 1
 fi
 

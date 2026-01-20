@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Build Review Version from RAFA_REIKI_COMPLETO2.json
+ * Build Review Version from SANACION_COMPLETO2.json
  *
  * Generates a single HTML file with all chapters for review
  * Perfect for screen readers and continuous reading
@@ -12,11 +12,11 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 
 // Domain Configuration
-const DOMAIN = process.env.DOMAIN || 'reiki.chuchurex.cl';
+const DOMAIN = process.env.DOMAIN || 'sanacion.eluno.org';
 const SITE_URL = `https://${DOMAIN}`;
 
 // Configuration
-const SOURCE_FILE = path.join(__dirname, '..', 'RAFA_REIKI_COMPLETO2.json');
+const SOURCE_FILE = path.join(__dirname, '..', 'SANACION_COMPLETO2.json');
 const DIST_DIR = path.join(__dirname, '..', 'dist');
 
 // Load JSON file

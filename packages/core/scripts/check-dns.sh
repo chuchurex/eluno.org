@@ -4,7 +4,7 @@
 DOMAIN=$1
 
 if [ -z "$DOMAIN" ]; then
-  echo "Uso: ./check-dns.sh chuchu.lawofone.cl"
+  echo "Uso: ./check-dns.sh ejemplo.eluno.org"
   exit 1
 fi
 

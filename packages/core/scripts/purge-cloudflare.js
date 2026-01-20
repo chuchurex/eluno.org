@@ -9,7 +9,7 @@ const https = require('https');
 const CF_API_KEY = process.env.CF_API_KEY;
 const CF_EMAIL = process.env.CF_EMAIL;
 const CF_ZONE_ID = process.env.CF_ZONE_ID;
-const DOMAIN = process.env.DOMAIN || 'lawofone.chuchurex.cl';
+const DOMAIN = process.env.DOMAIN || 'todo.eluno.org';
 
 function purgeCache(urls = null) {
   if (!CF_API_KEY || !CF_EMAIL || !CF_ZONE_ID) {

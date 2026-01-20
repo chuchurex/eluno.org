@@ -865,7 +865,7 @@ ${generateScripts()}
 
 // Main build function
 function build() {
-  console.log('🔨 Building lawofone.cl...\n');
+  console.log(`🔨 Building ${DOMAIN}...\n`);
 
   // Ensure dist directories exist
   LANGUAGES.forEach(lang => {

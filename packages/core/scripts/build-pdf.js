@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * PDF Generation Script for lawofone.cl
+ * PDF Generation Script for eluno.org
  *
  * Generates PDF files from chapter JSON content using Puppeteer.
  * Features:
@@ -629,7 +629,7 @@ async function main() {
 
   if (args.length === 0) {
     console.log(`
-📄 PDF Generation Script for lawofone.cl
+📄 PDF Generation Script for eluno.org
 
 Usage:
   node scripts/build-pdf.js <chapter-number> [language]

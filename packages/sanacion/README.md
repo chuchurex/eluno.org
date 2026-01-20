@@ -1,14 +1,14 @@
-# 📖 Reiki Book - Digital Edition
+# Sanacion Book - Digital Edition
 
-> A comprehensive guide to Reiki healing practice
+> A comprehensive guide to healing practice
 
-This project presents a complete guide to Reiki healing in an accessible digital format.
+This project presents a complete guide to healing in an accessible digital format.
 
-**Website**: https://reiki.chuchurex.cl
+**Website**: https://sanacion.eluno.org
 
-## 🌟 Features
+## Features
 
-- 11 comprehensive chapters on Reiki
+- 11 comprehensive chapters on healing
 - Multilingual support (EN/ES)
 - Responsive design (desktop, tablet, mobile)
 - Dark/Light theme toggle
@@ -16,17 +16,17 @@ This project presents a complete guide to Reiki healing in an accessible digital
 - PDF generation support
 - Audio support (optional)
 
-## 🎯 Purpose
+## Purpose
 
-This digital book aims to share the wisdom and practice of Reiki healing in an accessible, modern format.
+This digital book aims to share the wisdom and practice of healing in an accessible, modern format.
 
-## 🚀 Using the Project
+## Using the Project
 
 ### Installation
 
 ```bash
 # Navigate to project directory
-cd reiki.chuchurex.cl
+cd packages/sanacion
 
 # Install dependencies
 npm install
@@ -41,7 +41,7 @@ npm install
 # Development server
 npm run dev
 
-# The site will be available at http://127.0.0.1:3002
+# The site will be available at http://127.0.0.1:3004
 ```
 
 ### Build and Deploy
@@ -54,10 +54,10 @@ npm run build
 npm run publish
 ```
 
-## 📁 Structure
+## Structure
 
 ```
-reiki.chuchurex.cl/
+packages/sanacion/
 ├── i18n/                     # Multilingual content
 │   ├── es/                   # Spanish
 │   └── en/                   # English
@@ -68,13 +68,11 @@ reiki.chuchurex.cl/
 │       ├── references.json   # References
 │       └── media.json        # Media resources
 ├── scripts/                  # Build and deploy scripts
-├── scss/                     # Styles (SASS)
 ├── dist/                     # Generated static site
-├── fonts/                    # Custom fonts
 └── .env                      # Deployment configuration
 ```
 
-## 📝 Content Structure
+## Content Structure
 
 Each chapter file (`ch1.json` - `ch11.json`) should follow this structure:
 
@@ -96,20 +94,19 @@ Each chapter file (`ch1.json` - `ch11.json`) should follow this structure:
 }
 ```
 
-## 🔧 Configuration
+## Configuration
 
 The `.env` file contains deployment credentials:
 
 ```env
-DOMAIN=reiki.chuchurex.cl
-UPLOAD_HOST=195.35.41.9
-UPLOAD_PORT=65002
-UPLOAD_USER=u363856815
-UPLOAD_PASS=your-password
-REMOTE_DIR=/home/u363856815/domains/reiki.chuchurex.cl/public_html/
+DOMAIN=sanacion.eluno.org
+STATIC_SUBDOMAIN=static.eluno.org
+PROJECT_SLUG=sanacion
+LANGUAGES=en,es
+BASE_LANG=en
 ```
 
-## 🌐 Deployment
+## Deployment
 
 Deploy to production with:
 
@@ -122,10 +119,10 @@ This will:
 2. Upload to server via rsync/SSH
 3. Commit and push changes to git
 
-## 📄 License
+## License
 
-© 2026 Reiki Book - All rights reserved
+© 2026 Sanacion Book - All rights reserved
 
 ---
 
-Created with ❤️ by Carlos Martínez
+Created with care by Carlos Martinez

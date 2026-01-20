@@ -35,7 +35,7 @@ async function main() {
   console.log('1️⃣  INFORMACIÓN BÁSICA DEL SITIO');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
-  config.domain = await question('Dominio/subdominio (ej: miproyecto.lawofone.cl): ');
+  config.domain = await question('Dominio/subdominio (ej: miproyecto.eluno.org): ');
   config.titleES = await question('Título del sitio en español: ');
   config.titleEN = await question('Título del sitio en inglés: ');
 

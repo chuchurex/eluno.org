@@ -1,7 +1,7 @@
 {
   "name": "@eluno/sanacion",
   "version": "1.0.0",
-  "description": "Reiki Book - Digital Edition",
+  "description": "Sanacion Book - Digital Edition",
   "scripts": {
     "sass:watch": "sass --watch ../core/scss/main.scss:dist/css/main.css",
     "sass:build": "sass ../core/scss/main.scss:dist/css/main.css --style=compressed",

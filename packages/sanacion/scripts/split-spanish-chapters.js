@@ -3,7 +3,7 @@
 /**
  * Split Spanish Chapters Script
  *
- * Takes RAFA_REIKI_COMPLETO.json and splits it into individual chapter files
+ * Takes SANACION_COMPLETO.json and splits it into individual chapter files
  * in the i18n/es/chapters/ directory.
  */
 
@@ -11,7 +11,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Paths
-const SOURCE_FILE = path.join(__dirname, '..', 'RAFA_REIKI_COMPLETO.json');
+const SOURCE_FILE = path.join(__dirname, '..', 'SANACION_COMPLETO.json');
 const OUTPUT_DIR = path.join(__dirname, '..', 'i18n', 'es', 'chapters');
 
 console.log('\n📚 Splitting Spanish chapters...\n');
@@ -21,7 +21,7 @@ let chapters;
 try {
   const content = fs.readFileSync(SOURCE_FILE, 'utf8');
   chapters = JSON.parse(content);
-  console.log(`✅ Loaded ${chapters.length} chapters from RAFA_REIKI_COMPLETO.json`);
+  console.log(`✅ Loaded ${chapters.length} chapters from SANACION_COMPLETO.json`);
 } catch (error) {
   console.error(`❌ Error loading source file: ${error.message}`);
   process.exit(1);

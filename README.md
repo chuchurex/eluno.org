@@ -10,8 +10,8 @@ El código se organiza en `packages/`:
 | :--- | :--- | :--- | :--- |
 | **Core** | `packages/core` | N/A | Recursos compartidos (SCSS, Templates, Scripts). **No se despliega.** |
 | **Todo** | `packages/todo` | `todo.eluno.org` | La Ley del Uno (The Law of One). |
-| **Sanación** | `packages/sanacion` | `sanacion.eluno.org` | Libro de Reiki. |
-| **Jesús** | `packages/jesus` | `jesus.eluno.org` | El Evangelio (The One). |
+| **Sanación** | `packages/sanacion` | `sanacion.eluno.org` | Libro de Sanación. |
+| **Jesús** | `packages/jesus` | `jesus.eluno.org` | El Camino del Amor. |
 
 ## 🛠 Guía de Desarrollo Rápido
 
@@ -31,7 +31,7 @@ Para desarrollar, corre el comando correspondiente al proyecto que quieres edita
     ```
     *Abre:* `http://127.0.0.1:3002`
 
-*   **Para Reiki (Sanación):**
+*   **Para Sanación:**
     ```bash
     npm run dev:sanacion
     ```

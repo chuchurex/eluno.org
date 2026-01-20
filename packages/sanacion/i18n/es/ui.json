@@ -1,11 +1,11 @@
 {
-  "siteTitle": "Libro Reiki",
-  "bookTitle": "Reiki - El Arte de Sanar",
-  "description": "Una guía completa de la práctica de sanación Reiki.",
+  "siteTitle": "Libro Sanación",
+  "bookTitle": "Sanación - El Arte de Sanar",
+  "description": "Una guía completa de la práctica de sanación.",
   "introduction": {
     "title": "",
     "content": [
-      "Bienvenido al mundo de la sanación Reiki."
+      "Bienvenido al mundo de la sanación."
     ]
   },
   "nav": {
@@ -35,7 +35,7 @@
     "date": "2026",
     "attribution": "",
     "originalSessions": "",
-    "derivedFrom": "© 2026 Libro Reiki"
+    "derivedFrom": "© 2026 Libro Sanación"
   },
   "meta": {
     "version": "v1.0 · Enero 2026"
@@ -43,8 +43,8 @@
   "footerVersion": "",
   "disclaimer": {
     "title": "Sobre Esta Obra",
-    "text1": "Este libro es una guía completa de la práctica de sanación Reiki.",
-    "text2": "Creado con dedicación para compartir la sabiduría del Reiki.",
+    "text1": "Este libro es una guía completa de la práctica de sanación.",
+    "text2": "Creado con dedicación para compartir la sabiduría de la sanación.",
     "text3": "",
     "text3b": ""
   }

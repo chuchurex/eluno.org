@@ -2,10 +2,10 @@
 # Crear registro DNS en Cloudflare automáticamente
 
 SUBDOMAIN=$1
-DOMAIN=${2:-lawofone.cl}
+DOMAIN=${2:-eluno.org}
 
 if [ -z "$SUBDOMAIN" ]; then
-  echo "Uso: ./create-dns.sh chuchu [lawofone.cl]"
+  echo "Uso: ./create-dns.sh ejemplo [eluno.org]"
   exit 1
 fi
 

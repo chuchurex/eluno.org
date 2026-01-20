@@ -12,7 +12,7 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 
 // Domain Configuration
-const DOMAIN = process.env.DOMAIN || 'reiki.chuchurex.cl';
+const DOMAIN = process.env.DOMAIN || 'sanacion.eluno.org';
 const SITE_URL = `https://${DOMAIN}`;
 
 // Configuration

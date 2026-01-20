@@ -1,11 +1,11 @@
 {
-  "siteTitle": "Reiki Book",
-  "bookTitle": "Reiki - The Art of Healing",
-  "description": "A comprehensive guide to Reiki healing practice.",
+  "siteTitle": "Sanacion Book",
+  "bookTitle": "Sanacion - The Art of Healing",
+  "description": "A comprehensive guide to healing practice.",
   "introduction": {
     "title": "",
     "content": [
-      "Welcome to the world of Reiki healing."
+      "Welcome to the world of healing."
     ]
   },
   "nav": {
@@ -35,7 +35,7 @@
     "date": "2026",
     "attribution": "",
     "originalSessions": "",
-    "derivedFrom": "© 2026 Reiki Book"
+    "derivedFrom": "© 2026 Sanacion Book"
   },
   "meta": {
     "version": "v1.0 · January 2026"
@@ -43,8 +43,8 @@
   "footerVersion": "",
   "disclaimer": {
     "title": "About This Work",
-    "text1": "This book is a comprehensive guide to Reiki healing practice.",
-    "text2": "Created with care to share the wisdom of Reiki.",
+    "text1": "This book is a comprehensive guide to healing practice.",
+    "text2": "Created with care to share the wisdom of healing.",
     "text3": "",
     "text3b": ""
   }
