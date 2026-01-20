@@ -1020,6 +1020,14 @@ function build() {
   // Copy icons if they exist (e.g. android-chrome)
   // Not strictly needed if everything is inline SVG/data URI, but good practice if listed in manifest
 
+  // Copy _redirects file if it exists (for Cloudflare Pages redirects)
+  const redirectsSrc = path.join(PROJECT_ROOT, '_redirects');
+  const redirectsDest = path.join(DIST_DIR, '_redirects');
+  if (fs.existsSync(redirectsSrc)) {
+    fs.copyFileSync(redirectsSrc, redirectsDest);
+    console.log('🔀 Copied _redirects file');
+  }
+
   // Note: API is now handled by Cloudflare Pages Functions (see /functions folder)
 
   console.log('\n✨ Build complete!\n');
