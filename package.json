@@ -1,31 +1,17 @@
 {
-  "name": "lawofone-cl",
-  "version": "1.0.0",
-  "description": "The One - Law of One Reinterpretation",
+  "name": "eluno-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "sass:watch": "sass --watch src/scss/main.scss:dist/css/main.css",
-    "sass:build": "sass src/scss/main.scss:dist/css/main.css --style=compressed",
-    "serve": "live-server dist --port=3002",
-    "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
-    "build": "npm run sass:build && node scripts/build.js",
-    "publish": "./scripts/publish.sh",
-    "translate": "node scripts/translate.js",
-    "translate:chapter": "node scripts/translate-chapter.js",
-    "build:pdf": "node scripts/build-pdf.js",
-    "update:mp3-tags": "node scripts/update-mp3-tags.js",
-    "publish:media": "node scripts/publish-media.js"
+    "install:all": "npm install",
+    "dev:todo": "npm run dev --workspace=@eluno/todo",
+    "dev:sanacion": "npm run dev --workspace=@eluno/sanacion",
+    "dev:jesus": "npm run dev --workspace=@eluno/jesus",
+    "build:all": "npm run build --workspaces"
   },
   "devDependencies": {
-    "@msgpack/msgpack": "^3.1.3",
-    "basic-ftp": "^5.0.5",
-    "concurrently": "^8.2.0",
-    "dotenv": "^17.2.3",
-    "live-server": "^1.2.2",
-    "sass": "^1.69.0"
-  },
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.71.2",
-    "node-id3": "^0.2.9",
-    "puppeteer": "^24.34.0"
+    "concurrently": "^8.2.0"
   }
 }

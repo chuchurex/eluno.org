@@ -65,6 +65,7 @@ inbox/
 # MEDIA FILES (stored on static.lawofone.cl)
 # ===========================================
 audiobook/
+audios-chuchu/
 books/
 video/
 *.mp3
