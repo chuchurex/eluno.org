@@ -11,6 +11,7 @@
     "publish": "../core/scripts/publish.sh",
     "translate": "node ../core/scripts/translate.js",
     "translate:chapter": "node ../core/scripts/translate-chapter.js",
+    "translate:pt": "node ../core/scripts/translate-to-pt.js",
     "build:pdf": "node ../core/scripts/build-pdf.js",
     "publish:media": "node ../core/scripts/publish-media.js"
   },
