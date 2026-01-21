@@ -4,7 +4,7 @@
 
 This is a personal project that presents the teachings of the Law of One in a more accessible and structured way, based on the original Ra material channeled by L/L Research.
 
-**Website**: https://lawofone.chuchurex.cl
+**Website**: https://todo.eluno.org
 
 ## ⚠️ Important Note
 
