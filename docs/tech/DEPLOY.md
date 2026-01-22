@@ -106,3 +106,29 @@ For CI/CD to work, configure in the repository (Settings > Secrets and variables
 - Cloudflare has aggressive caching. Purge cache:
   - From Cloudflare Dashboard > Caching > Configuration > Purge Everything.
   - Or use the purge cache script with your `.env` credentials.
+
+---
+
+## 5. QA Verification
+
+After any deployment (Frontend or Media), it is critical to verify that the ecosystem is healthy and resources are accessible.
+
+We have an automated script to check the status of all domains and critical assets (PDFs, MP3s).
+
+### Running the QA Routine
+
+Run the following command from the project root:
+
+```bash
+./packages/core/scripts/qa-verify.sh
+```
+
+### What it checks:
+1. **Main Domains**: HTTP 200 OK for `eluno.org`, `todo.eluno.org`, `sanacion.eluno.org`, `jesus.eluno.org`.
+2. **Static Server**: Availability of `static.eluno.org`.
+3. **Critical Assets**: 
+   - Samples a Chapter 1 MP3 for each book.
+   - Samples a complete PDF for TODO.
+   - Ensures correct routing and file existence.
+
+**If any check fails (Red/FAIL), do not announce the release.**
