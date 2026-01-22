@@ -9,7 +9,9 @@
     "dev:todo": "npm run dev --workspace=@eluno/todo",
     "dev:sanacion": "npm run dev --workspace=@eluno/sanacion",
     "dev:jesus": "npm run dev --workspace=@eluno/jesus",
-    "build:all": "npm run build --workspaces"
+    "dev:doctrinas": "npm run dev --workspace=@eluno/doctrinas",
+    "build:all": "npm run build --workspaces",
+    "build:doctrinas": "npm run build --workspace=@eluno/doctrinas"
   },
   "devDependencies": {
     "concurrently": "^8.2.0"
