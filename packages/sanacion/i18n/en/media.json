@@ -1,62 +1,62 @@
 {
-  "all": {
-    "audio": "",
-    "pdf": "",
-    "youtube": ""
-  },
   "1": {
+    "audio": "/sanacion/audiobook/audio/en/ch1/ch1-en.mp3",
     "pdf": "",
-    "audio": "/audio/en/ch1/ch1-en.mp3",
     "youtube": ""
   },
   "2": {
-    "pdf": "",
     "audio": "",
+    "pdf": "",
     "youtube": ""
   },
   "3": {
-    "pdf": "",
     "audio": "",
+    "pdf": "",
     "youtube": ""
   },
   "4": {
-    "pdf": "",
     "audio": "",
+    "pdf": "",
     "youtube": ""
   },
   "5": {
-    "pdf": "",
     "audio": "",
+    "pdf": "",
     "youtube": ""
   },
   "6": {
-    "pdf": "",
     "audio": "",
+    "pdf": "",
     "youtube": ""
   },
   "7": {
-    "pdf": "",
     "audio": "",
+    "pdf": "",
     "youtube": ""
   },
   "8": {
-    "pdf": "",
     "audio": "",
+    "pdf": "",
     "youtube": ""
   },
   "9": {
-    "pdf": "",
     "audio": "",
+    "pdf": "",
     "youtube": ""
   },
   "10": {
-    "pdf": "",
     "audio": "",
+    "pdf": "",
     "youtube": ""
   },
   "11": {
-    "pdf": "",
     "audio": "",
+    "pdf": "",
+    "youtube": ""
+  },
+  "all": {
+    "audio": "",
+    "pdf": "",
     "youtube": ""
   }
 }
