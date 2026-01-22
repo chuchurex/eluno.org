@@ -1,4 +1,4 @@
-## Capítulo 7: Las Obras
+# Capítulo 7: Las Obras
 
 "Hermanos míos, ¿de qué aprovechará si alguno dice que tiene fe, y no tiene obras? ¿Podrá la fe salvarle? Y si un hermano o una hermana están desnudos, y tienen necesidad del mantenimiento de cada día, y alguno de vosotros les dice: Id en paz, calentaos y saciaos, pero no les dais las cosas que son necesarias para el cuerpo, ¿de qué aprovecha?"
 
