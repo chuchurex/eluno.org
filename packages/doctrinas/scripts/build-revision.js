@@ -91,65 +91,38 @@ function generatePage(chapters) {
   <style>
     :root {
       --bg: #ffffff;
-      --text: #000000;
-      --link: #0000EE;
+      --text: #1a1a1a;
     }
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #000000;
-        --text: #ffffff;
-        --link: #58a6ff;
+        --text: #e0e0e0;
       }
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.8;
+      max-width: 700px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 2rem 1.5rem;
       background: var(--bg);
       color: var(--text);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
     }
-    h1, h2, h3 { margin-top: 2em; color: var(--text); }
-    h1 { font-size: 2rem; border-bottom: 2px solid var(--text); padding-bottom: 0.5rem; }
-    a { color: var(--link); text-decoration: underline; }
-    p { margin-bottom: 1em; }
-    hr { margin: 2rem 0; border: 1px solid var(--text); opacity: 0.5; }
-    
-    /* Navigation accessibility */
-    .toc { background: rgba(128,128,128,0.1); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; }
-    .toc h2 { margin-top: 0; }
-    .toc ul { list-style: none; padding: 0; }
-    .toc li { margin-bottom: 0.5rem; }
+    h1 { font-size: 1.6rem; margin-top: 3rem; margin-bottom: 1rem; }
+    h2 { font-size: 1.3rem; margin-top: 2.5rem; }
+    h3 { font-size: 1.1rem; margin-top: 2rem; }
+    p { margin-bottom: 1.2em; }
+    blockquote { margin: 1.5em 0; padding-left: 1.2em; border-left: 3px solid var(--text); opacity: 0.85; font-style: italic; }
+    hr { margin: 3rem 0; border: none; text-align: center; }
+    hr::after { content: "· · ·"; letter-spacing: 0.5em; opacity: 0.5; }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>${BOOK.title}</h1>
-    <p role="doc-subtitle">Versión simplificada para lectura con VoiceOver</p>
-  </header>
-
-  <nav class="toc" aria-label="Tabla de Contenidos">
-    <h2>Índice</h2>
-    <ul>
-      ${chapters.map(ch => `<li><a href="#${ch.slug}">${ch.num}. ${ch.title}</a></li>`).join('')}
-    </ul>
-  </nav>
-
   <main>
-    ${chapters.map(ch => `
-      <article id="${ch.slug}" aria-labelledby="heading-${ch.slug}">
-        ${ch.content.replace('<h1>', `<h1 id="heading-${ch.slug}">`)} 
-      </article>
-      <hr aria-hidden="true">
-    `).join('\n')}
+    ${chapters.map(ch => ch.content).join('\n<hr>\n')}
   </main>
-
-  <footer>
-    <p>Fin del libro.</p>
-  </footer>
 
 </body>
 </html>`;
