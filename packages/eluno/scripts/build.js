@@ -24,7 +24,7 @@
 
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
+require('dotenv').config({ path: path.join(__dirname, '..', '..', '..', '.env') });
 
 // Domain Configuration (from .env)
 const DOMAIN = process.env.DOMAIN || 'lawofone.cl';
@@ -488,15 +488,14 @@ function generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle,
     <meta name="description" content="${ui.description}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${SITE_URL}${canonicalPath}">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9LDPDW8V6E"></script>
+${process.env.GA_ID ? `    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ID}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-9LDPDW8V6E');
-    </script>
+      gtag('config', '${process.env.GA_ID}');
+    </script>` : ''}
 `;
 
   // Hreflang tags - pagePath is used to build correct URLs for each language
