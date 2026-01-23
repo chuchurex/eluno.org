@@ -22,9 +22,9 @@ Por eso el olvido es, paradójicamente, un regalo. Crea las condiciones para el 
 
 ---
 
-Qué difícil es esperar en cosas no vistas. La ilusión por sí sola, sin las muchas distorsiones que han ocurrido en las difíciles polarizaciones entre los pueblos, es tal que la contemplación de reclamar un absoluto, vivir por él, estar dispuesto a morir por él como testigo de la verdad, parece ridícula. Este es el ambiente exterior en el que intentamos despertar a nuestra consciencia metafísica imperecedera.
+Qué difícil es esperar en cosas no vistas. La vida terrenal por sí sola, sin las muchas confusiones que han surgido en las divisiones dolorosas entre los pueblos, es tal que la contemplación de reclamar un absoluto, vivir por él, estar dispuesto a morir por él como testigo de la verdad, parece ridícula. Este es el ambiente exterior en el que intentamos despertar a nuestra consciencia metafísica imperecedera.
 
-La búsqueda espiritual es una búsqueda comenzada solo en la ceguera de la fe. Este es uno de los elementos de la fe misma que crea una especie de resistencia para quienes desean tenerla. Porque si uno reclama fe, el mundo que se ve, la ilusión que se percibe, cambia para siempre—y no de maneras que ejemplifiquen la búsqueda de la felicidad o el contentamiento de descansar en un espacio cómodo.
+La búsqueda espiritual es una búsqueda comenzada solo en la ceguera de la fe. Este es uno de los elementos de la fe misma que crea una especie de resistencia para quienes desean tenerla. Porque si uno reclama fe, el mundo que se ve, la realidad que se percibe, cambia para siempre—y no de maneras que ejemplifiquen la búsqueda de la felicidad o el contentamiento de descansar en un espacio cómodo.
 
 Hay sistemas de creencias cómodos, sistemas que permiten conocer todas las verdades todo el tiempo según el camino subjetivo de sistemas de creencias literales y dogmáticos. Sin embargo, lo que cada Cristo que ha venido a este mundo ha ofrecido no es un viaje cómodo ni feliz. Es un viaje comenzado solo en el coraje. Es un viaje en el que uno persiste solo por la voluntad. Es un viaje que reclama lo que no siente con todo el corazón, sino que siente como una corazonada, un instinto, un sesgo.
 
@@ -60,7 +60,7 @@ La fe no comienza con fe en uno mismo. Comienza con fe en algo mayor.
 
 La fe que tanto se anhela no surge de la nada. Comienza con fes muy simples. Incluso siendo jóvenes, comenzamos a tener fe en que el sol saldrá y se pondrá, que la luna aparecerá y las estrellas, y luego desaparecerán en el rubor del amanecer. A medida que crecemos, encontramos más y más cosas en las que se puede confiar. Estas cosas no suelen ser otras personas, sino más probablemente la naturaleza—las mascotas que aman sin razón, los árboles que dejan caer sus hojas, arraigan profundamente en la tierra y luego florecen de nuevo en los milagros anuales de la primavera.
 
-Y ahí todo llega a un alto abrupto. Porque a menos que uno sea muy poco observador, pronto descubre que la fidelidad absoluta, aquello en lo que se puede tener fe sin importar qué, cuando se aplica a la humanidad, fallará. No siempre, pero a veces. Siempre hay riesgo y apuesta en confiar en otra entidad o en uno mismo.
+Y ahí todo llega a un alto abrupto. Porque a menos que uno sea muy poco observador, pronto descubre que la fidelidad absoluta, aquello en lo que se puede tener fe sin importar qué, cuando se aplica a la humanidad, fallará. No siempre, pero a veces. Siempre hay riesgo y apuesta en confiar en otra persona o en uno mismo.
 
 Si las personas están hechas a la naturaleza e imagen del Creador, esa imagen no parecería incluir confiabilidad absoluta. Pero, ¿podría el Creador ser capaz de tal capricho como la humanidad?
 
@@ -72,7 +72,7 @@ Una vez que el buscador es consciente de que la fe no es fe en el yo humano, est
 
 Hay una relación circular entre la fe y la voluntad que merece contemplación.
 
-Es la voluntad persistente y completa la que lleva a cada uno hacia donde verdaderamente desea dentro de esta ilusión o fuera de ella. Y así es la voluntad la que habilita la fe. Sé persistente, determinado y siempre esperanzado en la invocación de la voluntad, sin importar en qué circunstancia de mente, cuerpo o espíritu te encuentres.
+Es la voluntad persistente y completa la que lleva a cada uno hacia donde verdaderamente desea dentro de esta vida o más allá de ella. Y así es la voluntad la que habilita la fe. Sé persistente, determinado y siempre esperanzado en la invocación de la voluntad, sin importar en qué circunstancia de mente, cuerpo o espíritu te encuentres.
 
 Y al mismo tiempo: la voluntad es imposible sin la fe para persistir en esa voluntad.
 
@@ -110,13 +110,13 @@ Fue fe sola la que le permitió decir, antes de esas horas oscuras: "Aunque esto
 
 ---
 
-Aquellos que sienten instintivamente que el Creador es un Creador unificador, amoroso y nutritivo son aquellos que descubren la fe de una manera—el camino positivo de polarización a través del servicio al Infinito y a otros seres, las imágenes del Infinito. Aquellos que eligen ver al Creador como juicio, rectitud y ley, son aquellos que desean control—control sobre la vida, control sobre el yo, control sobre otros, para que no haya sorpresas, sino que todo sea calculado de antemano, seguro y ordenado.
+Aquellos que sienten instintivamente que el Creador es un Creador unificador, amoroso y nutritivo son aquellos que descubren la fe de una manera—el camino del amor a través del servicio al Infinito y a otros seres, las imágenes del Infinito. Aquellos que eligen ver al Creador como juicio, rectitud y ley, son aquellos que desean control—control sobre la vida, control sobre el yo, control sobre otros, para que no haya sorpresas, sino que todo sea calculado de antemano, seguro y ordenado.
 
-La fe, en su sentido positivo, no comienza con fe en el yo. Comienza con fe en el Creador. Y desde esa fe fundamental fluye todo lo demás—la capacidad de confiar en el proceso, de aceptar el catalizador, de amar sin garantía de ser amado en retorno.
+La fe, en su sentido positivo, no comienza con fe en el yo. Comienza con fe en el Creador. Y desde esa fe fundamental fluye todo lo demás—la capacidad de confiar en el proceso, de aceptar los desafíos, de amar sin garantía de ser amado en retorno.
 
-La esperanza madura en fe a medida que la entidad continúa creciendo. La esperanza sabe que hay más en la existencia terrenal de lo que parece, que hay un propósito que da nobleza y cualidad brillante a la vida. Pero la esperanza todavía es tentativa, probada por el paso de los días y el catalizador contenido en cada día.
+La esperanza madura en fe a medida que el alma continúa creciendo. La esperanza sabe que hay más en la existencia terrenal de lo que parece, que hay un propósito que da nobleza y cualidad brillante a la vida. Pero la esperanza todavía es tentativa, probada por el paso de los días y los desafíos contenidos en cada día.
 
-Cuando la fe se desarrolla, tiene una certeza que viene no solo de la experiencia sino de un sentimiento profundo dentro del yo—como la limadura de hierro que se acerca a la fuerza del imán. La entidad comienza a sentir que se está acercando a un poder mucho mayor que cualquier poder que haya encontrado dentro de sí misma o su experiencia antes.
+Cuando la fe se desarrolla, tiene una certeza que viene no solo de la experiencia sino de un sentimiento profundo dentro del yo—como la limadura de hierro que se acerca a la fuerza del imán. El alma comienza a sentir que se está acercando a un poder mucho mayor que cualquier poder que haya encontrado dentro de sí misma o su experiencia antes.
 
 ---
 

@@ -30,7 +30,7 @@ Imagina un juego donde ya conoces todas las respuestas. No hay tensión, no hay 
 
 El olvido crea el espacio donde la elección tiene peso.
 
-Si pudieras ver claramente que cada persona es tú mismo con otro rostro, que cada daño que haces te lo haces a ti, que la separación es ilusión—¿dónde estaría el desafío de amar a tu enemigo? ¿Dónde estaría el acto de fe de perdonar a quien te ha herido?
+Si pudieras ver claramente que cada persona es tú mismo con otro rostro, que cada daño que haces te lo haces a ti, que la separación es apariencia—¿dónde estaría el desafío de amar a tu enemigo? ¿Dónde estaría el acto de fe de perdonar a quien te ha herido?
 
 El jardín era perfecto, pero en el jardín no había elección real. No había fe porque todo era visible. No había coraje porque no había oscuridad. El amor existía, pero no había sido probado, forjado, elegido contra toda apariencia.
 

@@ -52,7 +52,7 @@ Esto es la vida humana. Cada uno sufre. Cada uno enfrenta pérdidas. Cada uno, n
 
 Una opción es resistir. Aferrarnos. Luchar contra la corriente. Tratar de salvar nuestra vida a toda costa, acumulando seguridades, evitando riesgos, protegiendo lo que tenemos. Esta es la respuesta natural. También es, según las palabras que hemos citado, la manera de perderlo todo.
 
-La otra opción es la cruz. Aceptar que algo en nosotros debe morir para que algo nuevo pueda vivir. Reconocer que el sufrimiento, lejos de ser un error en el diseño, es el catalizador que hace posible la transformación. Decir, en nuestros propios huertos de angustia: "No mi voluntad, sino la tuya."
+La otra opción es la cruz. Aceptar que algo en nosotros debe morir para que algo nuevo pueda vivir. Reconocer que el sufrimiento, lejos de ser un error en el diseño, es el fuego que hace posible la transformación. Decir, en nuestros propios huertos de angustia: "No mi voluntad, sino la tuya."
 
 Esto no significa buscar el sufrimiento. No significa glorificar el dolor por el dolor mismo. Significa reconocer que cuando el sufrimiento llega—y siempre llega—puede ser usado. Puede ser el fuego que purifica. Puede ser la presión que forma diamantes. Puede ser la muerte que precede a la resurrección.
 

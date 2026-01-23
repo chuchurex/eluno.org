@@ -62,7 +62,7 @@ Esta intensidad es agotadora. También es el crisol donde se forja el carácter 
 
 Pablo preguntó: "¿Quién me librará de este cuerpo de muerte?" Y él mismo respondió: "Gracias doy a Dios, por Jesucristo Señor nuestro." La liberación existe. Pero no es liberación de la condición humana—es liberación dentro de ella. No es escapar del campo de batalla—es encontrar la fuerza para elegir bien en medio de la guerra.
 
-Los que no eligen—los que comen y beben y se divierten sin comprometerse con nada, sin polarizarse hacia ningún lado—esos son los que más ayuda necesitan. No porque sean malos, sino porque están desperdiciando la oportunidad única que esta vida representa. El indiferente no pierde nada excepto todo.
+Los que no eligen—los que comen y beben y se divierten sin comprometerse con nada, sin orientar el corazón hacia ningún lado—esos son los que más ayuda necesitan. No porque sean malos, sino porque están desperdiciando la oportunidad única que esta vida representa. El indiferente no pierde nada excepto todo.
 
 ---
 

@@ -1,16 +1,19 @@
 {
   "name": "@eluno/doctrinas",
   "version": "0.1.0",
-  "description": "Doctrinas - Preview de borradores para revisión",
+  "description": "Nuestras Doctrinas - Libro digital con audiolibro",
   "scripts": {
     "sass:watch": "sass --watch ../core/scss/main.scss:dist/css/main.css",
     "sass:build": "sass ../core/scss/main.scss:dist/css/main.css --style=compressed",
     "serve": "live-server dist --port=3007",
     "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
-    "build": "npm run sass:build && node scripts/build-preview.js",
-    "build:preview": "node scripts/build-preview.js"
+    "build": "node scripts/build-audiobook.js && npm run sass:build && node scripts/build.js",
+    "build:preview": "node scripts/build-preview.js",
+    "build:audiobook": "node scripts/build-audiobook.js",
+    "build:audiobook:tts": "node scripts/build-audiobook.js --tts"
   },
   "devDependencies": {
+    "@msgpack/msgpack": "^3.1.3",
     "concurrently": "^8.2.0",
     "live-server": "^1.2.2",
     "sass": "^1.69.0"

@@ -36,7 +36,7 @@ Esto significa algo extraordinario: ni siquiera el Creador impone Su voluntad so
 
 Pero entonces, ¿qué significa "predestinado antes de la fundación del mundo"?
 
-Quizás significa esto: antes de encarnar, en un estado de mayor consciencia, cada ser participa en el diseño de su propia vida. Elige los padres, las circunstancias, los desafíos que enfrentará. Programa el catalizador que necesita para aprender lo que vino a aprender. En ese sentido, hay un destino—un patrón elegido, una trayectoria diseñada.
+Quizás significa esto: antes de encarnar, en un estado de mayor consciencia, cada ser participa en el diseño de su propia vida. Elige los padres, las circunstancias, los desafíos que enfrentará. Programa los desafíos que necesita para aprender lo que vino a aprender. En ese sentido, hay un destino—un patrón elegido, una trayectoria diseñada.
 
 Pero no hay predestinación en el sentido de que las elecciones dentro de la vida estén fijadas de antemano. La vida es maleable como arcilla fresca. El patrón puede ser seguido o abandonado. Las lecciones pueden ser aprendidas o evadidas. La libertad permanece intacta en cada momento.
 
@@ -48,7 +48,7 @@ Hay destino, pero no predestinación. Hay diseño, pero no determinismo. Hay un 
 
 Porque si lo recordáramos, la elección perdería su peso.
 
-Imagina que pudieras ver claramente que todo es uno, que servir a otros es servirte a ti mismo, que el amor es la única realidad, que la separación es ilusión. ¿Qué mérito tendría entonces elegir el amor? Sería simplemente reconocer lo obvio. No requeriría fe. No desarrollaría fortaleza. No forjaría carácter.
+Imagina que pudieras ver claramente que todo es uno, que servir a otros es servirte a ti mismo, que el amor es la única realidad, que la separación es apariencia. ¿Qué mérito tendría entonces elegir el amor? Sería simplemente reconocer lo obvio. No requeriría fe. No desarrollaría fortaleza. No forjaría carácter.
 
 La confusión no es un defecto del diseño. Es el diseño. La incertidumbre que experimentas, la dificultad de saber qué es verdad, el desafío de encontrar tu camino—estas no son fallas a corregir sino condiciones que hacen posible la elección genuina.
 
@@ -88,7 +88,7 @@ El alfarero y el barro. La imagen de Pablo parece sugerir pasividad total—el b
 
 Pero considera esto: ¿y si el barro, antes de ser barro, eligió ser moldeado? ¿Y si la arcilla, en un estado previo de consciencia, diseñó junto con el alfarero la vasija que llegaría a ser? ¿Y si la predestinación no es imposición externa sino elección olvidada?
 
-El yo superior—esa porción de ti que existe fuera del tiempo, que ve todas tus encarnaciones simultáneamente—participa en el diseño de cada vida. Elige las lecciones. Programa los encuentros. Prepara el catalizador. En ese sentido, hay un plan. Pero el plan fue tu plan, elegido en libertad, antes de que el velo descendiera.
+El yo superior—esa porción de ti que existe fuera del tiempo, que ve todas tus experiencias de aprendizaje simultáneamente—participa en el diseño de cada vida. Elige las lecciones. Programa los encuentros. Prepara los desafíos. En ese sentido, hay un plan. Pero el plan fue tu plan, elegido en libertad, antes de que el velo descendiera.
 
 Y dentro de la vida, la libertad permanece. Puedes seguir el plan o resistirlo. Puedes aprender las lecciones o evadirlas. Puedes convertirte en la vasija de honra que elegiste ser, o puedes—por tus propias elecciones dentro del tiempo—convertirte en algo diferente.
 
@@ -98,7 +98,7 @@ El alfarero no forza. El alfarero invita. Y el barro, milagrosamente, tiene voz.
 
 Somos co-creadores. Esta es quizás la verdad más asombrosa y más difícil de aceptar. No somos solo criaturas pasivas esperando que Dios decida nuestro destino. Somos participantes activos en la creación de nuestra realidad.
 
-La porción de ti que es co-creador es la porción que comenzó esta encarnación como voluntad pura—caótica, indómita, libre. Esa voluntad, dirigida y refinada a través de tus elecciones, se convierte en el instrumento con el que esculpes tu ser.
+La porción de ti que es co-creador es la porción que comenzó esta vida como voluntad pura—caótica, indómita, libre. Esa voluntad, dirigida y refinada a través de tus elecciones, se convierte en el instrumento con el que esculpes tu ser.
 
 Dios no está en tus manos—tú estás en las manos de Dios. Pero dentro de esas manos, tienes libertad de movimiento. Puedes cooperar con el moldeado o resistirlo. Puedes rendirte al diseño o luchar contra él. La arcilla no escapa del alfarero, pero la arcilla sí decide cuán suave o cuán dura será bajo sus manos.
 

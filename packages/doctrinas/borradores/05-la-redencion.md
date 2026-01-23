@@ -64,15 +64,15 @@ Esto es lo que la redención hace en nosotros. No nos convierte en copias idént
 
 El proceso de transformación puede compararse a la semilla en la tierra. Para que cualquier semilla crezca, debe ser puesta en la tierra oscura. Debe haber un tiempo de descanso allí, lejos de la luz, para que lo que está dentro de la semilla pueda reventar la cáscara, romper las limitaciones, los confines de esa experiencia, y brotar hacia la luz para que un nuevo ser nazca del viejo.
 
-La experiencia de transformación, vista desde una perspectiva más amplia, ocurre en un abrir y cerrar de ojos. Pero dentro de la ilusión del tiempo, esta misma transformación parece durar mucho, mucho en la noche oscura y solitaria. Hay compasión para quienes atraviesan este proceso. Hay aliento para perseverar, porque cada uno es una buena semilla con mucho aún por ofrecer en su florecimiento.
+La experiencia de transformación, vista desde una perspectiva más amplia, ocurre en un abrir y cerrar de ojos. Pero dentro de la experiencia del tiempo, esta misma transformación parece durar mucho, mucho en la noche oscura y solitaria. Hay compasión para quienes atraviesan este proceso. Hay aliento para perseverar, porque cada uno es una buena semilla con mucho aún por ofrecer en su florecimiento.
 
-Los ciclos se mueven, las estaciones cambian. El alma una vez más vivificará la personalidad que vive dentro de la ilusión, y habrá nuevamente el gozo del corazón que brota hacia el verano y hacia la plena fructificación que es posible para cada buscador de la verdad.
+Los ciclos se mueven, las estaciones cambian. El alma una vez más vivificará la personalidad que vive dentro de este mundo velado, y habrá nuevamente el gozo del corazón que brota hacia el verano y hacia la plena fructificación que es posible para cada buscador de la verdad.
 
 ---
 
 Hay quienes han tenido dificultad para perdonarse a sí mismos y, de forma inocente pero incorrecta, ponen límites a los poderes redentores del amor. Sin querer, convierten una redención infinita en una limitada que no alcanza a cubrir sus pecados o debilidades particulares. Pero se trata de una redención infinita precisamente porque abarca todo pecado y toda debilidad.
 
-Ningún error puede quitar de una entidad la verdad de su naturaleza: un ser de unidad con el Creador. La mancha más profunda puede ser blanqueada. La oscuridad más densa puede ser iluminada. No hay abismo tan profundo que el amor no pueda alcanzar.
+Ningún error puede quitar de un alma la verdad de su naturaleza: un ser de unidad con el Creador. La mancha más profunda puede ser blanqueada. La oscuridad más densa puede ser iluminada. No hay abismo tan profundo que el amor no pueda alcanzar.
 
 Esto no significa que las consecuencias de nuestras acciones desaparezcan mágicamente. Significa que no estamos definidos por ellas. Significa que hay un camino hacia adelante que no está bloqueado por nuestro pasado. Significa que la transformación es siempre posible, sin importar qué tan lejos nos hayamos alejado del camino.
 
