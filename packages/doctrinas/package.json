@@ -7,10 +7,11 @@
     "sass:build": "sass ../core/scss/main.scss:dist/css/main.css --style=compressed",
     "serve": "live-server dist --port=3007",
     "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
-    "build": "node scripts/build-audiobook.js && npm run sass:build && node scripts/build.js",
+    "build": "node scripts/build-audiobook.js && npm run sass:build && node scripts/build.js && npm run build:revision",
     "build:preview": "node scripts/build-preview.js",
     "build:audiobook": "node scripts/build-audiobook.js",
-    "build:audiobook:tts": "node scripts/build-audiobook.js --tts"
+    "build:audiobook:tts": "node scripts/build-audiobook.js --tts",
+    "build:revision": "node scripts/build-revision.js"
   },
   "devDependencies": {
     "@msgpack/msgpack": "^3.1.3",
