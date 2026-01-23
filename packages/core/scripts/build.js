@@ -448,7 +448,7 @@ function generateHead(lang, ui, allLangs, version, pagePath, cssPath, pageTitle,
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${pageTitle} | ${DOMAIN}</title>
     <meta name="description" content="${ui.description}">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="${process.env.INDEXABLE === 'true' ? 'index, follow' : 'noindex, nofollow'}">
     <link rel="canonical" href="${SITE_URL}${canonicalPath}">
 ${process.env.GA_ID ? `    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ID}"></script>
