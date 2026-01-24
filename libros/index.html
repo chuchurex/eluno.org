@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eluno.org — Review Dashboard</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Georgia', serif; background: #1a1a2e; color: #e0e0e0; padding: 2rem; line-height: 1.6; }
+    h1 { font-size: 2rem; color: #f0e6d3; margin-bottom: 0.5rem; }
+    .subtitle { color: #a0a0b0; font-style: italic; margin-bottom: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .card { background: #16213e; border-radius: 12px; padding: 1.5rem; border: 1px solid #2a2a4a; transition: transform 0.2s; }
+    .card:hover { transform: translateY(-2px); border-color: #4a4a7a; }
+    .card-id { font-size: 0.75rem; color: #6a6a8a; font-family: monospace; margin-bottom: 0.25rem; }
+    .card-title { font-size: 1.3rem; color: #f0e6d3; margin-bottom: 0.25rem; }
+    .card-slug { font-family: monospace; font-size: 0.8rem; color: #7a7aaa; margin-bottom: 0.75rem; }
+    .card-distortion { font-size: 0.85rem; color: #b0b0c0; margin-bottom: 0.5rem; }
+    .card-audience { font-size: 0.8rem; color: #8a8aaa; font-style: italic; margin-bottom: 1rem; }
+    .links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .links a { display: inline-block; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-family: monospace; transition: background 0.2s; }
+    .link-site { background: #2a4a6a; color: #a0d0f0; }
+    .link-site:hover { background: #3a5a7a; }
+    .link-static { background: #2a4a3a; color: #a0f0c0; }
+    .link-static:hover { background: #3a5a4a; }
+    .link-disabled { background: #2a2a3a; color: #5a5a6a; cursor: not-allowed; pointer-events: none; }
+    .section { margin-top: 2.5rem; }
+    .section h2 { color: #d0c6b3; font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .tree { font-family: monospace; font-size: 0.9rem; color: #b0b0c0; padding: 1rem; background: #0f1a2e; border-radius: 8px; white-space: pre; }
+    .constants { list-style: none; padding: 0; }
+    .constants li { padding: 0.3rem 0; color: #c0c0d0; font-size: 0.9rem; }
+    .constants li::before { content: "→ "; color: #6a8aaa; }
+    .status { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-family: monospace; margin-left: 0.5rem; }
+    .status-ok { background: #1a4a2a; color: #4ade80; }
+    .status-broken { background: #4a1a1a; color: #f87171; }
+    .status-partial { background: #4a3a1a; color: #fbbf24; }
+  </style>
+</head>
+<body>
+
+  <h1>eluno.org — Transparent Distortions</h1>
+  <p class="subtitle">Each book removes the specific trigger words that would activate reactance in its target audience, while preserving the complete philosophical message.</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-id">000</div>
+      <div class="card-title">El Uno / The One</div>
+      <div class="card-slug">packages/eluno</div>
+      <div class="card-distortion">Philosophical base — no distortion applied</div>
+      <div class="card-audience">Intellectually-oriented seekers</div>
+      <div class="links">
+        <a href="https://eluno.org" class="link-site" target="_blank">eluno.org</a>
+        <a href="https://eluno.org/en/" class="link-site" target="_blank">/en</a>
+        <a href="https://eluno.org/pt/" class="link-site" target="_blank">/pt</a>
+        <a href="https://static.eluno.org/pdf/es/el-uno-cap-01-cosmologia-y-genesis.pdf" class="link-static" target="_blank">PDF es</a>
+        <a href="https://static.eluno.org/pdf/en/the-one-ch-01-cosmology-and-genesis.pdf" class="link-static" target="_blank">PDF en</a>
+        <a href="https://static.eluno.org/audiobook/audio/es/el-uno-cap-01-cosmologia-y-genesis.mp3" class="link-static" target="_blank">MP3 es</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-id">010</div>
+      <div class="card-title">Las Ense&ntilde;anzas de la Ley del Uno</div>
+      <div class="card-slug">packages/todo</div>
+      <div class="card-distortion">Agnostic/narrative — removes esoteric terminology</div>
+      <div class="card-audience">Modern seekers without religious framework</div>
+      <div class="links">
+        <a href="https://todo.eluno.org" class="link-site" target="_blank">todo.eluno.org</a>
+        <a href="https://todo.eluno.org/en/" class="link-site" target="_blank">/en</a>
+        <a href="https://todo.eluno.org/pt/" class="link-site" target="_blank">/pt</a>
+        <a href="https://static.eluno.org/todo/pdf/es/ensenanzas-cap-01-el-uno-infinito.pdf" class="link-static" target="_blank">PDF es</a>
+        <a href="https://static.eluno.org/todo/pdf/en/teachings-ch-01-the-infinite-one.pdf" class="link-static" target="_blank">PDF en</a>
+        <a href="https://static.eluno.org/todo/audiobook/audio/es-tts/ensenanzas-cap-01-el-uno-infinito.mp3" class="link-static" target="_blank">MP3 es</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-id">020</div>
+      <div class="card-title">El Camino del Amor</div>
+      <div class="card-slug">packages/jesus</div>
+      <div class="card-distortion">Christian lens — uses biblical language and references</div>
+      <div class="card-audience">Christians open to contemplative spirituality</div>
+      <div class="links">
+        <a href="https://jesus.eluno.org" class="link-site" target="_blank">jesus.eluno.org</a>
+        <a href="https://jesus.eluno.org/en/" class="link-site" target="_blank">/en</a>
+        <a href="https://jesus.eluno.org/pt/" class="link-site" target="_blank">/pt</a>
+        <a href="https://static.eluno.org/jesus/audiobook/audio/es/camino-del-amor-cap-01-en-el-principio-era-el-verbo.mp3" class="link-static" target="_blank">MP3 es</a>
+        <span class="link-disabled">PDF pendiente</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-id">021</div>
+      <div class="card-title">Sanaci&oacute;n</div>
+      <div class="card-slug">packages/sanacion</div>
+      <div class="card-distortion">Christian + practical — healing and transformation focus</div>
+      <div class="card-audience">Christians seeking healing and transformation</div>
+      <div class="links">
+        <a href="https://sanacion.eluno.org" class="link-site" target="_blank">sanacion.eluno.org</a>
+        <a href="https://sanacion.eluno.org/en/" class="link-site" target="_blank">/en</a>
+        <span class="link-disabled">MP3 pendiente</span>
+        <span class="link-disabled">PDF pendiente</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-id">100</div>
+      <div class="card-title">Doctrinas</div>
+      <div class="card-slug">packages/doctrinas</div>
+      <div class="card-distortion">Theological doctrine — traditional Catholic framework</div>
+      <div class="card-audience">Traditional/Catholic Christians</div>
+      <div class="links">
+        <a href="https://doctrinas.eluno.org" class="link-site" target="_blank">doctrinas.eluno.org</a>
+        <span class="link-disabled">MP3 pendiente</span>
+        <span class="link-disabled">PDF pendiente</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <h2>The Distortion Tree</h2>
+    <div class="tree">000 (eluno) ─── The philosophical core
+ │
+ ├── 010 (todo) ─── Agnostic simplification
+ │
+ ├── 020 (jesus) ─── Christian lens
+ │    │
+ │    └── 021 (sanacion) ─── Practical healing sub-branch
+ │
+ └── 100 (doctrinas) ─── Theological doctrine branch</div>
+  </div>
+
+  <div class="section">
+    <h2>What remains constant across ALL versions</h2>
+    <ul class="constants">
+      <li>Unity of consciousness at source</li>
+      <li>Apparent separation as sacred and necessary</li>
+      <li>Free will as fundamental principle</li>
+      <li>Love as the creative force</li>
+      <li>Every being is the Creator experiencing itself</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Media Status</h2>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+      <div class="card">
+        <div class="card-title" style="font-size: 1rem;">eluno <span class="status status-partial">build roto</span></div>
+        <div class="card-distortion">PDF: es/en/pt ✓ | MP3: es ✓ | MP3 en/pt: ✗</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="font-size: 1rem;">todo <span class="status status-ok">0 errores</span></div>
+        <div class="card-distortion">PDF: es/en/pt ✓ | MP3: es ✓ | MP3 en/pt: ✗</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="font-size: 1rem;">jesus <span class="status status-ok">0 errores</span></div>
+        <div class="card-distortion">MP3: es ✓ | PDF: ✗ | MP3 en/pt: ✗</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="font-size: 1rem;">sanacion <span class="status status-ok">0 errores</span></div>
+        <div class="card-distortion">MP3: solo ch1-en (prueba) | PDF: ✗</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="font-size: 1rem;">doctrinas <span class="status status-partial">sin media</span></div>
+        <div class="card-distortion">MP3: ✗ | PDF: ✗</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
