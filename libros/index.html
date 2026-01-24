@@ -3,171 +3,702 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eluno.org — Review Dashboard</title>
+  <title>eluno.org — Libros</title>
+  <meta name="description" content="Five philosophical books exploring unity, consciousness, and love — each adapted for a different audience while preserving the same core message.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✧</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #050505;
+      --bg2: #121212;
+      --bg3: #1E1E1E;
+      --text: #E0E0E0;
+      --text2: #B0B0B0;
+      --muted: #9E9E9E;
+      --gold: #E6C275;
+      --gold-dim: #C9A962;
+      --gold-hover: #F0D595;
+      --border: rgba(230, 194, 117, 0.2);
+      --border2: rgba(230, 194, 117, 0.35);
+      --shadow: rgba(0, 0, 0, 0.8);
+      --radius: 4px;
+    }
+
+    [data-theme="light"] {
+      --bg: #F9F7F1;
+      --bg2: #F0EAD6;
+      --bg3: #E6DCC3;
+      --text: #1A1A1A;
+      --text2: #4A4A4A;
+      --muted: #595959;
+      --gold: #8F7528;
+      --gold-dim: #A68B3C;
+      --gold-hover: #705B1E;
+      --border: rgba(143, 117, 40, 0.25);
+      --border2: rgba(143, 117, 40, 0.45);
+      --shadow: rgba(143, 117, 40, 0.15);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Georgia', serif; background: #1a1a2e; color: #e0e0e0; padding: 2rem; line-height: 1.6; }
-    h1 { font-size: 2rem; color: #f0e6d3; margin-bottom: 0.5rem; }
-    .subtitle { color: #a0a0b0; font-style: italic; margin-bottom: 2rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-    .card { background: #16213e; border-radius: 12px; padding: 1.5rem; border: 1px solid #2a2a4a; transition: transform 0.2s; }
-    .card:hover { transform: translateY(-2px); border-color: #4a4a7a; }
-    .card-id { font-size: 0.75rem; color: #6a6a8a; font-family: monospace; margin-bottom: 0.25rem; }
-    .card-title { font-size: 1.3rem; color: #f0e6d3; margin-bottom: 0.25rem; }
-    .card-slug { font-family: monospace; font-size: 0.8rem; color: #7a7aaa; margin-bottom: 0.75rem; }
-    .card-distortion { font-size: 0.85rem; color: #b0b0c0; margin-bottom: 0.5rem; }
-    .card-audience { font-size: 0.8rem; color: #8a8aaa; font-style: italic; margin-bottom: 1rem; }
-    .links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .links a { display: inline-block; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-family: monospace; transition: background 0.2s; }
-    .link-site { background: #2a4a6a; color: #a0d0f0; }
-    .link-site:hover { background: #3a5a7a; }
-    .link-static { background: #2a4a3a; color: #a0f0c0; }
-    .link-static:hover { background: #3a5a4a; }
-    .link-disabled { background: #2a2a3a; color: #5a5a6a; cursor: not-allowed; pointer-events: none; }
-    .section { margin-top: 2.5rem; }
-    .section h2 { color: #d0c6b3; font-size: 1.2rem; margin-bottom: 0.5rem; }
-    .tree { font-family: monospace; font-size: 0.9rem; color: #b0b0c0; padding: 1rem; background: #0f1a2e; border-radius: 8px; white-space: pre; }
-    .constants { list-style: none; padding: 0; }
-    .constants li { padding: 0.3rem 0; color: #c0c0d0; font-size: 0.9rem; }
-    .constants li::before { content: "→ "; color: #6a8aaa; }
-    .status { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-family: monospace; margin-left: 0.5rem; }
-    .status-ok { background: #1a4a2a; color: #4ade80; }
-    .status-broken { background: #4a1a1a; color: #f87171; }
-    .status-partial { background: #4a3a1a; color: #fbbf24; }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Spectral', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(230, 194, 117, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(123, 107, 138, 0.03) 0%, transparent 50%);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 2.8rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--text2);
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Controls bar */
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-btn:hover {
+      color: var(--gold);
+      border-color: var(--border2);
+    }
+
+    .lang-btn.active {
+      color: var(--gold);
+      border-color: var(--gold-dim);
+      background: rgba(230, 194, 117, 0.08);
+    }
+
+    .theme-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 1rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+
+    .theme-btn:hover {
+      color: var(--gold);
+      border-color: var(--border2);
+    }
+
+    /* Section titles */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Books grid */
+    .books {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .book {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 2rem;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .book:hover {
+      border-color: var(--border2);
+      transform: translateX(4px);
+    }
+
+    .book-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-id {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      min-width: 2rem;
+    }
+
+    .book-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.5rem;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .book-description {
+      font-size: 0.9rem;
+      color: var(--text2);
+      margin-bottom: 0.75rem;
+      padding-left: 3rem;
+      font-style: italic;
+    }
+
+    .book-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      padding-left: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .book-meta-item {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .book-meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-dim);
+      margin-right: 0.3rem;
+    }
+
+    .book-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-left: 3rem;
+    }
+
+    .book-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      transition: all 0.2s ease;
+    }
+
+    .book-link:hover {
+      border-color: var(--gold-dim);
+      background: rgba(230, 194, 117, 0.08);
+      color: var(--gold-hover);
+    }
+
+    .book-link-secondary {
+      color: var(--muted);
+    }
+
+    .book-link-secondary:hover {
+      color: var(--gold);
+    }
+
+    /* Tree section */
+    .tree-section {
+      margin-bottom: 3rem;
+    }
+
+    .tree {
+      font-family: 'Spectral', serif;
+      font-size: 0.85rem;
+      color: var(--text2);
+      padding: 1.5rem 2rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      white-space: pre;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+
+    .tree-gold {
+      color: var(--gold);
+    }
+
+    /* Constants section */
+    .constants-section {
+      margin-bottom: 3rem;
+    }
+
+    .constants {
+      list-style: none;
+      padding: 0;
+    }
+
+    .constants li {
+      padding: 0.4rem 0;
+      color: var(--text2);
+      font-size: 0.9rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .constants li::before {
+      content: "\2727";
+      position: absolute;
+      left: 0;
+      color: var(--gold-dim);
+      font-size: 0.7rem;
+      top: 0.55rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--gold-hover);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+      .container { padding: 2rem 1.25rem; }
+      h1 { font-size: 2.2rem; }
+      .book { padding: 1.25rem 1.5rem; }
+      .book-description,
+      .book-meta,
+      .book-links { padding-left: 0; }
+      .book-header { flex-direction: column; gap: 0.25rem; }
+      .book:hover { transform: none; }
+    }
   </style>
 </head>
 <body>
+  <div class="container">
 
-  <h1>eluno.org — Transparent Distortions</h1>
-  <p class="subtitle">Each book removes the specific trigger words that would activate reactance in its target audience, while preserving the complete philosophical message.</p>
-
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-id">000</div>
-      <div class="card-title">El Uno / The One</div>
-      <div class="card-slug">packages/eluno</div>
-      <div class="card-distortion">Philosophical base — no distortion applied</div>
-      <div class="card-audience">Intellectually-oriented seekers</div>
-      <div class="links">
-        <a href="https://eluno.org" class="link-site" target="_blank">eluno.org</a>
-        <a href="https://eluno.org/en/" class="link-site" target="_blank">/en</a>
-        <a href="https://eluno.org/pt/" class="link-site" target="_blank">/pt</a>
-        <a href="https://static.eluno.org/pdf/es/el-uno-cap-01-cosmologia-y-genesis.pdf" class="link-static" target="_blank">PDF es</a>
-        <a href="https://static.eluno.org/pdf/en/the-one-ch-01-cosmology-and-genesis.pdf" class="link-static" target="_blank">PDF en</a>
-        <a href="https://static.eluno.org/audiobook/audio/es/el-uno-cap-01-cosmologia-y-genesis.mp3" class="link-static" target="_blank">MP3 es</a>
+    <header>
+      <h1 data-i18n="title">Libros</h1>
+      <p class="subtitle" data-i18n="subtitle">Cinco libros filosóficos que exploran la unidad, la consciencia y el amor — cada uno adaptado para una audiencia diferente, preservando el mismo mensaje esencial.</p>
+      <div class="controls">
+        <div class="lang-switcher">
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="pt">PT</button>
+        </div>
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">&#9790;</button>
       </div>
+    </header>
+
+    <div class="section-title" data-i18n="section-books">Los libros</div>
+
+    <div class="books">
+
+      <div class="book">
+        <div class="book-header">
+          <span class="book-id">000</span>
+          <span class="book-title" data-i18n="book0-title">El Uno</span>
+        </div>
+        <p class="book-description" data-i18n="book0-desc">Base filosófica — sin distorsión aplicada. El mensaje puro.</p>
+        <div class="book-meta">
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-audience">Audiencia</span> <span data-i18n="book0-audience">Buscadores intelectuales</span></span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-chapters">Capítulos</span> 7</span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-langs">Idiomas</span> ES · EN · PT</span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-formats">Formatos</span> Web · PDF · MP3</span>
+        </div>
+        <div class="book-links">
+          <a href="https://eluno.org" class="book-link" target="_blank" data-i18n-href="book0-href">eluno.org</a>
+          <a href="https://static.eluno.org/pdf/es/el-uno-cap-01-cosmologia-y-genesis.pdf" class="book-link book-link-secondary" target="_blank">PDF</a>
+          <a href="https://static.eluno.org/audiobook/audio/es/el-uno-cap-01-cosmologia-y-genesis.mp3" class="book-link book-link-secondary" target="_blank">MP3</a>
+        </div>
+      </div>
+
+      <div class="book">
+        <div class="book-header">
+          <span class="book-id">010</span>
+          <span class="book-title" data-i18n="book1-title">Las Enseñanzas de la Ley del Uno</span>
+        </div>
+        <p class="book-description" data-i18n="book1-desc">Simplificación agnóstica — elimina terminología esotérica.</p>
+        <div class="book-meta">
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-audience">Audiencia</span> <span data-i18n="book1-audience">Buscadores modernos sin marco religioso</span></span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-chapters">Capítulos</span> 7</span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-langs">Idiomas</span> ES · EN · PT</span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-formats">Formatos</span> Web · PDF · MP3</span>
+        </div>
+        <div class="book-links">
+          <a href="https://todo.eluno.org" class="book-link" target="_blank" data-i18n-href="book1-href">todo.eluno.org</a>
+          <a href="https://static.eluno.org/todo/pdf/es/ensenanzas-cap-01-el-uno-infinito.pdf" class="book-link book-link-secondary" target="_blank">PDF</a>
+          <a href="https://static.eluno.org/todo/audiobook/audio/es-tts/ensenanzas-cap-01-el-uno-infinito.mp3" class="book-link book-link-secondary" target="_blank">MP3</a>
+        </div>
+      </div>
+
+      <div class="book">
+        <div class="book-header">
+          <span class="book-id">020</span>
+          <span class="book-title" data-i18n="book2-title">El Camino del Amor</span>
+        </div>
+        <p class="book-description" data-i18n="book2-desc">Lente cristiano — usa lenguaje y referencias bíblicas.</p>
+        <div class="book-meta">
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-audience">Audiencia</span> <span data-i18n="book2-audience">Cristianos abiertos a la espiritualidad contemplativa</span></span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-chapters">Capítulos</span> 7</span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-langs">Idiomas</span> ES · EN · PT</span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-formats">Formatos</span> Web · MP3</span>
+        </div>
+        <div class="book-links">
+          <a href="https://jesus.eluno.org" class="book-link" target="_blank" data-i18n-href="book2-href">jesus.eluno.org</a>
+          <a href="https://static.eluno.org/jesus/audiobook/audio/es/camino-del-amor-cap-01-en-el-principio-era-el-verbo.mp3" class="book-link book-link-secondary" target="_blank">MP3</a>
+        </div>
+      </div>
+
+      <div class="book">
+        <div class="book-header">
+          <span class="book-id">021</span>
+          <span class="book-title" data-i18n="book3-title">Sanación</span>
+        </div>
+        <p class="book-description" data-i18n="book3-desc">Cristiano + práctico — enfoque en sanación y transformación.</p>
+        <div class="book-meta">
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-audience">Audiencia</span> <span data-i18n="book3-audience">Cristianos buscando sanación y transformación</span></span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-chapters">Capítulos</span> 12</span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-langs">Idiomas</span> ES · EN</span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-formats">Formatos</span> Web</span>
+        </div>
+        <div class="book-links">
+          <a href="https://sanacion.eluno.org" class="book-link" target="_blank" data-i18n-href="book3-href">sanacion.eluno.org</a>
+        </div>
+      </div>
+
+      <div class="book">
+        <div class="book-header">
+          <span class="book-id">100</span>
+          <span class="book-title" data-i18n="book4-title">Doctrinas</span>
+        </div>
+        <p class="book-description" data-i18n="book4-desc">Doctrina teológica — marco católico tradicional.</p>
+        <div class="book-meta">
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-audience">Audiencia</span> <span data-i18n="book4-audience">Cristianos tradicionales/católicos</span></span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-chapters">Capítulos</span> 7</span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-langs">Idiomas</span> ES</span>
+          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-formats">Formatos</span> Web</span>
+        </div>
+        <div class="book-links">
+          <a href="https://doctrinas.eluno.org" class="book-link" target="_blank" data-i18n-href="book4-href">doctrinas.eluno.org</a>
+        </div>
+      </div>
+
     </div>
 
-    <div class="card">
-      <div class="card-id">010</div>
-      <div class="card-title">Las Ense&ntilde;anzas de la Ley del Uno</div>
-      <div class="card-slug">packages/todo</div>
-      <div class="card-distortion">Agnostic/narrative — removes esoteric terminology</div>
-      <div class="card-audience">Modern seekers without religious framework</div>
-      <div class="links">
-        <a href="https://todo.eluno.org" class="link-site" target="_blank">todo.eluno.org</a>
-        <a href="https://todo.eluno.org/en/" class="link-site" target="_blank">/en</a>
-        <a href="https://todo.eluno.org/pt/" class="link-site" target="_blank">/pt</a>
-        <a href="https://static.eluno.org/todo/pdf/es/ensenanzas-cap-01-el-uno-infinito.pdf" class="link-static" target="_blank">PDF es</a>
-        <a href="https://static.eluno.org/todo/pdf/en/teachings-ch-01-the-infinite-one.pdf" class="link-static" target="_blank">PDF en</a>
-        <a href="https://static.eluno.org/todo/audiobook/audio/es-tts/ensenanzas-cap-01-el-uno-infinito.mp3" class="link-static" target="_blank">MP3 es</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-id">020</div>
-      <div class="card-title">El Camino del Amor</div>
-      <div class="card-slug">packages/jesus</div>
-      <div class="card-distortion">Christian lens — uses biblical language and references</div>
-      <div class="card-audience">Christians open to contemplative spirituality</div>
-      <div class="links">
-        <a href="https://jesus.eluno.org" class="link-site" target="_blank">jesus.eluno.org</a>
-        <a href="https://jesus.eluno.org/en/" class="link-site" target="_blank">/en</a>
-        <a href="https://jesus.eluno.org/pt/" class="link-site" target="_blank">/pt</a>
-        <a href="https://static.eluno.org/jesus/audiobook/audio/es/camino-del-amor-cap-01-en-el-principio-era-el-verbo.mp3" class="link-static" target="_blank">MP3 es</a>
-        <span class="link-disabled">PDF pendiente</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-id">021</div>
-      <div class="card-title">Sanaci&oacute;n</div>
-      <div class="card-slug">packages/sanacion</div>
-      <div class="card-distortion">Christian + practical — healing and transformation focus</div>
-      <div class="card-audience">Christians seeking healing and transformation</div>
-      <div class="links">
-        <a href="https://sanacion.eluno.org" class="link-site" target="_blank">sanacion.eluno.org</a>
-        <a href="https://sanacion.eluno.org/en/" class="link-site" target="_blank">/en</a>
-        <span class="link-disabled">MP3 pendiente</span>
-        <span class="link-disabled">PDF pendiente</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-id">100</div>
-      <div class="card-title">Doctrinas</div>
-      <div class="card-slug">packages/doctrinas</div>
-      <div class="card-distortion">Theological doctrine — traditional Catholic framework</div>
-      <div class="card-audience">Traditional/Catholic Christians</div>
-      <div class="links">
-        <a href="https://doctrinas.eluno.org" class="link-site" target="_blank">doctrinas.eluno.org</a>
-        <span class="link-disabled">MP3 pendiente</span>
-        <span class="link-disabled">PDF pendiente</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="section">
-    <h2>The Distortion Tree</h2>
-    <div class="tree">000 (eluno) ─── The philosophical core
+    <div class="tree-section">
+      <div class="section-title" data-i18n="section-tree">El árbol de distorsión</div>
+      <div class="tree" id="tree-content"><span class="tree-gold">000</span> El Uno ─── Base filosófica
  │
- ├── 010 (todo) ─── Agnostic simplification
+ ├── <span class="tree-gold">010</span> Las Enseñanzas ─── Simplificación agnóstica
  │
- ├── 020 (jesus) ─── Christian lens
+ ├── <span class="tree-gold">020</span> El Camino del Amor ─── Lente cristiano
  │    │
- │    └── 021 (sanacion) ─── Practical healing sub-branch
+ │    └── <span class="tree-gold">021</span> Sanación ─── Sub-rama de sanación práctica
  │
- └── 100 (doctrinas) ─── Theological doctrine branch</div>
-  </div>
-
-  <div class="section">
-    <h2>What remains constant across ALL versions</h2>
-    <ul class="constants">
-      <li>Unity of consciousness at source</li>
-      <li>Apparent separation as sacred and necessary</li>
-      <li>Free will as fundamental principle</li>
-      <li>Love as the creative force</li>
-      <li>Every being is the Creator experiencing itself</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Media Status</h2>
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-      <div class="card">
-        <div class="card-title" style="font-size: 1rem;">eluno <span class="status status-partial">build roto</span></div>
-        <div class="card-distortion">PDF: es/en/pt ✓ | MP3: es ✓ | MP3 en/pt: ✗</div>
-      </div>
-      <div class="card">
-        <div class="card-title" style="font-size: 1rem;">todo <span class="status status-ok">0 errores</span></div>
-        <div class="card-distortion">PDF: es/en/pt ✓ | MP3: es ✓ | MP3 en/pt: ✗</div>
-      </div>
-      <div class="card">
-        <div class="card-title" style="font-size: 1rem;">jesus <span class="status status-ok">0 errores</span></div>
-        <div class="card-distortion">MP3: es ✓ | PDF: ✗ | MP3 en/pt: ✗</div>
-      </div>
-      <div class="card">
-        <div class="card-title" style="font-size: 1rem;">sanacion <span class="status status-ok">0 errores</span></div>
-        <div class="card-distortion">MP3: solo ch1-en (prueba) | PDF: ✗</div>
-      </div>
-      <div class="card">
-        <div class="card-title" style="font-size: 1rem;">doctrinas <span class="status status-partial">sin media</span></div>
-        <div class="card-distortion">MP3: ✗ | PDF: ✗</div>
-      </div>
+ └── <span class="tree-gold">100</span> Doctrinas ─── Rama de doctrina teológica</div>
     </div>
+
+    <div class="constants-section">
+      <div class="section-title" data-i18n="section-constants">Lo que permanece constante</div>
+      <ul class="constants">
+        <li data-i18n="const0">La unidad de la consciencia en la fuente</li>
+        <li data-i18n="const1">La separación aparente como sagrada y necesaria</li>
+        <li data-i18n="const2">El libre albedrío como principio fundamental</li>
+        <li data-i18n="const3">El amor como fuerza creadora</li>
+        <li data-i18n="const4">Todo ser es el Creador experimentándose a sí mismo</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p><a href="https://eluno.org">eluno.org</a></p>
+    </footer>
+
   </div>
 
+  <script>
+    var i18n = {
+      es: {
+        'title': 'Libros',
+        'subtitle': 'Cinco libros filos\u00f3ficos que exploran la unidad, la consciencia y el amor \u2014 cada uno adaptado para una audiencia diferente, preservando el mismo mensaje esencial.',
+        'section-books': 'Los libros',
+        'section-tree': 'El \u00e1rbol de distorsi\u00f3n',
+        'section-constants': 'Lo que permanece constante',
+        'meta-audience': 'Audiencia',
+        'meta-chapters': 'Cap\u00edtulos',
+        'meta-langs': 'Idiomas',
+        'meta-formats': 'Formatos',
+        'book0-title': 'El Uno',
+        'book0-desc': 'Base filos\u00f3fica \u2014 sin distorsi\u00f3n aplicada. El mensaje puro.',
+        'book0-audience': 'Buscadores intelectuales',
+        'book1-title': 'Las Ense\u00f1anzas de la Ley del Uno',
+        'book1-desc': 'Simplificaci\u00f3n agn\u00f3stica \u2014 elimina terminolog\u00eda esot\u00e9rica.',
+        'book1-audience': 'Buscadores modernos sin marco religioso',
+        'book2-title': 'El Camino del Amor',
+        'book2-desc': 'Lente cristiano \u2014 usa lenguaje y referencias b\u00edblicas.',
+        'book2-audience': 'Cristianos abiertos a la espiritualidad contemplativa',
+        'book3-title': 'Sanaci\u00f3n',
+        'book3-desc': 'Cristiano + pr\u00e1ctico \u2014 enfoque en sanaci\u00f3n y transformaci\u00f3n.',
+        'book3-audience': 'Cristianos buscando sanaci\u00f3n y transformaci\u00f3n',
+        'book4-title': 'Doctrinas',
+        'book4-desc': 'Doctrina teol\u00f3gica \u2014 marco cat\u00f3lico tradicional.',
+        'book4-audience': 'Cristianos tradicionales/cat\u00f3licos',
+        'const0': 'La unidad de la consciencia en la fuente',
+        'const1': 'La separaci\u00f3n aparente como sagrada y necesaria',
+        'const2': 'El libre albedr\u00edo como principio fundamental',
+        'const3': 'El amor como fuerza creadora',
+        'const4': 'Todo ser es el Creador experiment\u00e1ndose a s\u00ed mismo'
+      },
+      en: {
+        'title': 'Books',
+        'subtitle': 'Five philosophical books exploring unity, consciousness, and love \u2014 each adapted for a different audience while preserving the same core message.',
+        'section-books': 'The books',
+        'section-tree': 'The distortion tree',
+        'section-constants': 'What remains constant',
+        'meta-audience': 'Audience',
+        'meta-chapters': 'Chapters',
+        'meta-langs': 'Languages',
+        'meta-formats': 'Formats',
+        'book0-title': 'The One',
+        'book0-desc': 'Philosophical base \u2014 no distortion applied. The pure message.',
+        'book0-audience': 'Intellectually-oriented seekers',
+        'book1-title': 'The Teachings of the Law of One',
+        'book1-desc': 'Agnostic simplification \u2014 removes esoteric terminology.',
+        'book1-audience': 'Modern seekers without religious framework',
+        'book2-title': 'The Way of Love',
+        'book2-desc': 'Christian lens \u2014 uses biblical language and references.',
+        'book2-audience': 'Christians open to contemplative spirituality',
+        'book3-title': 'Healing',
+        'book3-desc': 'Christian + practical \u2014 healing and transformation focus.',
+        'book3-audience': 'Christians seeking healing and transformation',
+        'book4-title': 'Doctrines',
+        'book4-desc': 'Theological doctrine \u2014 traditional Catholic framework.',
+        'book4-audience': 'Traditional/Catholic Christians',
+        'const0': 'Unity of consciousness at source',
+        'const1': 'Apparent separation as sacred and necessary',
+        'const2': 'Free will as fundamental principle',
+        'const3': 'Love as the creative force',
+        'const4': 'Every being is the Creator experiencing itself'
+      },
+      pt: {
+        'title': 'Livros',
+        'subtitle': 'Cinco livros filos\u00f3ficos que exploram a unidade, a consci\u00eancia e o amor \u2014 cada um adaptado para um p\u00fablico diferente, preservando a mesma mensagem essencial.',
+        'section-books': 'Os livros',
+        'section-tree': 'A \u00e1rvore de distor\u00e7\u00e3o',
+        'section-constants': 'O que permanece constante',
+        'meta-audience': 'P\u00fablico',
+        'meta-chapters': 'Cap\u00edtulos',
+        'meta-langs': 'Idiomas',
+        'meta-formats': 'Formatos',
+        'book0-title': 'O Um',
+        'book0-desc': 'Base filos\u00f3fica \u2014 sem distor\u00e7\u00e3o aplicada. A mensagem pura.',
+        'book0-audience': 'Buscadores intelectuais',
+        'book1-title': 'Os Ensinamentos da Lei do Um',
+        'book1-desc': 'Simplifica\u00e7\u00e3o agn\u00f3stica \u2014 elimina terminologia esot\u00e9rica.',
+        'book1-audience': 'Buscadores modernos sem estrutura religiosa',
+        'book2-title': 'O Caminho do Amor',
+        'book2-desc': 'Lente crist\u00e3 \u2014 usa linguagem e refer\u00eancias b\u00edblicas.',
+        'book2-audience': 'Crist\u00e3os abertos \u00e0 espiritualidade contemplativa',
+        'book3-title': 'Cura',
+        'book3-desc': 'Crist\u00e3o + pr\u00e1tico \u2014 foco em cura e transforma\u00e7\u00e3o.',
+        'book3-audience': 'Crist\u00e3os buscando cura e transforma\u00e7\u00e3o',
+        'book4-title': 'Doutrinas',
+        'book4-desc': 'Doutrina teol\u00f3gica \u2014 estrutura cat\u00f3lica tradicional.',
+        'book4-audience': 'Crist\u00e3os tradicionais/cat\u00f3licos',
+        'const0': 'A unidade da consci\u00eancia na fonte',
+        'const1': 'A separa\u00e7\u00e3o aparente como sagrada e necess\u00e1ria',
+        'const2': 'O livre arb\u00edtrio como princ\u00edpio fundamental',
+        'const3': 'O amor como for\u00e7a criadora',
+        'const4': 'Todo ser \u00e9 o Criador experimentando a si mesmo'
+      }
+    };
+
+    var trees = {
+      es: '<span class="tree-gold">000</span> El Uno \u2500\u2500\u2500 Base filos\u00f3fica\n \u2502\n \u251c\u2500\u2500 <span class="tree-gold">010</span> Las Ense\u00f1anzas \u2500\u2500\u2500 Simplificaci\u00f3n agn\u00f3stica\n \u2502\n \u251c\u2500\u2500 <span class="tree-gold">020</span> El Camino del Amor \u2500\u2500\u2500 Lente cristiano\n \u2502    \u2502\n \u2502    \u2514\u2500\u2500 <span class="tree-gold">021</span> Sanaci\u00f3n \u2500\u2500\u2500 Sub-rama de sanaci\u00f3n pr\u00e1ctica\n \u2502\n \u2514\u2500\u2500 <span class="tree-gold">100</span> Doctrinas \u2500\u2500\u2500 Rama de doctrina teol\u00f3gica',
+      en: '<span class="tree-gold">000</span> The One \u2500\u2500\u2500 Philosophical core\n \u2502\n \u251c\u2500\u2500 <span class="tree-gold">010</span> The Teachings \u2500\u2500\u2500 Agnostic simplification\n \u2502\n \u251c\u2500\u2500 <span class="tree-gold">020</span> The Way of Love \u2500\u2500\u2500 Christian lens\n \u2502    \u2502\n \u2502    \u2514\u2500\u2500 <span class="tree-gold">021</span> Healing \u2500\u2500\u2500 Practical healing sub-branch\n \u2502\n \u2514\u2500\u2500 <span class="tree-gold">100</span> Doctrines \u2500\u2500\u2500 Theological doctrine branch',
+      pt: '<span class="tree-gold">000</span> O Um \u2500\u2500\u2500 Base filos\u00f3fica\n \u2502\n \u251c\u2500\u2500 <span class="tree-gold">010</span> Os Ensinamentos \u2500\u2500\u2500 Simplifica\u00e7\u00e3o agn\u00f3stica\n \u2502\n \u251c\u2500\u2500 <span class="tree-gold">020</span> O Caminho do Amor \u2500\u2500\u2500 Lente crist\u00e3\n \u2502    \u2502\n \u2502    \u2514\u2500\u2500 <span class="tree-gold">021</span> Cura \u2500\u2500\u2500 Sub-ramo de cura pr\u00e1tica\n \u2502\n \u2514\u2500\u2500 <span class="tree-gold">100</span> Doutrinas \u2500\u2500\u2500 Ramo de doutrina teol\u00f3gica'
+    };
+
+    var bookHrefs = {
+      es: {
+        'book0-href': 'https://eluno.org',
+        'book1-href': 'https://todo.eluno.org',
+        'book2-href': 'https://jesus.eluno.org',
+        'book3-href': 'https://sanacion.eluno.org',
+        'book4-href': 'https://doctrinas.eluno.org'
+      },
+      en: {
+        'book0-href': 'https://eluno.org/en/',
+        'book1-href': 'https://todo.eluno.org/en/',
+        'book2-href': 'https://jesus.eluno.org/en/',
+        'book3-href': 'https://sanacion.eluno.org/en/',
+        'book4-href': 'https://doctrinas.eluno.org'
+      },
+      pt: {
+        'book0-href': 'https://eluno.org/pt/',
+        'book1-href': 'https://todo.eluno.org/pt/',
+        'book2-href': 'https://jesus.eluno.org/pt/',
+        'book3-href': 'https://sanacion.eluno.org',
+        'book4-href': 'https://doctrinas.eluno.org'
+      }
+    };
+
+    function detectLang() {
+      var stored = localStorage.getItem('libros-lang');
+      if (stored && i18n[stored]) return stored;
+      var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      if (nav.indexOf('es') === 0) return 'es';
+      if (nav.indexOf('pt') === 0) return 'pt';
+      return 'en';
+    }
+
+    function setLang(lang) {
+      localStorage.setItem('libros-lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key]) {
+          el.textContent = i18n[lang][key];
+        }
+      });
+      var tree = document.getElementById('tree-content');
+      if (tree && trees[lang]) {
+        tree.innerHTML = trees[lang];
+      }
+      document.querySelectorAll('[data-i18n-href]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-href');
+        if (bookHrefs[lang] && bookHrefs[lang][key]) {
+          el.href = bookHrefs[lang][key];
+        }
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    function detectTheme() {
+      var stored = localStorage.getItem('libros-theme');
+      if (stored) return stored;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function setTheme(theme) {
+      localStorage.setItem('libros-theme', theme);
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      document.getElementById('theme-toggle').innerHTML = theme === 'light' ? '&#9790;' : '&#9788;';
+    }
+
+    (function() {
+      setTheme(detectTheme());
+      setLang(detectLang());
+
+      document.getElementById('theme-toggle').addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        setTheme(current === 'light' ? 'dark' : 'light');
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          setLang(this.getAttribute('data-lang'));
+        });
+      });
+
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('libros-theme')) {
+          setTheme(e.matches ? 'light' : 'dark');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
