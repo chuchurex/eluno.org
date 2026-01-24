@@ -71,9 +71,8 @@
     .container {
       position: relative;
       z-index: 1;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
+      width: 100%;
+      padding: 3rem 2.5rem;
     }
 
     /* Header */
@@ -171,31 +170,46 @@
 
     /* Books grid */
     .books {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 1.5rem;
       margin-bottom: 3rem;
+    }
+
+    @media (min-width: 700px) {
+      .books { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1100px) {
+      .books { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (min-width: 1700px) {
+      .books { grid-template-columns: repeat(4, 1fr); }
     }
 
     .book {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.75rem 2rem;
+      border-radius: 8px;
+      padding: 1.75rem 1.75rem;
       transition: all 0.2s ease;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
     .book:hover {
       border-color: var(--border2);
-      transform: translateX(4px);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 20px var(--shadow);
     }
 
     .book-header {
       display: flex;
       align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
     }
 
     .book-id {
@@ -203,35 +217,33 @@
       font-size: 0.7rem;
       color: var(--muted);
       letter-spacing: 0.1em;
-      min-width: 2rem;
     }
 
     .book-title {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 500;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--text);
       line-height: 1.3;
     }
 
     .book-description {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text2);
-      margin-bottom: 0.75rem;
-      padding-left: 3rem;
-      font-style: italic;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      flex-grow: 1;
     }
 
     .book-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem 1.5rem;
-      padding-left: 3rem;
+      gap: 0.4rem 1.2rem;
       margin-bottom: 1rem;
     }
 
     .book-meta-item {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--muted);
     }
 
@@ -246,7 +258,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      padding-left: 3rem;
+      margin-top: auto;
     }
 
     .book-link {
@@ -281,6 +293,9 @@
     /* Tree section */
     .tree-section {
       margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .tree {
@@ -303,6 +318,9 @@
     /* Constants section */
     .constants-section {
       margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .constants {
@@ -349,14 +367,10 @@
     /* Responsive */
     @media (max-width: 600px) {
       html { font-size: 16px; }
-      .container { padding: 2rem 1.25rem; }
+      .container { padding: 2rem 1rem; }
       h1 { font-size: 2.2rem; }
-      .book { padding: 1.25rem 1.5rem; }
-      .book-description,
-      .book-meta,
-      .book-links { padding-left: 0; }
-      .book-header { flex-direction: column; gap: 0.25rem; }
-      .book:hover { transform: none; }
+      .book { padding: 1.25rem 1.25rem; }
+      .book:hover { transform: none; box-shadow: none; }
     }
   </style>
 </head>
@@ -385,9 +399,8 @@
           <span class="book-id">000</span>
           <span class="book-title" data-i18n="book0-title">El Uno</span>
         </div>
-        <p class="book-description" data-i18n="book0-desc">Base filosófica — sin distorsión aplicada. El mensaje puro.</p>
+        <p class="book-description" data-i18n="book0-desc">Una reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.</p>
         <div class="book-meta">
-          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-audience">Audiencia</span> <span data-i18n="book0-audience">Buscadores intelectuales</span></span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-chapters">Capítulos</span> 7</span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-langs">Idiomas</span> ES · EN · PT</span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-formats">Formatos</span> Web · PDF · MP3</span>
@@ -404,9 +417,8 @@
           <span class="book-id">010</span>
           <span class="book-title" data-i18n="book1-title">Las Enseñanzas de la Ley del Uno</span>
         </div>
-        <p class="book-description" data-i18n="book1-desc">Simplificación agnóstica — elimina terminología esotérica.</p>
+        <p class="book-description" data-i18n="book1-desc">Sabiduría ancestral para buscadores modernos, presentada como historia eterna. Una invitación a recordar nuestra verdadera naturaleza.</p>
         <div class="book-meta">
-          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-audience">Audiencia</span> <span data-i18n="book1-audience">Buscadores modernos sin marco religioso</span></span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-chapters">Capítulos</span> 7</span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-langs">Idiomas</span> ES · EN · PT</span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-formats">Formatos</span> Web · PDF · MP3</span>
@@ -423,9 +435,8 @@
           <span class="book-id">020</span>
           <span class="book-title" data-i18n="book2-title">El Camino del Amor</span>
         </div>
-        <p class="book-description" data-i18n="book2-desc">Lente cristiano — usa lenguaje y referencias bíblicas.</p>
+        <p class="book-description" data-i18n="book2-desc">Meditaciones sobre las enseñanzas de Jesús, invitando a descubrir el corazón del mensaje transformador del amor universal.</p>
         <div class="book-meta">
-          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-audience">Audiencia</span> <span data-i18n="book2-audience">Cristianos abiertos a la espiritualidad contemplativa</span></span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-chapters">Capítulos</span> 7</span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-langs">Idiomas</span> ES · EN · PT</span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-formats">Formatos</span> Web · MP3</span>
@@ -439,11 +450,10 @@
       <div class="book">
         <div class="book-header">
           <span class="book-id">021</span>
-          <span class="book-title" data-i18n="book3-title">Sanación</span>
+          <span class="book-title" data-i18n="book3-title">Sanación — El Arte de Sanar</span>
         </div>
-        <p class="book-description" data-i18n="book3-desc">Cristiano + práctico — enfoque en sanación y transformación.</p>
+        <p class="book-description" data-i18n="book3-desc">Una guía completa de la práctica de sanación, enfocada en el arte de sanar la mente, el cuerpo y el espíritu.</p>
         <div class="book-meta">
-          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-audience">Audiencia</span> <span data-i18n="book3-audience">Cristianos buscando sanación y transformación</span></span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-chapters">Capítulos</span> 12</span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-langs">Idiomas</span> ES · EN</span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-formats">Formatos</span> Web</span>
@@ -458,9 +468,8 @@
           <span class="book-id">100</span>
           <span class="book-title" data-i18n="book4-title">Doctrinas</span>
         </div>
-        <p class="book-description" data-i18n="book4-desc">Doctrina teológica — marco católico tradicional.</p>
+        <p class="book-description" data-i18n="book4-desc">Las enseñanzas universales presentadas dentro del marco de la doctrina católica tradicional, como puente entre la teología y la filosofía perenne.</p>
         <div class="book-meta">
-          <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-audience">Audiencia</span> <span data-i18n="book4-audience">Cristianos tradicionales/católicos</span></span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-chapters">Capítulos</span> 7</span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-langs">Idiomas</span> ES</span>
           <span class="book-meta-item"><span class="book-meta-label" data-i18n="meta-formats">Formatos</span> Web</span>
@@ -510,25 +519,19 @@
         'section-books': 'Los libros',
         'section-tree': 'El \u00e1rbol de distorsi\u00f3n',
         'section-constants': 'Lo que permanece constante',
-        'meta-audience': 'Audiencia',
         'meta-chapters': 'Cap\u00edtulos',
         'meta-langs': 'Idiomas',
         'meta-formats': 'Formatos',
         'book0-title': 'El Uno',
-        'book0-desc': 'Base filos\u00f3fica \u2014 sin distorsi\u00f3n aplicada. El mensaje puro.',
-        'book0-audience': 'Buscadores intelectuales',
+        'book0-desc': 'Una reinterpretaci\u00f3n filos\u00f3fica del Material Ra (La Ley del Uno) como narrativa accesible. Explora la cosmolog\u00eda, el Creador, las densidades y el prop\u00f3sito de la existencia.',
         'book1-title': 'Las Ense\u00f1anzas de la Ley del Uno',
-        'book1-desc': 'Simplificaci\u00f3n agn\u00f3stica \u2014 elimina terminolog\u00eda esot\u00e9rica.',
-        'book1-audience': 'Buscadores modernos sin marco religioso',
+        'book1-desc': 'Sabidur\u00eda ancestral para buscadores modernos, presentada como historia eterna. Una invitaci\u00f3n a recordar nuestra verdadera naturaleza.',
         'book2-title': 'El Camino del Amor',
-        'book2-desc': 'Lente cristiano \u2014 usa lenguaje y referencias b\u00edblicas.',
-        'book2-audience': 'Cristianos abiertos a la espiritualidad contemplativa',
-        'book3-title': 'Sanaci\u00f3n',
-        'book3-desc': 'Cristiano + pr\u00e1ctico \u2014 enfoque en sanaci\u00f3n y transformaci\u00f3n.',
-        'book3-audience': 'Cristianos buscando sanaci\u00f3n y transformaci\u00f3n',
+        'book2-desc': 'Meditaciones sobre las ense\u00f1anzas de Jes\u00fas, invitando a descubrir el coraz\u00f3n del mensaje transformador del amor universal.',
+        'book3-title': 'Sanaci\u00f3n \u2014 El Arte de Sanar',
+        'book3-desc': 'Una gu\u00eda completa de la pr\u00e1ctica de sanaci\u00f3n, enfocada en el arte de sanar la mente, el cuerpo y el esp\u00edritu.',
         'book4-title': 'Doctrinas',
-        'book4-desc': 'Doctrina teol\u00f3gica \u2014 marco cat\u00f3lico tradicional.',
-        'book4-audience': 'Cristianos tradicionales/cat\u00f3licos',
+        'book4-desc': 'Las ense\u00f1anzas universales presentadas dentro del marco de la doctrina cat\u00f3lica tradicional, como puente entre la teolog\u00eda y la filosof\u00eda perenne.',
         'const0': 'La unidad de la consciencia en la fuente',
         'const1': 'La separaci\u00f3n aparente como sagrada y necesaria',
         'const2': 'El libre albedr\u00edo como principio fundamental',
@@ -541,25 +544,19 @@
         'section-books': 'The books',
         'section-tree': 'The distortion tree',
         'section-constants': 'What remains constant',
-        'meta-audience': 'Audience',
         'meta-chapters': 'Chapters',
         'meta-langs': 'Languages',
         'meta-formats': 'Formats',
         'book0-title': 'The One',
-        'book0-desc': 'Philosophical base \u2014 no distortion applied. The pure message.',
-        'book0-audience': 'Intellectually-oriented seekers',
+        'book0-desc': 'A philosophical reinterpretation of the Ra Material (The Law of One) as accessible narrative. Explores cosmology, the Creator, densities, and the purpose of existence.',
         'book1-title': 'The Teachings of the Law of One',
-        'book1-desc': 'Agnostic simplification \u2014 removes esoteric terminology.',
-        'book1-audience': 'Modern seekers without religious framework',
+        'book1-desc': 'Ancient wisdom for modern seekers, presented as an eternal story. An invitation to remember our true nature.',
         'book2-title': 'The Way of Love',
-        'book2-desc': 'Christian lens \u2014 uses biblical language and references.',
-        'book2-audience': 'Christians open to contemplative spirituality',
-        'book3-title': 'Healing',
-        'book3-desc': 'Christian + practical \u2014 healing and transformation focus.',
-        'book3-audience': 'Christians seeking healing and transformation',
+        'book2-desc': 'Meditations on the teachings of Jesus, inviting you to discover the heart of the transformative message of universal love.',
+        'book3-title': 'Healing \u2014 The Art of Healing',
+        'book3-desc': 'A complete guide to the practice of healing, focused on the art of healing the mind, body, and spirit.',
         'book4-title': 'Doctrines',
-        'book4-desc': 'Theological doctrine \u2014 traditional Catholic framework.',
-        'book4-audience': 'Traditional/Catholic Christians',
+        'book4-desc': 'Universal teachings presented within the framework of traditional Catholic doctrine, as a bridge between theology and perennial philosophy.',
         'const0': 'Unity of consciousness at source',
         'const1': 'Apparent separation as sacred and necessary',
         'const2': 'Free will as fundamental principle',
@@ -572,25 +569,19 @@
         'section-books': 'Os livros',
         'section-tree': 'A \u00e1rvore de distor\u00e7\u00e3o',
         'section-constants': 'O que permanece constante',
-        'meta-audience': 'P\u00fablico',
         'meta-chapters': 'Cap\u00edtulos',
         'meta-langs': 'Idiomas',
         'meta-formats': 'Formatos',
         'book0-title': 'O Um',
-        'book0-desc': 'Base filos\u00f3fica \u2014 sem distor\u00e7\u00e3o aplicada. A mensagem pura.',
-        'book0-audience': 'Buscadores intelectuais',
+        'book0-desc': 'Uma reinterpreta\u00e7\u00e3o filos\u00f3fica do Material Ra (A Lei do Um) como narrativa acess\u00edvel. Explora a cosmologia, o Criador, as densidades e o prop\u00f3sito da exist\u00eancia.',
         'book1-title': 'Os Ensinamentos da Lei do Um',
-        'book1-desc': 'Simplifica\u00e7\u00e3o agn\u00f3stica \u2014 elimina terminologia esot\u00e9rica.',
-        'book1-audience': 'Buscadores modernos sem estrutura religiosa',
+        'book1-desc': 'Sabedoria ancestral para buscadores modernos, apresentada como hist\u00f3ria eterna. Um convite para lembrar nossa verdadeira natureza.',
         'book2-title': 'O Caminho do Amor',
-        'book2-desc': 'Lente crist\u00e3 \u2014 usa linguagem e refer\u00eancias b\u00edblicas.',
-        'book2-audience': 'Crist\u00e3os abertos \u00e0 espiritualidade contemplativa',
-        'book3-title': 'Cura',
-        'book3-desc': 'Crist\u00e3o + pr\u00e1tico \u2014 foco em cura e transforma\u00e7\u00e3o.',
-        'book3-audience': 'Crist\u00e3os buscando cura e transforma\u00e7\u00e3o',
+        'book2-desc': 'Medita\u00e7\u00f5es sobre os ensinamentos de Jesus, convidando a descobrir o cora\u00e7\u00e3o da mensagem transformadora do amor universal.',
+        'book3-title': 'Cura \u2014 A Arte de Curar',
+        'book3-desc': 'Um guia completo da pr\u00e1tica de cura, focado na arte de curar a mente, o corpo e o esp\u00edrito.',
         'book4-title': 'Doutrinas',
-        'book4-desc': 'Doutrina teol\u00f3gica \u2014 estrutura cat\u00f3lica tradicional.',
-        'book4-audience': 'Crist\u00e3os tradicionais/cat\u00f3licos',
+        'book4-desc': 'Ensinamentos universais apresentados dentro da estrutura da doutrina cat\u00f3lica tradicional, como ponte entre a teologia e a filosofia perene.',
         'const0': 'A unidade da consci\u00eancia na fonte',
         'const1': 'A separa\u00e7\u00e3o aparente como sagrada e necess\u00e1ria',
         'const2': 'O livre arb\u00edtrio como princ\u00edpio fundamental',
