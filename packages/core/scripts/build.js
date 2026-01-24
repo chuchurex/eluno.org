@@ -117,11 +117,11 @@ function generateSection(section, glossary, references) {
 function generateMediaToolbar(chapterNum, media, ui, lang) {
   if (!media || !ui.media) return '';
 
-  const chapterMedia = media[String(chapterNum)] || { audio: '', pdf: '', youtube: '' };
-  // if (!chapterMedia) return ''; // Removed check to allow default generation
+  const chapterMedia = media[String(chapterNum)];
+  if (!chapterMedia) return '';
 
-  const hasPdf = true; // !!chapterMedia.pdf;
-  const hasAudio = true; // !!chapterMedia.audio;
+  const hasPdf = !!chapterMedia.pdf;
+  const hasAudio = !!chapterMedia.audio;
   const hasYoutube = !!chapterMedia.youtube;
 
   // If nothing available, return empty
@@ -144,7 +144,7 @@ function generateMediaToolbar(chapterNum, media, ui, lang) {
 
   // Audio MP3: accordion toggle and panel
   if (hasAudio) {
-    const audioUrl = resolveUrl(chapterMedia.audio) || `${STATIC_BASE_URL}/audiobook/audio/${lang}/ch${chapterNum}.mp3`;
+    const audioUrl = resolveUrl(chapterMedia.audio);
     html += `                    <div class="ch-media-audio-panel" id="audio-panel-${chapterNum}">\n`;
     html += `                        <audio src="${audioUrl}" controls preload="none"></audio>\n`;
     html += `                    </div>\n`;
@@ -153,7 +153,7 @@ function generateMediaToolbar(chapterNum, media, ui, lang) {
 
   // PDF: direct download link
   if (hasPdf) {
-    const pdfUrl = resolveUrl(chapterMedia.pdf) || `${STATIC_BASE_URL}/pdf/${lang}/ch${chapterNum}.pdf`;
+    const pdfUrl = resolveUrl(chapterMedia.pdf);
     html += `                    <a href="${pdfUrl}" class="ch-media-icon" title="${ui.media.downloadPdf}" download>${svgPdf}<span class="ch-media-label">${labelPdf}</span></a>\n`;
   }
 
