@@ -481,15 +481,19 @@ ${process.env.GA_ID ? `    <!-- Google tag (gtag.js) -->
 `;
 
   if (includeRedirect && lang === BASE_LANG) {
-    html += `    <script>
-        (function() {
-            if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) return;
-            var ln = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-            if (ln.indexOf('es') === 0) window.location.href = '/es/';
-            else if (ln.indexOf('pt') === 0) window.location.href = '/pt/';
-        })();
-    </script>
-`;
+    // Generate redirect only for non-base languages
+    const redirectLangs = allLangs.filter(l => l !== BASE_LANG);
+    if (redirectLangs.length > 0) {
+      let redirectScript = `    <script>\n        (function() {\n`;
+      redirectScript += `            if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) return;\n`;
+      redirectScript += `            if (window.location.pathname.indexOf('/review') !== -1) return;\n`;
+      redirectScript += `            var ln = (navigator.language || navigator.userLanguage || '${BASE_LANG}').toLowerCase();\n`;
+      redirectLangs.forEach(l => {
+        redirectScript += `            if (ln.indexOf('${l}') === 0) window.location.href = '/${l}/';\n`;
+      });
+      redirectScript += `        })();\n    </script>\n`;
+      html += redirectScript;
+    }
   }
 
   html += `</head>\n`;
@@ -984,12 +988,16 @@ function build() {
     console.log(`\n📷 Copied og-image.jpg`);
   }
 
-  // Copy .htaccess if exists
-  const htSrc = path.join(CORE_ROOT, '.htaccess');
+  // Copy .htaccess if exists (check project root first, then core)
+  const htProjectSrc = path.join(PROJECT_ROOT, '.htaccess');
+  const htCoreSrc = path.join(CORE_ROOT, '.htaccess');
   const htDest = path.join(DIST_DIR, '.htaccess');
-  if (fs.existsSync(htSrc)) {
-    fs.copyFileSync(htSrc, htDest);
-    console.log(`📄 Copied .htaccess`);
+  if (fs.existsSync(htProjectSrc)) {
+    fs.copyFileSync(htProjectSrc, htDest);
+    console.log(`📄 Copied .htaccess from project`);
+  } else if (fs.existsSync(htCoreSrc)) {
+    fs.copyFileSync(htCoreSrc, htDest);
+    console.log(`📄 Copied .htaccess from core`);
   }
 
   // Generate _headers from template (replaces {{DOMAIN}} placeholder)
