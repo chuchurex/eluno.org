@@ -74,6 +74,28 @@ async function deploy() {
         const chmodCmd = `sshpass -p "${password}" ssh -p ${port} -o StrictHostKeyChecking=no ${user}@${host} "chmod -R 644 ${remoteDir}*.html ${remoteDir}*/*.html 2>/dev/null || true"`;
         execSync(chmodCmd, { stdio: 'inherit' });
 
+        // Purge Cloudflare cache
+        const CF_API_KEY = process.env.CF_API_KEY;
+        const CF_EMAIL = process.env.CF_EMAIL;
+        const CF_ZONE_ID = process.env.CF_ZONE_ID;
+        if (CF_API_KEY && CF_EMAIL && CF_ZONE_ID) {
+            console.log(`\n🌐 Purging Cloudflare cache...`);
+            try {
+                const curlCmd = `curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${CF_ZONE_ID}/purge_cache" -H "X-Auth-Email: ${CF_EMAIL}" -H "X-Auth-Key: ${CF_API_KEY}" -H "Content-Type: application/json" --data '{"purge_everything":true}'`;
+                const result = execSync(curlCmd, { encoding: 'utf8' });
+                const parsed = JSON.parse(result);
+                if (parsed.success) {
+                    console.log("✅ Cloudflare cache purged successfully!");
+                } else {
+                    console.log("⚠️  Cloudflare purge response:", result);
+                }
+            } catch (cfErr) {
+                console.log("⚠️  Cloudflare cache purge failed (non-blocking):", cfErr.message);
+            }
+        } else {
+            console.log("\n⚠️  Skipping Cloudflare cache purge (CF_API_KEY/CF_EMAIL/CF_ZONE_ID not set)");
+        }
+
         console.log("\n✅ Deployment complete!");
     } catch (err) {
         console.error("❌ Zip Deployment failed:", err.message);

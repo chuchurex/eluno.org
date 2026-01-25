@@ -89,4 +89,18 @@ ai/TRANSLATION_STATUS.md
 ai/es/
 ai/pt/
 
+# ===========================================
+# TEMPORARY QA & REVIEW FILES
+# ===========================================
+review.html
+qa-dashboard.html
+qa-fix-report.json
+css.png
+packages/core/scripts/generate-qa-html.js
+
+# ===========================================
+# CLAUDE OPERATOR GUIDE (private, not in repo)
+# ===========================================
+CLAUDE_OPERATOR_GUIDE.md
+
 

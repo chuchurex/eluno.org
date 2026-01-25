@@ -522,6 +522,7 @@ ${process.env.GA_ID ? `    <!-- Google tag (gtag.js) -->
     html += `    <script>
         (function() {
             if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) return;
+            if (window.location.pathname.indexOf('/review') !== -1) return;
             var ln = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
             if (ln.indexOf('es') === 0) window.location.href = '/es/';
             else if (ln.indexOf('pt') === 0) window.location.href = '/pt/';
@@ -1235,6 +1236,14 @@ function build() {
   if (fs.existsSync(htSrc)) {
     fs.copyFileSync(htSrc, htDest);
     console.log(`📄 Copied .htaccess`);
+  }
+
+  // Copy review.html if exists (excluded from language redirect)
+  const reviewSrc = path.join(__dirname, '..', '..', '..', 'review.html');
+  const reviewDest = path.join(DIST_DIR, 'review.html');
+  if (fs.existsSync(reviewSrc)) {
+    fs.copyFileSync(reviewSrc, reviewDest);
+    console.log(`📄 Copied review.html`);
   }
 
   // Generate _headers from template (replaces {{DOMAIN}} placeholder)
