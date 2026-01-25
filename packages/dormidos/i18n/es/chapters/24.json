@@ -5,12 +5,12 @@
   "title": "El Comienzo",
   "sections": [
     {
-      "id": "ch24-todav-a-no-es-demasiado-tarde",
+      "id": "ch24-todavia-no-es-demasiado-tarde",
       "title": "Todavía no es demasiado tarde",
       "content": [
         {
           "type": "paragraph",
-          "text": "Belcebú ofrece esperanza a quienes han llegado a ver su condición:"
+          "text": "Beelzebú—el narrador de los Relatos de Gurdjieff—ofrece esperanza a quienes han llegado a ver su condición:"
         },
         {
           "type": "paragraph",
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "id": "ch24-la-primera-iniciaci-n",
+      "id": "ch24-la-primera-iniciacion",
       "title": "La primera iniciación",
       "content": [
         {
@@ -72,7 +72,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Salzmann describe el proceso:"
+          "text": "Salzmann—continuadora de la enseñanza de Gurdjieff—describe el proceso:"
         },
         {
           "type": "paragraph",
@@ -85,7 +85,7 @@
       ]
     },
     {
-      "id": "ch24-el-recuerdo-de-s",
+      "id": "ch24-el-recuerdo-de-si",
       "title": "El recuerdo de sí",
       "content": [
         {
@@ -98,11 +98,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Ouspensky describe su experiencia en la Nevsky:"
+          "text": "Ouspensky describe su experiencia caminando por San Petersburgo:"
         },
         {
           "type": "paragraph",
-          "text": "\"Dos horas después desperté en la Tavricheskaya, es decir, muy lejos. La sensación de despertar fue extraordinariamente vívida. Casi puedo decir que volví en mí. Recordé todo a la vez. Cómo había estado caminando a lo largo de la Nadejdinskaya, cómo había estado recordándome a mí mismo, cómo había pensado en cigarrillos, y cómo en este pensamiento parecí de repente caer y desaparecer en un sueño profundo.\""
+          "text": "\"Dos horas después desperté en otra parte de la ciudad, muy lejos. La sensación de despertar fue extraordinariamente vívida. Casi puedo decir que volví en mí. Recordé todo a la vez. Cómo había estado caminando, cómo había estado recordándome a mí mismo, cómo había pensado en cigarrillos, y cómo en este pensamiento parecí de repente caer y desaparecer en un sueño profundo.\""
         },
         {
           "type": "paragraph",
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "id": "ch24-la-atenci-n-dividida",
+      "id": "ch24-la-atencion-dividida",
       "title": "La atención dividida",
       "content": [
         {
@@ -147,12 +147,12 @@
       ]
     },
     {
-      "id": "ch24-comenzar-donde-est-s",
+      "id": "ch24-comenzar-donde-estas",
       "title": "Comenzar donde estás",
       "content": [
         {
           "type": "paragraph",
-          "text": "Ra ofrece orientación práctica:"
+          "text": "El Material Ra—las comunicaciones canalizadas que hemos referenciado a lo largo del libro—ofrece orientación práctica:"
         },
         {
           "type": "paragraph",
@@ -183,7 +183,7 @@
       ]
     },
     {
-      "id": "ch24-no-perfecci-n-orientaci-n",
+      "id": "ch24-no-perfeccionorientacion",
       "title": "No perfección—orientación",
       "content": [
         {
@@ -206,7 +206,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Belcebú describe el río de la vida dividiéndose en dos corrientes. Una lleva hacia las \"regiones inferiores\"—la vida mecánica que termina en nada. La otra ofrece la posibilidad de desarrollo."
+          "text": "Beelzebú describe el río de la vida dividiéndose en dos corrientes. Una lleva hacia las \"regiones inferiores\"—la vida mecánica que termina en nada. La otra ofrece la posibilidad de desarrollo."
         },
         {
           "type": "paragraph",
@@ -242,7 +242,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Bennett ve esperanza incluso en la crisis:"
+          "text": "Bennett—quien estudió con Gurdjieff y desarrolló posteriormente su propia síntesis—ve esperanza incluso en la crisis:"
         },
         {
           "type": "paragraph",
@@ -255,7 +255,7 @@
       ]
     },
     {
-      "id": "ch24-el-c-rculo-completo",
+      "id": "ch24-el-circulo-completo",
       "title": "El círculo completo",
       "content": [
         {
@@ -311,16 +311,16 @@
           "text": "Cada momento es un intervalo. Cada momento ofrece la posibilidad de un choque consciente. Cada momento es el comienzo."
         },
         {
-          "type": "blockquote",
-          "text": "\"Incluso para ustedes, todavía no es demasiado tarde.\""
+          "type": "paragraph",
+          "text": "*\"Incluso para ustedes, todavía no es demasiado tarde.\"*"
         },
         {
-          "type": "blockquote",
-          "text": "\"Este es el primer paso en el camino. Quiere abrir sus ojos. Quiere despertar.\""
+          "type": "paragraph",
+          "text": "*\"Este es el primer paso en el camino. Quiere abrir sus ojos. Quiere despertar.\"*"
         },
         {
-          "type": "blockquote",
-          "text": "\"El camino de las mil millas comienza con un solo paso, y cada paso es en sí mismo el camino.\""
+          "type": "paragraph",
+          "text": "*\"El camino de las mil millas comienza con un solo paso, y cada paso es en sí mismo el camino.\"*"
         }
       ]
     }

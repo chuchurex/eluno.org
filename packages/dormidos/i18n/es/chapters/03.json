@@ -10,7 +10,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "En seres normales de tres cerebros—según Gurdjieff, esto incluye a la mayoría de seres conscientes del universo—existen tres impulsos sagrados que funcionan como motores del desarrollo: Fe, Amor y Esperanza."
+          "text": "En seres normales de tres cerebros—es decir, seres como nosotros que poseen centros intelectual, emocional y motor—existen tres impulsos sagrados que funcionan como motores del desarrollo: Fe, Amor y Esperanza."
         },
         {
           "type": "paragraph",
@@ -18,7 +18,7 @@
         },
         {
           "type": "paragraph",
-          "text": "En los humanos, estos tres impulsos degeneraron. No desaparecieron—se corrompieron. Ashiata Shiemash, después de 120 días de meditación en el monte Veziniama, llegó a la conclusión de que era \"demasiado tarde\" para salvar a la humanidad a través de cualquiera de estos tres caminos tradicionales."
+          "text": "En los humanos, estos tres impulsos degeneraron. No desaparecieron—se corrompieron. Ashiata Shiemash—el maestro que Gurdjieff presenta como el mensajero más exitoso enviado a la Tierra—después de 120 días de meditación en lo que la alegoría llama el monte Veziniama, llegó a la conclusión de que era \"demasiado tarde\" para salvar a la humanidad a través de cualquiera de estos tres caminos tradicionales."
         }
       ]
     },
@@ -40,7 +40,7 @@
         },
         {
           "type": "paragraph",
-          "text": "El resultado es que los humanos \"creen cualquier cuento.\" El término técnico de Gurdjieff es \"Sinkrpoosarams\"—ficciones que se cristalizan como convicciones falsas porque halagaron alguna debilidad."
+          "text": "El resultado es que los humanos \"creen cualquier cuento.\" El término técnico de Gurdjieff es \"Sinkrpoosarams\"—literalmente, convicciones cristalizadas a partir de ficciones que halagaron alguna debilidad del ego."
         },
         {
           "type": "paragraph",
@@ -52,12 +52,12 @@
         },
         {
           "type": "paragraph",
-          "text": "Bennett observó esto directamente: \"La gente puede ser llevada a creer cualquier cuento viejo y, echando espuma por la boca, se dedicará a convencer a otros de que es así y no puede ser de otra manera.\""
+          "text": "Bennett observó esto directamente: \"La gente puede ser llevada a creer cualquier cuento viejo y, con fervor casi fanático, se dedicará a convencer a otros de que es así y no puede ser de otra manera.\""
         }
       ]
     },
     {
-      "id": "ch3-amor-convertido-en-ego-smo",
+      "id": "ch3-amor-convertido-en-egoismo",
       "title": "Amor convertido en egoísmo",
       "content": [
         {
@@ -113,16 +113,8 @@
           "text": "La tablilla de Ashiata Shiemash lo codificó así:"
         },
         {
-          "type": "paragraph",
-          "text": "> **Amor de consciencia evoca lo mismo en respuesta**"
-        },
-        {
-          "type": "paragraph",
-          "text": "> **Amor de sentimiento evoca lo opuesto**"
-        },
-        {
-          "type": "paragraph",
-          "text": "> **Amor de cuerpo depende solo de tipo y polaridad**"
+          "type": "blockquote",
+          "text": "**Amor de consciencia evoca lo mismo en respuesta**\n**Amor de sentimiento evoca lo opuesto**\n**Amor de cuerpo depende solo de tipo y polaridad**"
         },
         {
           "type": "paragraph",
@@ -130,7 +122,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Salzmann lo formula con precisión quirúrgica: \"La mayoría de nosotros no amamos y no somos amados. Tenemos muy poco amor en nuestros corazones, por eso mendigamos amor y lo buscamos en sustitutos.\""
+          "text": "Salzmann—continuadora directa de la enseñanza de Gurdjieff—lo formula con precisión quirúrgica: \"La mayoría de nosotros no amamos y no somos amados. Tenemos muy poco amor en nuestros corazones, por eso mendigamos amor y lo buscamos en sustitutos.\""
         },
         {
           "type": "paragraph",
@@ -139,7 +131,7 @@
       ]
     },
     {
-      "id": "ch3-esperanza-convertida-en-la-enfermedad-del-ma-ana",
+      "id": "ch3-esperanza-convertida-en-la-enfermedad-del-manana",
       "title": "Esperanza convertida en la enfermedad del mañana",
       "content": [
         {
@@ -186,7 +178,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Aunque Fe, Amor y Esperanza están completamente degenerados, \"el factor que debería engendrar ese impulso sobre el cual se basa toda la psique de los seres de sistema de tres cerebros, y que existe bajo el nombre de Consciencia Objetiva, aún no está atrofiado en ellos, sino que permanece en sus presencias casi en su estado primordial.\""
+          "text": "Aunque Fe, Amor y Esperanza están completamente degenerados, \"el factor que debería engendrar ese impulso sobre el cual se basa toda la psique de los seres de tres cerebros, y que existe bajo el nombre de Consciencia Objetiva, aún no está atrofiado en ellos, sino que permanece en sus presencias casi en su estado primordial.\""
         },
         {
           "type": "paragraph",
@@ -205,8 +197,8 @@
           "text": "Por ahora, basta saber esto: los caminos tradicionales de Fe, Amor y Esperanza ya no funcionan para los humanos. Pero existe algo más profundo que no fue corrompido. El trabajo consiste en desenterrarlo."
         },
         {
-          "type": "blockquote",
-          "text": "\"Fe de consciencia es libertad. Amor de consciencia evoca lo mismo en respuesta. Esperanza de consciencia es fuerza.\"*\n— Inscripción en la tablilla de mármol de Ashiata Shiemash"
+          "type": "paragraph",
+          "text": "*\"Fe de consciencia es libertad. Amor de consciencia evoca lo mismo en respuesta. Esperanza de consciencia es fuerza.\"* — Inscripción en la tablilla de mármol de Ashiata Shiemash"
         }
       ]
     }

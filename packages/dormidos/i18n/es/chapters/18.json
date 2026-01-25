@@ -45,7 +45,7 @@
       ]
     },
     {
-      "id": "ch18-los-c-rculos-de-la-humanidad",
+      "id": "ch18-los-circulos-de-la-humanidad",
       "title": "Los círculos de la humanidad",
       "content": [
         {
@@ -76,7 +76,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Bennett describe la función del maestro en la tradición:"
+          "text": "Bennett—quien estudió con Gurdjieff y desarrolló posteriormente su propia síntesis—describe la función del maestro en la tradición:"
         },
         {
           "type": "paragraph",
@@ -106,7 +106,7 @@
         },
         {
           "type": "paragraph",
-          "text": "\"Hay un dicho: 'la perseverancia no puede ser dada.' Cuando participábamos en los grupos del Khwaja Baha ad-din, tratábamos de mantener el recuerdo de nuestro objetivo desde la mañana hasta la noche. Sin embargo, entre todos los compañeros, había muy pocas personas que eran capaces de mantenerse durante un día hasta el anochecer.\""
+          "text": "Bennett cita un dicho de la tradición Naqshbandi—la orden sufí cuyas técnicas influyeron en Gurdjieff: \"'La perseverancia no puede ser dada.' Cuando participábamos en los grupos del Khwaja Baha ad-din\"—fundador de esa orden en el siglo XIV—\"tratábamos de mantener el recuerdo de nuestro objetivo desde la mañana hasta la noche. Sin embargo, entre todos los compañeros, había muy pocas personas que eran capaces de mantenerse durante un día hasta el anochecer.\""
         },
         {
           "type": "paragraph",
@@ -115,12 +115,12 @@
       ]
     },
     {
-      "id": "ch18-compa-eros-en-el-camino",
+      "id": "ch18-companeros-en-el-camino",
       "title": "Compañeros en el camino",
       "content": [
         {
           "type": "paragraph",
-          "text": "Ra enfatiza el valor de la compañía:"
+          "text": "El Material Ra—las comunicaciones canalizadas que hemos referenciado antes—enfatiza el valor de la compañía:"
         },
         {
           "type": "paragraph",
@@ -138,7 +138,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "\"El efecto de espejo de los otros-yo opera constantemente, aunque se intensifica en las relaciones íntimas. Cuando las palabras o acciones de otra persona disturban tu centro—cuando te encuentras emocionalmente cargado por un encuentro—estás presenciando el espejo trabajando.\""
+          "text": "Ra describe cómo los otros nos sirven de espejo:"
+        },
+        {
+          "type": "paragraph",
+          "text": "\"El efecto de espejo de los otros opera constantemente, aunque se intensifica en las relaciones íntimas. Cuando las palabras o acciones de otra persona disturban tu centro—cuando te encuentras emocionalmente cargado por un encuentro—estás presenciando el espejo trabajando.\""
         },
         {
           "type": "paragraph",
@@ -156,7 +160,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Salzmann describe la naturaleza del trabajo en grupo:"
+          "text": "Salzmann—continuadora de la enseñanza de Gurdjieff—describe la naturaleza del trabajo en grupo:"
         },
         {
           "type": "paragraph",
@@ -164,7 +168,7 @@
         },
         {
           "type": "paragraph",
-          "text": "\"Un principio fundamental del Cuarto Camino es que es en la vida y a través de la vida. Las escuelas esotéricas comparten el objetivo común de ver la realidad, pero difieren en su enfoque, su 'camino.'\""
+          "text": "\"Un principio fundamental del Cuarto Camino—la enseñanza de Gurdjieff que trabaja en medio de la vida ordinaria—es que es en la vida y a través de la vida. Las escuelas esotéricas comparten el objetivo común de ver la realidad, pero difieren en su enfoque, su 'camino.'\""
         },
         {
           "type": "paragraph",
@@ -178,7 +182,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "La organización de Salzmann revela algo importante:"
+          "text": "La organización que Salzmann estableció revela algo importante:"
         },
         {
           "type": "paragraph",
@@ -195,12 +199,12 @@
       ]
     },
     {
-      "id": "ch18-la-fricci-n-necesaria",
+      "id": "ch18-la-friccion-necesaria",
       "title": "La fricción necesaria",
       "content": [
         {
           "type": "paragraph",
-          "text": "El trabajo con otros no es para comodidad—es para fricción:"
+          "text": "El trabajo con otros no es para comodidad—es para fricción. Ra describe este principio:"
         },
         {
           "type": "paragraph",
@@ -257,12 +261,12 @@
           "text": "La posibilidad existe. La escuela existe para ayudar a realizarla."
         },
         {
-          "type": "blockquote",
-          "text": "\"Un hombre no puede despertar por sí mismo. Pero si veinte personas hacen un acuerdo de que quien despierte primero despertará a los demás, ya tienen alguna posibilidad.\""
+          "type": "paragraph",
+          "text": "*\"Un hombre no puede despertar por sí mismo. Pero si veinte personas hacen un acuerdo de que quien despierte primero despertará a los demás, ya tienen alguna posibilidad.\"*"
         },
         {
-          "type": "blockquote",
-          "text": "\"La enseñanza es la guía, y solo aquel que cuestiona más profundamente puede ser responsable de servir.\""
+          "type": "paragraph",
+          "text": "*\"La enseñanza es la guía, y solo aquel que cuestiona más profundamente puede ser responsable de servir.\"*"
         }
       ]
     }

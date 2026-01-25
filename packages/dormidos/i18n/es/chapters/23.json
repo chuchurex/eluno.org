@@ -99,7 +99,7 @@
       ]
     },
     {
-      "id": "ch23-la-formaci-n-del-centro-magn-tico",
+      "id": "ch23-la-formacion-del-centro-magnetico",
       "title": "La formación del centro magnético",
       "content": [
         {
@@ -117,9 +117,13 @@
       ]
     },
     {
-      "id": "ch23-los-c-rculos-conc-ntricos",
+      "id": "ch23-los-circulos-concentricos",
       "title": "Los círculos concéntricos",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Recordemos la imagen que Gurdjieff usa de la humanidad como círculos concéntricos:"
+        },
         {
           "type": "paragraph",
           "text": "\"La humanidad a la cual pertenecemos, a saber, toda la humanidad histórica y prehistórica conocida por la ciencia y la civilización, en realidad constituye solo el círculo exterior de la humanidad, dentro del cual hay varios otros círculos.\""
@@ -147,7 +151,7 @@
       ]
     },
     {
-      "id": "ch23-el-c-rculo-de-la-confusi-n-de-lenguas",
+      "id": "ch23-el-circulo-de-la-confusion-de-lenguas",
       "title": "El círculo de la confusión de lenguas",
       "content": [
         {
@@ -179,12 +183,12 @@
       ]
     },
     {
-      "id": "ch23-el-conocimiento-esot-rico",
+      "id": "ch23-el-conocimiento-esoterico",
       "title": "El conocimiento esotérico",
       "content": [
         {
           "type": "paragraph",
-          "text": "Salzmann describe la naturaleza de este conocimiento:"
+          "text": "Salzmann—continuadora de la enseñanza de Gurdjieff—describe la naturaleza de este conocimiento:"
         },
         {
           "type": "paragraph",
@@ -219,7 +223,7 @@
       ]
     },
     {
-      "id": "ch23-la-ense-anza-como-gu-a",
+      "id": "ch23-la-ensenanza-como-guia",
       "title": "La enseñanza como guía",
       "content": [
         {
@@ -237,7 +241,7 @@
       ]
     },
     {
-      "id": "ch23-sembrar-ideas-vac-as",
+      "id": "ch23-sembrar-ideas-vacias",
       "title": "Sembrar ideas vacías",
       "content": [
         {
@@ -267,12 +271,12 @@
           "text": "\"Si no es vivida por todas las partes de mí mismo, permaneceré como soy—pasivo y completamente a disposición de las fuerzas circundantes.\""
         },
         {
-          "type": "blockquote",
-          "text": "\"La vida de la humanidad está gobernada por fuerzas de dos fuentes diferentes: influencias planetarias mecánicas, e influencias de los círculos interiores de la humanidad.\""
+          "type": "paragraph",
+          "text": "*\"La vida de la humanidad está gobernada por fuerzas de dos fuentes diferentes: influencias planetarias mecánicas, e influencias de los círculos interiores de la humanidad.\"*"
         },
         {
-          "type": "blockquote",
-          "text": "\"Sembrar ideas sin vivirlas es sembrar ideas que están vacías.\""
+          "type": "paragraph",
+          "text": "*\"Sembrar ideas sin vivirlas es sembrar ideas que están vacías.\"*"
         }
       ]
     }

@@ -5,7 +5,7 @@
   "title": "Los Choques Conscientes",
   "sections": [
     {
-      "id": "ch16-la-f-brica-humana",
+      "id": "ch16-la-fabrica-humana",
       "title": "La fábrica humana",
       "content": [
         {
@@ -44,7 +44,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "La Ley de Siete gobierna todos los procesos. En cada octava hay dos lugares donde la vibración naturalmente disminuye y el proceso tiende a detenerse o desviarse: entre mi y fa, y entre si y do."
+          "text": "La Ley de Siete gobierna todos los procesos. En cada octava hay dos lugares donde la vibración naturalmente disminuye y el proceso tiende a detenerse o desviarse. En la escala musical, estos son los lugares donde no hay semitono: entre mi y fa, y entre si y do. Son \"huecos\" naturales en la progresión."
         },
         {
           "type": "paragraph",
@@ -52,7 +52,7 @@
         },
         {
           "type": "paragraph",
-          "text": "En el cosmos, estos intervalos son llenados por mecanismos específicos. En el Rayo de Creación, el intervalo fa-mi entre los planetas y la Tierra es llenado por la vida orgánica. En el ser humano, los intervalos también requieren choques—pero algunos pueden ser provistos conscientemente."
+          "text": "En el cosmos, estos intervalos son llenados por mecanismos específicos. En el Rayo de Creación, el intervalo entre los planetas y la Tierra es llenado por la vida orgánica. En el ser humano, los intervalos también requieren choques—pero algunos pueden ser provistos conscientemente."
         }
       ]
     },
@@ -62,27 +62,19 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "El alimento ordinario entra como Do 768 (usando la escala de hidrógenos). A través de la digestión se transforma:"
+          "text": "Para describir las transformaciones del alimento, Gurdjieff usa una escala de \"hidrógenos\"—sustancias cósmicas clasificadas por su densidad y vibración, donde números más altos indican sustancias más densas y menos refinadas."
         },
         {
           "type": "paragraph",
-          "text": "Do 768 → Re 384 → Mi 192"
+          "text": "El alimento ordinario entra como una sustancia densa. A través de la digestión se transforma en sustancias progresivamente más finas."
         },
         {
           "type": "paragraph",
-          "text": "Aquí la octava se detiene en el primer intervalo (mi-fa). No puede continuar por sí sola."
+          "text": "Pero esta transformación se detiene en cierto punto—el primer intervalo. No puede continuar por sí sola."
         },
         {
           "type": "paragraph",
-          "text": "Pero en este punto, la segunda octava—la del aire—entra y proporciona el choque necesario. El aire entra como Do 192, y su entrada permite que la octava del alimento continúe:"
-        },
-        {
-          "type": "paragraph",
-          "text": "Mi 192 → Fa 96 → Sol 48 → La 24 → Si 12"
-        },
-        {
-          "type": "paragraph",
-          "text": "La octava del alimento alcanza Si 12—una sustancia muy fina. Pero aquí encuentra otro intervalo (si-do) y se detiene nuevamente."
+          "text": "En ese momento, la segunda octava—la del aire—entra y proporciona el choque necesario. La entrada del aire permite que la octava del alimento continúe refinándose hasta producir sustancias muy finas. Pero entonces encuentra otro intervalo y se detiene nuevamente."
         }
       ]
     },
@@ -92,15 +84,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "El aire, que entró como Do 192, también se desarrolla:"
-        },
-        {
-          "type": "paragraph",
-          "text": "Do 192 → Re 96 → Mi 48"
-        },
-        {
-          "type": "paragraph",
-          "text": "Y aquí también se detiene en un intervalo (mi-fa). La octava del aire no puede continuar más allá de Mi 48 sin un choque adicional."
+          "text": "El aire también se desarrolla a través de transformaciones, pero también se detiene en un intervalo. La octava del aire no puede continuar sin un choque adicional."
         }
       ]
     },
@@ -110,7 +94,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Las impresiones entran como Do 48—el alimento más fino de los tres. Pero normalmente, esta octava no se desarrolla en absoluto. Las impresiones entran mecánicamente, y Do 48 permanece como Do 48."
+          "text": "Las impresiones entran como el alimento más fino de los tres. Pero normalmente, esta octava no se desarrolla en absoluto. Las impresiones entran mecánicamente y permanecen sin transformar."
         },
         {
           "type": "paragraph",
@@ -140,19 +124,15 @@
         },
         {
           "type": "paragraph",
-          "text": "Cuando las impresiones se reciben conscientemente—con atención dividida, con presencia—entonces Do 48 puede comenzar a desarrollarse:"
+          "text": "Cuando las impresiones se reciben conscientemente—con atención dividida, con presencia—entonces pueden comenzar a desarrollarse y transformarse."
         },
         {
           "type": "paragraph",
-          "text": "Do 48 → Re 24"
+          "text": "Este choque no solo inicia el desarrollo de la octava de impresiones. También proporciona el choque necesario para que la octava del aire continúe más allá de donde normalmente se detiene."
         },
         {
           "type": "paragraph",
-          "text": "Este choque no solo inicia el desarrollo de la octava de impresiones. También proporciona el choque necesario para que la octava del aire continúe más allá de Mi 48."
-        },
-        {
-          "type": "paragraph",
-          "text": "Salzmann describe el proceso:"
+          "text": "Salzmann—continuadora de la enseñanza de Gurdjieff—describe el proceso:"
         },
         {
           "type": "paragraph",
@@ -165,7 +145,7 @@
       ]
     },
     {
-      "id": "ch16-la-transformaci-n-de-impresiones",
+      "id": "ch16-la-transformacion-de-impresiones",
       "title": "La transformación de impresiones",
       "content": [
         {
@@ -196,7 +176,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Si 12 de la octava del alimento está detenido en el intervalo si-do. Para que pase a Do—para que se complete la transformación y se produzca la sustancia más fina—se requiere otro choque."
+          "text": "La octava del alimento, después de muchas transformaciones, produce sustancias muy finas. Pero está detenida en un intervalo final. Para que se complete la transformación y se produzca la sustancia más fina—se requiere otro choque."
         },
         {
           "type": "paragraph",
@@ -232,15 +212,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Belcebú explica que los tres alimentos sirven para la formación de diferentes cuerpos:"
+          "text": "Beelzebú—el narrador principal de los Relatos de Gurdjieff—explica que los tres alimentos sirven para la formación de diferentes cuerpos:"
         },
         {
           "type": "paragraph",
-          "text": "\"Las sustancias que entran como 'primer alimento-del-ser,' que es su 'comida' y 'bebida' ordinaria... Las sustancias del 'segundo alimento-del-ser,' que es su 'aire,' por el cual respiran, y estas sustancias en su aire precisamente sirven para el recubrimiento y mantenimiento de la existencia de sus 'segundos cuerpos-del-ser.' Y finalmente, las sustancias de primera fuente que son un tercer tipo de alimento-del-ser, sirven tanto para el recubrimiento como para el perfeccionamiento del cuerpo-del-ser superior mismo.\""
-        },
-        {
-          "type": "paragraph",
-          "text": "El alimento físico mantiene el cuerpo físico. El aire, transformado apropiadamente, puede contribuir al \"segundo cuerpo.\" Las impresiones, conscientemente recibidas y transformadas, nutren el desarrollo del cuerpo superior."
+          "text": "El alimento físico mantiene el cuerpo físico. El aire, transformado apropiadamente, puede contribuir al \"segundo cuerpo\"—el cuerpo Kesdjan o cuerpo astral del que hemos hablado antes. Las impresiones, conscientemente recibidas y transformadas, nutren el desarrollo del cuerpo superior—el cuerpo del Alma que puede sobrevivir a la muerte física."
         }
       ]
     },
@@ -259,7 +235,7 @@
       ]
     },
     {
-      "id": "ch16-la-pr-ctica",
+      "id": "ch16-la-practica",
       "title": "La práctica",
       "content": [
         {
@@ -275,12 +251,12 @@
           "text": "No se trata de dietas especiales o técnicas respiratorias. El trabajo real está en las impresiones—en recibirlas conscientemente, en transformarlas a través del recuerdo de sí."
         },
         {
-          "type": "blockquote",
-          "text": "\"El 'hombre-máquina' no puede hacer nada. A él y alrededor de él todo sucede. Para hacer es necesario conocer la ley de octavas, conocer los momentos de los 'intervalos' y ser capaz de crear los 'choques adicionales' necesarios.\""
+          "type": "paragraph",
+          "text": "*\"El 'hombre-máquina' no puede hacer nada. A él y alrededor de él todo sucede. Para hacer es necesario conocer la ley de octavas, conocer los momentos de los 'intervalos' y ser capaz de crear los 'choques adicionales' necesarios.\"*"
         },
         {
-          "type": "blockquote",
-          "text": "\"El momento de recibir una impresión es el momento de volverse consciente. Es el acto de ver.\""
+          "type": "paragraph",
+          "text": "*\"El momento de recibir una impresión es el momento de volverse consciente. Es el acto de ver.\"*"
         }
       ]
     }

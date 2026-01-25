@@ -5,7 +5,7 @@
   "title": "El Carruaje, el Caballo, el Cochero y el Amo",
   "sections": [
     {
-      "id": "ch10-la-alegor-a",
+      "id": "ch10-la-alegoria",
       "title": "La alegoría",
       "content": [
         {
@@ -30,7 +30,11 @@
         },
         {
           "type": "paragraph",
-          "text": "En un ser humano completo, el amo da instrucciones al cochero, el cochero dirige al caballo, y el caballo tira del carruaje. Hay comunicación entre todas las partes, cooperación, un propósito unificado."
+          "text": "Es crucial entender algo desde el principio: el cochero no es el dueño del carruaje—es solo un empleado. Su trabajo es recibir instrucciones del amo y transmitirlas al caballo. Pero no le corresponde decidir el destino."
+        },
+        {
+          "type": "paragraph",
+          "text": "En un ser humano completo, el amo da instrucciones al cochero, el cochero dirige al caballo, y el caballo tira del carruaje. Hay comunicación entre todas las partes, cooperación, un propósito unificado. Cada parte cumple su función sin usurpar la de las otras."
         },
         {
           "type": "paragraph",
@@ -99,6 +103,10 @@
         {
           "type": "paragraph",
           "text": "Pero todo esto es superficial. El cochero no tiene verdadero conocimiento de su oficio. \"En cada ocasión conveniente y en cada momento libre se mete a una taberna o a un bar, donde sobre un vaso de cerveza sueña despierto por horas, o habla con algún tipo como él, o simplemente lee el periódico.\""
+        },
+        {
+          "type": "paragraph",
+          "text": "Y lo más importante: el cochero ha olvidado que es un empleado. Después de tanto tiempo sin recibir instrucciones del amo, ha comenzado a creer que él mismo es el dueño. Toma decisiones, elige destinos, actúa como si el carruaje le perteneciera. Pero no le pertenece—y sus decisiones llevan al carruaje a lugares que el verdadero amo nunca hubiera elegido."
         }
       ]
     },
@@ -133,6 +141,10 @@
         {
           "type": "paragraph",
           "text": "Y todas sus inclinaciones se han concentrado en lo más básico: \"comida, bebida, y el anhelo automático hacia el sexo opuesto.\""
+        },
+        {
+          "type": "paragraph",
+          "text": "Pero el caballo tiene su propia voluntad—puede detenerse cuando quiere, puede asustarse y correr en cualquier dirección, puede negarse a avanzar. El cochero puede tirar de las riendas, pero si el caballo no quiere moverse, no se mueve."
         }
       ]
     },
@@ -159,11 +171,15 @@
         {
           "type": "paragraph",
           "text": "El cuerpo humano fue diseñado para una vida dura, con esfuerzo físico, privaciones, peligros. En la vida moderna, sin estos \"sacudones,\" se deteriora de maneras que sus diseñadores nunca anticiparon."
+        },
+        {
+          "type": "paragraph",
+          "text": "Y el cuerpo también tiene su propia voluntad: puede pedir comida cuando la mente dice ayunar, puede exigir descanso cuando las emociones quieren continuar, puede enfermarse cuando ambos lo ignoran."
         }
       ]
     },
     {
-      "id": "ch10-la-falta-de-conexi-n",
+      "id": "ch10-la-falta-de-conexion",
       "title": "La falta de conexión",
       "content": [
         {
@@ -184,7 +200,7 @@
         },
         {
           "type": "paragraph",
-          "text": "- Las emociones están conectadas al pensamiento por el **Hanbledzoin**—\"aquella sustancia que surge en la presencia común del hombre a partir de todos los esfuerzos-del-ser hechos intencionalmente\""
+          "text": "- Las emociones están conectadas al pensamiento por el **Hanbledzoin**—una sustancia sutil que Gurdjieff describe como lo que surge de los esfuerzos conscientes, y que permite que el pensamiento y el sentimiento se comuniquen realmente"
         },
         {
           "type": "paragraph",
@@ -256,7 +272,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Salzmann lo formula con claridad: \"La esencia se forma de impresiones que son asimiladas en la primera infancia, usualmente hasta la edad de cinco o seis años, cuando aparece una fisura entre esencia y personalidad.\""
+          "text": "Salzmann—continuadora de la enseñanza de Gurdjieff—lo formula con claridad: \"La esencia se forma de impresiones que son asimiladas en la primera infancia, usualmente hasta la edad de cinco o seis años, cuando aparece una fisura entre esencia y personalidad.\""
         }
       ]
     },
@@ -292,7 +308,7 @@
         },
         {
           "type": "paragraph",
-          "text": "\"Un carruaje recién salido de la fábrica, hecho según el último modelo, pulido por genuinos artesanos alemanes... enganchado a la clase de caballo que se llama en la localidad de Transcaucasia un 'Dglozidzi'\"—un caballo absolutamente inútil."
+          "text": "\"Un carruaje recién salido de la fábrica, hecho según el último modelo, pulido por genuinos artesanos alemanes... enganchado a la clase de caballo que se llama en la localidad de Transcaucasia un 'Dglozidzi'\"—un término local para un caballo absolutamente inútil, incapaz de tirar de nada."
         },
         {
           "type": "paragraph",
@@ -326,11 +342,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Y se necesita, sobre todo, recordarse a sí mismo—crear momentos en que el amo esté presente, hasta que esa presencia se vuelva permanente."
+          "text": "Y aquí está el punto crucial: la solución NO es que el cochero tome control total—que la mente domine a las emociones y al cuerpo. La solución es que las tres partes aprendan a cooperar, cada una cumpliendo su función apropiada. Solo cuando hay equilibrio entre los tres centros puede aparecer el amo. Solo en el silencio de la cooperación—no en el ruido de la dominación—puede el amo ser escuchado."
         },
         {
-          "type": "blockquote",
-          "text": "\"El Yo real del hombre, su individualidad, solo puede crecer de su esencia. Puede decirse que la individualidad del hombre es su esencia crecida, madura. Pero para que la esencia crezca, es primero necesario debilitar la presión constante de la personalidad sobre ella.\""
+          "type": "paragraph",
+          "text": "*\"El Yo real del hombre, su individualidad, solo puede crecer de su esencia. Puede decirse que la individualidad del hombre es su esencia crecida, madura. Pero para que la esencia crezca, es primero necesario debilitar la presión constante de la personalidad sobre ella.\"*"
         }
       ]
     }

@@ -10,7 +10,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "\"En total hay cuatro estados de consciencia posibles para el hombre,\" dice Gurdjieff, enfatizando la palabra \"hombre.\" \"Pero el hombre ordinario, es decir, el hombre número uno, número dos y número tres, vive solo en los dos estados más bajos de consciencia.\""
+          "text": "\"En total hay cuatro estados de consciencia posibles para el hombre,\" dice Gurdjieff, enfatizando la palabra \"hombre.\" \"Pero el hombre ordinario—es decir, el hombre cuyo centro de gravedad está en el cuerpo, en las emociones, o en el intelecto, sin integración entre ellos—vive solo en los dos estados más bajos de consciencia.\""
         },
         {
           "type": "paragraph",
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "id": "ch11-el-sue-o-nocturno",
+      "id": "ch11-el-sueno-nocturno",
       "title": "El sueño nocturno",
       "content": [
         {
@@ -87,7 +87,7 @@
       ]
     },
     {
-      "id": "ch11-la-pared-de-imaginaci-n",
+      "id": "ch11-la-pared-de-imaginacion",
       "title": "La pared de imaginación",
       "content": [
         {
@@ -96,11 +96,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Gurdjieff da un ejemplo devastador:"
+          "text": "Gurdjieff da un ejemplo devastador. Hablaba durante la Primera Guerra Mundial, pero sus palabras aplican a cualquier guerra:"
         },
         {
           "type": "paragraph",
-          "text": "\"Tomemos algún evento en la vida de la humanidad. Por ejemplo, la guerra. Hay una guerra en este momento. ¿Qué significa? Significa que varios millones de personas dormidas están tratando de destruir a varios millones de otras personas dormidas. No harían esto, por supuesto, si despertaran.\""
+          "text": "\"Tomemos algún evento en la vida de la humanidad. Por ejemplo, la guerra. ¿Qué significa? Significa que varios millones de personas dormidas están tratando de destruir a varios millones de otras personas dormidas. No harían esto, por supuesto, si despertaran.\""
         },
         {
           "type": "paragraph",
@@ -113,7 +113,7 @@
       ]
     },
     {
-      "id": "ch11-el-tercer-estado-recuerdo-de-s",
+      "id": "ch11-el-tercer-estado-recuerdo-de-si",
       "title": "El tercer estado: recuerdo de sí",
       "content": [
         {
@@ -170,7 +170,7 @@
         },
         {
           "type": "paragraph",
-          "text": "\"Todo nuestro conocimiento ordinario que está basado en métodos ordinarios de observación y verificación de observaciones, todas las teorías científicas deducidas de la observación de hechos accesibles a nosotros en estados subjetivos de consciencia, él lo llamaba conocimiento subjetivo.\""
+          "text": "\"Todo nuestro conocimiento ordinario que está basado en métodos ordinarios de observación y verificación de observaciones, todas las teorías científicas deducidas de la observación de hechos accesibles a nosotros en estados subjetivos de consciencia, Gurdjieff lo llamaba conocimiento subjetivo.\""
         },
         {
           "type": "paragraph",
@@ -183,7 +183,7 @@
       ]
     },
     {
-      "id": "ch11-la-divisi-n-de-la-atenci-n",
+      "id": "ch11-la-division-de-la-atencion",
       "title": "La división de la atención",
       "content": [
         {
@@ -196,23 +196,15 @@
         },
         {
           "type": "paragraph",
-          "text": "\"Cuando observo algo, mi atención está dirigida hacia lo que observo—una línea con una flecha:"
+          "text": "Normalmente, cuando observo algo, mi atención fluye en una sola dirección—desde mí hacia el objeto. Estoy perdido en lo que observo; no hay consciencia de mí mismo observando."
         },
         {
           "type": "paragraph",
-          "text": "Yo ————————————> el fenómeno observado"
+          "text": "Pero cuando intento recordarme a mí mismo mientras observo, mi atención debe fluir en dos direcciones simultáneas: hacia el objeto y hacia mí mismo. No es que deje de ver el objeto; es que ahora también me veo a mí mismo viéndolo."
         },
         {
           "type": "paragraph",
-          "text": "\"Cuando al mismo tiempo trato de recordarme a mí mismo, mi atención está dirigida tanto hacia el objeto observado como hacia mí mismo. Una segunda flecha aparece en la línea:"
-        },
-        {
-          "type": "paragraph",
-          "text": "Yo <————————————> el fenómeno observado\""
-        },
-        {
-          "type": "paragraph",
-          "text": "El problema consiste en \"dirigir la atención hacia uno mismo sin debilitar u obliterar la atención dirigida a otra cosa.\""
+          "text": "El problema consiste en \"dirigir la atención hacia uno mismo sin debilitar u obliterar la atención dirigida a otra cosa.\" Mantener ambas direcciones activas al mismo tiempo."
         }
       ]
     },
@@ -274,7 +266,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Salzmann describe el proceso interior:"
+          "text": "Salzmann—quien guió a practicantes durante décadas después de Gurdjieff—describe el proceso interior:"
         },
         {
           "type": "paragraph",
@@ -329,12 +321,12 @@
           "text": "El trabajo existe para recuperar lo que es nuestro por derecho."
         },
         {
-          "type": "blockquote",
-          "text": "\"Solo despertando y lo que conduce al despertar tiene valor en la realidad.\""
+          "type": "paragraph",
+          "text": "*\"Solo despertando y lo que conduce al despertar tiene valor en la realidad.\"*"
         },
         {
-          "type": "blockquote",
-          "text": "\"Es posible pensar por mil años; es posible escribir bibliotecas enteras de libros, crear teorías por millones, y todo esto en sueño, sin ninguna posibilidad de despertar.\""
+          "type": "paragraph",
+          "text": "*\"Es posible pensar por mil años; es posible escribir bibliotecas enteras de libros, crear teorías por millones, y todo esto en sueño, sin ninguna posibilidad de despertar.\"*"
         }
       ]
     }

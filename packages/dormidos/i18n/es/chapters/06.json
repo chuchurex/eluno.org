@@ -14,11 +14,11 @@
         },
         {
           "type": "paragraph",
-          "text": "1. La **Ley del Tres** (Triamazikamno)"
+          "text": "1. La **Ley del Tres** (que Gurdjieff llama \"Triamazikamno\"—literalmente, la ley de los tres componentes)"
         },
         {
           "type": "paragraph",
-          "text": "2. La **Ley del Siete** (Heptaparaparshinokh)"
+          "text": "2. La **Ley del Siete** (que llama \"Heptaparaparshinokh\"—la ley de las siete deflexiones)"
         },
         {
           "type": "paragraph",
@@ -44,7 +44,7 @@
         },
         {
           "type": "paragraph",
-          "text": "\"Un nuevo surgimiento a partir de lo previamente surgido a través del 'Harnel-miaznel,' cuyo proceso se actualiza así: lo superior se mezcla con lo inferior para actualizar lo medio y así se convierte en superior para lo inferior precedente, o inferior para lo superior subsiguiente.\""
+          "text": "\"Un nuevo surgimiento a partir de lo previamente surgido a través del proceso de mezcla, que se actualiza así: lo superior se mezcla con lo inferior para actualizar lo medio y así se convierte en superior para lo inferior precedente, o inferior para lo superior subsiguiente.\""
         },
         {
           "type": "paragraph",
@@ -52,15 +52,15 @@
         },
         {
           "type": "paragraph",
-          "text": "- **Primera fuerza**: Afirmante, activa, positiva (Fuerza-plus)"
+          "text": "- **Primera fuerza**: Afirmante, activa, positiva—la que inicia o impulsa"
         },
         {
           "type": "paragraph",
-          "text": "- **Segunda fuerza**: Negante, resistente, pasiva (Fuerza-minus)"
+          "text": "- **Segunda fuerza**: Negante, resistente, pasiva—la que se opone o resiste"
         },
         {
           "type": "paragraph",
-          "text": "- **Tercera fuerza**: Reconciliante, neutralizante, equilibrante"
+          "text": "- **Tercera fuerza**: Reconciliante, neutralizante, equilibrante—la que permite que las otras dos produzcan un resultado"
         },
         {
           "type": "paragraph",
@@ -71,20 +71,12 @@
           "text": "Los humanos, antes de que las consecuencias del Kundabuffer cristalizaran completamente, conocían estas fuerzas y las invocaban en oraciones:"
         },
         {
-          "type": "paragraph",
-          "text": "> \"Fuentes de Regocijos Divinos, revueltas y sufrimientos, Dirige tus acciones sobre nosotros.\""
+          "type": "blockquote",
+          "text": "\"Fuentes de Regocijos Divinos, revueltas y sufrimientos, Dirige tus acciones sobre nosotros.\"\n\"Santo-Afirmante, Santo-Negante, Santo-Reconciliante, Transubstánciate en mí, Para mi Ser.\"\n\"Santo Dios, Santo Firme, Santo Inmortal, Ten piedad de nosotros.\""
         },
         {
           "type": "paragraph",
-          "text": "> \"Santo-Afirmante, Santo-Negante, Santo-Reconciliante, Transubstánciate en mí, Para mi Ser.\""
-        },
-        {
-          "type": "paragraph",
-          "text": "> \"Santo Dios, Santo Firme, Santo Inmortal, Ten piedad de nosotros.\""
-        },
-        {
-          "type": "paragraph",
-          "text": "Salzmann lo formula para la práctica: \"Todo lo que existe está constituido de tres fuerzas. Pueden representarse como el Padre, la fuerza activa; el Hijo, la fuerza pasiva; y el Espíritu Santo, la fuerza neutralizante.\""
+          "text": "Salzmann—continuadora de la enseñanza de Gurdjieff—lo formula para la práctica: \"Todo lo que existe está constituido de tres fuerzas. Pueden representarse como el Padre, la fuerza activa; el Hijo, la fuerza pasiva; y el Espíritu Santo, la fuerza neutralizante.\""
         },
         {
           "type": "paragraph",
@@ -93,7 +85,7 @@
       ]
     },
     {
-      "id": "ch6-por-qu-no-vemos-la-tercera-fuerza",
+      "id": "ch6-por-que-no-vemos-la-tercera-fuerza",
       "title": "Por qué no vemos la tercera fuerza",
       "content": [
         {
@@ -132,7 +124,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Esta ley tiene siete deflexiones o \"centros de gravedad.\" La distancia entre cada dos deflexiones se llama \"Stopinder.\""
+          "text": "Esta ley tiene siete deflexiones o \"centros de gravedad.\" La distancia entre cada dos deflexiones se llama \"Stopinder\"—literalmente, un paso o intervalo en el proceso."
         },
         {
           "type": "paragraph",
@@ -195,7 +187,7 @@
       ]
     },
     {
-      "id": "ch6-por-qu-nada-sale-como-planeamos",
+      "id": "ch6-por-que-nada-sale-como-planeamos",
       "title": "Por qué nada sale como planeamos",
       "content": [
         {
@@ -252,15 +244,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Gurdjieff unía estas dos leyes en un símbolo que llamaba el Eneagrama: un círculo dividido en nueve partes, con un triángulo interior conectando los puntos 3, 6 y 9, y una figura de seis puntos conectando los demás."
+          "text": "Gurdjieff unía estas dos leyes en un símbolo que llamaba el Eneagrama: un círculo dividido en nueve partes, con un triángulo interior conectando los puntos 3, 6 y 9, y una figura de seis puntos conectando los demás números en una secuencia específica (1-4-2-8-5-7) que corresponde al patrón recurrente de 1/7."
         },
         {
           "type": "paragraph",
-          "text": "El triángulo representa la Ley del Tres."
-        },
-        {
-          "type": "paragraph",
-          "text": "La figura de seis puntos representa la Ley del Siete (con sus dos intervalos)."
+          "text": "El triángulo representa la Ley del Tres—las tres fuerzas que operan en todo proceso. La figura de seis puntos representa la Ley del Siete—el flujo del proceso con sus dos intervalos donde se necesitan shocks."
         },
         {
           "type": "paragraph",
@@ -273,7 +261,7 @@
       ]
     },
     {
-      "id": "ch6-aplicaci-n-pr-ctica",
+      "id": "ch6-aplicacion-practica",
       "title": "Aplicación práctica",
       "content": [
         {
@@ -298,15 +286,11 @@
         },
         {
           "type": "blockquote",
-          "text": "\"En orden de entender la mecánica del universo es necesario resolver los fenómenos complejos en estas fuerzas elementales.\""
+          "text": "*\"En orden de entender la mecánica del universo es necesario resolver los fenómenos complejos en estas fuerzas elementales.\"*\n*\"La primera ley fundamental del universo es la ley de tres fuerzas, o tres principios... Según esta ley toda acción, todo fenómeno en todos los mundos sin excepción, es el resultado de una acción simultánea de tres fuerzas—la positiva, la negativa y la neutralizante.\"*"
         },
         {
-          "type": "blockquote",
-          "text": "\"La primera ley fundamental del universo es la ley de tres fuerzas, o tres principios... Según esta ley toda acción, todo fenómeno en todos los mundos sin excepción, es el resultado de una acción simultánea de tres fuerzas—la positiva, la negativa y la neutralizante.\""
-        },
-        {
-          "type": "blockquote",
-          "text": "\"La siguiente ley fundamental del universo es la ley de siete o la ley de octavas.\""
+          "type": "paragraph",
+          "text": "*\"La siguiente ley fundamental del universo es la ley de siete o la ley de octavas.\"*"
         }
       ]
     }
