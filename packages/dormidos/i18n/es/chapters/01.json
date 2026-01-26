@@ -5,7 +5,7 @@
   "title": "El Órgano Kundabuffer",
   "sections": [
     {
-      "id": "ch1-la-alegor-a",
+      "id": "ch1-la-alegoria",
       "title": "La alegoría",
       "content": [
         {
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "id": "ch1-el-prop-sito-c-smico",
+      "id": "ch1-el-proposito-cosmico",
       "title": "El propósito cósmico",
       "content": [
         {
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "id": "ch1-lo-que-qued",
+      "id": "ch1-lo-que-quedo",
       "title": "Lo que quedó",
       "content": [
         {
@@ -114,7 +114,7 @@
         },
         {
           "type": "blockquote",
-          "text": "\"El hombre no ve el mundo real. El mundo real está oculto de él por el muro de la imaginación. Vive dormido. Está dormido. Lo que se llama 'consciencia clara' es sueño, y un sueño mucho más peligroso que el sueño nocturno en la cama.\"*\n— Ouspensky, registrando las palabras de Gurdjieff"
+          "text": "El hombre no ve el mundo real. El mundo real está oculto de él por el muro de la imaginación. Vive dormido. Está dormido. Lo que se llama 'consciencia clara' es sueño, y un sueño mucho más peligroso que el sueño nocturno en la cama.\"*\n— Ouspensky, registrando las palabras de Gurdjieff"
         }
       ]
     }
