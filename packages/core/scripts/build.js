@@ -915,13 +915,13 @@ function build() {
     const chaptersDir = path.join(I18N_DIR, lang, 'chapters');
     const defaultChaptersDir = path.join(I18N_DIR, BASE_LANG, 'chapters');
 
-    // Get chapter files
+    // Get chapter files (exclude *_corregido.json backup files)
     let chapterFiles = [];
     if (fs.existsSync(chaptersDir)) {
-      chapterFiles = fs.readdirSync(chaptersDir).filter(f => f.endsWith('.json')).sort();
+      chapterFiles = fs.readdirSync(chaptersDir).filter(f => f.endsWith('.json') && !f.includes('_corregido')).sort();
     }
     if (chapterFiles.length === 0 && fs.existsSync(defaultChaptersDir)) {
-      chapterFiles = fs.readdirSync(defaultChaptersDir).filter(f => f.endsWith('.json')).sort();
+      chapterFiles = fs.readdirSync(defaultChaptersDir).filter(f => f.endsWith('.json') && !f.includes('_corregido')).sort();
     }
 
     chapterFiles.forEach(file => {
